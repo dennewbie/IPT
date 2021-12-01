@@ -903,7 +903,7 @@
 											"top": 2381,
 											"width": 56.32275390625,
 											"height": 13,
-											"text": "Cittadino"
+											"text": "Cliente"
 										},
 										{
 											"_type": "LabelView",
@@ -10612,8 +10612,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 80,
-									"top": 320,
+									"top": 328,
 									"width": 10,
 									"height": 10
 								},
@@ -10628,8 +10627,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 80,
-									"top": 320,
+									"top": 328,
 									"width": 10,
 									"height": 10
 								},
@@ -10644,8 +10642,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 80,
-									"top": 320,
+									"top": 328,
 									"width": 10,
 									"height": 10
 								},
@@ -10660,8 +10657,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 80,
-									"top": 320,
+									"top": 328,
 									"width": 10,
 									"height": 10
 								},
@@ -10676,8 +10672,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 80,
-									"top": 320,
+									"top": 328,
 									"width": 10,
 									"height": 10
 								}
@@ -20841,7 +20836,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9YZbGSC0AQ8s="
 							},
-							"name": "Cittadino",
+							"name": "Cliente",
 							"ownedElements": [
 								{
 									"_type": "UMLAssociation",
