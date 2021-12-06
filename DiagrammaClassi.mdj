@@ -1,7 +1,7 @@
 {
 	"_type": "Project",
 	"_id": "AAAAAAFF+h6SjaM2Hec=",
-	"name": "TrasportoUrbano",
+	"name": "DiagrammaClassiTrasportoUrbano",
 	"ownedElements": [
 		{
 			"_type": "UMLModel",
@@ -17,7 +17,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF9kcKrLOcNF7M="
 					},
-					"name": "ClassDiagram1",
+					"name": "DiagrammaClassiTrasportoUrbano",
 					"ownedViews": [
 						{
 							"_type": "UMLClassView",
