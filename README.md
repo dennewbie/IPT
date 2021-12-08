@@ -1,2 +1,2 @@
 # IPT
-Materiale Progetto Ingegneria del Software, Programmazione 3
+Materiale Progetto Ingegneria del Software
