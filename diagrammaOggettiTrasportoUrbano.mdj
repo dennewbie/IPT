@@ -1,0 +1,25 @@
+{
+	"_type": "Project",
+	"_id": "AAAAAAFF+h6SjaM2Hec=",
+	"name": "diagrammaOggettiTrasportoUrbano",
+	"ownedElements": [
+		{
+			"_type": "UMLModel",
+			"_id": "AAAAAAF9v8ZzDdLxyWg=",
+			"_parent": {
+				"$ref": "AAAAAAFF+h6SjaM2Hec="
+			},
+			"name": "diagrammaOggettiTrasportoUrbano",
+			"ownedElements": [
+				{
+					"_type": "UMLObjectDiagram",
+					"_id": "AAAAAAF9v8ZzDdLy9y4=",
+					"_parent": {
+						"$ref": "AAAAAAF9v8ZzDdLxyWg="
+					},
+					"name": "diagrammaOggettiTrasportoUrbano"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,25 @@
+{
+	"_type": "Project",
+	"_id": "AAAAAAFF+h6SjaM2Hec=",
+	"name": "diagrammaStatiTrasportoUrbano",
+	"ownedElements": [
+		{
+			"_type": "UMLStateMachine",
+			"_id": "AAAAAAF9v8l5mXx5PVA=",
+			"_parent": {
+				"$ref": "AAAAAAFF+h6SjaM2Hec="
+			},
+			"name": "diagrammaStatiTrasportoUrbano",
+			"ownedElements": [
+				{
+					"_type": "UMLStatechartDiagram",
+					"_id": "AAAAAAF9v8l5mnx7po0=",
+					"_parent": {
+						"$ref": "AAAAAAF9v8l5mXx5PVA="
+					},
+					"name": "diagrammaStatiTrasportoUrbano"
+				}
+			]
+		}
+	]
+}
