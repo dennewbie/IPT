@@ -9,7 +9,7 @@
 			"_parent": {
 				"$ref": "AAAAAAFF+h6SjaM2Hec="
 			},
-			"name": "StateMachine1",
+			"name": "DiagrammaStatiGestioneCorsa",
 			"ownedElements": [
 				{
 					"_type": "UMLStatechartDiagram",
@@ -17,7 +17,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF9x6+dUQdak4c="
 					},
-					"name": "diagrammaStatiTrasportoUrbano1",
+					"name": "diagrammaStatiTrasportoUrbanoGestioneCorsa",
 					"ownedViews": [
 						{
 							"_type": "UMLStateView",

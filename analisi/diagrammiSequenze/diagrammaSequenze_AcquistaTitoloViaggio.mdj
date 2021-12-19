@@ -1,7 +1,7 @@
 {
 	"_type": "Project",
 	"_id": "AAAAAAFF+h6SjaM2Hec=",
-	"name": "DiagrammaSequenzeTrasportoUrbano",
+	"name": "diagrammaSequenzeAcquistaTitoloViaggio",
 	"ownedElements": [
 		{
 			"_type": "UMLModel",
@@ -9,7 +9,7 @@
 			"_parent": {
 				"$ref": "AAAAAAFF+h6SjaM2Hec="
 			},
-			"name": "Model",
+			"name": "diagrammaSequenzeAcquistaTitoloViaggio",
 			"ownedElements": [
 				{
 					"_type": "UMLCollaboration",
@@ -2544,7 +2544,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF9zRLgVXCB/S0="
 							},
-							"name": "Role2"
+							"name": "Role2",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -2552,7 +2553,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF9zRLgVXCB/S0="
 							},
-							"name": "Role3"
+							"name": "Role3",
+							"type": ""
 						}
 					]
 				},

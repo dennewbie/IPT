@@ -1,7 +1,7 @@
 {
 	"_type": "Project",
 	"_id": "AAAAAAFF+h6SjaM2Hec=",
-	"name": "Untitled",
+	"name": "diagrammaStatiGestioneMezzoTrasporto",
 	"ownedElements": [
 		{
 			"_type": "UMLStateMachine",
@@ -9,7 +9,7 @@
 			"_parent": {
 				"$ref": "AAAAAAFF+h6SjaM2Hec="
 			},
-			"name": "StateMachine1",
+			"name": "diagrammaStatiGestioneMezzoTrasporto",
 			"ownedElements": [
 				{
 					"_type": "UMLStatechartDiagram",
@@ -17,7 +17,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF9x+MdtKGKJ9o="
 					},
-					"name": "diagrammaStatiTrasportoUrbano2",
+					"name": "diagrammaStatiGestioneMezzoTrasporto",
 					"ownedViews": [
 						{
 							"_type": "UMLStateView",

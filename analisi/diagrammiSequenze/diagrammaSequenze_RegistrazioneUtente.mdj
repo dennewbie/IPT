@@ -1,7 +1,7 @@
 {
 	"_type": "Project",
 	"_id": "AAAAAAFF+h6SjaM2Hec=",
-	"name": "diagrammaSequenzeTrasportoUrbano",
+	"name": "diagrammaSequenzeRegistrazioneUtente",
 	"ownedElements": [
 		{
 			"_type": "UMLModel",
@@ -9,7 +9,7 @@
 			"_parent": {
 				"$ref": "AAAAAAFF+h6SjaM2Hec="
 			},
-			"name": "diagrammaSequenzeTrasportoUrbano",
+			"name": "diagrammaSequenzeRegistrazioneUtente",
 			"ownedElements": [
 				{
 					"_type": "UMLCollaboration",
@@ -52,9 +52,9 @@
 														"$ref": "AAAAAAF9yMciualnr9Y="
 													},
 													"font": "Arial;13;0",
-													"left": 160.72998046875,
+													"left": 158.55908203125,
 													"top": 13,
-													"width": 135.4052734375,
+													"width": 124.11279296875,
 													"height": 13,
 													"text": "Registrazione Cittadino"
 												},
@@ -67,7 +67,7 @@
 													"font": "Arial;13;1",
 													"left": 141,
 													"top": 13,
-													"width": 14.72998046875,
+													"width": 12.55908203125,
 													"height": 13,
 													"text": "sd"
 												}

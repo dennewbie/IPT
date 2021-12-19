@@ -1,7 +1,7 @@
 {
 	"_type": "Project",
 	"_id": "AAAAAAFF+h6SjaM2Hec=",
-	"name": "diagrammaSequenzeTrasportoUrbano",
+	"name": "diagrammaSequenzeLoginUtente",
 	"ownedElements": [
 		{
 			"_type": "UMLModel",
@@ -9,7 +9,7 @@
 			"_parent": {
 				"$ref": "AAAAAAFF+h6SjaM2Hec="
 			},
-			"name": "diagrammaSequenzeTrasportoUrbano",
+			"name": "diagrammaSequenzeLoginUtente",
 			"ownedElements": [
 				{
 					"_type": "UMLClassDiagram",
@@ -71,11 +71,11 @@
 												"$ref": "AAAAAAF9x9CSDt4IYv4="
 											},
 											"font": "Arial;13;0",
-											"left": 80.72998046875,
+											"left": 78.55908203125,
 											"top": 13,
-											"width": 74.7216796875,
+											"width": 66.70458984375,
 											"height": 13,
-											"text": "Login Utente"
+											"text": "LoginUtente"
 										},
 										{
 											"_type": "LabelView",
@@ -86,7 +86,7 @@
 											"font": "Arial;13;1",
 											"left": 61,
 											"top": 13,
-											"width": 14.72998046875,
+											"width": 12.55908203125,
 											"height": 13,
 											"text": "sd"
 										}

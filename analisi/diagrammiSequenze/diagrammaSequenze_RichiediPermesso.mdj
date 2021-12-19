@@ -1,7 +1,7 @@
 {
 	"_type": "Project",
 	"_id": "AAAAAAFF+h6SjaM2Hec=",
-	"name": "SequenceDiagram_5",
+	"name": "diagrammaSequenzeRichiediPermesso",
 	"ownedElements": [
 		{
 			"_type": "UMLModel",
@@ -9,7 +9,7 @@
 			"_parent": {
 				"$ref": "AAAAAAFF+h6SjaM2Hec="
 			},
-			"name": "Model",
+			"name": "diagrammaSequenzeRichiediPermesso",
 			"ownedElements": [
 				{
 					"_type": "UMLCollaboration",
@@ -52,9 +52,9 @@
 														"$ref": "AAAAAAF9z+pxKspAhf0="
 													},
 													"font": "Arial;13;0",
-													"left": 48.72998046875,
+													"left": 46.55908203125,
 													"top": 29,
-													"width": 109.37353515625,
+													"width": 98.12548828125,
 													"height": 13,
 													"text": "Richiedi Permesso"
 												},
@@ -67,7 +67,7 @@
 													"font": "Arial;13;1",
 													"left": 29,
 													"top": 29,
-													"width": 14.72998046875,
+													"width": 12.55908203125,
 													"height": 13,
 													"text": "sd"
 												}
@@ -1203,7 +1203,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF9z+pxKco9hv4="
 							},
-							"name": "Role2"
+							"name": "Role2",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -1211,7 +1212,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF9z+pxKco9hv4="
 							},
-							"name": "Role3"
+							"name": "Role3",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
