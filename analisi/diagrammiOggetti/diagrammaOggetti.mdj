@@ -13043,11 +13043,12 @@
 											"_parent": {
 												"$ref": "AAAAAAF9sBVfPEfNSnE="
 											},
-											"visible": false,
 											"font": "Arial;13;0",
-											"left": 3488,
-											"top": 3328,
-											"height": 13
+											"left": 3373,
+											"top": 1757,
+											"width": 205.8671875,
+											"height": 13,
+											"text": "«entity»"
 										},
 										{
 											"_type": "LabelView",
@@ -13057,7 +13058,7 @@
 											},
 											"font": "Arial;13;1",
 											"left": 3373,
-											"top": 1759,
+											"top": 1772,
 											"width": 205.8671875,
 											"height": 13,
 											"text": "Acquisto"
@@ -13094,7 +13095,7 @@
 									"left": 3368,
 									"top": 1752,
 									"width": 215.8671875,
-									"height": 25,
+									"height": 38,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF9sBVfPEfOQ/8="
 									},
@@ -13129,7 +13130,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 3373,
-											"top": 1782,
+											"top": 1795,
 											"width": 205.8671875,
 											"height": 13,
 											"text": "+DataAcquisto: 20-03-2021",
@@ -13146,7 +13147,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 3373,
-											"top": 1797,
+											"top": 1810,
 											"width": 205.8671875,
 											"height": 13,
 											"text": "+CodiceTransazione: 12400213400",
@@ -13155,7 +13156,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 3368,
-									"top": 1777,
+									"top": 1790,
 									"width": 215.8671875,
 									"height": 38
 								},
@@ -13170,7 +13171,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 3368,
-									"top": 1815,
+									"top": 1828,
 									"width": 215.8671875,
 									"height": 10
 								},
@@ -13212,7 +13213,7 @@
 							"left": 3368,
 							"top": 1752,
 							"width": 215.8671875,
-							"height": 73,
+							"height": 86,
 							"nameCompartment": {
 								"$ref": "AAAAAAF9sBVfPEfNSnE="
 							},
@@ -13255,11 +13256,12 @@
 											"_parent": {
 												"$ref": "AAAAAAF9sBV4qUkLoHY="
 											},
-											"visible": false,
 											"font": "Arial;13;0",
-											"left": 3392,
-											"top": 3248,
-											"height": 13
+											"left": 3661,
+											"top": 1749,
+											"width": 172.3515625,
+											"height": 13,
+											"text": "«entity»"
 										},
 										{
 											"_type": "LabelView",
@@ -13269,7 +13271,7 @@
 											},
 											"font": "Arial;13;1",
 											"left": 3661,
-											"top": 1751,
+											"top": 1764,
 											"width": 172.3515625,
 											"height": 13,
 											"text": "TitoloViaggio"
@@ -13306,7 +13308,7 @@
 									"left": 3656,
 									"top": 1744,
 									"width": 182.3515625,
-									"height": 25,
+									"height": 38,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF9sBV4qUkMGOc="
 									},
@@ -13341,7 +13343,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 3661,
-											"top": 1774,
+											"top": 1787,
 											"width": 172.3515625,
 											"height": 13,
 											"text": "+Prezzo: 3.50",
@@ -13358,7 +13360,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 3661,
-											"top": 1789,
+											"top": 1802,
 											"width": 172.3515625,
 											"height": 13,
 											"text": "+ID: 0000000012",
@@ -13375,7 +13377,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 3661,
-											"top": 1804,
+											"top": 1817,
 											"width": 172.3515625,
 											"height": 13,
 											"text": "+Data Emissione: 20-03-2021",
@@ -13392,7 +13394,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 3661,
-											"top": 1819,
+											"top": 1832,
 											"width": 172.3515625,
 											"height": 13,
 											"text": "+Data Scadenza: 22-03-2021",
@@ -13401,7 +13403,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 3656,
-									"top": 1769,
+									"top": 1782,
 									"width": 182.3515625,
 									"height": 68
 								},
@@ -13416,7 +13418,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 3656,
-									"top": 1837,
+									"top": 1850,
 									"width": 182.3515625,
 									"height": 10
 								},
@@ -13501,11 +13503,12 @@
 											"_parent": {
 												"$ref": "AAAAAAF9sBWU30pJOL8="
 											},
-											"visible": false,
 											"font": "Arial;13;0",
-											"left": 3440,
-											"top": 3200,
-											"height": 13
+											"left": 3901,
+											"top": 1677,
+											"width": 137.66796875,
+											"height": 13,
+											"text": "«entity»"
 										},
 										{
 											"_type": "LabelView",
@@ -13515,7 +13518,7 @@
 											},
 											"font": "Arial;13;1",
 											"left": 3901,
-											"top": 1679,
+											"top": 1692,
 											"width": 137.66796875,
 											"height": 13,
 											"text": "BigliettoSingolo"
@@ -13552,7 +13555,7 @@
 									"left": 3896,
 									"top": 1672,
 									"width": 147.66796875,
-									"height": 25,
+									"height": 38,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF9sBWU30pKa0w="
 									},
@@ -13577,7 +13580,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 3896,
-									"top": 1697,
+									"top": 1710,
 									"width": 147.66796875,
 									"height": 10
 								},
@@ -13592,7 +13595,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 3896,
-									"top": 1707,
+									"top": 1720,
 									"width": 147.66796875,
 									"height": 10
 								},
@@ -13677,11 +13680,12 @@
 											"_parent": {
 												"$ref": "AAAAAAF9sBWo30uHxAo="
 											},
-											"visible": false,
 											"font": "Arial;13;0",
-											"left": 3392,
-											"top": 3248,
-											"height": 13
+											"left": 3901,
+											"top": 1797,
+											"width": 188.017578125,
+											"height": 13,
+											"text": "«entity»"
 										},
 										{
 											"_type": "LabelView",
@@ -13691,7 +13695,7 @@
 											},
 											"font": "Arial;13;1",
 											"left": 3901,
-											"top": 1799,
+											"top": 1812,
 											"width": 188.017578125,
 											"height": 13,
 											"text": "Abbonamento"
@@ -13728,7 +13732,7 @@
 									"left": 3896,
 									"top": 1792,
 									"width": 198.017578125,
-									"height": 25,
+									"height": 38,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF9sBWo30uIYFs="
 									},
@@ -13763,7 +13767,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 3901,
-											"top": 1822,
+											"top": 1835,
 											"width": 188.017578125,
 											"height": 13,
 											"text": "+Data Inizio Validità: 16-05-2021",
@@ -13772,7 +13776,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 3896,
-									"top": 1817,
+									"top": 1830,
 									"width": 198.017578125,
 									"height": 23
 								},
@@ -13787,7 +13791,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 3896,
-									"top": 1840,
+									"top": 1853,
 									"width": 198.017578125,
 									"height": 10
 								},
@@ -44297,6 +44301,7 @@
 							}
 						}
 					],
+					"stereotype": "entity",
 					"attributes": [
 						{
 							"_type": "UMLAttribute",
@@ -44325,6 +44330,7 @@
 						"$ref": "AAAAAAF9kcKrLOcNF7M="
 					},
 					"name": "TitoloViaggio",
+					"stereotype": "entity",
 					"attributes": [
 						{
 							"_type": "UMLAttribute",
@@ -44385,7 +44391,8 @@
 								"$ref": "AAAAAAF9sBV4qUkIYac="
 							}
 						}
-					]
+					],
+					"stereotype": "entity"
 				},
 				{
 					"_type": "UMLClass",
@@ -44409,6 +44416,7 @@
 							}
 						}
 					],
+					"stereotype": "entity",
 					"attributes": [
 						{
 							"_type": "UMLAttribute",
