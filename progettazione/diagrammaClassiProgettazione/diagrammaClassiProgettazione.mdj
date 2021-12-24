@@ -67873,11 +67873,12 @@
 											"_parent": {
 												"$ref": "AAAAAAF97CVJePdWLhA="
 											},
-											"visible": false,
 											"font": "Arial;13;0",
-											"left": 64,
-											"top": -16,
-											"height": 13
+											"left": 7053,
+											"top": 5261,
+											"width": 169.76806640625,
+											"height": 13,
+											"text": "«entity»"
 										},
 										{
 											"_type": "LabelView",
@@ -67887,7 +67888,7 @@
 											},
 											"font": "Arial;13;1",
 											"left": 7053,
-											"top": 5263,
+											"top": 5276,
 											"width": 169.76806640625,
 											"height": 13,
 											"text": "MezzoTrasportoObservable"
@@ -67924,7 +67925,7 @@
 									"left": 7048,
 									"top": 5256,
 									"width": 179.76806640625,
-									"height": 25,
+									"height": 38,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF97CVJefdXM9g="
 									},
@@ -67949,7 +67950,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 7048,
-									"top": 5281,
+									"top": 5294,
 									"width": 179.76806640625,
 									"height": 10
 								},
@@ -67964,7 +67965,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 7048,
-									"top": 5291,
+									"top": 5304,
 									"width": 179.76806640625,
 									"height": 10
 								},
@@ -68006,7 +68007,7 @@
 							"left": 7048,
 							"top": 5256,
 							"width": 179.76806640625,
-							"height": 45,
+							"height": 58,
 							"nameCompartment": {
 								"$ref": "AAAAAAF97CVJePdWLhA="
 							},
@@ -69841,11 +69842,12 @@
 											"_parent": {
 												"$ref": "AAAAAAF97DBSxsn084o="
 											},
-											"visible": false,
 											"font": "Arial;13;0",
-											"left": -32,
-											"top": 1936,
-											"height": 13
+											"left": 7165,
+											"top": 6549,
+											"width": 110.51904296875,
+											"height": 13,
+											"text": "«entity»"
 										},
 										{
 											"_type": "LabelView",
@@ -69855,7 +69857,7 @@
 											},
 											"font": "Arial;13;1",
 											"left": 7165,
-											"top": 6551,
+											"top": 6564,
 											"width": 110.51904296875,
 											"height": 13,
 											"text": "ConcreteMediator"
@@ -69892,7 +69894,7 @@
 									"left": 7160,
 									"top": 6544,
 									"width": 120.51904296875,
-									"height": 25,
+									"height": 38,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF97DBSxsn19GU="
 									},
@@ -69917,7 +69919,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 7160,
-									"top": 6569,
+									"top": 6582,
 									"width": 120.51904296875,
 									"height": 10
 								},
@@ -69932,7 +69934,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 7160,
-									"top": 6579,
+									"top": 6592,
 									"width": 120.51904296875,
 									"height": 10
 								},
@@ -69974,7 +69976,7 @@
 							"left": 7160,
 							"top": 6544,
 							"width": 120.51904296875,
-							"height": 45,
+							"height": 58,
 							"nameCompartment": {
 								"$ref": "AAAAAAF97DBSxsn084o="
 							},
@@ -70110,11 +70112,12 @@
 											"_parent": {
 												"$ref": "AAAAAAF97DHVUQYBu4Q="
 											},
-											"visible": false,
 											"font": "Arial;13;0",
-											"left": 992,
-											"top": 144,
-											"height": 13
+											"left": 10069,
+											"top": 3077,
+											"width": 69.34814453125,
+											"height": 13,
+											"text": "«entity»"
 										},
 										{
 											"_type": "LabelView",
@@ -70124,7 +70127,7 @@
 											},
 											"font": "Arial;13;1",
 											"left": 10069,
-											"top": 3079,
+											"top": 3092,
 											"width": 69.34814453125,
 											"height": 13,
 											"text": "StatoCorsa"
@@ -70161,7 +70164,7 @@
 									"left": 10064,
 									"top": 3072,
 									"width": 79.34814453125,
-									"height": 25,
+									"height": 38,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF97DHVUQYCUqk="
 									},
@@ -70186,7 +70189,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 10064,
-									"top": 3097,
+									"top": 3110,
 									"width": 79.34814453125,
 									"height": 10
 								},
@@ -70201,7 +70204,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 10064,
-									"top": 3107,
+									"top": 3120,
 									"width": 79.34814453125,
 									"height": 10
 								},
@@ -70243,7 +70246,7 @@
 							"left": 10064,
 							"top": 3072,
 							"width": 79.34814453125,
-							"height": 45,
+							"height": 58,
 							"nameCompartment": {
 								"$ref": "AAAAAAF97DHVUQYBu4Q="
 							},
@@ -83784,7 +83787,8 @@
 								"multiplicity": "*"
 							}
 						}
-					]
+					],
+					"stereotype": "entity"
 				},
 				{
 					"_type": "UMLClass",
@@ -83919,7 +83923,8 @@
 								}
 							}
 						}
-					]
+					],
+					"stereotype": "entity"
 				},
 				{
 					"_type": "UMLClass",
@@ -83927,7 +83932,8 @@
 					"_parent": {
 						"$ref": "AAAAAAF94emhOt2dR44="
 					},
-					"name": "StatoCorsa"
+					"name": "StatoCorsa",
+					"stereotype": "entity"
 				},
 				{
 					"_type": "UMLClass",
