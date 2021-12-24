@@ -21346,7 +21346,7 @@
 											"font": "Arial;13;0",
 											"left": 6533,
 											"top": 2099,
-											"width": 62.14990234375,
+											"width": 114.51171875,
 											"height": 13,
 											"text": "«entity»"
 										},
@@ -21359,7 +21359,7 @@
 											"font": "Arial;13;1",
 											"left": 6533,
 											"top": 2114,
-											"width": 62.14990234375,
+											"width": 114.51171875,
 											"height": 13,
 											"text": "Permesso"
 										},
@@ -21394,7 +21394,7 @@
 									"font": "Arial;13;0",
 									"left": 6528,
 									"top": 2094,
-									"width": 72.14990234375,
+									"width": 124.51171875,
 									"height": 38,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF95w1e8A29CMc="
@@ -21418,11 +21418,47 @@
 									"model": {
 										"$ref": "AAAAAAF95w1e7w25cDk="
 									},
+									"subViews": [
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF97Tm482buRjA=",
+											"_parent": {
+												"$ref": "AAAAAAF95w1e8A3BwIo="
+											},
+											"model": {
+												"$ref": "AAAAAAF97Tm4sWasQHc="
+											},
+											"font": "Arial;13;0",
+											"left": 6533,
+											"top": 2137,
+											"width": 114.51171875,
+											"height": 13,
+											"text": "-OrarioUscita: Date",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF97TnU7Wwe01c=",
+											"_parent": {
+												"$ref": "AAAAAAF95w1e8A3BwIo="
+											},
+											"model": {
+												"$ref": "AAAAAAF97TnU0GvcUFk="
+											},
+											"font": "Arial;13;0",
+											"left": 6533,
+											"top": 2152,
+											"width": 114.51171875,
+											"height": 13,
+											"text": "-OreSaltate: Int",
+											"horizontalAlignment": 0
+										}
+									],
 									"font": "Arial;13;0",
 									"left": 6528,
 									"top": 2132,
-									"width": 72.14990234375,
-									"height": 10
+									"width": 124.51171875,
+									"height": 38
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -21435,8 +21471,8 @@
 									},
 									"font": "Arial;13;0",
 									"left": 6528,
-									"top": 2142,
-									"width": 72.14990234375,
+									"top": 2170,
+									"width": 124.51171875,
 									"height": 10
 								},
 								{
@@ -21476,8 +21512,8 @@
 							"containerChangeable": true,
 							"left": 6528,
 							"top": 2094,
-							"width": 72.14990234375,
-							"height": 58,
+							"width": 124.51171875,
+							"height": 86,
 							"nameCompartment": {
 								"$ref": "AAAAAAF95w1e8A284Ao="
 							},
@@ -78271,7 +78307,29 @@
 							}
 						}
 					],
-					"stereotype": "entity"
+					"stereotype": "entity",
+					"attributes": [
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF97Tm4sWasQHc=",
+							"_parent": {
+								"$ref": "AAAAAAF95w1e7w25cDk="
+							},
+							"name": "OrarioUscita",
+							"visibility": "private",
+							"type": "Date"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF97TnU0GvcUFk=",
+							"_parent": {
+								"$ref": "AAAAAAF95w1e7w25cDk="
+							},
+							"name": "OreSaltate",
+							"visibility": "private",
+							"type": "Int"
+						}
+					]
 				},
 				{
 					"_type": "UMLClass",
