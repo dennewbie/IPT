@@ -1,7 +1,7 @@
 {
 	"_type": "Project",
 	"_id": "AAAAAAFF+h6SjaM2Hec=",
-	"name": "diagrammaPackage",
+	"name": "diagrammaSottosistemi",
 	"ownedElements": [
 		{
 			"_type": "UMLModel",
@@ -9,7 +9,7 @@
 			"_parent": {
 				"$ref": "AAAAAAFF+h6SjaM2Hec="
 			},
-			"name": "diagrammaPackage",
+			"name": "diagrammaSottosistemi",
 			"ownedElements": [
 				{
 					"_type": "UMLPackageDiagram",
@@ -17,7 +17,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "diagrammaPackage",
+					"name": "diagrammaSottosistemi",
 					"ownedViews": [
 						{
 							"_type": "UMLPackageView",
@@ -74,9 +74,9 @@
 											"font": "Arial;13;0",
 											"left": 1312,
 											"top": 608,
-											"width": 167.59716796875,
+											"width": 174.09716796875,
 											"height": 13,
-											"text": "(from diagrammaPackage)"
+											"text": "(from diagrammaSottosistemi)"
 										},
 										{
 											"_type": "LabelView",
@@ -176,9 +176,9 @@
 											"font": "Arial;13;0",
 											"left": 1296,
 											"top": 304,
-											"width": 153.88623046875,
+											"width": 174.09716796875,
 											"height": 13,
-											"text": "(from diagrammaPackage)"
+											"text": "(from diagrammaSottosistemi)"
 										},
 										{
 											"_type": "LabelView",
@@ -278,9 +278,9 @@
 											"font": "Arial;13;0",
 											"left": -928,
 											"top": 112,
-											"width": 153.88623046875,
+											"width": 174.09716796875,
 											"height": 13,
-											"text": "(from diagrammaPackage)"
+											"text": "(from diagrammaSottosistemi)"
 										},
 										{
 											"_type": "LabelView",
@@ -380,9 +380,9 @@
 											"font": "Arial;13;0",
 											"left": -464,
 											"top": -432,
-											"width": 153.88623046875,
+											"width": 174.09716796875,
 											"height": 13,
-											"text": "(from diagrammaPackage)"
+											"text": "(from diagrammaSottosistemi)"
 										},
 										{
 											"_type": "LabelView",
@@ -468,7 +468,7 @@
 											"font": "Arial;13;1",
 											"left": 93,
 											"top": 870,
-											"width": 167.67529296875,
+											"width": 180.6162109375,
 											"height": 13,
 											"text": "GestioneManagerialeAree"
 										},
@@ -482,9 +482,9 @@
 											"font": "Arial;13;0",
 											"left": -448,
 											"top": 80,
-											"width": 153.88623046875,
+											"width": 174.09716796875,
 											"height": 13,
-											"text": "(from diagrammaPackage)"
+											"text": "(from diagrammaSottosistemi)"
 										},
 										{
 											"_type": "LabelView",
@@ -503,7 +503,7 @@
 									"font": "Arial;13;0",
 									"left": 88,
 									"top": 863,
-									"width": 177.67529296875,
+									"width": 190.6162109375,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF97NVhmd0qOKs="
@@ -523,7 +523,7 @@
 							"containerChangeable": true,
 							"left": 88,
 							"top": 848,
-							"width": 177.67529296875,
+							"width": 190.6162109375,
 							"height": 105,
 							"nameCompartment": {
 								"$ref": "AAAAAAF97NVhmd0pMDQ="
@@ -584,9 +584,9 @@
 											"font": "Arial;13;0",
 											"left": -544,
 											"top": 384,
-											"width": 153.88623046875,
+											"width": 174.09716796875,
 											"height": 13,
-											"text": "(from diagrammaPackage)"
+											"text": "(from diagrammaSottosistemi)"
 										},
 										{
 											"_type": "LabelView",
@@ -686,9 +686,9 @@
 											"font": "Arial;13;0",
 											"left": -1688,
 											"top": 128,
-											"width": 153.88623046875,
+											"width": 174.09716796875,
 											"height": 13,
-											"text": "(from diagrammaPackage)"
+											"text": "(from diagrammaSottosistemi)"
 										},
 										{
 											"_type": "LabelView",
@@ -788,9 +788,9 @@
 											"font": "Arial;13;0",
 											"left": -792,
 											"top": -624,
-											"width": 153.88623046875,
+											"width": 174.09716796875,
 											"height": 13,
-											"text": "(from diagrammaPackage)"
+											"text": "(from diagrammaSottosistemi)"
 										},
 										{
 											"_type": "LabelView",
@@ -890,9 +890,9 @@
 											"font": "Arial;13;0",
 											"left": 64,
 											"top": -488,
-											"width": 153.88623046875,
+											"width": 174.09716796875,
 											"height": 13,
-											"text": "(from diagrammaPackage)"
+											"text": "(from diagrammaSottosistemi)"
 										},
 										{
 											"_type": "LabelView",
@@ -992,7 +992,7 @@
 											"left": -920,
 											"width": 189.30615234375,
 											"height": 13,
-											"text": "(from diagrammaPackage)"
+											"text": "(from diagrammaSottosistemi)"
 										},
 										{
 											"_type": "LabelView",
@@ -1187,7 +1187,7 @@
 											"top": 672,
 											"width": 257.943359375,
 											"height": 13,
-											"text": "(from diagrammaPackage)"
+											"text": "(from diagrammaSottosistemi)"
 										},
 										{
 											"_type": "LabelView",
@@ -1964,7 +1964,7 @@
 							"tail": {
 								"$ref": "AAAAAAF97NVhmd0o+fM="
 							},
-							"points": "265:896;312:896;312:608;912:608",
+							"points": "278:896;312:896;312:608;912:608",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAF97STbinQXs3w="
