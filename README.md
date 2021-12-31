@@ -13,4 +13,5 @@ Per ogni materia vi è il relativo branch.
 
 ### Resources
 [RAD](https://github.com/dennewbie/IPT/blob/ing_sw/analisi/RAD.pdf)
+
 [SDD](https://github.com/dennewbie/IPT/blob/ing_sw/progettazione/SDD.pdf)
