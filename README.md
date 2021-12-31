@@ -3,7 +3,7 @@ Materiale Progetto Ingegneria del Software, Programmazione 3.
 Per ogni materia vi è il relativo branch.
 
 ![projectLogo](https://github.com/dennewbie/IPT/blob/ing_sw/design_IPT/initialDesign/IPT.png)
-## Ingegneria del Software e Interazione U-M & Programmazione III - Università "Parthenope"
+## Ingegneria del Software e Interazione Uomo-Macchina & Programmazione III - Università "Parthenope"
 
 ### Team: 
 - [Dominick](https://github.com/dom0000D)
