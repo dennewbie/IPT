@@ -8,7 +8,7 @@ Per ogni materia vi è il relativo branch.
 ### Team: 
 - [Dominick](https://github.com/dom0000D)
 - [Max](https://github.com/gomax22)
-- [Alfredo](https://github.com/AlfredoTerabait)
+- [Alfredo](https://github.com/mungowz)
 - [Denny](https://github.com/dennewbie)
 
 ### Resources
