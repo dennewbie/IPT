@@ -1,5 +1,4 @@
 # IPT
-Materiale Progetto Ingegneria del Software, Programmazione 3.
 
 ![projectLogo](https://github.com/dennewbie/IPT/blob/main/design_IPT/initialDesign/IPT.png)
 ## Ingegneria del Software e Interazione Uomo-Macchina, Programmazione III - Università "Parthenope"
