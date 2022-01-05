@@ -1,0 +1,25 @@
+{
+	"_type": "Project",
+	"_id": "AAAAAAFF+h6SjaM2Hec=",
+	"name": "diagrammaClassiImplementazione",
+	"ownedElements": [
+		{
+			"_type": "UMLModel",
+			"_id": "AAAAAAF+KcAaA3lfQqA=",
+			"_parent": {
+				"$ref": "AAAAAAFF+h6SjaM2Hec="
+			},
+			"name": "diagrammaClassiImplementazione",
+			"ownedElements": [
+				{
+					"_type": "UMLClassDiagram",
+					"_id": "AAAAAAF+KcAaA3lgtEY=",
+					"_parent": {
+						"$ref": "AAAAAAF+KcAaA3lfQqA="
+					},
+					"name": "diagrammaClassiImplementazione"
+				}
+			]
+		}
+	]
+}
