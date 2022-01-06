@@ -3738,7 +3738,7 @@
 										"$ref": "AAAAAAF95BloOJEpaz4="
 									},
 									"edgePosition": 1,
-									"text": "+implements"
+									"text": "+implement"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -3832,7 +3832,7 @@
 										"$ref": "AAAAAAF95BqBU5S1k0U="
 									},
 									"edgePosition": 1,
-									"text": "+implements"
+									"text": "+implement"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -18461,7 +18461,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF95A3UenWXUeY="
 							},
-							"name": "implements",
+							"name": "implement",
 							"source": {
 								"$ref": "AAAAAAF95A3UenWXUeY="
 							},
@@ -18689,7 +18689,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF95BSPsINsSIY="
 							},
-							"name": "implements",
+							"name": "implement",
 							"source": {
 								"$ref": "AAAAAAF95BSPsINsSIY="
 							},
