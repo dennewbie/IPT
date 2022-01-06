@@ -2628,12 +2628,12 @@
 											"_parent": {
 												"$ref": "AAAAAAF95BH0M3ptg08="
 											},
-											"visible": false,
 											"font": "Arial;13;0",
-											"left": 5245,
+											"left": 5277,
 											"top": 837,
-											"width": 120.66259765625,
-											"height": 13
+											"width": 142.111328125,
+											"height": 13,
+											"text": "«boundary»"
 										},
 										{
 											"_type": "LabelView",
@@ -2643,7 +2643,7 @@
 											},
 											"font": "Arial;13;1",
 											"left": 5277,
-											"top": 839,
+											"top": 852,
 											"width": 142.111328125,
 											"height": 13,
 											"text": "PasswordRecoverView"
@@ -2680,7 +2680,7 @@
 									"left": 5272,
 									"top": 832,
 									"width": 152.111328125,
-									"height": 25,
+									"height": 38,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF95BH0M3puTE0="
 									},
@@ -2705,7 +2705,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 5272,
-									"top": 857,
+									"top": 870,
 									"width": 152.111328125,
 									"height": 10
 								},
@@ -2720,7 +2720,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 5272,
-									"top": 867,
+									"top": 880,
 									"width": 152.111328125,
 									"height": 10
 								},
@@ -2805,12 +2805,12 @@
 											"_parent": {
 												"$ref": "AAAAAAF95BIOxXrfvm0="
 											},
-											"visible": false,
 											"font": "Arial;13;0",
 											"left": 5485,
 											"top": 837,
-											"width": 109.08447265625,
-											"height": 13
+											"width": 138.47412109375,
+											"height": 13,
+											"text": "«boundary»"
 										},
 										{
 											"_type": "LabelView",
@@ -2820,7 +2820,7 @@
 											},
 											"font": "Arial;13;1",
 											"left": 5485,
-											"top": 839,
+											"top": 852,
 											"width": 138.47412109375,
 											"height": 13,
 											"text": "ChangePasswordView"
@@ -2857,7 +2857,7 @@
 									"left": 5480,
 									"top": 832,
 									"width": 148.47412109375,
-									"height": 25,
+									"height": 38,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF95BIOxXrgDsg="
 									},
@@ -2882,7 +2882,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 5480,
-									"top": 857,
+									"top": 870,
 									"width": 148.47412109375,
 									"height": 10
 								},
@@ -2897,7 +2897,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 5480,
-									"top": 867,
+									"top": 880,
 									"width": 148.47412109375,
 									"height": 10
 								},
@@ -4817,7 +4817,7 @@
 											"font": "Arial;13;0",
 											"left": 6309,
 											"top": 893,
-											"width": 141.5654296875,
+											"width": 147.84326171875,
 											"height": 13,
 											"text": "«boundary»"
 										},
@@ -4830,9 +4830,9 @@
 											"font": "Arial;13;1",
 											"left": 6309,
 											"top": 908,
-											"width": 141.5654296875,
+											"width": 147.84326171875,
 											"height": 13,
-											"text": "CitizenRegistration"
+											"text": "CitizenRegistrationView"
 										},
 										{
 											"_type": "LabelView",
@@ -4865,7 +4865,7 @@
 									"font": "Arial;13;0",
 									"left": 6304,
 									"top": 888,
-									"width": 151.5654296875,
+									"width": 157.84326171875,
 									"height": 38,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF95Cme0sEReRk="
@@ -4892,7 +4892,7 @@
 									"font": "Arial;13;0",
 									"left": 6304,
 									"top": 926,
-									"width": 151.5654296875,
+									"width": 157.84326171875,
 									"height": 10
 								},
 								{
@@ -4907,7 +4907,7 @@
 									"font": "Arial;13;0",
 									"left": 6304,
 									"top": 936,
-									"width": 151.5654296875,
+									"width": 157.84326171875,
 									"height": 10
 								},
 								{
@@ -4947,7 +4947,7 @@
 							"containerChangeable": true,
 							"left": 6304,
 							"top": 888,
-							"width": 151.5654296875,
+							"width": 157.84326171875,
 							"height": 58,
 							"nameCompartment": {
 								"$ref": "AAAAAAF95Cme0sEQtfE="
@@ -18603,7 +18603,8 @@
 								"$ref": "AAAAAAF95A6E1HabhcA="
 							}
 						}
-					]
+					],
+					"stereotype": "boundary"
 				},
 				{
 					"_type": "UMLClass",
@@ -18641,7 +18642,8 @@
 							},
 							"stereotype": ""
 						}
-					]
+					],
+					"stereotype": "boundary"
 				},
 				{
 					"_type": "UMLClass",
@@ -18924,7 +18926,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF94emhOt2dR44="
 					},
-					"name": "CitizenRegistration",
+					"name": "CitizenRegistrationView",
 					"ownedElements": [
 						{
 							"_type": "UMLRealization",
