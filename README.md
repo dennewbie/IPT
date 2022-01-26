@@ -12,3 +12,6 @@
 ### Risorse
 - [RAD](https://github.com/dennewbie/IPT/blob/main/analisi/RAD.pdf)
 - [SDD](https://github.com/dennewbie/IPT/blob/main/progettazione/SDD.pdf)
+
+### Tool Esterni Utilizzati
+- [StarUML](https://staruml.io/)
