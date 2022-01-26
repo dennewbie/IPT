@@ -15,6 +15,5 @@ module com.prog3.ipt {
     opens com.prog3.ipt.Model to javafx.fxml;
     exports com.prog3.ipt.Controller;
     opens com.prog3.ipt.Controller to javafx.fxml;
-    exports com.prog3.ipt.View;
-    opens com.prog3.ipt.View to javafx.fxml;
+    exports com.prog3.ipt;
 }

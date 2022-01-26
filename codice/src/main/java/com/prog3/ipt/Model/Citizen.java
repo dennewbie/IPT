@@ -20,11 +20,9 @@ public class Citizen extends User {
     private void setCitizenID(String citizenID) {
         this.citizenID = citizenID;
     }
-
     private void setRegistrationDate(Date registrationDate) {
         this.registrationDate = registrationDate;
     }
-
     private void setUsername(String username) {
         this.username = username;
     }
@@ -35,11 +33,9 @@ public class Citizen extends User {
     public String getCitizenID() {
         return citizenID;
     }
-
     public Date getRegistrationDate() {
         return registrationDate;
     }
-
     public String getUsername() {
         return username;
     }
@@ -66,6 +62,10 @@ public class Citizen extends User {
                 "citizenID='" + citizenID + '\'' +
                 ", registrationDate=" + registrationDate +
                 ", username='" + username + '\'' +
+                ", email='" + super.getEmail() + '\'' +
+                ", name='" + super.getName() + '\'' +
+                ", surname='" + super.getSurname() + '\'' +
+                ", birthDate='" + super.getBirthDate() + '\'' +
                 '}';
     }
 }

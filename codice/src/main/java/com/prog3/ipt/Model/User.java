@@ -10,7 +10,7 @@ public abstract class User {
     private String email;
     private String password;
 
-    public User(String name, String surname, Date birthDate, String email, String password) {
+    protected User(String name, String surname, Date birthDate, String email, String password) {
         setName(name);
         setSurname(surname);
         setBirthDate(birthDate);
@@ -22,42 +22,34 @@ public abstract class User {
     private void setName(String name) {
         this.name = name;
     }
-
     private void setSurname(String surname) {
         this.surname = surname;
     }
-
     private void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
-
     private void setEmail(String email) {
         this.email = email;
     }
-
     private void setPassword(String password) {
         this.password = password;
     }
 
 
     // Getters
-    private String getName() {
+    public String getName() {
         return this.name;
     }
-
     public String getSurname() {
         return this.surname;
     }
-
     public Date getBirthDate() {
         return this.birthDate;
     }
-
     public String getEmail() {
         return this.email;
     }
-
-    protected String getPassword() {
+    private String getPassword() {
         return this.password;
     }
 

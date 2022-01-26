@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="IPT" type="Application" factoryName="Application">
-    <option name="MAIN_CLASS_NAME" value="com.prog3.ipt.View.HelloApplication" />
+    <option name="MAIN_CLASS_NAME" value="com.prog3.ipt.IPT_Application" />
     <module name="IPT" />
     <method v="2">
       <option name="Make" enabled="true" />
