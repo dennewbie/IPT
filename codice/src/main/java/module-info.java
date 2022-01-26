@@ -11,5 +11,10 @@ module com.prog3.ipt {
     requires eu.hansolo.tilesfx;
 
     opens com.prog3.ipt to javafx.fxml;
-    exports com.prog3.ipt;
+    exports com.prog3.ipt.Model;
+    opens com.prog3.ipt.Model to javafx.fxml;
+    exports com.prog3.ipt.Controller;
+    opens com.prog3.ipt.Controller to javafx.fxml;
+    exports com.prog3.ipt.View;
+    opens com.prog3.ipt.View to javafx.fxml;
 }

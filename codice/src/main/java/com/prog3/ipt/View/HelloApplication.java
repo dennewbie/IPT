@@ -1,4 +1,4 @@
-package com.prog3.ipt;
+package com.prog3.ipt.View;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
