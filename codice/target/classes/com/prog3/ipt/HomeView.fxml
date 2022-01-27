@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -9,29 +10,38 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prog3.ipt.Controller.HomeViewController">
+<AnchorPane fx:id="homeViewAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prog3.ipt.Controller.HomeViewController">
     <children>
         <Pane prefHeight="165.0" prefWidth="805.0" style="-fx-background-color: #251161;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <Pane layoutX="405.0" layoutY="22.0" prefHeight="121.0" prefWidth="270.0">
                     <children>
-                        <Label alignment="CENTER" layoutX="84.0" text="IPT" textAlignment="JUSTIFY" textFill="WHITE">
+                        <Label alignment="CENTER" text="IPT" textAlignment="JUSTIFY" textFill="WHITE">
                             <font>
                                 <Font size="70.0" />
                             </font>
                         </Label>
                         <Label alignment="CENTER" layoutY="83.0" text="Plan faster. Travel smarter." textAlignment="JUSTIFY" textFill="WHITE">
                             <font>
-                                <Font size="24.0" />
+                                <Font size="25.0" />
                             </font>
                         </Label>
-                  <Label alignment="CENTER" layoutX="182.0" prefHeight="86.0" prefWidth="83.0" textAlignment="JUSTIFY" textFill="WHITE">
-                     <font>
-                        <Font size="70.0" />
-                     </font>
+                  <Label contentDisplay="CENTER" layoutX="212.0" layoutY="14.0" prefHeight="61.0" prefWidth="44.0" textAlignment="CENTER">
+                     <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="BUS" size="50" textAlignment="CENTER" />
+                     </graphic>
                   </Label>
                     </children>
                 </Pane>
+            <Pane layoutX="853.0" layoutY="22.0" prefHeight="121.0" prefWidth="200.0">
+               <children>
+                  <Label id="usernameWelcomeLabel" fx:id="usernameWelcomeLabel" alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="200.0" text="Ospite" textAlignment="RIGHT" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
             </children>
         </Pane>
         <GridPane alignment="CENTER" hgap="15.0" layoutX="89.0" layoutY="187.0" prefHeight="300.0" prefWidth="700.0" vgap="15.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="250.0">
@@ -44,22 +54,35 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Button fx:id="loginButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="173.0" prefWidth="434.0" styleClass="homeViewButton" stylesheets="@basicStyle.css" text="Login" textFill="WHITE">
+                <Button id="loginButton" fx:id="loginButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="173.0" prefWidth="434.0" styleClass="homeViewButton" stylesheets="@basicStyle.css" text="Login" textFill="WHITE">
                <font>
                   <Font size="25.0" />
-               </font></Button>
-                <Button fx:id="searchPathButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="184.0" prefWidth="434.0" styleClass="homeViewButton" stylesheets="@basicStyle.css" text="Ricerca Percorso" textFill="WHITE" GridPane.columnIndex="1">
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="USER" size="50.0" />
+               </graphic>
+               </Button>
+                <Button id="searchPathButton" fx:id="searchPathButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#onSearchPathButtonClick" prefHeight="184.0" prefWidth="434.0" styleClass="homeViewButton" stylesheets="@basicStyle.css" text="Ricerca Percorso" textFill="WHITE" GridPane.columnIndex="1">
                <font>
                   <Font size="25.0" />
-               </font></Button>
-                <Button fx:id="infoButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="175.0" prefWidth="433.0" styleClass="homeViewButton" stylesheets="@basicStyle.css" text="Info" textFill="WHITE" GridPane.rowIndex="1">
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="SEARCH" size="50" />
+               </graphic></Button>
+                <Button fx:id="infoButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#onInfoButtonClick" prefHeight="175.0" prefWidth="433.0" styleClass="homeViewButton" stylesheets="@basicStyle.css" text="Info" textFill="WHITE" GridPane.rowIndex="1">
                <font>
                   <Font size="25.0" />
-               </font></Button>
-                <Button fx:id="warningButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="185.0" prefWidth="441.0" styleClass="homeViewButton" stylesheets="@basicStyle.css" text="Avvisi Utenza" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="INFO" size="50.0" />
+               </graphic></Button>
+                <Button fx:id="avvisiUtenzaButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#onAvvisiUtenzaButtonClick" prefHeight="185.0" prefWidth="441.0" styleClass="homeViewButton" stylesheets="@basicStyle.css" text="Avvisi Utenza" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="25.0" />
-               </font></Button>
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="WARNING" size="50" />
+               </graphic></Button>
             </children>
         </GridPane>
     </children>

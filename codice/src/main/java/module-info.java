@@ -2,6 +2,8 @@ module com.prog3.ipt {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
+    requires de.jensd.fx.glyphs.fontawesome;
+    requires de.jensd.fx.glyphs.commons;
 
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
@@ -16,4 +18,5 @@ module com.prog3.ipt {
     exports com.prog3.ipt.Controller;
     opens com.prog3.ipt.Controller to javafx.fxml;
     exports com.prog3.ipt;
+
 }
