@@ -1,13 +1,24 @@
 .homeViewButton {
-    -fx-background-color : #F3F3F3;
+    -fx-background-color : #4c18f5;
+    -fx-hgap: 20px;
+    -fx-padding: 40px;
+    -fx-background-radius: 100px;
+    -fx-border-radius: 100px;
+    -fx-border-width: 3px;
+    -fx-border-color: black;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);
 }
+
 .homeViewButton:hover {
-    -fx-background-color: #6938fe;
+    -fx-background-color: #845dfa;
 }
 
 .homeViewButton:pressed {
-    -fx-background-color: #6938fe;
+    -fx-background-color: #251161;
+    position:relative;
+    top:1px;
 }
+
 /*
 .table-view .column-header, .table-view .column-header-background .filler {
     -fx-cell-size : 20;

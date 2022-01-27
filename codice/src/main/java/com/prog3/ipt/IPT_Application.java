@@ -10,14 +10,15 @@ import java.io.IOException;
 public class IPT_Application extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("HomeView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 500, 500);
+        FXMLLoader fxmlLoader = new FXMLLoader(IPT_Application.class.getResource("HomeView.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1080, 720);
         stage.setTitle("IPT");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 
     public static void main(String[] args) {
-        launch(args);
+        launch();
     }
 }
