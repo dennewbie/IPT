@@ -34,7 +34,7 @@ public class HomeViewController extends ViewController {
     @FXML
     private Button buyTicketButton;
     @FXML
-    private Button editProfile;
+    private Button editProfileButton;
 
     @FXML
     void onInfoButtonClick(ActionEvent event) {
@@ -51,7 +51,7 @@ public class HomeViewController extends ViewController {
         isUserLogged = false;
         logoutButton.setVisible(false);
         buyTicketButton.setDisable(true);
-        editProfile.setDisable(true);
+        editProfileButton.setDisable(true);
         usernameWelcomeLabel.setText("Ospite");
     }
 
@@ -72,7 +72,7 @@ public class HomeViewController extends ViewController {
 
     @FXML
     void onEditProfileButtonClick(ActionEvent event) {
-
+        super.onButtonClickNavigateToView(editProfileButton, "EditProfileView.fxml");
     }
 
     void enableLoggedUserView(String loggedUsername) {
@@ -80,6 +80,6 @@ public class HomeViewController extends ViewController {
         isUserLogged = true;
         logoutButton.setVisible(true);
         buyTicketButton.setDisable(false);
-        editProfile.setDisable(false);
+        editProfileButton.setDisable(false);
     }
 }

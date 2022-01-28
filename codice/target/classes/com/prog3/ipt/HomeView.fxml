@@ -97,7 +97,7 @@
                   <FontAwesomeIconView fill="WHITE" glyphName="SHOPPING_CART" size="50" />
                </graphic>
             </Button>
-            <Button fx:id="editProfile" alignment="CENTER" contentDisplay="TOP" disable="true" mnemonicParsing="false" onAction="#onEditProfileButtonClick" prefHeight="185.0" prefWidth="441.0" styleClass="homeViewButton" stylesheets="@homeViewStyle.css" text="Modifica Profilo" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Button fx:id="editProfileButton" alignment="CENTER" contentDisplay="TOP" disable="true" mnemonicParsing="false" onAction="#onEditProfileButtonClick" prefHeight="185.0" prefWidth="441.0" styleClass="homeViewButton" stylesheets="@homeViewStyle.css" text="Modifica Profilo" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font size="20.0" />
                </font>
