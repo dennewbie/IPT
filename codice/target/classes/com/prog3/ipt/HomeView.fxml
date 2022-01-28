@@ -54,7 +54,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Button id="loginButton" fx:id="loginButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="173.0" prefWidth="434.0" styleClass="homeViewButton" stylesheets="@basicStyle.css" text="Login" textFill="WHITE">
+                <Button id="loginButton" fx:id="loginButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="173.0" prefWidth="434.0" styleClass="homeViewButton" stylesheets="@homeViewStyle.css" text="Login" textFill="WHITE">
                <font>
                   <Font size="25.0" />
                </font>
@@ -62,21 +62,21 @@
                   <FontAwesomeIconView fill="WHITE" glyphName="USER" size="50.0" />
                </graphic>
                </Button>
-                <Button id="searchPathButton" fx:id="searchPathButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#onSearchPathButtonClick" prefHeight="184.0" prefWidth="434.0" styleClass="homeViewButton" stylesheets="@basicStyle.css" text="Ricerca Percorso" textFill="WHITE" GridPane.columnIndex="1">
+                <Button id="searchPathButton" fx:id="searchPathButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#onSearchPathButtonClick" prefHeight="184.0" prefWidth="434.0" styleClass="homeViewButton" stylesheets="@homeViewStyle.css" text="Ricerca Percorso" textFill="WHITE" GridPane.columnIndex="1">
                <font>
                   <Font size="25.0" />
                </font>
                <graphic>
                   <FontAwesomeIconView fill="WHITE" glyphName="SEARCH" size="50" />
                </graphic></Button>
-                <Button fx:id="infoButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#onInfoButtonClick" prefHeight="175.0" prefWidth="433.0" styleClass="homeViewButton" stylesheets="@basicStyle.css" text="Info" textFill="WHITE" GridPane.rowIndex="1">
+                <Button fx:id="infoButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#onInfoButtonClick" prefHeight="175.0" prefWidth="433.0" styleClass="homeViewButton" stylesheets="@homeViewStyle.css" text="Info" textFill="WHITE" GridPane.rowIndex="1">
                <font>
                   <Font size="25.0" />
                </font>
                <graphic>
                   <FontAwesomeIconView fill="WHITE" glyphName="INFO" size="50.0" />
                </graphic></Button>
-                <Button fx:id="avvisiUtenzaButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#onAvvisiUtenzaButtonClick" prefHeight="185.0" prefWidth="441.0" styleClass="homeViewButton" stylesheets="@basicStyle.css" text="Avvisi Utenza" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <Button fx:id="avvisiUtenzaButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#onAvvisiUtenzaButtonClick" prefHeight="185.0" prefWidth="441.0" styleClass="homeViewButton" stylesheets="@homeViewStyle.css" text="Avvisi Utenza" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="25.0" />
                </font>
