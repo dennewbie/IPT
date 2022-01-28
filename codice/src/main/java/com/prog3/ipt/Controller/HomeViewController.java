@@ -33,7 +33,6 @@ public class HomeViewController extends ViewController {
     private Button avvisiUtenzaButton;
     @FXML
     private Button buyTicketButton;
-
     @FXML
     private Button editProfile;
 

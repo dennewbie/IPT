@@ -81,6 +81,14 @@
                         <Insets left="15.0" right="15.0" top="30.0" />
                      </VBox.margin>
                   </Button>
+                  <Button fx:id="buyTicket" contentDisplay="CENTER" disable="true" mnemonicParsing="false" onAction="#onBuyTicketClick" prefHeight="68.0" prefWidth="507.0" styleClass="loginRegisterViewButton" text="Acquista Titolo Viaggio" textFill="WHITE">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="15.0" right="15.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
                </children>
             </VBox>
             <VBox alignment="CENTER" layoutX="545.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="655.0" prefWidth="535.0" styleClass="white-pane">

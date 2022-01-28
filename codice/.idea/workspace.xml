@@ -5,17 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e97b81e6-5df3-4387-b0ec-95788485ee96" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/ViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/HomeViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/HomeViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/LoginRegisterViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/LoginRegisterViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/SearchPathViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/SearchPathViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/HomeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/HomeView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/SearchPathView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/SearchPathView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/homeViewStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/homeViewStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/prog3/ipt/HomeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/prog3/ipt/HomeView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/prog3/ipt/SearchPathView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/prog3/ipt/SearchPathView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/prog3/ipt/homeViewStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/prog3/ipt/homeViewStyle.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +30,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
