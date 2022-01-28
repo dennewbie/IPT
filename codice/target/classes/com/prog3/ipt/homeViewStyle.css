@@ -19,6 +19,13 @@
     top:1px;
 }
 
+.logoutButton {
+    -fx-background-color : transparent;
+    -fx-border-width: 2px;
+    -fx-border-color: white;
+    -fx-border-radius: 50px;
+}
+
 /*
 .table-view .column-header, .table-view .column-header-background .filler {
     -fx-cell-size : 20;

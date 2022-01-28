@@ -30,7 +30,7 @@
                         <Label text="Inserisci il punto di partenza:" />
                      </children>
                      <VBox.margin>
-                        <Insets left="15.0" right="15.0" top="50.0" />
+                        <Insets left="15.0" right="15.0" top="30.0" />
                      </VBox.margin>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="500.0">
@@ -46,7 +46,7 @@
                         <Label text="Inserisci il punto di destinazione:" />
                      </children>
                      <VBox.margin>
-                        <Insets left="15.0" right="15.0" top="50.0" />
+                        <Insets left="15.0" right="15.0" top="30.0" />
                      </VBox.margin>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="500.0">
@@ -57,12 +57,28 @@
                         <Insets left="15.0" right="15.0" />
                      </VBox.margin>
                   </HBox>
+                  <HBox prefHeight="21.0" prefWidth="500.0">
+                     <children>
+                        <Label text="Inserisci orario di partenza:" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="15.0" right="15.0" top="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="500.0">
+                     <children>
+                        <TextField fx:id="hourTextField" prefHeight="30.0" prefWidth="375.0" promptText="Orario di partenza (hh:mm)" styleClass="textField_box" HBox.hgrow="ALWAYS" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="15.0" right="15.0" />
+                     </VBox.margin>
+                  </HBox>
                   <Button fx:id="searchPathButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onSearchPathButton" prefHeight="68.0" prefWidth="507.0" styleClass="loginRegisterViewButton" text="Avvia Ricerca" textFill="WHITE">
                      <font>
                         <Font size="17.0" />
                      </font>
                      <VBox.margin>
-                        <Insets left="15.0" right="15.0" top="50.0" />
+                        <Insets left="15.0" right="15.0" top="30.0" />
                      </VBox.margin>
                   </Button>
                </children>

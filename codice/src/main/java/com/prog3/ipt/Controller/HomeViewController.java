@@ -14,7 +14,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HomeViewController {
+public class HomeViewController extends ViewController {
+    private boolean isUserLogged = false;
+
     @FXML
     private AnchorPane homeViewAnchorPane;
     @FXML
@@ -22,47 +24,63 @@ public class HomeViewController {
     @FXML
     private Button loginButton;
     @FXML
+    private Button logoutButton;
+    @FXML
     private Button searchPathButton;
     @FXML
     private Button infoButton;
     @FXML
     private Button avvisiUtenzaButton;
+    @FXML
+    private Button buyTicketButton;
 
-    private FXMLLoader fxmlLoader;
-    private Scene scene;
-    private Stage stage;
+    @FXML
+    private Button editProfile;
 
     @FXML
     void onInfoButtonClick(ActionEvent event) {
-
+        // super.onButtonClickNavigateToView(infoButton, "InfoView.fxml");
     }
 
     @FXML
     void onLoginButtonClick(ActionEvent event) {
-        try {
-            fxmlLoader = new FXMLLoader(IPT_Application.class.getResource("LoginRegisterView.fxml"));
-            scene = new Scene(fxmlLoader.load(), 1080, 720);
-            stage = (Stage) loginButton.getScene().getWindow();
-            stage.setScene(scene);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        super.onButtonClickNavigateToView(loginButton, "LoginRegisterView.fxml");
+    }
+
+    @FXML
+    void onLogoutButtonClick(ActionEvent event) {
+        isUserLogged = false;
+        logoutButton.setVisible(false);
+        buyTicketButton.setDisable(true);
+        editProfile.setDisable(true);
+        usernameWelcomeLabel.setText("Ospite");
     }
 
     @FXML
     void onSearchPathButtonClick(ActionEvent event) {
-        try {
-            fxmlLoader = new FXMLLoader(IPT_Application.class.getResource("SearchPathView.fxml"));
-            scene = new Scene(fxmlLoader.load(), 1080, 720);
-            stage = (Stage) loginButton.getScene().getWindow();
-            stage.setScene(scene);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        super.onButtonClickNavigateToView(searchPathButton,"SearchPathView.fxml");
     }
 
     @FXML
     void onAvvisiUtenzaButtonClick(ActionEvent event) {
+// super.onButtonClickNavigateToView(avvisiUtenzaButton, "AvvisiUtenzaView.fxml");
+    }
 
+    @FXML
+    void onBuyTicketButtonClick(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onEditProfileButtonClick(ActionEvent event) {
+
+    }
+
+    void enableLoggedUserView(String loggedUsername) {
+        usernameWelcomeLabel.setText("Benvenuto "  + loggedUsername);
+        isUserLogged = true;
+        logoutButton.setVisible(true);
+        buyTicketButton.setDisable(false);
+        editProfile.setDisable(false);
     }
 }

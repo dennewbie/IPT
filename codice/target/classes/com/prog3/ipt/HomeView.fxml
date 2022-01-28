@@ -33,21 +33,27 @@
                   </Label>
                     </children>
                 </Pane>
-            <Pane layoutX="853.0" layoutY="22.0" prefHeight="121.0" prefWidth="200.0">
+            <Pane layoutX="753.0" layoutY="22.0" prefHeight="92.0" prefWidth="300.0">
                <children>
-                  <Label id="usernameWelcomeLabel" fx:id="usernameWelcomeLabel" alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="200.0" text="Ospite" textAlignment="RIGHT" textFill="WHITE">
+                  <Label id="usernameWelcomeLabel" fx:id="usernameWelcomeLabel" alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="300.0" text="Ospite" textAlignment="RIGHT" textFill="WHITE">
                      <font>
-                        <Font size="25.0" />
+                        <Font size="15.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
+            <Button fx:id="logoutButton" ellipsisString="" layoutX="1014.0" layoutY="118.0" mnemonicParsing="false" onAction="#onLogoutButtonClick" styleClass="logoutButton" stylesheets="@homeViewStyle.css" visible="false">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="SIGN_OUT" size="20.0" />
+               </graphic>
+            </Button>
             </children>
         </Pane>
         <GridPane alignment="CENTER" hgap="15.0" layoutX="89.0" layoutY="187.0" prefHeight="300.0" prefWidth="700.0" vgap="15.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="250.0">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
             <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -56,7 +62,7 @@
             <children>
                 <Button id="loginButton" fx:id="loginButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="173.0" prefWidth="434.0" styleClass="homeViewButton" stylesheets="@homeViewStyle.css" text="Login" textFill="WHITE">
                <font>
-                  <Font size="25.0" />
+                  <Font size="20.0" />
                </font>
                <graphic>
                   <FontAwesomeIconView fill="WHITE" glyphName="USER" size="50.0" />
@@ -64,25 +70,41 @@
                </Button>
                 <Button id="searchPathButton" fx:id="searchPathButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#onSearchPathButtonClick" prefHeight="184.0" prefWidth="434.0" styleClass="homeViewButton" stylesheets="@homeViewStyle.css" text="Ricerca Percorso" textFill="WHITE" GridPane.columnIndex="1">
                <font>
-                  <Font size="25.0" />
+                  <Font size="20.0" />
                </font>
                <graphic>
                   <FontAwesomeIconView fill="WHITE" glyphName="SEARCH" size="50" />
                </graphic></Button>
                 <Button fx:id="infoButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#onInfoButtonClick" prefHeight="175.0" prefWidth="433.0" styleClass="homeViewButton" stylesheets="@homeViewStyle.css" text="Info" textFill="WHITE" GridPane.rowIndex="1">
                <font>
-                  <Font size="25.0" />
+                  <Font size="20.0" />
                </font>
                <graphic>
                   <FontAwesomeIconView fill="WHITE" glyphName="INFO" size="50.0" />
                </graphic></Button>
                 <Button fx:id="avvisiUtenzaButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#onAvvisiUtenzaButtonClick" prefHeight="185.0" prefWidth="441.0" styleClass="homeViewButton" stylesheets="@homeViewStyle.css" text="Avvisi Utenza" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
-                  <Font size="25.0" />
+                  <Font size="20.0" />
                </font>
                <graphic>
                   <FontAwesomeIconView fill="WHITE" glyphName="WARNING" size="50" />
                </graphic></Button>
+            <Button fx:id="buyTicketButton" alignment="CENTER" contentDisplay="TOP" disable="true" mnemonicParsing="false" onAction="#onBuyTicketButtonClick" prefHeight="185.0" prefWidth="441.0" styleClass="homeViewButton" stylesheets="@homeViewStyle.css" text="Acquista Titolo Viaggio" textFill="WHITE" GridPane.columnIndex="2">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="SHOPPING_CART" size="50" />
+               </graphic>
+            </Button>
+            <Button fx:id="editProfile" alignment="CENTER" contentDisplay="TOP" disable="true" mnemonicParsing="false" onAction="#onEditProfileButtonClick" prefHeight="185.0" prefWidth="441.0" styleClass="homeViewButton" stylesheets="@homeViewStyle.css" text="Modifica Profilo" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="EDIT" size="50" />
+               </graphic>
+            </Button>
             </children>
         </GridPane>
     </children>
