@@ -51,7 +51,14 @@ public class HomeViewController {
 
     @FXML
     void onSearchPathButtonClick(ActionEvent event) {
-
+        try {
+            fxmlLoader = new FXMLLoader(IPT_Application.class.getResource("SearchPathView.fxml"));
+            scene = new Scene(fxmlLoader.load(), 1080, 720);
+            stage = (Stage) loginButton.getScene().getWindow();
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

@@ -9,7 +9,7 @@
     -fx-background-color: #ffffff;
 }
 
-.tf_box {
+.textField_box {
     -fx-background-color: transparent;
     -fx-border-color: gray;
     -fx-border-width: 0.5px;
@@ -37,29 +37,11 @@
     top:1px;
 }
 
-.backButtonLoginRegisterView {
+.backToHomeButton {
     -fx-background-color : transparent;
     -fx-background-radius: 100px;
     -fx-border-radius: 100px;
     -fx-border-width: 3px;
     -fx-border-color: white;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);
-}
-
-.showPasswordButtonLoginRegisterView {
-    -fx-background-color : transparent;
-    -fx-background-radius: 100px;
-    -fx-border-radius: 100px;
-    -fx-border-width: 0.5px;
-    -fx-border-color: gray;
-}
-
-.showPasswordButtonLoginRegisterView:hover {
-    -fx-background-color: #845dfa;
-}
-
-.showPasswordButtonLoginRegisterView:pressed {
-    -fx-background-color: #251161;
-    position:relative;
-    top:1px;
 }

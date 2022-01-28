@@ -20,7 +20,7 @@
               <children>
                   <Label text="Sign Up">
                       <font>
-                          <Font size="20.0" />
+                          <Font size="25.0" />
                       </font>
                       <VBox.margin>
                           <Insets left="20.0" />
@@ -28,7 +28,7 @@
                   </Label>
                <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="500.0">
                   <children>
-                     <TextField fx:id="nameTextField" prefHeight="30.0" prefWidth="375.0" promptText="Nome" styleClass="tf_box" HBox.hgrow="ALWAYS" />
+                     <TextField fx:id="nameTextField" prefHeight="30.0" prefWidth="375.0" promptText="Nome" styleClass="textField_box" HBox.hgrow="ALWAYS" />
                   </children>
                   <VBox.margin>
                      <Insets left="15.0" right="15.0" top="20.0" />
@@ -36,7 +36,7 @@
                </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
                       <children>
-                          <TextField fx:id="surnameTextField" promptText="Cognome" styleClass="tf_box" HBox.hgrow="ALWAYS" />
+                          <TextField fx:id="surnameTextField" promptText="Cognome" styleClass="textField_box" HBox.hgrow="ALWAYS" />
                       </children>
                       <VBox.margin>
                           <Insets left="15.0" right="15.0" top="20.0" />
@@ -47,12 +47,12 @@
                      <Insets left="15.0" right="15.0" top="20.0" />
                   </VBox.margin>
                   <children>
-                     <DatePicker fx:id="birthDatePicker" prefHeight="26.0" prefWidth="531.0" promptText="Data di Nascita" styleClass="tf_box" />
+                     <DatePicker fx:id="birthDatePicker" prefHeight="26.0" prefWidth="531.0" promptText="Data di Nascita" styleClass="textField_box" />
                   </children>
                </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
                       <children>
-                          <TextField fx:id="emailTextField" promptText="Email" styleClass="tf_box" HBox.hgrow="ALWAYS" />
+                          <TextField fx:id="emailTextField" promptText="Email" styleClass="textField_box" HBox.hgrow="ALWAYS" />
                       </children>
                       <VBox.margin>
                           <Insets left="15.0" right="15.0" top="20.0" />
@@ -63,7 +63,7 @@
                      <Insets left="15.0" right="15.0" top="20.0" />
                   </VBox.margin>
                   <children>
-                     <TextField fx:id="usernameSignUpTextField" prefHeight="30.0" prefWidth="518.0" promptText="Username" styleClass="tf_box" />
+                     <TextField fx:id="usernameSignUpTextField" prefHeight="30.0" prefWidth="518.0" promptText="Username" styleClass="textField_box" />
                   </children>
                </HBox>
                   <HBox alignment="CENTER" prefHeight="40.0" prefWidth="407.0">
@@ -71,7 +71,7 @@
                           <Insets left="15.0" right="15.0" top="20.0" />
                       </VBox.margin>
                   <children>
-                     <PasswordField fx:id="passwordSignUpField" prefHeight="32.0" prefWidth="526.0" promptText="Password" styleClass="tf_box" />
+                     <PasswordField fx:id="passwordSignUpField" prefHeight="32.0" prefWidth="526.0" promptText="Password" styleClass="textField_box" />
                   </children>
                   </HBox>
                   <Button fx:id="signUpButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onSignUpButtonClick" prefHeight="68.0" prefWidth="507.0" styleClass="loginRegisterViewButton" text="Sign Up" textFill="WHITE">
@@ -88,7 +88,7 @@
             <children>
                <Label text="Sign In">
                   <font>
-                     <Font size="20.0" />
+                     <Font size="25.0" />
                   </font>
                   <VBox.margin>
                      <Insets left="20.0" />
@@ -109,7 +109,7 @@
                      <Insets left="15.0" right="15.0" top="20.0" />
                   </VBox.margin>
                   <children>
-                     <TextField fx:id="usernameSignInTextField" promptText="Username" styleClass="tf_box" HBox.hgrow="ALWAYS">
+                     <TextField fx:id="usernameSignInTextField" promptText="Username" styleClass="textField_box" HBox.hgrow="ALWAYS">
                         <HBox.margin>
                            <Insets />
                         </HBox.margin></TextField>
@@ -120,7 +120,7 @@
                      <Insets left="15.0" right="15.0" top="20.0" />
                   </VBox.margin>
                   <children>
-                     <PasswordField fx:id="passwordSignInField" prefHeight="32.0" prefWidth="526.0" promptText="Password" styleClass="tf_box" />
+                     <PasswordField fx:id="passwordSignInField" prefHeight="32.0" prefWidth="526.0" promptText="Password" styleClass="textField_box" />
                   </children>
                </HBox>
                <Button fx:id="signInButton" mnemonicParsing="false" onAction="#onSignInButtonClick" prefHeight="68.0" prefWidth="532.0" styleClass="loginRegisterViewButton" text="Sign In" textFill="WHITE">
@@ -135,7 +135,7 @@
          </VBox>
       </children>
    </Pane>
-   <Button fx:id="backButton" layoutX="7.0" layoutY="15.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="38.0" prefWidth="140.0" styleClass="backButtonLoginRegisterView" text="Home" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0">
+   <Button fx:id="backButton" layoutX="7.0" layoutY="15.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="38.0" prefWidth="140.0" styleClass="backToHomeButton" text="Home" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0">
       <graphic>
          <FontAwesomeIconView fill="WHITE" glyphName="ARROW_LEFT" />
       </graphic>
