@@ -15,7 +15,7 @@ import java.io.IOException;
 public class IPT_Application extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(IPT_Application.class.getResource("HomeView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(IPT_Application.class.getResource("LoginRegisterView.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1080, 720);
         stage.setTitle("IPT");
         stage.setScene(scene);
