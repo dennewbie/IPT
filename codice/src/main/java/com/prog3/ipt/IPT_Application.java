@@ -1,6 +1,8 @@
 package com.prog3.ipt;
 
-import com.prog3.ipt.Controller.FacadeSingleton;
+import com.prog3.ipt.Model.FacadeSingleton;
+import com.prog3.ipt.Model.ObservableSingleton;
+import com.prog3.ipt.Model.Citizen;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -25,6 +27,7 @@ public class IPT_Application extends Application {
 
     public static void main(String[] args) {
         launch();
-        FacadeSingleton mySingleton = FacadeSingleton.getInstance();
+        FacadeSingleton myFacadeSingleton = FacadeSingleton.getInstance();
+        Citizen myObservableCitizen = ObservableSingleton.getInstance();
     }
 }

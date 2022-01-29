@@ -1,14 +1,14 @@
 package com.prog3.ipt.Controller;
 
-import com.prog3.ipt.IPT_Application;
+import com.prog3.ipt.Model.Citizen;
+import com.prog3.ipt.Model.ObservableSingleton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
-import java.io.IOException;
+
+import java.net.URL;
 import java.time.LocalDate;
+import java.util.ResourceBundle;
 
 public class LoginRegisterViewController extends ViewController {
     @FXML
@@ -24,8 +24,6 @@ public class LoginRegisterViewController extends ViewController {
     @FXML
     private PasswordField passwordSignUpField;
     @FXML
-    private CheckBox showSignUpPasswordCheckBox;
-    @FXML
     private Button signInButton;
     @FXML
     private Button signUpButton;
@@ -35,8 +33,6 @@ public class LoginRegisterViewController extends ViewController {
     private TextField usernameSignInTextField;
     @FXML
     private TextField usernameSignUpTextField;
-
-
 
     @FXML
     void onBackButtonClick(ActionEvent event) {
@@ -51,17 +47,13 @@ public class LoginRegisterViewController extends ViewController {
             alert.showAndWait();
         } else {
             // controllo validità credenziali
-            try {
-                fxmlLoader = new FXMLLoader(IPT_Application.class.getResource("HomeView.fxml"));
-                scene = new Scene(fxmlLoader.load(), 1080, 720);
-                HomeViewController tempHomeViewController = fxmlLoader.getController();
-                tempHomeViewController.enableLoggedUserView(usernameSignInTextField.getText());
-                stage = (Stage) signInButton.getScene().getWindow();
-                stage.setScene(scene);
-                stage.show();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+
+            // recupera dati citizen dal DB e salva nella variabile di classe.
+            // Per ora solo username. Aggiungere Observer per aggiornare il citizen loggato tra view facilmente
+            // SELECT name, etc from cittadino where username = textfield. Si mette tutto nella variable sottostante e via.
+            Citizen loggedCitizen = new Citizen("Pino", "Giogrgietti", LocalDate.of(1999, 12, 31), "pino.giorgietti@gmail.com", "acciderbolina01", "pinogiorg");
+            ObservableSingleton.setInstance(loggedCitizen);
+            onButtonClickNavigateToView(signInButton, "HomeView.fxml");
         }
     }
 
@@ -81,8 +73,10 @@ public class LoginRegisterViewController extends ViewController {
             String usernameSignUp = usernameSignUpTextField.getText(), passwordSignUp = passwordSignUpField.getText();
             LocalDate localDate = birthDatePicker.getValue();
 
-            // controlli dati estratti.
+            // controlli dati estratti...
             // creo utente, db, etc.
+            Citizen newCitizen = new Citizen(name, surname, localDate, email, passwordSignUp, usernameSignUp);
+            // salvataggio nel db...
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Il tuo account è stato creato correttamente. Effettua il login", ButtonType.OK);
             alert.showAndWait();
             nameTextField.clear();
@@ -94,4 +88,8 @@ public class LoginRegisterViewController extends ViewController {
         }
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }

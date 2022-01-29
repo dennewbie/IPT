@@ -10,7 +10,7 @@ import javafx.scene.web.WebView;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class GoogleMapsViewController extends ViewController implements Initializable {
+public class GoogleMapsViewController extends ViewController {
     @FXML
     private WebView webView;
     @FXML
@@ -32,7 +32,7 @@ public class GoogleMapsViewController extends ViewController implements Initiali
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         engine = webView.getEngine();
-       webView.setZoom(0.7);
+        webView.setZoom(0.6);
         // load google maps web page
         engine.load("https://google.it/maps/dir/");
     }

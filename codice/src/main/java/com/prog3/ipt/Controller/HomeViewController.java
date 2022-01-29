@@ -1,9 +1,13 @@
 package com.prog3.ipt.Controller;
 
 import com.prog3.ipt.IPT_Application;
+import com.prog3.ipt.Model.Citizen;
+import com.prog3.ipt.Model.FacadeSingleton;
+import com.prog3.ipt.Model.ObservableSingleton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,12 +15,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 
 public class HomeViewController extends ViewController {
-    private boolean isUserLogged = false;
-
     @FXML
     private AnchorPane homeViewAnchorPane;
     @FXML
@@ -48,11 +52,8 @@ public class HomeViewController extends ViewController {
 
     @FXML
     void onLogoutButtonClick(ActionEvent event) {
-        isUserLogged = false;
-        logoutButton.setVisible(false);
-        buyTicketButton.setDisable(true);
-        editProfileButton.setDisable(true);
-        usernameWelcomeLabel.setText("Ospite");
+        ObservableSingleton.setInstance(null);
+        enableGuestUserView();
     }
 
     @FXML
@@ -77,9 +78,21 @@ public class HomeViewController extends ViewController {
 
     void enableLoggedUserView(String loggedUsername) {
         usernameWelcomeLabel.setText("Benvenuto "  + loggedUsername);
-        isUserLogged = true;
         logoutButton.setVisible(true);
         buyTicketButton.setDisable(false);
         editProfileButton.setDisable(false);
+    }
+
+    void enableGuestUserView() {
+        logoutButton.setVisible(false);
+        buyTicketButton.setDisable(true);
+        editProfileButton.setDisable(true);
+        usernameWelcomeLabel.setText("Ospite");
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Citizen tempCitizen = ObservableSingleton.getInstance();
+        if (tempCitizen.getUsername() != null) enableLoggedUserView(tempCitizen.getUsername());
     }
 }

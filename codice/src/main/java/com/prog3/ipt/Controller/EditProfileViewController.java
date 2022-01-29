@@ -14,7 +14,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-public class EditProfileViewController extends ViewController implements Initializable  {
+public class EditProfileViewController extends ViewController {
     @FXML
     private Button backButton;
     @FXML

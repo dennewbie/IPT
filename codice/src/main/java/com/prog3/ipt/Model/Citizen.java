@@ -1,26 +1,31 @@
 package com.prog3.ipt.Model;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
 
 public class Citizen extends User {
     private String citizenID;
-    private Date registrationDate;
+    private LocalDate registrationDate;
     private String username;
 
-    public Citizen(String name, String surname, Date birthDate, String email, String password, String citizenID, Date registrationDate, String username) {
+
+
+    public Citizen(String name, String surname, LocalDate birthDate, String email, String password, String username) {
         super(name, surname, birthDate, email, password);
         setCitizenID(UUID.randomUUID().toString());
-        setRegistrationDate(registrationDate);
+        setRegistrationDate(LocalDate.now());
         setUsername(username);
     }
+
+
 
     // Setters
     private void setCitizenID(String citizenID) {
         this.citizenID = citizenID;
     }
-    private void setRegistrationDate(Date registrationDate) {
+    private void setRegistrationDate(LocalDate registrationDate) {
         this.registrationDate = registrationDate;
     }
     private void setUsername(String username) {
@@ -33,7 +38,7 @@ public class Citizen extends User {
     public String getCitizenID() {
         return citizenID;
     }
-    public Date getRegistrationDate() {
+    public LocalDate getRegistrationDate() {
         return registrationDate;
     }
     public String getUsername() {

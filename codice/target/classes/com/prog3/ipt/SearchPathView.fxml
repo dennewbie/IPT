@@ -85,7 +85,7 @@
                         <Insets left="100.0" right="100.0" top="30.0" />
                      </VBox.margin>
                      <children>
-                        <Button fx:id="searchPathButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onSearchPathButton" prefHeight="68.0" prefWidth="507.0" styleClass="loginRegisterViewButton" text="Avvia Ricerca" textFill="WHITE">
+                        <Button fx:id="searchPathButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onSearchPathButtonClick" prefHeight="68.0" prefWidth="507.0" styleClass="loginRegisterViewButton" text="Avvia Ricerca" textFill="WHITE">
                            <font>
                               <Font size="17.0" />
                            </font>

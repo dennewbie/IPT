@@ -1,22 +1,27 @@
 package com.prog3.ipt.Model;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
 public abstract class User {
     private String name;
     private String surname;
-    private Date birthDate;
+    private LocalDate birthDate;
     private String email;
     private String password;
 
-    protected User(String name, String surname, Date birthDate, String email, String password) {
+
+
+    protected User(String name, String surname, LocalDate birthDate, String email, String password) {
         setName(name);
         setSurname(surname);
         setBirthDate(birthDate);
         setEmail(email);
         setPassword(password);
     }
+
+
 
     // Setters
     private void setName(String name) {
@@ -25,7 +30,7 @@ public abstract class User {
     private void setSurname(String surname) {
         this.surname = surname;
     }
-    private void setBirthDate(Date birthDate) {
+    private void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
     private void setEmail(String email) {
@@ -43,7 +48,7 @@ public abstract class User {
     public String getSurname() {
         return this.surname;
     }
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return this.birthDate;
     }
     public String getEmail() {

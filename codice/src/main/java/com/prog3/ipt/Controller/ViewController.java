@@ -2,13 +2,14 @@ package com.prog3.ipt.Controller;
 
 import com.prog3.ipt.IPT_Application;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ViewController {
+public abstract class ViewController implements Initializable {
     protected FXMLLoader fxmlLoader;
     protected Scene scene;
     protected Stage stage;

@@ -1,6 +1,8 @@
 package com.prog3.ipt.Controller;
 
 import com.prog3.ipt.IPT_Application;
+import com.prog3.ipt.Model.Citizen;
+import com.prog3.ipt.Model.ObservableSingleton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,16 +14,11 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.web.WebEngine;
 import javafx.stage.Stage;
-
-import javafx.application.Application;
-import javafx.scene.layout.VBox;
-import javafx.scene.web.WebView;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class SearchPathViewController extends ViewController implements Initializable {
+public class SearchPathViewController extends ViewController {
     @FXML
     private Button backButton;
     @FXML
@@ -44,11 +41,19 @@ public class SearchPathViewController extends ViewController implements Initiali
 
     @FXML
     void onBuyTicketButtonClick(ActionEvent event) {
+        Citizen tempCitizen = ObservableSingleton.getInstance();
+        if (tempCitizen == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Per acquistare un titolo di viaggio è necessario effettuare il login.", ButtonType.OK);
+            alert.showAndWait();
+        } else {
+            // verificare dati inseriti e poi cambio view
 
+            //onButtonClickNavigateToView(buyTicketButton, "BuyTicketView.fxml");
+        }
     }
 
     @FXML
-    void onSearchPathButton(ActionEvent event) {
+    void onSearchPathButtonClick(ActionEvent event) {
         // ricerca percorso e quando terminato si attiva il pulsante di acquisto titolo viaggio
         if (destinationPointTextField.getText() == null || destinationPointTextField.getText().trim().isEmpty() ||
                 startingPointTextField.getText() == null || startingPointTextField.getText().trim().isEmpty() ||
@@ -77,13 +82,11 @@ public class SearchPathViewController extends ViewController implements Initiali
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            buyTicketButton.setDisable(false);
         }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         urlResource = "https//google.com/";
-        buyTicketButton.setDisable(true);
     }
 }

@@ -1,4 +1,4 @@
-package com.prog3.ipt.Controller;
+package com.prog3.ipt.Model;
 
 /** Thread-safe Singleton class. The instance is lazily initialized and thus needs synchronization mechanism. */
 public class FacadeSingleton {
