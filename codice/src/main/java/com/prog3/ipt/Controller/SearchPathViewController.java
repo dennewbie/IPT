@@ -48,7 +48,7 @@ public class SearchPathViewController extends ViewController implements Initiali
     }
 
     @FXML
-    void onSearchPathButton(ActionEvent event) {
+    void onSearchPathButtonClick(ActionEvent event) {
         // ricerca percorso e quando terminato si attiva il pulsante di acquisto titolo viaggio
         if (destinationPointTextField.getText() == null || destinationPointTextField.getText().trim().isEmpty() ||
                 startingPointTextField.getText() == null || startingPointTextField.getText().trim().isEmpty() ||

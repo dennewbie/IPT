@@ -93,7 +93,7 @@
                               <Insets right="50.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="buyTicketButton" contentDisplay="CENTER" disable="true" mnemonicParsing="false" onAction="#onBuyTicketButtonClick" prefHeight="68.0" prefWidth="507.0" styleClass="loginRegisterViewButton" text="Acquista Titolo Viaggio" textFill="WHITE">
+                        <Button fx:id="buyTicketButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onBuyTicketButtonClick" prefHeight="68.0" prefWidth="507.0" styleClass="loginRegisterViewButton" text="Acquista Titolo Viaggio" textFill="WHITE">
                            <font>
                               <Font size="17.0" />
                            </font>
