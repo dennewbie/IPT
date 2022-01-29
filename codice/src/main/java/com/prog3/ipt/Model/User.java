@@ -24,19 +24,19 @@ public abstract class User {
 
 
     // Setters
-    private void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
-    private void setSurname(String surname) {
+    public void setSurname(String surname) {
         this.surname = surname;
     }
-    private void setBirthDate(LocalDate birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
-    private void setEmail(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
-    private void setPassword(String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
@@ -54,7 +54,7 @@ public abstract class User {
     public String getEmail() {
         return this.email;
     }
-    private String getPassword() {
+    public String getPassword() {
         return this.password;
     }
 
