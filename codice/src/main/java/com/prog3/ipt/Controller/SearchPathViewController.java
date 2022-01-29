@@ -58,19 +58,19 @@ public class SearchPathViewController extends ViewController implements Initiali
         } else {
             // controllo validità campi, avvia ricerca...
 
-            /*
+
             String startingPoint = startingPointTextField.getText().replace(" ", "+");
             String destinationPoint = destinationPointTextField.getText().replace(" ", "+");
 
             // build url string
             urlResource = "https://www.google.it/maps/dir/" + startingPoint + "/" + destinationPoint + "/";
-            */
+
 
             try {
                 fxmlLoader = new FXMLLoader(IPT_Application.class.getResource("GoogleMapsView.fxml"));
                 scene = new Scene(fxmlLoader.load(), 1080, 720);
-                //GoogleMapsViewController tempGoogleMapsViewController =  fxmlLoader.getController();
-                //tempGoogleMapsViewController.setUrl(urlResource);
+                GoogleMapsViewController tempGoogleMapsViewController =  fxmlLoader.getController();
+                tempGoogleMapsViewController.setUrl(urlResource);
                 stage = (Stage) searchPathButton.getScene().getWindow();
                 stage.setScene(scene);
                 stage.show();
@@ -83,7 +83,7 @@ public class SearchPathViewController extends ViewController implements Initiali
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        urlResource = "https//google.com/";
+        urlResource = "https//google.com/maps/dir/";
         buyTicketButton.setDisable(true);
     }
 }
