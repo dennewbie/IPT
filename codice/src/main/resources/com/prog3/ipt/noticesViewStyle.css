@@ -1,0 +1,15 @@
+.parent {
+    -fx-background-color: #251161;
+}
+.white-pane {
+   -fx-background-color: white;
+}
+
+.backToHome {
+    -fx-background-color : transparent;
+    -fx-background-radius: 100px;
+    -fx-border-radius: 100px;
+    -fx-border-width: 3px;
+    -fx-border-color: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);
+}

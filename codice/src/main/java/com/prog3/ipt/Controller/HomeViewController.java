@@ -1,21 +1,13 @@
 package com.prog3.ipt.Controller;
 
-import com.prog3.ipt.IPT_Application;
 import com.prog3.ipt.Model.Citizen;
-import com.prog3.ipt.Model.FacadeSingleton;
 import com.prog3.ipt.Model.ObservableSingleton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-import java.io.IOException;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -34,7 +26,7 @@ public class HomeViewController extends ViewController {
     @FXML
     private Button infoButton;
     @FXML
-    private Button avvisiUtenzaButton;
+    private Button noticesButton;
     @FXML
     private Button buyTicketButton;
     @FXML
@@ -42,7 +34,7 @@ public class HomeViewController extends ViewController {
 
     @FXML
     void onInfoButtonClick(ActionEvent event) {
-        // super.onButtonClickNavigateToView(infoButton, "InfoView.fxml");
+        super.onButtonClickNavigateToView(infoButton, "InfoView.fxml");
     }
 
     @FXML
@@ -63,7 +55,7 @@ public class HomeViewController extends ViewController {
 
     @FXML
     void onAvvisiUtenzaButtonClick(ActionEvent event) {
-// super.onButtonClickNavigateToView(avvisiUtenzaButton, "AvvisiUtenzaView.fxml");
+        super.onButtonClickNavigateToView(noticesButton, "NoticesView.fxml");
     }
 
     @FXML

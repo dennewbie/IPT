@@ -1,6 +1,7 @@
 package com.prog3.ipt.Controller;
 
 import com.prog3.ipt.IPT_Application;
+import com.prog3.ipt.Model.ObservableSingleton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,13 +11,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
-import javafx.scene.web.WebEngine;
 import javafx.stage.Stage;
-
-import javafx.application.Application;
-import javafx.scene.layout.VBox;
-import javafx.scene.web.WebView;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -44,7 +39,7 @@ public class SearchPathViewController extends ViewController implements Initiali
 
     @FXML
     void onBuyTicketButtonClick(ActionEvent event) {
-
+        // rimandare alla view di acquisto, convalida campi, etc
     }
 
     @FXML
@@ -77,13 +72,12 @@ public class SearchPathViewController extends ViewController implements Initiali
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            buyTicketButton.setDisable(false);
         }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         urlResource = "https//google.com/maps/dir/";
-        buyTicketButton.setDisable(true);
+        buyTicketButton.setDisable(ObservableSingleton.getInstance() == null);
     }
 }

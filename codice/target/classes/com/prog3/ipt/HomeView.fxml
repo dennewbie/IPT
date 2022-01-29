@@ -82,7 +82,7 @@
                <graphic>
                   <FontAwesomeIconView fill="WHITE" glyphName="INFO" size="50.0" />
                </graphic></Button>
-                <Button fx:id="avvisiUtenzaButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#onAvvisiUtenzaButtonClick" prefHeight="185.0" prefWidth="441.0" styleClass="homeViewButton" stylesheets="@homeViewStyle.css" text="Avvisi Utenza" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <Button fx:id="noticesButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#onAvvisiUtenzaButtonClick" prefHeight="185.0" prefWidth="441.0" styleClass="homeViewButton" stylesheets="@homeViewStyle.css" text="Avvisi Utenza" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="20.0" />
                </font>
