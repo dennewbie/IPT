@@ -42,6 +42,7 @@ public class EditProfileViewController extends ViewController implements Initial
     @FXML
     void onSaveInformationButtonClick(ActionEvent event) {
         // salva, memento, etc
+        // non dovrebbe controllare null di tutti i campi
         if (nameTextField.getText() == null || nameTextField.getText().trim().isEmpty() ||
                 surnameTextField.getText() == null || surnameTextField.getText().trim().isEmpty() ||
                 emailTextField.getText() == null || emailTextField.getText().trim().isEmpty() ||

@@ -1,9 +1,6 @@
 .parent {
     -fx-background-color: #251161;
 }
-.pane {
-   -fx-background-color: white;
-}
 
 .white-pane {
     -fx-background-color: #ffffff;

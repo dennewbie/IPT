@@ -30,47 +30,87 @@
                      <Insets left="100.0" right="100.0" />
                   </VBox.margin>
                </HBox>
+               <HBox prefHeight="21.0" prefWidth="500.0">
+                  <children>
+                     <Label text="Inserisci il nuovo nome:" />
+                  </children>
+                  <VBox.margin>
+                     <Insets left="100.0" right="100.0" top="20.0" />
+                  </VBox.margin>
+               </HBox>
                     <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="500.0">
                         <children>
                             <TextField fx:id="nameTextField" prefHeight="30.0" prefWidth="375.0" promptText="Nome" styleClass="textField_box" stylesheets="@editProfileViewStyle.css" HBox.hgrow="ALWAYS" />
                         </children>
                         <VBox.margin>
-                            <Insets left="100.0" right="100.0" top="20.0" />
+                            <Insets left="100.0" right="100.0" />
                         </VBox.margin>
                     </HBox>
+               <HBox prefHeight="21.0" prefWidth="500.0">
+                  <children>
+                     <Label text="Inserisci il nuovo cognome:" />
+                  </children>
+                  <VBox.margin>
+                     <Insets left="100.0" right="100.0" top="20.0" />
+                  </VBox.margin>
+               </HBox>
                     <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
                         <children>
                             <TextField fx:id="surnameTextField" promptText="Cognome" styleClass="textField_box" HBox.hgrow="ALWAYS" />
                         </children>
                         <VBox.margin>
-                            <Insets left="100.0" right="100.0" top="20.0" />
+                            <Insets left="100.0" right="100.0" />
                         </VBox.margin>
                     </HBox>
+               <HBox prefHeight="21.0" prefWidth="500.0">
+                  <children>
+                     <Label text="Inserisci la nuova data di nascita:" />
+                  </children>
+                  <VBox.margin>
+                     <Insets left="100.0" right="100.0" top="20.0" />
+                  </VBox.margin>
+               </HBox>
                     <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
                         <VBox.margin>
-                            <Insets left="100.0" right="100.0" top="20.0" />
+                            <Insets left="100.0" right="100.0" />
                         </VBox.margin>
                         <children>
                             <DatePicker fx:id="birthDatePicker" prefHeight="27.0" prefWidth="1060.0" promptText="Data di Nascita" styleClass="textField_box" />
                         </children>
                     </HBox>
+               <HBox prefHeight="21.0" prefWidth="500.0">
+                  <children>
+                     <Label text="Inserisci la nuova email:" />
+                  </children>
+                  <VBox.margin>
+                     <Insets left="100.0" right="100.0" top="20.0" />
+                  </VBox.margin>
+               </HBox>
                     <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
                         <children>
                             <TextField fx:id="emailTextField" promptText="Email" styleClass="textField_box" HBox.hgrow="ALWAYS" />
                         </children>
                         <VBox.margin>
-                            <Insets left="100.0" right="100.0" top="20.0" />
+                            <Insets left="100.0" right="100.0" />
                         </VBox.margin>
                     </HBox>
+               <HBox prefHeight="21.0" prefWidth="500.0">
+                  <children>
+                     <Label text="Inserisci la nuova password:" />
+                  </children>
+                  <VBox.margin>
+                     <Insets left="100.0" right="100.0" top="20.0" />
+                  </VBox.margin>
+               </HBox>
                     <HBox alignment="CENTER" prefHeight="40.0" prefWidth="988.0">
                         <VBox.margin>
-                            <Insets left="100.0" right="100.0" top="20.0" />
+                            <Insets left="100.0" right="100.0" />
                         </VBox.margin>
                         <children>
                             <PasswordField fx:id="passwordSignUpField" prefHeight="32.0" prefWidth="905.0" promptText="Password" styleClass="textField_box" />
                         </children>
                     </HBox>
-               <HBox prefHeight="100.0" prefWidth="200.0">
+               <HBox prefHeight="69.0" prefWidth="880.0">
                   <children>
                           <Button fx:id="undoButton" alignment="CENTER" contentDisplay="CENTER" disable="true" mnemonicParsing="false" onAction="#onUndoButtonClick" prefHeight="68.0" prefWidth="460.0" styleClass="loginRegisterViewButton" text="Annulla ultima modifica" textFill="WHITE">
                               <font>
@@ -90,14 +130,14 @@
                      </Button>
                   </children>
                   <VBox.margin>
-                     <Insets left="100.0" right="100.0" top="20.0" />
+                     <Insets left="100.0" right="100.0" top="30.0" />
                   </VBox.margin>
                </HBox>
                 </children>
             </VBox>
         </children>
     </Pane>
-    <Button fx:id="backButton" layoutX="7.0" layoutY="15.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="38.0" prefWidth="140.0" styleClass="backToHomeButton" text="Home" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0">
+    <Button fx:id="backButton" layoutX="7.0" layoutY="15.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="45.0" prefWidth="250.0" styleClass="backToHomeButton" text="Home" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0">
         <graphic>
             <FontAwesomeIconView fill="WHITE" glyphName="ARROW_LEFT" />
         </graphic>

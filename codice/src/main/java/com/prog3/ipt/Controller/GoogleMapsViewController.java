@@ -32,7 +32,9 @@ public class GoogleMapsViewController extends ViewController implements Initiali
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         engine = webView.getEngine();
+       webView.setZoom(0.7);
         // load google maps web page
         engine.load("https://google.it/maps/dir/");
     }
 }
+

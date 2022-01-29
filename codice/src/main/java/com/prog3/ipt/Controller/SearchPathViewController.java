@@ -24,8 +24,8 @@ import java.util.ResourceBundle;
 public class SearchPathViewController extends ViewController implements Initializable {
     @FXML
     private Button backButton;
-    /*@FXML
-    private Button buyTicket;*/
+    @FXML
+    private Button buyTicketButton;
     @FXML
     private TextField destinationPointTextField;
     @FXML
@@ -43,20 +43,20 @@ public class SearchPathViewController extends ViewController implements Initiali
     }
 
     @FXML
-    void onBuyTicketClick(ActionEvent event) {
-        // passaggio alla View di acquisto biglietto con passaggio dati delle text field
+    void onBuyTicketButtonClick(ActionEvent event) {
+
     }
 
     @FXML
     void onSearchPathButton(ActionEvent event) {
         // ricerca percorso e quando terminato si attiva il pulsante di acquisto titolo viaggio
         if (destinationPointTextField.getText() == null || destinationPointTextField.getText().trim().isEmpty() ||
-                startingPointTextField.getText() == null || startingPointTextField.getText().trim().isEmpty() /* ||
-                hourTextField.getText() == null || hourTextField.getText().trim().isEmpty() */) {
+                startingPointTextField.getText() == null || startingPointTextField.getText().trim().isEmpty() ||
+                hourTextField.getText() == null || hourTextField.getText().trim().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Hai lasciato uno o più campi vuoti.", ButtonType.OK);
             alert.showAndWait();
         } else {
-            // avvia ricerca...
+            // controllo validità campi, avvia ricerca...
 
             /*
             String startingPoint = startingPointTextField.getText().replace(" ", "+");
@@ -65,6 +65,7 @@ public class SearchPathViewController extends ViewController implements Initiali
             // build url string
             urlResource = "https://www.google.it/maps/dir/" + startingPoint + "/" + destinationPoint + "/";
             */
+
             try {
                 fxmlLoader = new FXMLLoader(IPT_Application.class.getResource("GoogleMapsView.fxml"));
                 scene = new Scene(fxmlLoader.load(), 1080, 720);
@@ -76,14 +77,13 @@ public class SearchPathViewController extends ViewController implements Initiali
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            //buyTicket.setDisable(false);
+            buyTicketButton.setDisable(false);
         }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         urlResource = "https//google.com/";
-        //buyTicket.setDisable(true);
+        buyTicketButton.setDisable(true);
     }
 }
-
