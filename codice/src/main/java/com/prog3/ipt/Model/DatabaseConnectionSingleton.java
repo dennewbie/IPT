@@ -17,7 +17,7 @@ public class DatabaseConnectionSingleton {
         this.connection = DriverManager.getConnection(url, username, password);
     }
 
-    private Connection getConnection() {
+    Connection getConnection() {
         return connection;
     }
 

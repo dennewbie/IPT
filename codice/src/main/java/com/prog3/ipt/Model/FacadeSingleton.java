@@ -40,6 +40,11 @@ public class FacadeSingleton {
         }
     }
 
+    public static void closeConnection() {
+        try { statement.close(); } catch (Exception e) { /* Ignored */ }
+        try { databaseConnection.getConnection().close(); } catch (Exception e) { /* Ignored */ }
+    }
+
     /*
     * vari metodi che eseguono le query e che restituiscono un risultato (credo un nuovo e singolo ResultSet)
     * */

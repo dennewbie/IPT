@@ -31,4 +31,9 @@ public class IPT_Application extends Application {
         Citizen myObservableCitizen = ObservableSingleton.getInstance();
 
     }
+
+    @Override
+    public void stop(){
+        FacadeSingleton.closeConnection();
+    }
 }
