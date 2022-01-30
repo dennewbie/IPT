@@ -28,7 +28,7 @@ public class FacadeSingleton {
     /** Connection to IPT-db */
     public static void connect() {
         try {
-            DatabaseConnectionSingleton databaseConnection = DatabaseConnectionSingleton.getInstance();
+            databaseConnection = DatabaseConnectionSingleton.getInstance();
 
         } catch(Exception e) {
             e.printStackTrace();
