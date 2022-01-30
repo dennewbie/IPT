@@ -28,7 +28,7 @@ public class HomeViewController extends ViewController {
     @FXML
     private Button noticesButton;
     @FXML
-    private Button buyTicketButton;
+    private Button ticketsManagementButton;
     @FXML
     private Button editProfileButton;
 
@@ -61,8 +61,8 @@ public class HomeViewController extends ViewController {
     }
 
     @FXML
-    void onBuyTicketButtonClick(ActionEvent event) {
-
+    void onTicketsManagementButtonClick(ActionEvent event) {
+        super.onButtonClickNavigateToView(ticketsManagementButton, "TicketsManagementView.fxml");
     }
 
     @FXML
@@ -74,14 +74,14 @@ public class HomeViewController extends ViewController {
         loginButton.setDisable(true);
         usernameWelcomeLabel.setText("Benvenuto "  + loggedUsername);
         logoutButton.setVisible(true);
-        buyTicketButton.setDisable(false);
+        ticketsManagementButton.setDisable(false);
         editProfileButton.setDisable(false);
     }
 
     void enableGuestUserView() {
         loginButton.setDisable(false);
         logoutButton.setVisible(false);
-        buyTicketButton.setDisable(true);
+        ticketsManagementButton.setDisable(true);
         editProfileButton.setDisable(true);
         usernameWelcomeLabel.setText("Ospite");
     }

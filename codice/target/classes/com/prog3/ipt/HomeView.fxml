@@ -89,7 +89,7 @@
                <graphic>
                   <FontAwesomeIconView fill="WHITE" glyphName="WARNING" size="50" />
                </graphic></Button>
-            <Button fx:id="buyTicketButton" alignment="CENTER" contentDisplay="TOP" disable="true" mnemonicParsing="false" onAction="#onBuyTicketButtonClick" prefHeight="185.0" prefWidth="441.0" styleClass="homeViewButton" stylesheets="@homeViewStyle.css" text="Acquista Titolo Viaggio" textFill="WHITE" GridPane.columnIndex="2">
+            <Button fx:id="ticketsManagementButton" alignment="CENTER" contentDisplay="TOP" disable="true" mnemonicParsing="false" onAction="#onTicketsManagementButtonClick" prefHeight="185.0" prefWidth="441.0" styleClass="homeViewButton" stylesheets="@homeViewStyle.css" text="Acquista Titolo Viaggio" textFill="WHITE" GridPane.columnIndex="2">
                <font>
                   <Font size="20.0" />
                </font>
