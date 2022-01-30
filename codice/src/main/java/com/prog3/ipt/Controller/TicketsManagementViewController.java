@@ -25,13 +25,13 @@ public class TicketsManagementViewController extends ViewController {
     @FXML
     private DatePicker expirationCreditCardDatePicker;
     @FXML
-    private HBox myCartTableView;
-    @FXML
-    private HBox myTicketsTableView;
-    @FXML
     private ComboBox<?> paymentMethodsDropDownList;
     @FXML
     private Button savePaymentMethodButton;
+    @FXML
+    private TableView<?> myCartTableView;
+    @FXML
+    private TableView<?> myTicketsTableView;
 
 
 

@@ -13,3 +13,10 @@
     -fx-border-color: white;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);
 }
+
+.textField_box {
+    -fx-background-color: transparent;
+    -fx-border-color: gray;
+    -fx-border-width: 0.5px;
+    -fx-border-radius: 5px;
+}

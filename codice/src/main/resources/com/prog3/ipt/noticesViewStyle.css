@@ -5,6 +5,13 @@
    -fx-background-color: white;
 }
 
+.textField_box {
+    -fx-background-color: transparent;
+    -fx-border-color: gray;
+    -fx-border-width: 0.5px;
+    -fx-border-radius: 5px;
+}
+
 .backToHome {
     -fx-background-color : transparent;
     -fx-background-radius: 100px;
