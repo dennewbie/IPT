@@ -9,6 +9,8 @@ public class DatabaseConnectionSingleton {
     private String username = "root";
     private String password = "ipt22";
 
+
+
     /** Protect against instantiation via reflection */
     private DatabaseConnectionSingleton() throws SQLException {
         if (instance != null) throw new IllegalStateException("Already initialized.");

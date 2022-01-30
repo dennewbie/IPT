@@ -13,6 +13,8 @@ public class FacadeSingleton {
     private static Statement statement;
     private static Result resultSet;
 
+
+
     private FacadeSingleton() {
         /** Protect against instantiation via reflection */
         if (instance != null) throw new IllegalStateException("Already initialized.");

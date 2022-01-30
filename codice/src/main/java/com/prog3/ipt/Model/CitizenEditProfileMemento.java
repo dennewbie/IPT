@@ -6,6 +6,8 @@ import java.util.LinkedList;
 public class CitizenEditProfileMemento {
     private LinkedList<Citizen> citizensData = new LinkedList<>();
 
+
+
     public void addState(Citizen newCitizen) {
         citizensData.addFirst(newCitizen);
     }

@@ -14,6 +14,8 @@ public abstract class ViewController implements Initializable {
     protected Scene scene;
     protected Stage stage;
 
+
+
     protected void onButtonClickNavigateToView(Button clickedButton, String destinationView) {
         try {
             fxmlLoader = new FXMLLoader(IPT_Application.class.getResource(destinationView));

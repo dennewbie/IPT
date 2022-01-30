@@ -19,8 +19,6 @@ public class Citizen extends User {
         setUsername(username);
     }
 
-
-
     // Setters
     private void setCitizenID(String citizenID) {
         this.citizenID = citizenID;
@@ -32,8 +30,6 @@ public class Citizen extends User {
         this.username = username;
     }
 
-
-
     // Getters
     public String getCitizenID() {
         return citizenID;
@@ -44,8 +40,6 @@ public class Citizen extends User {
     public String getUsername() {
         return username;
     }
-
-
 
     @Override
     public boolean equals(Object singleObject) {

@@ -20,6 +20,9 @@ public class GoogleMapsViewController extends ViewController implements Initiali
     private WebEngine engine;
     private String url;
 
+
+
+
     public void setUrl(String url) {
         this.url = url;
     }
@@ -33,7 +36,7 @@ public class GoogleMapsViewController extends ViewController implements Initiali
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Platform.runLater(() -> {
             engine = webView.getEngine();
-            webView.setZoom(0.7);
+            webView.setZoom(0.65);
             // load google maps web page
             engine.load(this.url);
         });

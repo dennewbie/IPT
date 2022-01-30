@@ -32,6 +32,8 @@ public class SearchPathViewController extends ViewController implements Initiali
 
     private String urlResource;
 
+
+
     @FXML
     void onBackButtonClick(ActionEvent event) {
         super.onButtonClickNavigateToView(backButton, "HomeView.fxml");
@@ -39,7 +41,7 @@ public class SearchPathViewController extends ViewController implements Initiali
 
     @FXML
     void onBuyTicketButtonClick(ActionEvent event) {
-        // rimandare alla view di acquisto, convalida campi, etc
+
     }
 
     @FXML
@@ -52,32 +54,32 @@ public class SearchPathViewController extends ViewController implements Initiali
             alert.showAndWait();
         } else {
             // controllo validità campi, avvia ricerca...
-
-
             String startingPoint = startingPointTextField.getText().replace(" ", "+");
             String destinationPoint = destinationPointTextField.getText().replace(" ", "+");
 
             // build url string
             urlResource = "https://www.google.it/maps/dir/" + startingPoint + "/" + destinationPoint + "/";
-
-
-            try {
-                fxmlLoader = new FXMLLoader(IPT_Application.class.getResource("GoogleMapsView.fxml"));
-                scene = new Scene(fxmlLoader.load(), 1080, 720);
-                GoogleMapsViewController tempGoogleMapsViewController =  fxmlLoader.getController();
-                tempGoogleMapsViewController.setUrl(urlResource);
-                stage = (Stage) searchPathButton.getScene().getWindow();
-                stage.setScene(scene);
-                stage.show();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            this.onButtonClickNavigateToView(searchPathButton, "GoogleMapsView.fxml");
         }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        urlResource = "https//google.com/maps/dir/";
-        buyTicketButton.setDisable(ObservableSingleton.getInstance() == null);
+        buyTicketButton.setDisable(ObservableSingleton.getInstance().getUsername() == null);
+    }
+
+    @Override
+    protected void onButtonClickNavigateToView(Button clickedButton, String destinationView) {
+        try {
+            fxmlLoader = new FXMLLoader(IPT_Application.class.getResource(destinationView));
+            scene = new Scene(fxmlLoader.load(), 1080, 720);
+            GoogleMapsViewController tempGoogleMapsViewController =  fxmlLoader.getController();
+            tempGoogleMapsViewController.setUrl(urlResource);
+            stage = (Stage) clickedButton.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

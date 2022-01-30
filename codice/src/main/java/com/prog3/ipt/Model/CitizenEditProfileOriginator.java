@@ -7,6 +7,8 @@ public class CitizenEditProfileOriginator {
     private Citizen currentCitizen;
     private CitizenEditProfileMemento savedStates = new CitizenEditProfileMemento();
 
+
+
     public Citizen getCurrentCitizen() { return this.currentCitizen; }
 
     public void setCurrentCitizen(Citizen currentCitizen) { this.currentCitizen = currentCitizen; }
@@ -15,12 +17,12 @@ public class CitizenEditProfileOriginator {
         savedStates.addState(currentCitizen);
     }
 
-    public int restore() {
+    public boolean restore() {
         Citizen lastCitizen = savedStates.getLastCitizenData();
         if (lastCitizen != null) {
             setCurrentCitizen(lastCitizen);
-            return 1;
+            return true;
         }
-        return 0;
+        return false;
     }
 }

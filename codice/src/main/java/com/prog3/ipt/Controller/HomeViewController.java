@@ -32,6 +32,8 @@ public class HomeViewController extends ViewController {
     @FXML
     private Button editProfileButton;
 
+
+
     @FXML
     void onInfoButtonClick(ActionEvent event) {
         super.onButtonClickNavigateToView(infoButton, "InfoView.fxml");

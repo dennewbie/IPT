@@ -1,7 +1,6 @@
 package com.prog3.ipt.Model;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.Objects;
 
 public abstract class User {
@@ -21,25 +20,22 @@ public abstract class User {
         setPassword(password);
     }
 
-
-
-    // Setters
-    public void setName(String name) {
+    // Setters with package visibility
+    void setName(String name) {
         this.name = name;
     }
-    public void setSurname(String surname) {
+    void setSurname(String surname) {
         this.surname = surname;
     }
-    public void setBirthDate(LocalDate birthDate) {
+    void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
-    public void setEmail(String email) {
+    void setEmail(String email) {
         this.email = email;
     }
-    public void setPassword(String password) {
+    void setPassword(String password) {
         this.password = password;
     }
-
 
     // Getters
     public String getName() {
@@ -57,8 +53,6 @@ public abstract class User {
     public String getPassword() {
         return this.password;
     }
-
-
 
     @Override
     public String toString() {
