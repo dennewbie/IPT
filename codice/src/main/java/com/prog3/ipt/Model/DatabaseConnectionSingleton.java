@@ -9,18 +9,24 @@ public class DatabaseConnectionSingleton {
     private String username = "root";
     private String password = "dominick";
 
-
+    /** Protect against instantiation via reflection */
     private DatabaseConnectionSingleton() throws SQLException {
+        if (instance != null) throw new IllegalStateException("Already initialized.");
         this.connection = DriverManager.getConnection(url, username, password);
     }
-    public Connection getConnection() {
+
+    private Connection getConnection() {
         return connection;
     }
+
+    /** The instance doesn't get created until the method is called for the first time. */
     public static DatabaseConnectionSingleton getInstance() throws SQLException {
-        if (instance == null) {
-            instance = new DatabaseConnectionSingleton();
-        } else if (instance.getConnection().isClosed()) {
-            instance = new DatabaseConnectionSingleton();
+        synchronized (DatabaseConnectionSingleton.class) {
+            if (instance == null) {
+                instance = new DatabaseConnectionSingleton();
+            } else if (instance.getConnection().isClosed()) {
+                instance = new DatabaseConnectionSingleton();
+            }
         }
         return instance;
     }

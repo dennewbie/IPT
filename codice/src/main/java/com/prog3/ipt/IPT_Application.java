@@ -29,5 +29,6 @@ public class IPT_Application extends Application {
         launch();
         FacadeSingleton myFacadeSingleton = FacadeSingleton.getInstance();
         Citizen myObservableCitizen = ObservableSingleton.getInstance();
+
     }
 }

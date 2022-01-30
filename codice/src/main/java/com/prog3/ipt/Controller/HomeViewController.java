@@ -69,6 +69,7 @@ public class HomeViewController extends ViewController {
     }
 
     void enableLoggedUserView(String loggedUsername) {
+        loginButton.setDisable(true);
         usernameWelcomeLabel.setText("Benvenuto "  + loggedUsername);
         logoutButton.setVisible(true);
         buyTicketButton.setDisable(false);
@@ -76,6 +77,7 @@ public class HomeViewController extends ViewController {
     }
 
     void enableGuestUserView() {
+        loginButton.setDisable(false);
         logoutButton.setVisible(false);
         buyTicketButton.setDisable(true);
         editProfileButton.setDisable(true);
