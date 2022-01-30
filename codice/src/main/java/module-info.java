@@ -11,6 +11,7 @@ module com.prog3.ipt {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
+    requires java.sql;
 
     opens com.prog3.ipt to javafx.fxml;
     exports com.prog3.ipt.Model;
