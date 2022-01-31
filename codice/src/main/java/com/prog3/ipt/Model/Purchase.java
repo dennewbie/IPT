@@ -1,5 +1,7 @@
 package com.prog3.ipt.Model;
 
+import com.prog3.ipt.Model.TravelDocumentClasses.TravelDocument;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Objects;

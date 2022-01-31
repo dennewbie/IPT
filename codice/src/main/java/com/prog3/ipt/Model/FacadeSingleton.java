@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 /** Thread-safe Singleton class. The instance is lazily initialized and thus needs synchronization mechanism. */
 public class FacadeSingleton {
-    // metodo connnessione DB, richiesta di operazioni maggiore alle classi Util dei sottosistemi, etc.
+    // metodo connnessione DB, richiesta di operazioni maggiori alle classi Util dei sottosistemi, etc.
     private static volatile FacadeSingleton instance;
     private static DatabaseConnectionSingleton databaseConnection;
     private static Statement statement;

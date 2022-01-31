@@ -1,7 +1,7 @@
 package com.prog3.ipt.Controller;
 
 import com.prog3.ipt.IPT_Application;
-import com.prog3.ipt.Model.ObservableSingleton;
+import com.prog3.ipt.Model.CitizenClasses.ObservableSingleton;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.*;

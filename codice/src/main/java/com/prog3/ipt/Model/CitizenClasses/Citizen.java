@@ -1,7 +1,6 @@
-package com.prog3.ipt.Model;
+package com.prog3.ipt.Model.CitizenClasses;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -41,18 +40,19 @@ public class Citizen extends User {
         return username;
     }
 
+    // Others
     @Override
-    public boolean equals(Object singleObject) {
-        if (this == singleObject) return true;
-        if (!(singleObject instanceof Citizen)) return false;
-        if (!super.equals(singleObject)) return false;
-        Citizen citizen = (Citizen) singleObject;
-        return citizenID.equals(citizen.citizenID) && registrationDate.equals(citizen.registrationDate) && username.equals(citizen.username);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Citizen)) return false;
+        if (!super.equals(o)) return false;
+        Citizen citizen = (Citizen) o;
+        return getCitizenID().equals(citizen.getCitizenID()) && getRegistrationDate().equals(citizen.getRegistrationDate()) && getUsername().equals(citizen.getUsername());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), citizenID, registrationDate, username);
+        return Objects.hash(super.hashCode(), getCitizenID(), getRegistrationDate(), getUsername());
     }
 
     @Override

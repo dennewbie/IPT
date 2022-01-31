@@ -1,6 +1,8 @@
 package com.prog3.ipt;
 
 import com.prog3.ipt.Model.*;
+import com.prog3.ipt.Model.CitizenClasses.Citizen;
+import com.prog3.ipt.Model.CitizenClasses.ObservableSingleton;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -24,10 +26,17 @@ public class IPT_Application extends Application {
     }
 
     public static void main(String[] args) {
+        /*
+        Esempio Factory Method:
+        TravelDocumentFactory myFactory = new SingleTicketConcreteFactory();
+        LocalDate tempDate = null;
+        TravelDocument myTravelDocument = myFactory.createTravelDocument(MyConstants.singleTicketPrice, tempDate, tempDate, "1", "2", "3", tempDate, null);
+        SingleTicket mySingleTicket = (SingleTicket) myTravelDocument;
+        System.out.println(mySingleTicket);
+        */
         launch();
         FacadeSingleton myFacadeSingleton = FacadeSingleton.getInstance();
         Citizen myObservableCitizen = ObservableSingleton.getInstance();
-        TravelDocumentFactorySingleton myTravelDocumentFactory = TravelDocumentFactorySingleton.getInstance();
     }
 
     @Override

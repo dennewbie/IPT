@@ -1,7 +1,4 @@
-package com.prog3.ipt.Model;
-
-import java.util.Date;
-import java.util.UUID;
+package com.prog3.ipt.Model.CitizenClasses;
 
 public class CitizenEditProfileOriginator {
     private Citizen currentCitizen;
@@ -9,9 +6,9 @@ public class CitizenEditProfileOriginator {
 
 
 
-    public Citizen getCurrentCitizen() { return this.currentCitizen; }
-
     public void setCurrentCitizen(Citizen currentCitizen) { this.currentCitizen = currentCitizen; }
+
+    public Citizen getCurrentCitizen() { return this.currentCitizen; }
 
     public void save() {
         savedStates.addState(currentCitizen);

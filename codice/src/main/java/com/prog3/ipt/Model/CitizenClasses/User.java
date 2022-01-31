@@ -1,4 +1,4 @@
-package com.prog3.ipt.Model;
+package com.prog3.ipt.Model.CitizenClasses;
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -54,6 +54,7 @@ public abstract class User {
         return this.password;
     }
 
+    // Others
     @Override
     public String toString() {
         return "User{" +
@@ -61,20 +62,21 @@ public abstract class User {
                 ", surname='" + surname + '\'' +
                 ", birthDate=" + birthDate +
                 ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 
     @Override
-    public boolean equals(Object singleObject) {
-        if (this == singleObject) return true;
-        if (!(singleObject instanceof User)) return false;
-        User user = (User) singleObject;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+        User user = (User) o;
         return getName().equals(user.getName()) && getSurname().equals(user.getSurname()) && getBirthDate().equals(user.getBirthDate()) && getEmail().equals(user.getEmail()) && getPassword().equals(user.getPassword());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName(), getSurname(), getBirthDate(), getEmail());
+        return Objects.hash(getName(), getSurname(), getBirthDate(), getEmail(), getPassword());
     }
 }
 

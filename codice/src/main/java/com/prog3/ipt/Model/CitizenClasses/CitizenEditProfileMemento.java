@@ -1,6 +1,5 @@
-package com.prog3.ipt.Model;
+package com.prog3.ipt.Model.CitizenClasses;
 
-import com.prog3.ipt.Model.Citizen;
 import java.util.LinkedList;
 
 public class CitizenEditProfileMemento {

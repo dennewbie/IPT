@@ -1,4 +1,4 @@
-package com.prog3.ipt.Model;
+package com.prog3.ipt.Model.CitizenClasses;
 
 import java.time.LocalDate;
 

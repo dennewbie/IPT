@@ -10,23 +10,26 @@ public class CreditCardPayment implements PaymentStrategy{
     private LocalDate expirationDate;
     private String creditCardCVV;
 
-    // Constructor
+
+
     public CreditCardPayment(String creditCardNumber, LocalDate expirationDate, String creditCardCVV) {
         this.creditCardNumber = creditCardNumber;
         this.expirationDate = expirationDate;
         this.creditCardCVV = creditCardCVV;
     }
 
-    // Getters
-    public String getCreditCardNumber() { return creditCardNumber; }
-    public LocalDate getExpirationDate() { return expirationDate; }
-    public String getCreditCardCVV() { return creditCardCVV; }
-
     // Setters
     public void setCreditCardNumber(String creditCardNumber) { this.creditCardNumber = creditCardNumber; }
     public void setExpirationDate(LocalDate expirationDate) { this.expirationDate = expirationDate; }
     public void setCreditCardCVV(String creditCardCVV) { this.creditCardCVV = creditCardCVV; }
 
+    // Getters
+    public String getCreditCardNumber() { return creditCardNumber; }
+    public LocalDate getExpirationDate() { return expirationDate; }
+    public String getCreditCardCVV() { return creditCardCVV; }
+
+
+    // Others
     // check creditCardNumber validity
     private boolean checkCreditCardNumber() {
         // check if credit card number is null or is less than 16 digits
