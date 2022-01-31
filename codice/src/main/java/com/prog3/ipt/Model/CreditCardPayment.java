@@ -28,7 +28,7 @@ public class CreditCardPayment implements PaymentStrategy{
     public void setCreditCardCVV(String creditCardCVV) { this.creditCardCVV = creditCardCVV; }
 
     // check creditCardNumber validity
-    public boolean checkCreditCardNumber() {
+    private boolean checkCreditCardNumber() {
         // check if credit card number is null or is less than 16 digits
         if (creditCardNumber == null || creditCardNumber.length() != 16) { return false; }
 
@@ -41,13 +41,13 @@ public class CreditCardPayment implements PaymentStrategy{
     }
 
     // check expirationDate validity
-    public boolean checkExpirationDate() {
+    private boolean checkExpirationDate() {
         if (expirationDate.isAfter(LocalDate.now())) return true;
         return false;
     }
 
     // check creditCardCVV validity
-    public boolean checkCreditCardCVV() {
+    private boolean checkCreditCardCVV() {
         // check if credit card cvv is null or is less than 3 digits
         if (creditCardCVV == null || creditCardCVV.length() != 3)  return false;
 
