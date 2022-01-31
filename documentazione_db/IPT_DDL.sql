@@ -12,7 +12,6 @@ DROP TABLE `ipt`.`convalida_abbonamento` CASCADE;
 SET FOREIGN_KEY_CHECKS = 1
 
 
-
 CREATE TABLE `IPT`.`cittadino` (
   `id_cittadino` CHAR(5) NOT NULL,
   `username` VARCHAR(45) NOT NULL,
@@ -92,8 +91,8 @@ CREATE TABLE `IPT`.`avviso_utenza` (
   PRIMARY KEY (`id_avviso_utenza`),
   INDEX `id_linea_idx` (`id_linea` ASC) VISIBLE,
   INDEX `id_corsa_idx` (`id_corsa` ASC) VISIBLE,
-  CONSTRAINT `id_linea_avviso_utenza` FOREIGN KEY (`id_linea`) REFERENCES `ipt`.`corsa` (`id_corsa`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `id_corsa_avviso_utenza` FOREIGN KEY (`id_corsa`) REFERENCES `ipt`.`linea` (`id_linea`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `id_linea_avviso_utenza` FOREIGN KEY (`id_linea`) REFERENCES `ipt`.`linea` (`id_linea`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `id_corsa_avviso_utenza` FOREIGN KEY (`id_corsa`) REFERENCES `ipt`.`corsa` (`id_corsa`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 -- totalità rispetto a transazione espressa
