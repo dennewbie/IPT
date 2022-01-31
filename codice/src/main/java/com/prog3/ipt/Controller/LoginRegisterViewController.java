@@ -5,7 +5,6 @@ import com.prog3.ipt.Model.ObservableSingleton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
@@ -50,11 +49,11 @@ public class LoginRegisterViewController extends ViewController {
         } else {
             // controllo validità credenziali
 
-            // recupera dati citizen dal DB e salva nella variabile di classe.
+            // recupera dati citizen dal DB e salva in Observer
             // SELECT name, etc from cittadino where username = textfield. Si mette tutto nella variable sottostante e via.
             Citizen loggedCitizen = new Citizen("Pino", "Giogrgietti", LocalDate.of(1999, 12, 31), "pino.giorgietti@gmail.com", "acciderbolina01", "pinogiorg");
             ObservableSingleton.setInstance(loggedCitizen);
-            onButtonClickNavigateToView(signInButton, "HomeView.fxml");
+            super.onButtonClickNavigateToView(signInButton, "HomeView.fxml");
         }
     }
 

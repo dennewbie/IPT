@@ -11,22 +11,27 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class EditProfileViewController extends ViewController {
+    // Navigation Bar
     @FXML
     private Button backButton;
+
+
+
+    // VBox
+    @FXML
+    private TextField nameTextField;
+    @FXML
+    private TextField surnameTextField;
     @FXML
     private DatePicker birthDatePicker;
     @FXML
     private TextField emailTextField;
     @FXML
-    private TextField nameTextField;
-    @FXML
     private PasswordField passwordSignUpField;
     @FXML
-    private Button saveInformationButton;
-    @FXML
-    private TextField surnameTextField;
-    @FXML
     private Button undoButton;
+    @FXML
+    private Button saveInformationButton;
 
     private CitizenEditProfileOriginator citizenEditProfileOriginator;
 
@@ -34,13 +39,11 @@ public class EditProfileViewController extends ViewController {
 
     @FXML
     void onBackButtonClick(ActionEvent event) {
-        onButtonClickNavigateToView(backButton, "HomeView.fxml");
+        super.onButtonClickNavigateToView(backButton, "HomeView.fxml");
     }
 
     @FXML
     void onSaveInformationButtonClick(ActionEvent event) {
-        // salva, memento, etc
-        // non dovrebbe controllare null di tutti i campi
         if (nameTextField.getText() == null || nameTextField.getText().trim().isEmpty() ||
                 surnameTextField.getText() == null || surnameTextField.getText().trim().isEmpty() ||
                 emailTextField.getText() == null || emailTextField.getText().trim().isEmpty() ||
@@ -81,17 +84,6 @@ public class EditProfileViewController extends ViewController {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Non è possibile tornare ulteriormente indietro con le modifiche", ButtonType.OK);
             alert.showAndWait();
         }
-
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        undoButton.setDisable(true);
-        citizenEditProfileOriginator = new CitizenEditProfileOriginator();
-        citizenEditProfileOriginator.setCurrentCitizen(new Citizen(ObservableSingleton.getInstance().getName(), ObservableSingleton.getInstance().getSurname(),
-                ObservableSingleton.getInstance().getBirthDate(), ObservableSingleton.getInstance().getEmail(), ObservableSingleton.getInstance().getPassword(), ObservableSingleton.getInstance().getUsername()));
-        citizenEditProfileOriginator.save();
-        updateTextFields();
     }
 
     private void updateTextFields() {
@@ -104,5 +96,15 @@ public class EditProfileViewController extends ViewController {
 
     private boolean checkChanges(Citizen firstCitizen, Citizen secondCitizen) {
         return (firstCitizen.getName().equals(secondCitizen.getName())  && firstCitizen.getSurname().equals(secondCitizen.getSurname()) && firstCitizen.getEmail().equals(secondCitizen.getEmail()) && firstCitizen.getBirthDate().isEqual(secondCitizen.getBirthDate()) && firstCitizen.getPassword().equals(secondCitizen.getPassword()));
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        undoButton.setDisable(true);
+        citizenEditProfileOriginator = new CitizenEditProfileOriginator();
+        citizenEditProfileOriginator.setCurrentCitizen(new Citizen(ObservableSingleton.getInstance().getName(), ObservableSingleton.getInstance().getSurname(),
+                ObservableSingleton.getInstance().getBirthDate(), ObservableSingleton.getInstance().getEmail(), ObservableSingleton.getInstance().getPassword(), ObservableSingleton.getInstance().getUsername()));
+        citizenEditProfileOriginator.save();
+        updateTextFields();
     }
 }

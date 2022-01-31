@@ -64,22 +64,6 @@
                         <Insets left="100.0" right="100.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox prefHeight="21.0" prefWidth="500.0">
-                     <children>
-                        <Label text="Inserisci orario di partenza:" />
-                     </children>
-                     <VBox.margin>
-                        <Insets left="100.0" right="100.0" top="20.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="500.0">
-                     <children>
-                        <TextField fx:id="hourTextField" prefHeight="30.0" prefWidth="375.0" promptText="Orario di partenza (hh:mm)" styleClass="textField_box" HBox.hgrow="ALWAYS" />
-                     </children>
-                     <VBox.margin>
-                        <Insets left="100.0" right="100.0" />
-                     </VBox.margin>
-                  </HBox>
                   <HBox>
                      <VBox.margin>
                         <Insets left="100.0" right="100.0" top="30.0" />

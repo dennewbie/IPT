@@ -7,19 +7,21 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class GoogleMapsViewController extends ViewController implements Initializable {
-    @FXML
-    private WebView webView;
+    // Navigation Bar
     @FXML
     private Button backButton;
 
+
+    // Pane
+    @FXML
+    private WebView webView;
+
     private WebEngine engine;
     private String url;
-
 
 
 

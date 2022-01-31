@@ -2,31 +2,32 @@ package com.prog3.ipt.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-
+import javafx.scene.control.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AddMembershipViewController extends ViewController {
+    // NavigationBar
     @FXML
     private Button backButton;
-    @FXML
-    private Button addMembershipToCart;
-    @FXML
-    private Button decreaseMembershipQuantityButton;
-    @FXML
-    private Button helpButton;
-    @FXML
-    private Button increaseMembershipQuantityButton;
+
+
+
+    // VBox
     @FXML
     private DatePicker issueDatePicker;
     @FXML
-    private Label priceResultLabel;
+    private Button decreaseMembershipQuantityButton;
     @FXML
     private TextField quantityTextField;
+    @FXML
+    private Button increaseMembershipQuantityButton;
+    @FXML
+    private Label priceResultLabel;
+    @FXML
+    private Button helpButton;
+    @FXML
+    private Button addMembershipToCart;
 
 
 

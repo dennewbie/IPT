@@ -5,26 +5,26 @@ import java.util.Objects;
 
 public class SingleTicket extends TravelDocument{
     private String lineID;
-    private String raceID;
+    private String rideID;
 
     public SingleTicket(LocalDate issueDate) {
         super(1.5, issueDate, issueDate.plusDays(1));
         setLineID(null);
-        setRaceID(null);
+        setRideID(null);
     }
 
-    public SingleTicket(LocalDate issueDate, String lineID, String raceID) {
+    public SingleTicket(LocalDate issueDate, String lineID, String rideID) {
         super(1.5, issueDate, issueDate.plusDays(1));
         setLineID(lineID);
-        setRaceID(raceID);
+        setRideID(rideID);
     }
 
     // Getters
-    public String getRaceID() { return raceID; }
+    public String getRideID() { return rideID; }
     public String getLineID() { return lineID; }
 
     // Setters
-    public void setRaceID(String raceID) { this.raceID = raceID; }
+    public void setRideID(String rideID) { this.rideID = rideID; }
     public void setLineID(String lineID) { this.lineID = lineID; }
 
     // Abstract method implementation
@@ -35,12 +35,12 @@ public class SingleTicket extends TravelDocument{
         if (!(singleObject instanceof SingleTicket)) return false;
         if (!super.equals(singleObject)) return false;
         SingleTicket singleTicketObject = (SingleTicket) singleObject;
-        return getRaceID().equals(singleTicketObject.getRaceID()) && getLineID().equals(singleTicketObject.getLineID());
+        return getRideID().equals(singleTicketObject.getRideID()) && getLineID().equals(singleTicketObject.getLineID());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), getRaceID(), getLineID());
+        return Objects.hash(super.hashCode(), getRideID(), getLineID());
     }
 
     @Override
@@ -51,7 +51,7 @@ public class SingleTicket extends TravelDocument{
                 ", issueDate=" + getIssueDate() +
                 ", expirationDate=" + getExpirationDate() +
                 ", lineID='" + lineID + '\'' +
-                ", raceID='" + raceID + '\'' +
+                ", raceID='" + rideID + '\'' +
                 '}';
     }
 }

@@ -3,32 +3,30 @@ package com.prog3.ipt.Controller;
 import com.prog3.ipt.IPT_Application;
 import com.prog3.ipt.Model.ObservableSingleton;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
+import javafx.fxml.*;
+import javafx.scene.*;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SearchPathViewController extends ViewController implements Initializable {
+    // Navigation Bar
     @FXML
     private Button backButton;
+
+
+
+    // VBox
     @FXML
-    private Button buyTicketButton;
+    private TextField startingPointTextField;
     @FXML
     private TextField destinationPointTextField;
     @FXML
-    private TextField hourTextField;
+    private Button buyTicketButton;
     @FXML
     private Button searchPathButton;
-    @FXML
-    private TextField startingPointTextField;
 
     private String urlResource;
 
@@ -48,8 +46,7 @@ public class SearchPathViewController extends ViewController implements Initiali
     void onSearchPathButtonClick(ActionEvent event) {
         // ricerca percorso e quando terminato si attiva il pulsante di acquisto titolo viaggio
         if (destinationPointTextField.getText() == null || destinationPointTextField.getText().trim().isEmpty() ||
-                startingPointTextField.getText() == null || startingPointTextField.getText().trim().isEmpty() ||
-                hourTextField.getText() == null || hourTextField.getText().trim().isEmpty()) {
+                startingPointTextField.getText() == null || startingPointTextField.getText().trim().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Hai lasciato uno o più campi vuoti.", ButtonType.OK);
             alert.showAndWait();
         } else {
@@ -59,7 +56,7 @@ public class SearchPathViewController extends ViewController implements Initiali
 
             // build url string
             urlResource = "https://www.google.it/maps/dir/" + startingPoint + "/" + destinationPoint + "/";
-            this.onButtonClickNavigateToView(searchPathButton, "GoogleMapsView.fxml");
+            super.onButtonClickNavigateToView(searchPathButton, "GoogleMapsView.fxml");
         }
     }
 
@@ -71,13 +68,13 @@ public class SearchPathViewController extends ViewController implements Initiali
     @Override
     protected void onButtonClickNavigateToView(Button clickedButton, String destinationView) {
         try {
-            fxmlLoader = new FXMLLoader(IPT_Application.class.getResource(destinationView));
-            scene = new Scene(fxmlLoader.load(), 1080, 720);
-            GoogleMapsViewController tempGoogleMapsViewController =  fxmlLoader.getController();
+            super.setFxmlLoader(new FXMLLoader(IPT_Application.class.getResource(destinationView)));
+            super.setLocalScene(new Scene(super.getFxmlLoader().load(), 1080, 720));
+            GoogleMapsViewController tempGoogleMapsViewController =  super.getFxmlLoader().getController();
             tempGoogleMapsViewController.setUrl(urlResource);
-            stage = (Stage) clickedButton.getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
+            super.setStage((Stage) clickedButton.getScene().getWindow());
+            super.getStage().setScene(super.getLocalScene());
+            super.getStage().show();
         } catch (IOException e) {
             e.printStackTrace();
         }

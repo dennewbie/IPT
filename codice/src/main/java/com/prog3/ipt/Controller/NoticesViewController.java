@@ -8,10 +8,16 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class NoticesViewController extends ViewController {
+    // Navigation Bar
     @FXML
     private Button backButton;
+
+
+
+    // Pane
     @FXML
     private TableView<?> noticesTableView;
+
 
 
     @FXML

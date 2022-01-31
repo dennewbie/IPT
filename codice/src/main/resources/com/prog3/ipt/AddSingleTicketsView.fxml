@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="addMonoTicketsViewAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" styleClass="parent" stylesheets="@addMonoTicketsViewStyle.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prog3.ipt.Controller.AddMonoTicketsViewController">
+<AnchorPane id="addMonoTicketsViewAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" styleClass="parent" stylesheets="@addSingleTicketsViewStyle.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prog3.ipt.Controller.AddSingleTicketsViewController">
     <children>
         <Pane layoutY="68.0" prefHeight="652.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
             <children>
@@ -39,7 +39,7 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="500.0">
                             <children>
-                                <TextField fx:id="ID_CorsaTextField" prefHeight="30.0" prefWidth="375.0" promptText="ID Corsa" styleClass="textField_box" stylesheets="@addMonoTicketsViewStyle.css" HBox.hgrow="ALWAYS" />
+                                <TextField fx:id="ID_RideTextField" prefHeight="30.0" prefWidth="375.0" promptText="ID Corsa" styleClass="textField_box" stylesheets="@addSingleTicketsViewStyle.css" HBox.hgrow="ALWAYS" />
                             </children>
                             <VBox.margin>
                                 <Insets left="100.0" right="100.0" />
@@ -55,7 +55,7 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
                             <children>
-                                <TextField fx:id="ID_LineaTextField" promptText="ID Linea" styleClass="textField_box" HBox.hgrow="ALWAYS" />
+                                <TextField fx:id="ID_LineTextField" promptText="ID Linea" styleClass="textField_box" HBox.hgrow="ALWAYS" />
                             </children>
                             <VBox.margin>
                                 <Insets left="100.0" right="100.0" />
@@ -141,7 +141,7 @@
                 </VBox>
             </children>
         </Pane>
-        <Button fx:id="backButton" layoutX="27.0" layoutY="35.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="45.0" prefWidth="250.0" styleClass="backToTicketsManagementViewButton" text="Home" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0">
+        <Button fx:id="backButton" layoutX="27.0" layoutY="35.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="45.0" prefWidth="250.0" styleClass="backToTicketsManagementViewButton" text="Acquista Titoli Viaggio" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0">
             <graphic>
                 <FontAwesomeIconView fill="WHITE" glyphName="ARROW_LEFT" />
             </graphic>

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="homeViewAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prog3.ipt.Controller.HomeViewController">
+<AnchorPane id="homeViewAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prog3.ipt.Controller.HomeViewController">
     <children>
         <Pane prefHeight="165.0" prefWidth="805.0" style="-fx-background-color: #251161;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -89,7 +89,7 @@
                <graphic>
                   <FontAwesomeIconView fill="WHITE" glyphName="WARNING" size="50" />
                </graphic></Button>
-            <Button fx:id="ticketsManagementButton" alignment="CENTER" contentDisplay="TOP" disable="true" mnemonicParsing="false" onAction="#onTicketsManagementButtonClick" prefHeight="185.0" prefWidth="441.0" styleClass="homeViewButton" stylesheets="@homeViewStyle.css" text="Acquista Titolo Viaggio" textFill="WHITE" GridPane.columnIndex="2">
+            <Button fx:id="buyTravelDocumentsButton" alignment="CENTER" contentDisplay="TOP" disable="true" mnemonicParsing="false" onAction="#onBuyTravelDocumentsButtonClick" prefHeight="185.0" prefWidth="441.0" styleClass="homeViewButton" stylesheets="@homeViewStyle.css" text="Acquista Titoli Viaggio" textFill="WHITE" GridPane.columnIndex="2">
                <font>
                   <Font size="20.0" />
                </font>

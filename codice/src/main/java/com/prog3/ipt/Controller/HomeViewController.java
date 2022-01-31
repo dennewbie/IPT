@@ -6,29 +6,31 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 
 public class HomeViewController extends ViewController {
-    @FXML
-    private AnchorPane homeViewAnchorPane;
+    // Welcome Top Bar
     @FXML
     private Label usernameWelcomeLabel;
     @FXML
+    private Button logoutButton;
+
+
+
+    // Pane
+    @FXML
     private Button loginButton;
     @FXML
-    private Button logoutButton;
-    @FXML
     private Button searchPathButton;
+    @FXML
+    private Button buyTravelDocumentsButton;
     @FXML
     private Button infoButton;
     @FXML
     private Button noticesButton;
-    @FXML
-    private Button ticketsManagementButton;
     @FXML
     private Button editProfileButton;
 
@@ -61,8 +63,8 @@ public class HomeViewController extends ViewController {
     }
 
     @FXML
-    void onTicketsManagementButtonClick(ActionEvent event) {
-        super.onButtonClickNavigateToView(ticketsManagementButton, "TicketsManagementView.fxml");
+    void onBuyTravelDocumentsButtonClick(ActionEvent event) {
+        super.onButtonClickNavigateToView(buyTravelDocumentsButton, "TicketsManagementView.fxml");
     }
 
     @FXML
@@ -70,18 +72,18 @@ public class HomeViewController extends ViewController {
         super.onButtonClickNavigateToView(editProfileButton, "EditProfileView.fxml");
     }
 
-    void enableLoggedUserView(String loggedUsername) {
+    private void enableLoggedUserView(String loggedUsername) {
         loginButton.setDisable(true);
         usernameWelcomeLabel.setText("Benvenuto "  + loggedUsername);
         logoutButton.setVisible(true);
-        ticketsManagementButton.setDisable(false);
+        buyTravelDocumentsButton.setDisable(false);
         editProfileButton.setDisable(false);
     }
 
-    void enableGuestUserView() {
+    private void enableGuestUserView() {
         loginButton.setDisable(false);
         logoutButton.setVisible(false);
-        ticketsManagementButton.setDisable(true);
+        buyTravelDocumentsButton.setDisable(true);
         editProfileButton.setDisable(true);
         usernameWelcomeLabel.setText("Ospite");
     }

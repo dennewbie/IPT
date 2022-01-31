@@ -154,7 +154,7 @@
                </HBox>
                <HBox prefHeight="62.0" prefWidth="505.0">
                   <children>
-                     <Button fx:id="addMonoTicketsButton" mnemonicParsing="false" onAction="#onAddMonoTicketsButtonClick" prefHeight="68.0" prefWidth="239.0" styleClass="ticketsManagementViewButton" text="Aggiungi biglietti singoli" textFill="WHITE">
+                     <Button fx:id="addSingleTicketsButton" mnemonicParsing="false" onAction="#onAddSingleTicketsButtonClick" prefHeight="68.0" prefWidth="239.0" styleClass="ticketsManagementViewButton" text="Aggiungi biglietti singoli" textFill="WHITE">
                         <HBox.margin>
                            <Insets right="15.0" />
                         </HBox.margin>
@@ -162,7 +162,7 @@
                            <Font size="17.0" />
                         </font>
                      </Button>
-                     <Button fx:id="addSubscriptionButton" mnemonicParsing="false" onAction="#onAddSubscriptionButtonClick" prefHeight="68.0" prefWidth="239.0" styleClass="ticketsManagementViewButton" text="Aggiungi abbonamenti" textFill="WHITE">
+                     <Button fx:id="addMembershipsButton" mnemonicParsing="false" onAction="#onAddMembershipsButtonClick" prefHeight="68.0" prefWidth="239.0" styleClass="ticketsManagementViewButton" text="Aggiungi abbonamenti" textFill="WHITE">
                         <HBox.margin>
                            <Insets left="15.0" />
                         </HBox.margin>

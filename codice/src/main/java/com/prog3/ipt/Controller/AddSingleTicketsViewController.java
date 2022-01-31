@@ -8,25 +8,30 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AddMonoTicketsViewController extends ViewController {
-    @FXML
-    private TextField ID_CorsaTextField;
-    @FXML
-    private TextField ID_LineaTextField;
-    @FXML
-    private Button addMonoTicketsToCart;
+public class AddSingleTicketsViewController extends ViewController {
+    // Navigation Bar
     @FXML
     private Button backButton;
+
+
+
+    // VBox
+    @FXML
+    private TextField ID_RideTextField;
+    @FXML
+    private TextField ID_LineTextField;
     @FXML
     private Button decreaseMonoTicketQuantityButton;
     @FXML
-    private Button helpButton;
+    private TextField quantityTextField;
     @FXML
     private Button increaseMonoTicketQuantityButton;
     @FXML
-    private TextField quantityTextField;
-    @FXML
     private Label priceResultLabel;
+    @FXML
+    private Button helpButton;
+    @FXML
+    private Button addMonoTicketsToCart;
 
 
 

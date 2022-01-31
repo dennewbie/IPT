@@ -90,7 +90,7 @@
                                         <Font size="20.0" />
                                     </font>
                                 </Label>
-                                <Label fx:id="priceResultLabel" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="494.0" text="prezzo">
+                                <Label fx:id="priceResultLabel" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="494.0" text="€ 0.00">
                                     <font>
                                         <Font size="20.0" />
                                     </font>
@@ -127,7 +127,7 @@
                 </VBox>
             </children>
         </Pane>
-        <Button fx:id="backButton" layoutX="27.0" layoutY="35.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="45.0" prefWidth="250.0" styleClass="backToTicketsManagementViewButton" text="Home" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0">
+        <Button fx:id="backButton" layoutX="27.0" layoutY="35.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="45.0" prefWidth="250.0" styleClass="backToTicketsManagementViewButton" text="Acquista Titoli Viaggio" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0">
             <graphic>
                 <FontAwesomeIconView fill="WHITE" glyphName="ARROW_LEFT" />
             </graphic>

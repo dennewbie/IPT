@@ -6,52 +6,61 @@ import javafx.scene.control.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.scene.control.Button;
-import javafx.scene.layout.HBox;
 
-
+/*
+    Aggiungere gestione tabella con interfacciamento DB, possibilità di rimozione dalla table view con puslante dedicato per ogni riga
+ */
 public class TicketsManagementViewController extends ViewController {
+    // NavigationBar
     @FXML
     private Button backButton;
+
+
+
+    // Left Vbox
     @FXML
-    private TextField CVV_TextField;
-    @FXML
-    private Button addMonoTicketsButton;
-    @FXML
-    private Button addSubscriptionButton;
-    @FXML
-    private Button buyCartItemsButton;
-    @FXML
-    private TextField creditCardNumberTextField;
-    @FXML
-    private DatePicker expirationCreditCardDatePicker;
+    private TableView<?> myTicketsTableView;
     @FXML
     private ComboBox<?> paymentMethodsDropDownList;
     @FXML
+    private TextField creditCardNumberTextField;
+    @FXML
+    private TextField CVV_TextField;
+    @FXML
+    private DatePicker expirationCreditCardDatePicker;
+    @FXML
     private Button savePaymentMethodButton;
+
+
+    // Right VBox
     @FXML
     private TableView<?> myCartTableView;
     @FXML
-    private TableView<?> myTicketsTableView;
+    private Button addSingleTicketsButton;
+    @FXML
+    private Button addMembershipsButton;
+    @FXML
+    private Button buyCartItemsButton;
+
 
 
     // create temporary transaction
-
     @FXML
     void onBackButtonClick(ActionEvent event) {
         super.onButtonClickNavigateToView(backButton, "HomeView.fxml");
     }
 
     @FXML
-    void onAddMonoTicketsButtonClick(ActionEvent event) {
-        super.onButtonClickNavigateToView(addMonoTicketsButton, "AddMonoTicketsView.fxml");
+    void onAddSingleTicketsButtonClick(ActionEvent event) {
+        super.onButtonClickNavigateToView(addSingleTicketsButton, "AddSingleTicketsView.fxml");
         // add ticket to temporary transaction
         // add price to total
     }
 
     @FXML
-    void onAddSubscriptionButtonClick(ActionEvent event) {
-        super.onButtonClickNavigateToView(addMonoTicketsButton, "AddMembershipView.fxml");
-        // add subscription to temporary transaction
+    void onAddMembershipsButtonClick(ActionEvent event) {
+        super.onButtonClickNavigateToView(addMembershipsButton, "AddMembershipView.fxml");
+        // add membership to temporary transaction
         // add price to total
     }
 
@@ -66,8 +75,13 @@ public class TicketsManagementViewController extends ViewController {
         // add payment method to user payment methods
     }
 
+    @FXML
+    void onSelectedDropDownListElement(ActionEvent event) {
+
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // initialize transaction, maybe store temporary transaction (memento)
+        // initialize transaction, maybe store temporary transaction
     }
 }

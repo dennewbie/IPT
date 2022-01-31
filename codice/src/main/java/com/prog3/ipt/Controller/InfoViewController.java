@@ -8,10 +8,16 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class InfoViewController extends ViewController {
+    // Navigation Bar
     @FXML
     private Button backButton;
+
+
+
+    // Pane
     @FXML
     private TableView<?> infoTableView;
+
 
 
     @FXML
