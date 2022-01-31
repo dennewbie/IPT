@@ -22,7 +22,7 @@ CREATE TABLE `IPT`.`cittadino` (
   UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE,
   UNIQUE INDEX `cittadinocol_UNIQUE` (`email` ASC) VISIBLE,
   CONSTRAINT `check_date1` check (`data_nascita` < `data_registrazione`),
-  CONSTRAINT `check_email1` check (REGEXP_LIKE(`email`, '^[A-Za-z]+@[A-Za-z]+\.[a-z]$'))
+  CONSTRAINT `check_email1` check (REGEXP_LIKE(`email`, '^[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$'))
   );
 
 -- totalità rispetto a Cittadino espressa implicitamente dalla pk
