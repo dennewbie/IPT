@@ -146,7 +146,7 @@ CREATE TABLE `ipt`.`convalida_abbonamento` (
   `id_abbonamento` CHAR(5) NOT NULL,
   `id_corsa` CHAR(5) NOT NULL,
   `id_linea` CHAR(5) NOT NULL,
-  `data_convalida` DATE NOT NULL,
+  `data_convalida` DATETIME NOT NULL,
   PRIMARY KEY (`id_abbonamento`, `id_corsa`, `id_linea`, `data_convalida`),
   INDEX `id_linea_idx` (`id_linea` ASC) VISIBLE,
   INDEX `id_corsa_idx` (`id_corsa` ASC) VISIBLE,
