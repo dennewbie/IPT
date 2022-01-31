@@ -50,12 +50,11 @@ CREATE TABLE `IPT`.`linea` (
   `data_attivazione` DATE NOT NULL,
   `orario_chiusura` DATE NOT NULL,
   `orario_apertura` DATE NOT NULL,
-  PRIMARY KEY (`id_linea`)),
+  PRIMARY KEY (`id_linea`),
   CONSTRAINT `check_lunghezza` check (`lunghezza` > 0),
   CONSTRAINT `check_date9` check (`data_attivazione` < `orario_apertura`),
   CONSTRAINT `check_date10` check (`orario_apertura` < `orario_chiusura`),
-  CONSTRAINT `check_fermata` check (`fermata_inizio` < `fermata_fine`)
-  };
+  CONSTRAINT `check_fermata` check (`fermata_inizio` < `fermata_fine`));
 
 -- totalità rispetto a Linea espressa implicitamente dalla pk
 CREATE TABLE `IPT`.`corsa` (
