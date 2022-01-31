@@ -1,8 +1,6 @@
-package com.prog3.ipt.Model;
+package com.prog3.ipt.Model.FacadeClasses;
 
 import javax.xml.transform.Result;
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.Statement;
 
 /** Thread-safe Singleton class. The instance is lazily initialized and thus needs synchronization mechanism. */

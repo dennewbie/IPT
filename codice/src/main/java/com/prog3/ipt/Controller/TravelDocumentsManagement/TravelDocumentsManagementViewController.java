@@ -1,5 +1,6 @@
-package com.prog3.ipt.Controller;
+package com.prog3.ipt.Controller.TravelDocumentsManagement;
 
+import com.prog3.ipt.Controller.ViewController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -10,7 +11,7 @@ import javafx.scene.control.Button;
 /*
     Aggiungere gestione tabella con interfacciamento DB, possibilità di rimozione dalla table view con puslante dedicato per ogni riga
  */
-public class TicketsManagementViewController extends ViewController {
+public class TravelDocumentsManagementViewController extends ViewController {
     // NavigationBar
     @FXML
     private Button backButton;

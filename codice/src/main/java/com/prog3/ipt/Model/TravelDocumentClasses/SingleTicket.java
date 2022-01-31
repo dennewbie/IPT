@@ -27,9 +27,9 @@ public class SingleTicket extends TravelDocument {
     public String getLineID() { return lineID; }
     public LocalDate getStampDate() { return stampDate; }
 
+
+
     // Others
-    // Abstract method implementation
-    // public void calculatePrice() {}
     @Override
     public String toString() {
         return super.toString() + "SingleTicket{" +

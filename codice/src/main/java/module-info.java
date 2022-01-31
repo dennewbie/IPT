@@ -23,5 +23,11 @@ module com.prog3.ipt {
     opens com.prog3.ipt.Model.TravelDocumentClasses to javafx.fxml;
     exports com.prog3.ipt.Model.CitizenClasses;
     opens com.prog3.ipt.Model.CitizenClasses to javafx.fxml;
+    exports com.prog3.ipt.Controller.TravelDocumentsManagement;
+    opens com.prog3.ipt.Controller.TravelDocumentsManagement to javafx.fxml;
+    exports com.prog3.ipt.Model.PaymentMethodClasses;
+    opens com.prog3.ipt.Model.PaymentMethodClasses to javafx.fxml;
+    exports com.prog3.ipt.Model.FacadeClasses;
+    opens com.prog3.ipt.Model.FacadeClasses to javafx.fxml;
 
 }

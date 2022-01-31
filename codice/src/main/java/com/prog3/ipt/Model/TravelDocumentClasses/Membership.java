@@ -21,8 +21,6 @@ public class Membership extends TravelDocument {
     public LocalDate getStartDate() { return startDate; }
 
     // Others
-    // Abstract method implementation
-    // public void calculatePrice() {}
     @Override
     public String toString() {
         return super.toString() + "Membership{" +

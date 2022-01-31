@@ -1,8 +1,8 @@
 package com.prog3.ipt;
 
-import com.prog3.ipt.Model.*;
 import com.prog3.ipt.Model.CitizenClasses.Citizen;
 import com.prog3.ipt.Model.CitizenClasses.ObservableSingleton;
+import com.prog3.ipt.Model.FacadeClasses.FacadeSingleton;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

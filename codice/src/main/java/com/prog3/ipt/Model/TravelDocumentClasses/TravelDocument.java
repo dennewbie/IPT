@@ -36,8 +36,6 @@ public abstract class TravelDocument {
     public String getTransactionID() { return transactionID; }
 
     // Others
-    // Abstract method
-    //protected abstract void calculatePrice();
     @Override
     public String toString() {
         return "TravelDocument{" +
@@ -54,7 +52,7 @@ public abstract class TravelDocument {
         if (this == o) return true;
         if (!(o instanceof TravelDocument)) return false;
         TravelDocument travelDocument = (TravelDocument) o;
-        return Double.compare(travelDocument.getPrice(), getPrice()) == 0 && getTravelDocumentID().equals(travelDocument.getTravelDocumentID()) && getIssueDate().equals(travelDocument.getIssueDate()) && Objects.equals(getExpirationDate(), travelDocument.getExpirationDate()) && Objects.equals(getTransactionID(), travelDocument.getTransactionID());
+        return travelDocument.getPrice() == this.getPrice() && getTravelDocumentID().equals(travelDocument.getTravelDocumentID()) && getIssueDate().equals(travelDocument.getIssueDate()) && Objects.equals(getExpirationDate(), travelDocument.getExpirationDate()) && Objects.equals(getTransactionID(), travelDocument.getTransactionID());
     }
 
     @Override
