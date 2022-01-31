@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class AddSingleTicketsViewController extends TravelDocumentsManagementViewController {
@@ -42,7 +43,14 @@ public class AddSingleTicketsViewController extends TravelDocumentsManagementVie
     @FXML
     void onAddSingleTicketsToCartButtonClick(ActionEvent event) {
         // controllo esistenza corsa e linea
-
+        String ID_Ride = ID_RideTextField.getText(), ID_Line = ID_LineTextField.getText();
+        if (ID_Ride == null || ID_RideTextField.getText().trim().isEmpty() || ID_Line == null|| ID_LineTextField.getText().trim().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Hai lasciato uno o più campi vuoti.", ButtonType.OK);
+            alert.showAndWait();
+        } else {
+            // aggiunta al carrello
+            int quantity = Integer.valueOf(quantityTextField.getText());
+        }
     }
 
     @FXML

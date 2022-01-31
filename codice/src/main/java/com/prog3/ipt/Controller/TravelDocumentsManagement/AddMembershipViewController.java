@@ -40,12 +40,17 @@ public class AddMembershipViewController extends TravelDocumentsManagementViewCo
     @FXML
     void onAddMembershipToCartButtonClick(ActionEvent event) {
         LocalDate startDate = startDatePicker.getValue();
-        System.out.println(LocalDate.now());
-        if (!startDate.isBefore(LocalDate.now())) {
-
-        } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Non puoi comprare un abbonamento che ha una data di inizio validità nel passato.", ButtonType.OK);
+        if (startDate == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Hai dimenticato di inserire la data di inizio validità dell'abbonamento", ButtonType.OK);
             alert.showAndWait();
+        } else {
+            if (!startDate.isBefore(LocalDate.now())) {
+                // aggiunta al carrello
+                int quantity = Integer.valueOf(quantityTextField.getText());
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Non puoi comprare un abbonamento che ha una data di inizio validità nel passato.", ButtonType.OK);
+                alert.showAndWait();
+            }
         }
     }
 

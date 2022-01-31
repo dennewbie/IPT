@@ -13,7 +13,7 @@ public class Order {
     private double purchasePrice;
     private String citizenID;
     private PaymentMethodStrategy paymentMethodStrategy;
-    private ArrayList<TravelDocument> purchaseList = new ArrayList<>();
+    private ArrayList<TravelDocument> purchaseList;
 
 
 

@@ -72,6 +72,11 @@ public class LoginRegisterViewController extends ViewController {
             String name = nameTextField.getText(), surname = surnameTextField.getText(), email = emailTextField.getText();
             String usernameSignUp = usernameSignUpTextField.getText(), passwordSignUp = passwordSignUpField.getText();
             LocalDate localDate = birthDatePicker.getValue();
+            if (!localDate.isBefore(LocalDate.now())) {
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Non puoi inserire una data di nascita uguale o successiva ad oggi.", ButtonType.OK);
+                alert.showAndWait();
+                return;
+            }
 
             // controlli dati estratti...
             // creo utente, db, etc.

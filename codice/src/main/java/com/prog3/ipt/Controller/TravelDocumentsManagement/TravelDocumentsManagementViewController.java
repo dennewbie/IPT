@@ -1,10 +1,13 @@
 package com.prog3.ipt.Controller.TravelDocumentsManagement;
 
 import com.prog3.ipt.Controller.ViewController;
+import com.prog3.ipt.Model.CitizenClasses.ObservableSingleton;
+import com.prog3.ipt.Model.PaymentMethodClasses.Order;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.scene.control.Button;
 
@@ -12,6 +15,7 @@ import javafx.scene.control.Button;
     Aggiungere gestione tabella con interfacciamento DB, possibilità di rimozione dalla table view con puslante dedicato per ogni riga
  */
 public class TravelDocumentsManagementViewController extends ViewController {
+    protected Order myOrder;
     // NavigationBar
     @FXML
     private Button backButton;
@@ -84,5 +88,9 @@ public class TravelDocumentsManagementViewController extends ViewController {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // initialize transaction, maybe store temporary transaction
+        setOrder(new Order(null, 0.0, ObservableSingleton.getInstance().getCitizenID(), null, new ArrayList<>()));
     }
+
+    protected void setOrder(Order order) { this.myOrder = order; }
+    protected Order getOrder() { return this.myOrder; }
 }

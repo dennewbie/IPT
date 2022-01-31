@@ -55,8 +55,13 @@ public class EditProfileViewController extends ViewController {
             // controllo validità credenziali
             String name = nameTextField.getText(), surname = surnameTextField.getText(), email = emailTextField.getText(), password = passwordSignUpField.getText();
             LocalDate localDate = birthDatePicker.getValue();
-            ObservableSingleton.updateInstance(name, surname, localDate, email, password);
+            if (!localDate.isBefore(LocalDate.now())) {
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Non puoi inserire una data di nascita uguale o successiva ad oggi.", ButtonType.OK);
+                alert.showAndWait();
+                return;
+            }
 
+            ObservableSingleton.updateInstance(name, surname, localDate, email, password);
             if (checkChanges(ObservableSingleton.getInstance(), citizenEditProfileOriginator.getCurrentCitizen()) == false) {
                 citizenEditProfileOriginator.setCurrentCitizen(new Citizen(name, surname, localDate, email, password, ObservableSingleton.getInstance().getUsername()));
                 citizenEditProfileOriginator.save();
