@@ -44,7 +44,7 @@
                                 <Insets left="100.0" right="100.0" />
                             </VBox.margin>
                             <children>
-                                <DatePicker fx:id="issueDatePicker" prefHeight="27.0" prefWidth="1060.0" promptText="Data di Emissione Abbonamento" styleClass="textField_box" />
+                                <DatePicker fx:id="startDatePicker" prefHeight="27.0" prefWidth="1060.0" promptText="Data di Emissione Abbonamento" styleClass="textField_box" />
                             </children>
                         </HBox>
                         <HBox prefHeight="21.0" prefWidth="500.0">

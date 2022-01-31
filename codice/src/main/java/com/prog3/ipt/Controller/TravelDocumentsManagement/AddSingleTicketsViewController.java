@@ -1,15 +1,13 @@
 package com.prog3.ipt.Controller.TravelDocumentsManagement;
 
-import com.prog3.ipt.Controller.ViewController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AddSingleTicketsViewController extends ViewController {
+public class AddSingleTicketsViewController extends TravelDocumentsManagementViewController {
     // Navigation Bar
     @FXML
     private Button backButton;
@@ -42,27 +40,35 @@ public class AddSingleTicketsViewController extends ViewController {
     }
 
     @FXML
-    void onAddMonoTicketsToCartButtonClick(ActionEvent event) {
+    void onAddSingleTicketsToCartButtonClick(ActionEvent event) {
+        // controllo esistenza corsa e linea
 
     }
 
     @FXML
-    void onDecreaseMonoTicketQuantityButtonClick(ActionEvent event) {
+    void onIncreaseSingleTicketQuantityButtonClick(ActionEvent event) {
+        quantityTextField.setText(String.valueOf(Integer.parseInt(quantityTextField.getText()) + 1));
+    }
 
+    @FXML
+    void onDecreaseSingleTicketQuantityButtonClick(ActionEvent event) {
+        int currentQuantity = Integer.parseInt(quantityTextField.getText());
+        if (currentQuantity > 0) quantityTextField.setText(String.valueOf(currentQuantity - 1));
     }
 
     @FXML
     void onHelpButtonClick(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onIncreaseMonoTicketQuantityButtonClick(ActionEvent event) {
-
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, "È possibile aggiungere uno o più biglietti singoli al carrello. " +
+                "È possibile utilizzare il biglietto singolo per la corsa e per la linea da te specificata. La validità del titolo di viaggio è a partire" +
+                "dalla data di timbratura del biglietto fino al giorno seguente allo stesso orario. Se selezioni più biglietti singoli, questi" +
+                " saranno validi tutti per la stessa corsa e per la stessa linea. Se è necessario che siano diverse, aggiungi" +
+                "separatamente i biglietti singoli al carrello.", ButtonType.OK);
+        alert.showAndWait();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        quantityTextField.setText(String.valueOf(0));
+        priceResultLabel.setText("€" + String.valueOf(0.00));
     }
 }

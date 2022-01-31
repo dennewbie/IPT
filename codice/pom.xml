@@ -100,6 +100,11 @@
             <artifactId>charm-down-core</artifactId>
             <version>3.8.6</version>
         </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
+            <version>17.0.1</version>
+        </dependency>
     </dependencies>
 
     <build>

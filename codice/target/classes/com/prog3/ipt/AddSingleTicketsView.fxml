@@ -71,7 +71,7 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
                             <children>
-                                <Button fx:id="decreaseMonoTicketQuantityButton" mnemonicParsing="false" onAction="#onDecreaseMonoTicketQuantityButtonClick" styleClass="addMonoTicketViewButton" textFill="WHITE">
+                                <Button fx:id="decreaseMonoTicketQuantityButton" mnemonicParsing="false" onAction="#onDecreaseSingleTicketQuantityButtonClick" styleClass="addMonoTicketViewButton" textFill="WHITE">
                                     <HBox.margin>
                                         <Insets />
                                     </HBox.margin>
@@ -84,7 +84,7 @@
                                         <Insets left="50.0" right="50.0" />
                                     </HBox.margin>
                                 </TextField>
-                                <Button fx:id="increaseMonoTicketQuantityButton" mnemonicParsing="false" onAction="#onIncreaseMonoTicketQuantityButtonClick" styleClass="addMonoTicketViewButton" textFill="WHITE">
+                                <Button fx:id="increaseMonoTicketQuantityButton" mnemonicParsing="false" onAction="#onIncreaseSingleTicketQuantityButtonClick" styleClass="addMonoTicketViewButton" textFill="WHITE">
                                     <HBox.margin>
                                         <Insets right="500.0" />
                                     </HBox.margin>
@@ -124,7 +124,7 @@
                                         <Insets right="50.0" />
                                     </HBox.margin>
                                 </Button>
-                                <Button fx:id="addMonoTicketsToCart" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onAddMonoTicketsToCartButtonClick" prefHeight="68.0" prefWidth="460.0" styleClass="addMonoTicketViewButton" text="Aggiungi al Carrello" textFill="WHITE">
+                                <Button fx:id="addMonoTicketsToCart" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onAddSingleTicketsToCartButtonClick" prefHeight="68.0" prefWidth="460.0" styleClass="addMonoTicketViewButton" text="Aggiungi al Carrello" textFill="WHITE">
                                     <font>
                                         <Font size="17.0" />
                                     </font>

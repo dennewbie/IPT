@@ -10,7 +10,7 @@ import javafx.scene.web.WebView;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class GoogleMapsViewController extends ViewController implements Initializable {
+public class GoogleMapsViewController extends ViewController {
     // Navigation Bar
     @FXML
     private Button backButton;

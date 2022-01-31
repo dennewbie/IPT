@@ -51,7 +51,6 @@ public class LoginRegisterViewController extends ViewController {
 
             // recupera dati citizen dal DB e salva in Observer
             // SELECT name, etc from cittadino where username = textfield. Si mette tutto nella variable sottostante e via.
-            System.out.println(passwordSignInField.getText());
             Citizen loggedCitizen = new Citizen("Pino", "Giogrgietti", LocalDate.of(1999, 12, 31), "pino.giorgietti@gmail.com", "acciderbolina01", "pinogiorg");
             ObservableSingleton.setInstance(loggedCitizen);
             super.onButtonClickNavigateToView(signInButton, "HomeView.fxml");

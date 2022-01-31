@@ -14,10 +14,10 @@ public class Membership extends TravelDocument {
         setStartDate(startDate);
     }
 
-    // Setter
+    // Setters
     private void setStartDate(LocalDate startDate) { this.startDate = startDate; }
 
-    // Getter
+    // Getters
     public LocalDate getStartDate() { return startDate; }
 
     // Others
