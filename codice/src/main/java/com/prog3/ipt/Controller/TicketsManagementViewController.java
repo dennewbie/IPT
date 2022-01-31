@@ -43,12 +43,14 @@ public class TicketsManagementViewController extends ViewController {
 
     @FXML
     void onAddMonoTicketsButtonClick(ActionEvent event) {
+        super.onButtonClickNavigateToView(addMonoTicketsButton, "AddMonoTicketsView.fxml");
         // add ticket to temporary transaction
         // add price to total
     }
 
     @FXML
     void onAddSubscriptionButtonClick(ActionEvent event) {
+        super.onButtonClickNavigateToView(addMonoTicketsButton, "AddMembershipView.fxml");
         // add subscription to temporary transaction
         // add price to total
     }
