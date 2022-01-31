@@ -8,7 +8,7 @@ public class PhoneNumberBillPaymentMethod implements PaymentMethodStrategy {
 
 
     public PhoneNumberBillPaymentMethod(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+        setPhoneNumber(phoneNumber);
     }
 
     // Setters
