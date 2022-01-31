@@ -98,9 +98,9 @@ CREATE TABLE `IPT`.`avviso_utenza` (
 -- totalità rispetto a transazione espressa
 CREATE TABLE `IPT`.`biglietto` (
   `id_biglietto` CHAR(5) NOT NULL,
-  `data_emissione` DATE NOT NULL,
-  `data_scadenza` DATE,
-  `data_timbro` DATE,
+  `data_emissione` DATETIME NOT NULL,
+  `data_scadenza` DATETIME,
+  `data_timbro` DATETIME,
   `prezzo` FLOAT NOT NULL,
   `id_corsa` CHAR(5),
   `id_linea` CHAR(5),
@@ -146,7 +146,7 @@ CREATE TABLE `ipt`.`convalida_abbonamento` (
   `id_abbonamento` CHAR(5) NOT NULL,
   `id_corsa` CHAR(5) NOT NULL,
   `id_linea` CHAR(5) NOT NULL,
-  `data_convalida` DATE NOT NULL,
+  `data_convalida` DATETIME NOT NULL,
   PRIMARY KEY (`id_abbonamento`, `id_corsa`, `id_linea`, `data_convalida`),
   INDEX `id_linea_idx` (`id_linea` ASC) VISIBLE,
   INDEX `id_corsa_idx` (`id_corsa` ASC) VISIBLE,
