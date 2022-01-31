@@ -1,3 +1,5 @@
+SET FOREIGN_KEY_CHECKS = 0
+
 DROP TABLE `ipt`.`cittadino` CASCADE;
 DROP TABLE `ipt`.`transazione` CASCADE;
 DROP TABLE `ipt`.`linea` CASCADE;
@@ -7,6 +9,7 @@ DROP TABLE `ipt`.`biglietto` CASCADE;
 DROP TABLE `ipt`.`abbonamento` CASCADE;
 DROP TABLE `ipt`.`convalida_abbonamento` CASCADE;
 
+SET FOREIGN_KEY_CHECKS = 1
 
 
 CREATE TABLE `IPT`.`cittadino` (
@@ -79,17 +82,17 @@ CREATE TABLE `IPT`.`corsa` (
 
 -- totalità rispetto a corsa espressa
 CREATE TABLE `IPT`.`avviso_utenza` (
-  `id_avviso_utenze` CHAR(5) NOT NULL,
+  `id_avviso_utenza` CHAR(5) NOT NULL,
   `data` DATE NOT NULL,
   `nome_avviso` VARCHAR(45) NOT NULL,
   `testo` VARCHAR(500) NOT NULL,
   `id_corsa` CHAR(5) NOT NULL,
   `id_linea` CHAR(5) NOT NULL,
-  PRIMARY KEY (`id_avviso_utenze`),
+  PRIMARY KEY (`id_avviso_utenza`),
   INDEX `id_linea_idx` (`id_linea` ASC) VISIBLE,
   INDEX `id_corsa_idx` (`id_corsa` ASC) VISIBLE,
-  CONSTRAINT `id_linea_avviso_utenza` FOREIGN KEY (`id_linea`) REFERENCES `ipt`.`corsa` (`id_corsa`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `id_corsa` FOREIGN KEY (`id_corsa`) REFERENCES `ipt`.`corsa` (`id_corsa`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `id_linea_avviso_utenza` FOREIGN KEY (`id_linea`) REFERENCES `ipt`.`linea` (`id_linea`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `id_corsa_avviso_utenza` FOREIGN KEY (`id_corsa`) REFERENCES `ipt`.`corsa` (`id_corsa`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 -- totalità rispetto a transazione espressa
