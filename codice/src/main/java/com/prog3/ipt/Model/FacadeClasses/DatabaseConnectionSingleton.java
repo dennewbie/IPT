@@ -5,7 +5,7 @@ import java.sql.*;
 public class DatabaseConnectionSingleton {
     private static DatabaseConnectionSingleton instance;
     private Connection connection;
-    private String url = "jdbc:mysql://localhost:3306/IPT";
+    private String url = "jdbc:mysql://localhost:3306/ipt";
     private String username = "root";
     private String password = "ipt22";
 
