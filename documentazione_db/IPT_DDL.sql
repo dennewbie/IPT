@@ -1,3 +1,5 @@
+SET FOREIGN_KEY_CHECKS = 0
+
 DROP TABLE `ipt`.`cittadino` CASCADE;
 DROP TABLE `ipt`.`transazione` CASCADE;
 DROP TABLE `ipt`.`linea` CASCADE;
@@ -7,7 +9,7 @@ DROP TABLE `ipt`.`biglietto` CASCADE;
 DROP TABLE `ipt`.`abbonamento` CASCADE;
 DROP TABLE `ipt`.`convalida_abbonamento` CASCADE;
 
-
+SET FOREIGN_KEY_CHECKS = 1
 
 CREATE TABLE `IPT`.`cittadino` (
   `id_cittadino` CHAR(5) NOT NULL,
