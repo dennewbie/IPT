@@ -31,7 +31,7 @@ public abstract class TravelDocument {
     private void setTravelDocumentID(String travelDocumentID) { this.travelDocumentID = travelDocumentID; }
 
     // Abstract method
-    protected abstract void calculatePrice();
+    //protected abstract void calculatePrice();
 
     @Override
     public String toString() {

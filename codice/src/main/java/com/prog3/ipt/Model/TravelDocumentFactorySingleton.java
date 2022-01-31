@@ -20,11 +20,11 @@ public class TravelDocumentFactorySingleton {
     }
 
     // factory method
-    public TravelDocument createTravelDocument(String typeTravelDocument, Double price, LocalDate issueDate, LocalDate expirationDate) {
+    public TravelDocument createTravelDocument(String typeTravelDocument, LocalDate issueDate) {
         if (typeTravelDocument.equals("Membership")) {
-            return new Membership(price, issueDate, expirationDate);
+            return new Membership(issueDate);
         } else if (typeTravelDocument.equals("SingleTicket")) {
-            return new SingleTicket(price, issueDate, expirationDate);
+            return new SingleTicket(issueDate);
         } else return null;
     }
 }
