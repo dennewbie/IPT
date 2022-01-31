@@ -34,6 +34,7 @@ public class TicketsManagementViewController extends ViewController {
     private TableView<?> myTicketsTableView;
 
 
+    // create temporary transaction
 
     @FXML
     void onBackButtonClick(ActionEvent event) {
@@ -42,26 +43,29 @@ public class TicketsManagementViewController extends ViewController {
 
     @FXML
     void onAddMonoTicketsButtonClick(ActionEvent event) {
-
+        // add ticket to temporary transaction
+        // add price to total
     }
 
     @FXML
     void onAddSubscriptionButtonClick(ActionEvent event) {
-
+        // add subscription to temporary transaction
+        // add price to total
     }
 
     @FXML
     void onBuyCartItemsButtonClick(ActionEvent event) {
-
+        // check payment method (validity)
+        // if valid then add transaction to user transactions else transaction error
     }
 
     @FXML
     void onSavePaymentMethodButtonClick(ActionEvent event) {
-
+        // add payment method to user payment methods
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        // initialize transaction, maybe store temporary transaction (memento)
     }
 }
