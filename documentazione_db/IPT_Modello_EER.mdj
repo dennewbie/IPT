@@ -3423,7 +3423,7 @@
 											"top": 978,
 											"width": 54.18994140625,
 											"height": 26,
-											"text": "Avviso utenze ",
+											"text": "Avviso Utenza ",
 											"wordWrap": true
 										}
 									],
@@ -4667,7 +4667,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF+pqUf/VvYuKw="
 							},
-							"name": "Avviso utenze "
+							"name": "Avviso Utenza "
 						},
 						{
 							"_type": "FCTerminator",
