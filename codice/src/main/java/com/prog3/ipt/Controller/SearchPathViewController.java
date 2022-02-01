@@ -62,7 +62,7 @@ public class SearchPathViewController extends ViewController implements Initiali
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        buyTicketButton.setDisable(ObservableSingleton.getInstance().getUsername() == null);
+        buyTicketButton.setDisable(ObservableSingleton.getCitizen().getUsername() == null);
     }
 
     @Override

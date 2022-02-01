@@ -2,6 +2,7 @@ package com.prog3.ipt;
 
 import com.prog3.ipt.Model.CitizenClasses.Citizen;
 import com.prog3.ipt.Model.CitizenClasses.ObservableSingleton;
+import com.prog3.ipt.Model.CitizenClasses.Order;
 import com.prog3.ipt.Model.FacadeClasses.FacadeSingleton;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -36,7 +37,8 @@ public class IPT_Application extends Application {
         */
         launch();
         FacadeSingleton myFacadeSingleton = FacadeSingleton.getInstance();
-        Citizen myObservableCitizen = ObservableSingleton.getInstance();
+        Citizen myObservableCitizen = ObservableSingleton.getCitizen();
+        Order myObservableOrder = ObservableSingleton.getOrder();
     }
 
     @Override

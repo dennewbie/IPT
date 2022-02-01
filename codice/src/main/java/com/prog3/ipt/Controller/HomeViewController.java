@@ -48,7 +48,7 @@ public class HomeViewController extends ViewController {
 
     @FXML
     void onLogoutButtonClick(ActionEvent event) {
-        ObservableSingleton.setInstance(null);
+        ObservableSingleton.setCitizen(null);
         enableGuestUserView();
     }
 
@@ -90,7 +90,7 @@ public class HomeViewController extends ViewController {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Citizen tempCitizen = ObservableSingleton.getInstance();
+        Citizen tempCitizen = ObservableSingleton.getCitizen();
         if (tempCitizen.getUsername() != null) enableLoggedUserView(tempCitizen.getUsername());
     }
 }
