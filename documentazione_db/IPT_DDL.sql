@@ -1,18 +1,18 @@
 SET FOREIGN_KEY_CHECKS = 0;
 
-DROP TABLE `ipt`.`cittadino` CASCADE;
-DROP TABLE `ipt`.`transazione` CASCADE;
-DROP TABLE `ipt`.`linea` CASCADE;
-DROP TABLE `ipt`.`corsa` CASCADE;
-DROP TABLE `ipt`.`avviso_utenze` CASCADE;
-DROP TABLE `ipt`.`biglietto` CASCADE;
-DROP TABLE `ipt`.`abbonamento` CASCADE;
-DROP TABLE `ipt`.`convalida_abbonamento` CASCADE;
+DROP TABLE  IF EXISTS  `ipt`.`cittadino` CASCADE;
+DROP TABLE  IF EXISTS  `ipt`.`transazione` CASCADE;
+DROP TABLE  IF EXISTS  `ipt`.`linea` CASCADE;
+DROP TABLE  IF EXISTS  `ipt`.`corsa` CASCADE;
+DROP TABLE  IF EXISTS  `ipt`.`avviso_utenza` CASCADE;
+DROP TABLE  IF EXISTS  `ipt`.`biglietto` CASCADE;
+DROP TABLE  IF EXISTS  `ipt`.`abbonamento` CASCADE;
+DROP TABLE  IF EXISTS  `ipt`.`convalida_abbonamento` CASCADE;
 
 SET FOREIGN_KEY_CHECKS = 1;
 
 
-CREATE TABLE `IPT`.`cittadino` (
+CREATE TABLE `ipt`.`cittadino` (
   `id_cittadino` CHAR(5) NOT NULL,
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
@@ -29,7 +29,7 @@ CREATE TABLE `IPT`.`cittadino` (
   );
 
 -- totalità rispetto a Cittadino espressa implicitamente dalla pk
-CREATE TABLE `IPT`.`transazione` (
+CREATE TABLE `ipt`.`transazione` (
   `id_transazione` CHAR(5) NOT NULL,
   `id_cittadino` CHAR(5) NOT NULL,
   `costo` FLOAT NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE `IPT`.`transazione` (
     'PHONE BILL', 'Phone Bill', 'phone bill'))    
 );
 
-CREATE TABLE `IPT`.`linea` (
+CREATE TABLE `ipt`.`linea` (
   `id_linea` CHAR(5) NOT NULL,
   `lunghezza` INT NOT NULL,
   `fermata_inizio` VARCHAR(45) NOT NULL,
@@ -60,7 +60,7 @@ CREATE TABLE `IPT`.`linea` (
   CONSTRAINT `check_fermata` check (`fermata_inizio` <> `fermata_fine`));
 
 -- totalità rispetto a Linea espressa implicitamente dalla pk
-CREATE TABLE `IPT`.`corsa` (
+CREATE TABLE `ipt`.`corsa` (
   `id_corsa` CHAR(5) NOT NULL,
   `id_linea` CHAR(5) NOT NULL,
   `stato` VARCHAR(45) NOT NULL,
@@ -81,7 +81,7 @@ CREATE TABLE `IPT`.`corsa` (
 );
 
 -- totalità rispetto a corsa espressa
-CREATE TABLE `IPT`.`avviso_utenza` (
+CREATE TABLE `ipt`.`avviso_utenza` (
   `id_avviso_utenza` CHAR(5) NOT NULL,
   `data` DATE NOT NULL,
   `nome_avviso` VARCHAR(45) NOT NULL,
@@ -96,7 +96,7 @@ CREATE TABLE `IPT`.`avviso_utenza` (
 );
 
 -- totalità rispetto a transazione espressa
-CREATE TABLE `IPT`.`biglietto` (
+CREATE TABLE `ipt`.`biglietto` (
   `id_biglietto` CHAR(5) NOT NULL,
   `data_emissione` DATETIME NOT NULL,
   `data_scadenza` DATETIME,
@@ -122,7 +122,7 @@ CREATE TABLE `IPT`.`biglietto` (
 );
 
 -- totalità rispetto a transazione espressa
-CREATE TABLE `IPT`.`abbonamento` (
+CREATE TABLE `ipt`.`abbonamento` (
   `id_abbonamento` CHAR(5) NOT NULL,
   `data_emissione` DATE NOT NULL,
   `data_scadenza` DATE NOT NULL,

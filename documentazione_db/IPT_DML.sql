@@ -1,7 +1,7 @@
 
 -- cittadino
 
-INSERT INTO `IPT`.`cittadino`
+INSERT INTO `ipt`.`cittadino`
 (`id_cittadino`,
 `username`,
 `password`,
@@ -23,7 +23,7 @@ VALUES
 
 
 
-INSERT INTO `IPT`.`cittadino`
+INSERT INTO `ipt`.`cittadino`
 (`id_cittadino`,
 `username`,
 `password`,
@@ -44,7 +44,7 @@ VALUES
 
 
 
-INSERT INTO `IPT`.`cittadino`
+INSERT INTO `ipt`.`cittadino`
 (`id_cittadino`,
 `username`,
 `password`,
@@ -66,7 +66,7 @@ VALUES
 
 
 
-INSERT INTO `IPT`.`cittadino`
+INSERT INTO `ipt`.`cittadino`
 (`id_cittadino`,
 `username`,
 `password`,
@@ -89,7 +89,7 @@ VALUES
 
 
 
-INSERT INTO `IPT`.`cittadino`
+INSERT INTO `ipt`.`cittadino`
 (`id_cittadino`,
 `username`,
 `password`,
@@ -112,7 +112,7 @@ VALUES
 
 
 
-INSERT INTO `IPT`.`cittadino`
+INSERT INTO `ipt`.`cittadino`
 (`id_cittadino`,
 `username`,
 `password`,
@@ -133,7 +133,7 @@ VALUES
 
 
 
-INSERT INTO `IPT`.`cittadino`
+INSERT INTO `ipt`.`cittadino`
 (`id_cittadino`,
 `username`,
 `password`,
@@ -155,7 +155,7 @@ VALUES
 
 
 -- transazione
-INSERT INTO `IPT`.`transazione`
+INSERT INTO `ipt`.`transazione`
 (`id_transazione`,
 `id_cittadino`,
 `costo`,
@@ -168,7 +168,7 @@ VALUES
 'PayPal',
 '2022-01-12');
 
-INSERT INTO `IPT`.`transazione`
+INSERT INTO `ipt`.`transazione`
 (`id_transazione`,
 `id_cittadino`,
 `costo`,
@@ -182,7 +182,7 @@ VALUES
 '2022-02-22');
 
 
-INSERT INTO `IPT`.`transazione`
+INSERT INTO `ipt`.`transazione`
 (`id_transazione`,
 `id_cittadino`,
 `costo`,
@@ -196,7 +196,7 @@ VALUES
 '2022-02-12');
 
 
-INSERT INTO `IPT`.`transazione`
+INSERT INTO `ipt`.`transazione`
 (`id_transazione`,
 `id_cittadino`,
 `costo`,
@@ -211,7 +211,7 @@ VALUES
 
 
 
-INSERT INTO `IPT`.`transazione`
+INSERT INTO `ipt`.`transazione`
 (`id_transazione`,
 `id_cittadino`,
 `costo`,
@@ -227,7 +227,7 @@ VALUES
 
 
 
-INSERT INTO `IPT`.`transazione`
+INSERT INTO `ipt`.`transazione`
 (`id_transazione`,
 `id_cittadino`,
 `costo`,
@@ -243,7 +243,7 @@ VALUES
 
 
 
-INSERT INTO `IPT`.`transazione`
+INSERT INTO `ipt`.`transazione`
 (`id_transazione`,
 `id_cittadino`,
 `costo`,
@@ -258,7 +258,7 @@ VALUES
 
 
 
-INSERT INTO `IPT`.`transazione`
+INSERT INTO `ipt`.`transazione`
 (`id_transazione`,
 `id_cittadino`,
 `costo`,
@@ -273,7 +273,7 @@ VALUES
 
 
 -- linea
-INSERT INTO `IPT`.`linea` (`id_linea`, `lunghezza`, `fermata_inizio`, `fermata_fine`, `data_attivazione`, `orario_chiusura`, `orario_apertura`)
+INSERT INTO `ipt`.`linea` (`id_linea`, `lunghezza`, `fermata_inizio`, `fermata_fine`, `data_attivazione`, `orario_chiusura`, `orario_apertura`)
  VALUES ( 'A0001', 
  '13', 
  'Napoli', 
@@ -282,7 +282,7 @@ INSERT INTO `IPT`.`linea` (`id_linea`, `lunghezza`, `fermata_inizio`, `fermata_f
  '20:00', 
  '7:00');
 
-INSERT INTO `IPT`.`linea` (`id_linea`, `lunghezza`, `fermata_inizio`, `fermata_fine`, `data_attivazione`, `orario_chiusura`, `orario_apertura`)
+INSERT INTO `ipt`.`linea` (`id_linea`, `lunghezza`, `fermata_inizio`, `fermata_fine`, `data_attivazione`, `orario_chiusura`, `orario_apertura`)
  VALUES ( 'A0002', 
  '15', 
  'Napoli', 
@@ -292,7 +292,7 @@ INSERT INTO `IPT`.`linea` (`id_linea`, `lunghezza`, `fermata_inizio`, `fermata_f
  '7:00');
 
 
-INSERT INTO `IPT`.`linea` (`id_linea`, `lunghezza`, `fermata_inizio`, `fermata_fine`, `data_attivazione`, `orario_chiusura`, `orario_apertura`)
+INSERT INTO `ipt`.`linea` (`id_linea`, `lunghezza`, `fermata_inizio`, `fermata_fine`, `data_attivazione`, `orario_chiusura`, `orario_apertura`)
  VALUES ( 'A0003', 
  '15', 
  'Sarno', 
@@ -302,7 +302,7 @@ INSERT INTO `IPT`.`linea` (`id_linea`, `lunghezza`, `fermata_inizio`, `fermata_f
  '7:00');
 
 
-INSERT INTO `IPT`.`linea` (`id_linea`, `lunghezza`, `fermata_inizio`, `fermata_fine`, `data_attivazione`, `orario_chiusura`, `orario_apertura`)
+INSERT INTO `ipt`.`linea` (`id_linea`, `lunghezza`, `fermata_inizio`, `fermata_fine`, `data_attivazione`, `orario_chiusura`, `orario_apertura`)
  VALUES ( 'A0004', 
  '15', 
  'Nola', 
@@ -311,7 +311,7 @@ INSERT INTO `IPT`.`linea` (`id_linea`, `lunghezza`, `fermata_inizio`, `fermata_f
  '20:00', 
  '7:00');
 
-INSERT INTO `IPT`.`linea` (`id_linea`, `lunghezza`, `fermata_inizio`, `fermata_fine`, `data_attivazione`, `orario_chiusura`, `orario_apertura`)
+INSERT INTO `ipt`.`linea` (`id_linea`, `lunghezza`, `fermata_inizio`, `fermata_fine`, `data_attivazione`, `orario_chiusura`, `orario_apertura`)
  VALUES ( 'A0005', 
  '20', 
  'Casalnuovo', 
@@ -320,7 +320,7 @@ INSERT INTO `IPT`.`linea` (`id_linea`, `lunghezza`, `fermata_inizio`, `fermata_f
  '20:00', 
  '7:00');
 
-INSERT INTO `IPT`.`linea` (`id_linea`, `lunghezza`, `fermata_inizio`, `fermata_fine`, `data_attivazione`, `orario_chiusura`, `orario_apertura`)
+INSERT INTO `ipt`.`linea` (`id_linea`, `lunghezza`, `fermata_inizio`, `fermata_fine`, `data_attivazione`, `orario_chiusura`, `orario_apertura`)
  VALUES ( 'A0006', 
  '15', 
  'Avellino', 
@@ -330,7 +330,7 @@ INSERT INTO `IPT`.`linea` (`id_linea`, `lunghezza`, `fermata_inizio`, `fermata_f
  '7:00');
 
 
-INSERT INTO `IPT`.`linea` (`id_linea`, `lunghezza`, `fermata_inizio`, `fermata_fine`, `data_attivazione`, `orario_chiusura`, `orario_apertura`)
+INSERT INTO `ipt`.`linea` (`id_linea`, `lunghezza`, `fermata_inizio`, `fermata_fine`, `data_attivazione`, `orario_chiusura`, `orario_apertura`)
  VALUES ( 'A0007', 
  '5', 
  'Napoli Centro', 
@@ -342,7 +342,7 @@ INSERT INTO `IPT`.`linea` (`id_linea`, `lunghezza`, `fermata_inizio`, `fermata_f
 
 
 -- corsa
-INSERT INTO `IPT`.`corsa`
+INSERT INTO `ipt`.`corsa`
 (`id_corsa`,
 `id_linea`,
 `stato`,
@@ -359,7 +359,7 @@ VALUES
 '1');
 
 
-INSERT INTO `IPT`.`corsa`
+INSERT INTO `ipt`.`corsa`
 (`id_corsa`,
 `id_linea`,
 `stato`,
@@ -377,7 +377,7 @@ VALUES
 
 
 
-INSERT INTO `IPT`.`corsa`
+INSERT INTO `ipt`.`corsa`
 (`id_corsa`,
 `id_linea`,
 `stato`,
@@ -395,7 +395,7 @@ VALUES
 
 
 
-INSERT INTO `IPT`.`corsa`
+INSERT INTO `ipt`.`corsa`
 (`id_corsa`,
 `id_linea`,
 `stato`,
@@ -412,7 +412,7 @@ VALUES
 '0');
 
 
-INSERT INTO `IPT`.`corsa`
+INSERT INTO `ipt`.`corsa`
 (`id_corsa`,
 `id_linea`,
 `stato`,
@@ -430,7 +430,7 @@ VALUES
 
 
 
-INSERT INTO `IPT`.`corsa`
+INSERT INTO `ipt`.`corsa`
 (`id_corsa`,
 `id_linea`,
 `stato`,
@@ -447,7 +447,7 @@ VALUES
 '1');
 
 
-INSERT INTO `IPT`.`corsa`
+INSERT INTO `ipt`.`corsa`
 (`id_corsa`,
 `id_linea`,
 `stato`,
@@ -466,10 +466,10 @@ VALUES
 
 
 -- AVVISI
-INSERT INTO `IPT`.`avviso_utenza` (`id_avviso_utenza`, `data`, `nome_avviso`, `testo`, `id_corsa`, `id_linea`) VALUES ( 'AVV01', '2022-01-14', 'SCIOPERO', 'SI AVVISA LA GENTILE CLIENTELA CHE IL GIORNO 14/01 SARA'' INDETTO UNO SCIOPERO SINDACALE, CI SCUSIAMO PER IL DISAGIO', 'C0001', 'A0001');
+INSERT INTO `ipt`.`avviso_utenza` (`id_avviso_utenza`, `data`, `nome_avviso`, `testo`, `id_corsa`, `id_linea`) VALUES ( 'AVV01', '2022-01-14', 'SCIOPERO', 'SI AVVISA LA GENTILE CLIENTELA CHE IL GIORNO 14/01 SARA'' INDETTO UNO SCIOPERO SINDACALE, CI SCUSIAMO PER IL DISAGIO', 'C0001', 'A0001');
 
 
-INSERT INTO `IPT`.`avviso_utenza` (`id_avviso_utenza`, `data`, `nome_avviso`, `testo`, `id_corsa`, `id_linea`) VALUES 
+INSERT INTO `ipt`.`avviso_utenza` (`id_avviso_utenza`, `data`, `nome_avviso`, `testo`, `id_corsa`, `id_linea`) VALUES 
 ( 'AVV02',
  '2022-02-24', 
  'GUASTO MOTORE', 
@@ -478,7 +478,7 @@ INSERT INTO `IPT`.`avviso_utenza` (`id_avviso_utenza`, `data`, `nome_avviso`, `t
  'A0002');
 
 
-INSERT INTO `IPT`.`avviso_utenza` (`id_avviso_utenza`, `data`, `nome_avviso`, `testo`, `id_corsa`, `id_linea`) VALUES 
+INSERT INTO `ipt`.`avviso_utenza` (`id_avviso_utenza`, `data`, `nome_avviso`, `testo`, `id_corsa`, `id_linea`) VALUES 
 ( 'AVV03',
  '2022-03-04', 
  'INCIDENTE', 
@@ -489,7 +489,7 @@ INSERT INTO `IPT`.`avviso_utenza` (`id_avviso_utenza`, `data`, `nome_avviso`, `t
 
 
 
-INSERT INTO `IPT`.`avviso_utenza` (`id_avviso_utenza`, `data`, `nome_avviso`, `testo`, `id_corsa`, `id_linea`) VALUES 
+INSERT INTO `ipt`.`avviso_utenza` (`id_avviso_utenza`, `data`, `nome_avviso`, `testo`, `id_corsa`, `id_linea`) VALUES 
 ( 'AVV04',
  '2022-05-30', 
  'RITARDO', 
@@ -498,7 +498,7 @@ INSERT INTO `IPT`.`avviso_utenza` (`id_avviso_utenza`, `data`, `nome_avviso`, `t
  'A0004');
 
 
-INSERT INTO `IPT`.`avviso_utenza` (`id_avviso_utenza`, `data`, `nome_avviso`, `testo`, `id_corsa`, `id_linea`) VALUES 
+INSERT INTO `ipt`.`avviso_utenza` (`id_avviso_utenza`, `data`, `nome_avviso`, `testo`, `id_corsa`, `id_linea`) VALUES 
 ( 'AVV05',
  '2022-05-30', 
  'SOPPRESSIONE', 
@@ -506,7 +506,7 @@ INSERT INTO `IPT`.`avviso_utenza` (`id_avviso_utenza`, `data`, `nome_avviso`, `t
  'C0005', 
  'A0005');
 
-INSERT INTO `IPT`.`avviso_utenza` (`id_avviso_utenza`, `data`, `nome_avviso`, `testo`, `id_corsa`, `id_linea`) VALUES 
+INSERT INTO `ipt`.`avviso_utenza` (`id_avviso_utenza`, `data`, `nome_avviso`, `testo`, `id_corsa`, `id_linea`) VALUES 
 ( 'AVV06',
  '2022-11-01', 
  'RITARDO', 
@@ -515,7 +515,7 @@ INSERT INTO `IPT`.`avviso_utenza` (`id_avviso_utenza`, `data`, `nome_avviso`, `t
  'A0005');
 
 
-INSERT INTO `IPT`.`avviso_utenza` (`id_avviso_utenza`, `data`, `nome_avviso`, `testo`, `id_corsa`, `id_linea`) VALUES 
+INSERT INTO `ipt`.`avviso_utenza` (`id_avviso_utenza`, `data`, `nome_avviso`, `testo`, `id_corsa`, `id_linea`) VALUES 
 ( 'AVV07',
  '2022-04-11', 
  'MANCANZA PERSONALE', 
@@ -523,7 +523,7 @@ INSERT INTO `IPT`.`avviso_utenza` (`id_avviso_utenza`, `data`, `nome_avviso`, `t
  'C0006', 
  'A0006');
 
-INSERT INTO `IPT`.`avviso_utenza` (`id_avviso_utenza`, `data`, `nome_avviso`, `testo`, `id_corsa`, `id_linea`) VALUES 
+INSERT INTO `ipt`.`avviso_utenza` (`id_avviso_utenza`, `data`, `nome_avviso`, `testo`, `id_corsa`, `id_linea`) VALUES 
 ( 'AVV08',
  '2022-04-11', 
  'SCIOPERO', 
@@ -533,7 +533,7 @@ INSERT INTO `IPT`.`avviso_utenza` (`id_avviso_utenza`, `data`, `nome_avviso`, `t
 
 
 -- biglietto
-INSERT INTO `IPT`.`biglietto`
+INSERT INTO `ipt`.`biglietto`
 (`id_biglietto`,
 `data_emissione`,
 `data_scadenza`,
@@ -556,7 +556,7 @@ VALUES
 '00001');
 
 
-INSERT INTO `IPT`.`biglietto`
+INSERT INTO `ipt`.`biglietto`
 (`id_biglietto`,
 `data_emissione`,
 `data_scadenza`,
@@ -579,7 +579,7 @@ VALUES
 '00002');
 
 
-INSERT INTO `IPT`.`biglietto`
+INSERT INTO `ipt`.`biglietto`
 (`id_biglietto`,
 `data_emissione`,
 `data_scadenza`,
@@ -603,7 +603,7 @@ VALUES
 
 
 
-INSERT INTO `IPT`.`biglietto`
+INSERT INTO `ipt`.`biglietto`
 (`id_biglietto`,
 `data_emissione`,
 `data_scadenza`,
@@ -627,7 +627,7 @@ VALUES
 
 
 
-INSERT INTO `IPT`.`biglietto`
+INSERT INTO `ipt`.`biglietto`
 (`id_biglietto`,
 `data_emissione`,
 `data_scadenza`,
@@ -650,7 +650,7 @@ VALUES
 '00001');
 
 
-INSERT INTO `IPT`.`biglietto`
+INSERT INTO `ipt`.`biglietto`
 (`id_biglietto`,
 `data_emissione`,
 `data_scadenza`,
@@ -673,7 +673,7 @@ VALUES
 '00002');
 
 
-INSERT INTO `IPT`.`biglietto`
+INSERT INTO `ipt`.`biglietto`
 (`id_biglietto`,
 `data_emissione`,
 `data_scadenza`,
@@ -694,7 +694,7 @@ VALUES
 'A0006',
 '00006',
 '00006');
-INSERT INTO `IPT`.`biglietto`
+INSERT INTO `ipt`.`biglietto`
 (`id_biglietto`,
 `data_emissione`,
 `data_scadenza`,
@@ -718,7 +718,7 @@ VALUES
 
 
 
-INSERT INTO `IPT`.`biglietto`
+INSERT INTO `ipt`.`biglietto`
 (`id_biglietto`,
 `data_emissione`,
 `data_scadenza`,
@@ -744,7 +744,7 @@ VALUES
 
 -- abbonamento
 
-INSERT INTO `IPT`.`abbonamento`
+INSERT INTO `ipt`.`abbonamento`
 (`id_abbonamento`,
 `data_emissione`,
 `data_scadenza`,
@@ -766,7 +766,7 @@ VALUES
 
 
 
-INSERT INTO `IPT`.`abbonamento`
+INSERT INTO `ipt`.`abbonamento`
 (`id_abbonamento`,
 `data_emissione`,
 `data_scadenza`,
@@ -785,7 +785,7 @@ VALUES
 '00002');
 
 
-INSERT INTO `IPT`.`abbonamento`
+INSERT INTO `ipt`.`abbonamento`
 (`id_abbonamento`,
 `data_emissione`,
 `data_scadenza`,
@@ -806,7 +806,7 @@ VALUES
 
 
 
-INSERT INTO `IPT`.`abbonamento`
+INSERT INTO `ipt`.`abbonamento`
 (`id_abbonamento`,
 `data_emissione`,
 `data_scadenza`,
@@ -827,7 +827,7 @@ VALUES
 
 
 
-INSERT INTO `IPT`.`abbonamento`
+INSERT INTO `ipt`.`abbonamento`
 (`id_abbonamento`,
 `data_emissione`,
 `data_scadenza`,
@@ -849,7 +849,7 @@ VALUES
 
 
 
-INSERT INTO `IPT`.`abbonamento`
+INSERT INTO `ipt`.`abbonamento`
 (`id_abbonamento`,
 `data_emissione`,
 `data_scadenza`,
@@ -871,7 +871,7 @@ VALUES
 
 
 
-INSERT INTO `IPT`.`abbonamento`
+INSERT INTO `ipt`.`abbonamento`
 (`id_abbonamento`,
 `data_emissione`,
 `data_scadenza`,
@@ -892,7 +892,7 @@ VALUES
 
 -- CONVALIDA_ABBONAMENTO
 
-INSERT INTO `IPT`.`convalida_abbonamento`
+INSERT INTO `ipt`.`convalida_abbonamento`
 (`id_abbonamento`,
 `id_corsa`,
 `id_linea`,
@@ -907,7 +907,7 @@ VALUES
 
 
 
-INSERT INTO `IPT`.`convalida_abbonamento`
+INSERT INTO `ipt`.`convalida_abbonamento`
 (`id_abbonamento`,
 `id_corsa`,
 `id_linea`,
@@ -923,7 +923,7 @@ VALUES
 
 
 
-INSERT INTO `IPT`.`convalida_abbonamento`
+INSERT INTO `ipt`.`convalida_abbonamento`
 (`id_abbonamento`,
 `id_corsa`,
 `id_linea`,
@@ -936,7 +936,7 @@ VALUES
 '2022-11-14 11:00');
 
 
-INSERT INTO `IPT`.`convalida_abbonamento`
+INSERT INTO `ipt`.`convalida_abbonamento`
 (`id_abbonamento`,
 `id_corsa`,
 `id_linea`,
@@ -951,7 +951,7 @@ VALUES
 
 
 
-INSERT INTO `IPT`.`convalida_abbonamento`
+INSERT INTO `ipt`.`convalida_abbonamento`
 (`id_abbonamento`,
 `id_corsa`,
 `id_linea`,
@@ -966,7 +966,7 @@ VALUES
 
 
 
-INSERT INTO `IPT`.`convalida_abbonamento`
+INSERT INTO `ipt`.`convalida_abbonamento`
 (`id_abbonamento`,
 `id_corsa`,
 `id_linea`,
@@ -981,7 +981,7 @@ VALUES
 
 
 
-INSERT INTO `IPT`.`convalida_abbonamento`
+INSERT INTO `ipt`.`convalida_abbonamento`
 (`id_abbonamento`,
 `id_corsa`,
 `id_linea`,
@@ -995,7 +995,7 @@ VALUES
 
 
 
-INSERT INTO `IPT`.`convalida_abbonamento`
+INSERT INTO `ipt`.`convalida_abbonamento`
 (`id_abbonamento`,
 `id_corsa`,
 `id_linea`,
