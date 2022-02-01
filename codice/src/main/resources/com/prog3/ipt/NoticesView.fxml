@@ -14,8 +14,12 @@
          <children>
             <TableView fx:id="noticesTableView" prefHeight="657.0" prefWidth="1081.0" styleClass="textField_box">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn fx:id="noticeIDTableColumn" prefWidth="38.40002512931824" text="ID" />
+                  <TableColumn fx:id="lineIDTableColumn" prefWidth="95.99999618530273" text="Linea" />
+                  <TableColumn fx:id="rideIDTableColumn" prefWidth="91.19998168945312" text="Corsa" />
+                <TableColumn fx:id="noticeDateTableColumn" prefWidth="105.60005187988281" text="Data" />
+                  <TableColumn fx:id="noticeNameTableColumn" prefWidth="307.199951171875" text="Nome Avviso" />
+                  <TableColumn fx:id="noticeTextTableColumn" minWidth="0.0" prefWidth="439.199951171875" text="Testo" />
               </columns>
             </TableView>
          </children></Pane>
