@@ -1,5 +1,6 @@
-package com.prog3.ipt.Model.PaymentMethodClasses;
+package com.prog3.ipt.Model.CitizenClasses;
 
+import com.prog3.ipt.Model.PaymentMethodClasses.PaymentMethodStrategy;
 import com.prog3.ipt.Model.TravelDocumentClasses.TravelDocument;
 
 import java.time.LocalDate;
@@ -27,12 +28,12 @@ public class Order {
     }
 
     // Setters
-    private void setTransactionCode(String transactionCode) { this.transactionCode = transactionCode; }
-    private void setPurchaseDate(LocalDate purchaseDate) { this.purchaseDate = purchaseDate;}
-    private void setPurchasePrice(double purchasePrice) { this.purchasePrice = purchasePrice; }
-    private void setCitizenID(String citizenID) { this.citizenID = citizenID; }
-    private void setPaymentMethodStrategy(PaymentMethodStrategy paymentMethodStrategy) { this.paymentMethodStrategy = paymentMethodStrategy; }
-    private void setPurchaseList(ArrayList<TravelDocument> purchaseList) { this.purchaseList = purchaseList; }
+    void setTransactionCode(String transactionCode) { this.transactionCode = transactionCode; }
+    void setPurchaseDate(LocalDate purchaseDate) { this.purchaseDate = purchaseDate;}
+    void setPurchasePrice(double purchasePrice) { this.purchasePrice = purchasePrice; }
+    void setCitizenID(String citizenID) { this.citizenID = citizenID; }
+    void setPaymentMethodStrategy(PaymentMethodStrategy paymentMethodStrategy) { this.paymentMethodStrategy = paymentMethodStrategy; }
+    void setPurchaseList(ArrayList<TravelDocument> purchaseList) { this.purchaseList = purchaseList; }
 
     // Getters
     public String getTransactionCode() { return transactionCode; }

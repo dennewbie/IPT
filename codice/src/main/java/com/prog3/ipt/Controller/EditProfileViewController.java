@@ -61,9 +61,9 @@ public class EditProfileViewController extends ViewController {
                 return;
             }
 
-            ObservableSingleton.updateInstance(name, surname, localDate, email, password);
-            if (checkChanges(ObservableSingleton.getInstance(), citizenEditProfileOriginator.getCurrentCitizen()) == false) {
-                citizenEditProfileOriginator.setCurrentCitizen(new Citizen(name, surname, localDate, email, password, ObservableSingleton.getInstance().getUsername()));
+            ObservableSingleton.updateCitizen(name, surname, localDate, email, password);
+            if (checkChanges(ObservableSingleton.getCitizen(), citizenEditProfileOriginator.getCurrentCitizen()) == false) {
+                citizenEditProfileOriginator.setCurrentCitizen(new Citizen(name, surname, localDate, email, password, ObservableSingleton.getCitizen().getUsername()));
                 citizenEditProfileOriginator.save();
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Dati aggiornati correttamente.", ButtonType.OK);
                 alert.showAndWait();
@@ -80,7 +80,7 @@ public class EditProfileViewController extends ViewController {
     void onUndoButtonClick(ActionEvent event) {
         boolean returnValue = citizenEditProfileOriginator.restore();
         if (returnValue != false) {
-            ObservableSingleton.updateInstance(citizenEditProfileOriginator.getCurrentCitizen().getName(), citizenEditProfileOriginator.getCurrentCitizen().getSurname(), citizenEditProfileOriginator.getCurrentCitizen().getBirthDate(), citizenEditProfileOriginator.getCurrentCitizen().getEmail(), citizenEditProfileOriginator.getCurrentCitizen().getPassword());
+            ObservableSingleton.updateCitizen(citizenEditProfileOriginator.getCurrentCitizen().getName(), citizenEditProfileOriginator.getCurrentCitizen().getSurname(), citizenEditProfileOriginator.getCurrentCitizen().getBirthDate(), citizenEditProfileOriginator.getCurrentCitizen().getEmail(), citizenEditProfileOriginator.getCurrentCitizen().getPassword());
             updateTextFields();
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Annullamento modifica avvenuto con successo", ButtonType.OK);
             alert.showAndWait();
@@ -92,11 +92,11 @@ public class EditProfileViewController extends ViewController {
     }
 
     private void updateTextFields() {
-        nameTextField.setText(ObservableSingleton.getInstance().getName());
-        surnameTextField.setText(ObservableSingleton.getInstance().getSurname());
-        emailTextField.setText(ObservableSingleton.getInstance().getEmail());
-        passwordSignUpField.setText(ObservableSingleton.getInstance().getPassword());
-        birthDatePicker.setValue(ObservableSingleton.getInstance().getBirthDate());
+        nameTextField.setText(ObservableSingleton.getCitizen().getName());
+        surnameTextField.setText(ObservableSingleton.getCitizen().getSurname());
+        emailTextField.setText(ObservableSingleton.getCitizen().getEmail());
+        passwordSignUpField.setText(ObservableSingleton.getCitizen().getPassword());
+        birthDatePicker.setValue(ObservableSingleton.getCitizen().getBirthDate());
     }
 
     private boolean checkChanges(Citizen firstCitizen, Citizen secondCitizen) {
@@ -107,8 +107,8 @@ public class EditProfileViewController extends ViewController {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         undoButton.setDisable(true);
         citizenEditProfileOriginator = new CitizenEditProfileOriginator();
-        citizenEditProfileOriginator.setCurrentCitizen(new Citizen(ObservableSingleton.getInstance().getName(), ObservableSingleton.getInstance().getSurname(),
-                ObservableSingleton.getInstance().getBirthDate(), ObservableSingleton.getInstance().getEmail(), ObservableSingleton.getInstance().getPassword(), ObservableSingleton.getInstance().getUsername()));
+        citizenEditProfileOriginator.setCurrentCitizen(new Citizen(ObservableSingleton.getCitizen().getName(), ObservableSingleton.getCitizen().getSurname(),
+                ObservableSingleton.getCitizen().getBirthDate(), ObservableSingleton.getCitizen().getEmail(), ObservableSingleton.getCitizen().getPassword(), ObservableSingleton.getCitizen().getUsername()));
         citizenEditProfileOriginator.save();
         updateTextFields();
     }
