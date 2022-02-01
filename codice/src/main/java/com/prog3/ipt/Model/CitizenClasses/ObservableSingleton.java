@@ -11,6 +11,7 @@ public class ObservableSingleton {
     private static volatile Citizen sessionUser;
     private static volatile Order sessionOrder;
     private static volatile PaymentMethodStrategy sessionPaymentMethodStrategy;
+    private static volatile String paymentMethodString = null;
 
 
 
@@ -82,4 +83,6 @@ public class ObservableSingleton {
     }
 
 
+    public static void setPaymentMethodString(String paymentMethodString) { ObservableSingleton.paymentMethodString = paymentMethodString; }
+    public static String getPaymentMethodString() { return paymentMethodString; }
 }

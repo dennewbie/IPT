@@ -62,7 +62,7 @@
                      <Insets left="15.0" right="15.0" top="15.0" />
                   </VBox.margin>
                   <children>
-                     <ComboBox fx:id="paymentMethodsDropDownList" prefHeight="27.0" prefWidth="526.0" promptText="Seleziona un metodo di pagamento..." styleClass="textField_box" visibleRowCount="3" />
+                     <ComboBox fx:id="paymentMethodsDropDownList" onAction="#onSelectedDropDownListElement" prefHeight="27.0" prefWidth="526.0" promptText="Seleziona un metodo di pagamento..." styleClass="textField_box" visibleRowCount="3" />
                   </children>
                </HBox>
                <HBox prefHeight="92.0" prefWidth="500.0">
@@ -115,7 +115,7 @@
                      </Button>
                   </children>
                   <VBox.margin>
-                     <Insets left="15.0" right="15.0" top="33.0" />
+                     <Insets left="15.0" right="15.0" top="20.0" />
                   </VBox.margin>
                </HBox>
                 </children>
@@ -142,12 +142,12 @@
                      <Insets left="15.0" right="15.0" top="20.0" />
                   </VBox.margin>
                </HBox>
-               <HBox alignment="CENTER" prefHeight="253.0" prefWidth="505.0">
+               <HBox alignment="CENTER" prefHeight="256.0" prefWidth="505.0">
                   <VBox.margin>
                      <Insets left="15.0" right="15.0" top="20.0" />
                   </VBox.margin>
                   <children>
-                     <TableView fx:id="myCartTableView" prefHeight="256.0" prefWidth="505.0" styleClass="textField_box">
+                     <TableView fx:id="myCartTableView" prefHeight="263.0" prefWidth="505.0" styleClass="textField_box">
                        <columns>
                          <TableColumn prefWidth="75.0" text="C1" />
                          <TableColumn prefWidth="75.0" text="C2" />
@@ -175,7 +175,7 @@
                      </Label>
                   </children>
                   <VBox.margin>
-                     <Insets left="15.0" right="15.0" />
+                     <Insets left="15.0" right="15.0" top="20.0" />
                   </VBox.margin>
                </HBox>
                <HBox prefHeight="62.0" prefWidth="505.0">
@@ -203,7 +203,7 @@
                </HBox>
                <HBox>
                   <VBox.margin>
-                     <Insets left="15.0" right="15.0" top="19.0" />
+                     <Insets left="15.0" right="15.0" top="20.0" />
                   </VBox.margin>
                   <children>
                      <Button fx:id="buyCartItemsButton" mnemonicParsing="false" onAction="#onBuyCartItemsButtonClick" prefHeight="68.0" prefWidth="505.0" styleClass="ticketsManagementViewButton" text="Concludi Acquisto" textFill="WHITE">
