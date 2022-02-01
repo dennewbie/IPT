@@ -100,7 +100,7 @@ INSERT INTO `ipt`.`cittadino`
 `data_nascita`)
 VALUES
 ('00005',
-'dennewebie',
+'dennewbie',
 'caruso123',
 'denny@libero.it',
 'Denny',
