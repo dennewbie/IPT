@@ -149,8 +149,13 @@
                   <children>
                      <TableView fx:id="myCartTableView" prefHeight="263.0" prefWidth="505.0" styleClass="textField_box">
                        <columns>
-                         <TableColumn prefWidth="75.0" text="C1" />
-                         <TableColumn prefWidth="75.0" text="C2" />
+                         <TableColumn fx:id="travelDocumentIDTableColumn" prefWidth="46.399961829185486" text="ID" />
+                           <TableColumn fx:id="lineIDTableColumn" prefWidth="45.60003662109375" text="Linea" />
+                           <TableColumn fx:id="rideIDTableColumn" minWidth="0.0" prefWidth="53.60004425048828" text="Corsa" />
+                           <TableColumn fx:id="issueDateTableColumn" prefWidth="91.99993896484375" text="Data Emissione" />
+                           <TableColumn fx:id="startDateTableColumn" prefWidth="115.19992065429688" text="Data Inizio Validità" />
+                           <TableColumn fx:id="expirationDateTableColumn" minWidth="0.0" prefWidth="97.5999755859375" text="Data Scadenza" />
+                           <TableColumn fx:id="priceTableColumn" prefWidth="56.800048828125" text="Prezzo" />
                        </columns>
                      </TableView>
                   </children>
