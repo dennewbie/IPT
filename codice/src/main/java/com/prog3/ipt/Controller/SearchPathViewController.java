@@ -56,7 +56,7 @@ public class SearchPathViewController extends ViewController implements Initiali
 
             // build url string
             urlResource = "https://www.google.it/maps/dir/" + startingPoint + "/" + destinationPoint + "/";
-            super.onButtonClickNavigateToView(searchPathButton, "GoogleMapsView.fxml");
+            onButtonClickNavigateToView(searchPathButton, "GoogleMapsView.fxml");
         }
     }
 
