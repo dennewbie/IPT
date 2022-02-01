@@ -42,59 +42,45 @@ public class LoginRegisterViewController extends ViewController {
 
     @FXML
     void onSignInButtonClick(ActionEvent event) {
-        if (passwordSignInField.getText() == null || passwordSignInField.getText().trim().isEmpty() ||
-                usernameSignInTextField.getText() == null || usernameSignInTextField.getText().trim().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Hai lasciato uno o più campi vuoti.", ButtonType.OK);
-            alert.showAndWait();
-        } else {
-            // controllo validità credenziali
+        if (!super.checkTextFieldsConent(passwordSignInField, usernameSignInTextField)) return;
+        // controllo validità credenziali
 
-            // recupera dati citizen dal DB e salva in Observer
-            // SELECT name, etc from cittadino where username = textfield. Si mette tutto nella variable sottostante e via.
-            Citizen loggedCitizen = new Citizen("Pino", "Giogrgietti", LocalDate.of(1999, 12, 31), "pino.giorgietti@gmail.com", "acciderbolina01", "pinogiorg");
-            ObservableSingleton.setCitizen(loggedCitizen);
-            super.onButtonClickNavigateToView(signInButton, "HomeView.fxml");
-        }
+        // recupera dati citizen dal DB e salva in Observer
+        // SELECT name, etc from cittadino where username = textfield. Si mette tutto nella variable sottostante e via.
+        Citizen loggedCitizen = new Citizen("Pino", "Giogrgietti", LocalDate.of(1999, 12, 31), "pino.giorgietti@gmail.com", "acciderbolina01", "pinogiorg");
+        ObservableSingleton.setCitizen(loggedCitizen);
+        super.onButtonClickNavigateToView(signInButton, "HomeView.fxml");
     }
 
     @FXML
     void onSignUpButtonClick(ActionEvent event) {
-        if (nameTextField.getText() == null || nameTextField.getText().trim().isEmpty() ||
-                surnameTextField.getText() == null || surnameTextField.getText().trim().isEmpty() ||
-                emailTextField.getText() == null || emailTextField.getText().trim().isEmpty() ||
-                passwordSignUpField.getText() == null || passwordSignUpField.getText().trim().isEmpty() ||
-                usernameSignUpTextField.getText() == null || usernameSignUpTextField.getText().trim().isEmpty() ||
-                birthDatePicker.getValue() == null) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Hai lasciato uno o più campi vuoti.", ButtonType.OK);
-            alert.showAndWait();
-        } else {
-            // controllo validità credenziali
-            String name = nameTextField.getText(), surname = surnameTextField.getText(), email = emailTextField.getText();
-            String usernameSignUp = usernameSignUpTextField.getText(), passwordSignUp = passwordSignUpField.getText();
-            LocalDate localDate = birthDatePicker.getValue();
-            if (!localDate.isBefore(LocalDate.now())) {
-                Alert alert = new Alert(Alert.AlertType.ERROR, "Non puoi inserire una data di nascita uguale o successiva ad oggi.", ButtonType.OK);
-                alert.showAndWait();
-                return;
-            }
+        if (!super.checkTextFieldsConent(nameTextField, surnameTextField, emailTextField, passwordSignUpField, usernameSignUpTextField)) return;
+        if (!super.checkDatePickersContent(birthDatePicker)) return;
 
-            // controlli dati estratti...
-            // creo utente, db, etc.
-            Citizen newCitizen = new Citizen(name, surname, localDate, email, passwordSignUp, usernameSignUp);
-            // salvataggio nel db...
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Il tuo account è stato creato correttamente. Effettua il login", ButtonType.OK);
+        // controllo validità credenziali
+        String name = nameTextField.getText(), surname = surnameTextField.getText(), email = emailTextField.getText();
+        String usernameSignUp = usernameSignUpTextField.getText(), passwordSignUp = passwordSignUpField.getText();
+        LocalDate localDate = birthDatePicker.getValue();
+        if (!localDate.isBefore(LocalDate.now())) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Non puoi inserire una data di nascita uguale o successiva ad oggi.", ButtonType.OK);
             alert.showAndWait();
-            nameTextField.clear();
-            surnameTextField.clear();
-            emailTextField.clear();
-            passwordSignUpField.clear();
-            usernameSignUpTextField.clear();
-            birthDatePicker.setValue(null);
+            return;
         }
+
+        // controlli dati estratti...
+        // creo utente, db, etc.
+        Citizen newCitizen = new Citizen(name, surname, localDate, email, passwordSignUp, usernameSignUp);
+        // salvataggio nel db...
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Il tuo account è stato creato correttamente. Effettua il login", ButtonType.OK);
+        alert.showAndWait();
+        initializeViewComponents();
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
+    public void initialize(URL url, ResourceBundle resourceBundle) { initializeViewComponents(); }
+    @Override
+    protected void initializeViewComponents() {
+        super.clearTextFieldsContent(nameTextField, surnameTextField, emailTextField, passwordSignUpField, usernameSignUpTextField);
+        super.clearDatePickersContent(birthDatePicker);
     }
 }

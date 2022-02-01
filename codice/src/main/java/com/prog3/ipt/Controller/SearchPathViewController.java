@@ -24,8 +24,6 @@ public class SearchPathViewController extends ViewController implements Initiali
     @FXML
     private TextField destinationPointTextField;
     @FXML
-    private Button buyTicketButton;
-    @FXML
     private Button searchPathButton;
 
     private String urlResource;
@@ -36,34 +34,21 @@ public class SearchPathViewController extends ViewController implements Initiali
     void onBackButtonClick(ActionEvent event) {
         super.onButtonClickNavigateToView(backButton, "HomeView.fxml");
     }
-
-    @FXML
-    void onBuyTicketButtonClick(ActionEvent event) {
-
-    }
-
     @FXML
     void onSearchPathButtonClick(ActionEvent event) {
-        // ricerca percorso e quando terminato si attiva il pulsante di acquisto titolo viaggio
-        if (destinationPointTextField.getText() == null || destinationPointTextField.getText().trim().isEmpty() ||
-                startingPointTextField.getText() == null || startingPointTextField.getText().trim().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Hai lasciato uno o più campi vuoti.", ButtonType.OK);
-            alert.showAndWait();
-        } else {
-            // controllo validità campi, avvia ricerca...
-            String startingPoint = startingPointTextField.getText().replace(" ", "+");
-            String destinationPoint = destinationPointTextField.getText().replace(" ", "+");
-
-            // build url string
-            urlResource = "https://www.google.it/maps/dir/" + startingPoint + "/" + destinationPoint + "/";
-            onButtonClickNavigateToView(searchPathButton, "GoogleMapsView.fxml");
-        }
+        if (!super.checkTextFieldsConent(destinationPointTextField, startingPointTextField)) return;
+        // avvia ricerca...
+        String startingPoint = startingPointTextField.getText().replace(" ", "+");
+        String destinationPoint = destinationPointTextField.getText().replace(" ", "+");
+        // build url string
+        urlResource = "https://www.google.it/maps/dir/" + startingPoint + "/" + destinationPoint + "/";
+        onButtonClickNavigateToView(searchPathButton, "GoogleMapsView.fxml");
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        buyTicketButton.setDisable(ObservableSingleton.getCitizen().getUsername() == null);
-    }
+    public void initialize(URL url, ResourceBundle resourceBundle) { initializeViewComponents(); }
+    @Override
+    protected void initializeViewComponents() { super.clearTextFieldsContent(startingPointTextField, destinationPointTextField); }
 
     @Override
     protected void onButtonClickNavigateToView(Button clickedButton, String destinationView) {
@@ -79,4 +64,6 @@ public class SearchPathViewController extends ViewController implements Initiali
             e.printStackTrace();
         }
     }
+
+
 }

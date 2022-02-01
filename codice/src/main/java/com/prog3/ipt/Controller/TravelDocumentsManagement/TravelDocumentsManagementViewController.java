@@ -18,15 +18,16 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-
 import static com.prog3.ipt.Model.PaymentMethodClasses.PaymentMethodEnum.*;
 
-/*
-    Aggiungere gestione tabella con interfacciamento DB, possibilità di rimozione dalla table view con puslante dedicato per ogni riga
- */
+// TODO: Aggiungere gestione tabella con interfacciamento DB, possibilità di rimozione dalla table view con puslante dedicato per ogni riga
 public class TravelDocumentsManagementViewController extends ViewController {
     protected TravelDocumentFactory myTravelDocumentFactory;
     private String convertedDropDownListString;
+    private boolean isValidTransaction;
+
+
+
     // NavigationBar
     @FXML
     private Button backButton;
@@ -67,27 +68,29 @@ public class TravelDocumentsManagementViewController extends ViewController {
     void onBackButtonClick(ActionEvent event) {
         super.onButtonClickNavigateToView(backButton, "HomeView.fxml");
     }
-
     @FXML
-    void onAddSingleTicketsButtonClick(ActionEvent event) {
-        super.onButtonClickNavigateToView(addSingleTicketsButton, "AddSingleTicketsView.fxml");
-    }
-
+    void onAddSingleTicketsButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(addSingleTicketsButton, "AddSingleTicketsView.fxml"); }
     @FXML
-    void onAddMembershipsButtonClick(ActionEvent event) {
-        super.onButtonClickNavigateToView(addMembershipsButton, "AddMembershipView.fxml");
-    }
-
+    void onAddMembershipsButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(addMembershipsButton, "AddMembershipView.fxml"); }
     @FXML
     void onBuyCartItemsButtonClick(ActionEvent event) {
         onSavePaymentMethodButtonClick(new ActionEvent());
-        if (ObservableSingleton.getOrder().getPurchaseList() == null) {
+        if (ObservableSingleton.getOrder().getPurchaseList().size() <= 0) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Il tuo carrello è vuoto. Non puoi procedere con l'acquisto.", ButtonType.OK);
             alert.showAndWait();
             return;
         }
-        // query DB transazione
+        // TODO: query DB transazione, svuota table view
+        if (!isValidTransaction || !ObservableSingleton.getPaymentMethodStrategy().pay(ObservableSingleton.getOrder().getPurchasePrice())) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Non è possibile procedere con l'acquisto: metodo di pagamento non valido.", ButtonType.OK);
+            alert.showAndWait();
+            return;
+        }
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Il tuo acquisto è andato a buon fine. Costo totale: " + ObservableSingleton.getOrder().getPurchasePrice() + ". Modalità pagamento: " + ObservableSingleton.getPaymentMethodString(), ButtonType.OK);
+        alert.showAndWait();
         ObservableSingleton.setOrder(null);
+        initializeViewComponents();
     }
 
     @FXML
@@ -103,11 +106,7 @@ public class TravelDocumentsManagementViewController extends ViewController {
         setConvertedDropDownListString(PaymentMethodEnum.valueOf(paymentMethodsDropDownList.getValue()).toString());
         switch (PaymentMethodEnum.valueOf(paymentMethodsDropDownList.getValue())) {
             case PAYPAL -> {
-                if (creditCardNumberTextField.getText() == null || creditCardNumberTextField.getText().trim().isEmpty()) {
-                    Alert alert = new Alert(Alert.AlertType.ERROR, "Hai lasciato uno o più campi vuoti.", ButtonType.OK);
-                    alert.showAndWait();
-                    return;
-                }
+                if (!super.checkTextFieldsConent(creditCardNumberTextField)) return;
 
                 Dialog<String> dialog = new Dialog<>();
                 dialog.setTitle("PayPal Request");
@@ -135,12 +134,8 @@ public class TravelDocumentsManagementViewController extends ViewController {
                 }
             }
             case CREDIT_CARD -> {
-                if (creditCardNumberTextField.getText() == null || creditCardNumberTextField.getText().trim().isEmpty() || CVV_TextField.getText() == null
-                        || CVV_TextField.getText().trim().isEmpty() || expirationCreditCardDatePicker.getValue() == null) {
-                    Alert alert = new Alert(Alert.AlertType.ERROR, "Hai lasciato uno o più campi vuoti.", ButtonType.OK);
-                    alert.showAndWait();
-                    return;
-                }
+                if (!super.checkTextFieldsConent(creditCardNumberTextField, CVV_TextField)) return;
+                if (!super.checkDatePickersContent(expirationCreditCardDatePicker)) return;
 
                 currentCreditCardNumber = creditCardNumberTextField.getText();
                 currentCreditCartCVV = CVV_TextField.getText();
@@ -155,17 +150,15 @@ public class TravelDocumentsManagementViewController extends ViewController {
                 ObservableSingleton.setPaymentMethodString(new String("Carta di Credito"));
             }
             case PHONE_NUMBER_BILL -> {
-                if (creditCardNumberTextField.getText() == null || creditCardNumberTextField.getText().trim().isEmpty()) {
-                    Alert alert = new Alert(Alert.AlertType.ERROR, "Hai lasciato il campo 'Numero di telefono' vuoto.", ButtonType.OK);
-                    alert.showAndWait();
-                    return;
-                }
+                if (!super.checkTextFieldsConent(creditCardNumberTextField)) return;
+
                 currentCreditCardNumber = creditCardNumberTextField.getText();
                 ObservableSingleton.setPaymentMethodStrategy(new PhoneNumberBillPaymentMethod(currentCreditCardNumber));
                 ObservableSingleton.setPaymentMethodString(new String("Addebito numero di telefono"));
             }
             default -> throw new IllegalStateException("Unexpected value: " + valueOf(paymentMethodsDropDownList.getValue()));
         }
+        isValidTransaction = true;
     }
 
     @FXML
@@ -179,7 +172,10 @@ public class TravelDocumentsManagementViewController extends ViewController {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle) { initializeViewComponents(); }
+    @Override
+    protected void initializeViewComponents() {
+        isValidTransaction = false;
         //aggiorno la table view
         double totalOrderValue = 0.0;
         for (TravelDocument singleTravelDocument : ObservableSingleton.getOrder().getPurchaseList()) totalOrderValue += singleTravelDocument.getPrice();
@@ -210,7 +206,6 @@ public class TravelDocumentsManagementViewController extends ViewController {
             creditCardNumberTextField.setText(((PayPalPaymentMethod) ObservableSingleton.getPaymentMethodStrategy()).getEmail());
             return;
         }
-
     }
 
     private void creditCardPaymentMethodSelected() {

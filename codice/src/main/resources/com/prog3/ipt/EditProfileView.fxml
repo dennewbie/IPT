@@ -107,7 +107,7 @@
                             <Insets left="100.0" right="100.0" />
                         </VBox.margin>
                         <children>
-                            <PasswordField fx:id="passwordSignUpField" prefHeight="32.0" prefWidth="905.0" promptText="Password" styleClass="textField_box" />
+                            <PasswordField fx:id="passwordField" prefHeight="32.0" prefWidth="905.0" promptText="Password" styleClass="textField_box" />
                         </children>
                     </HBox>
                <HBox prefHeight="69.0" prefWidth="880.0">

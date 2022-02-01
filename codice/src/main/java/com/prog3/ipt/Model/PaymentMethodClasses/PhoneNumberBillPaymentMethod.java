@@ -24,8 +24,7 @@ public class PhoneNumberBillPaymentMethod implements PaymentMethodStrategy {
     // Others
     @Override
     public boolean pay(double paymentAmount) {
-        // controllo incredibile sul numero di telefono
-        System.out.println("Paying " + paymentAmount + " using Phone number bill.");
+        // TODO: controllo incredibile sul numero di telefono (es. cifre etc.)
         return true;
     }
 

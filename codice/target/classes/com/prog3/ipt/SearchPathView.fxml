@@ -64,25 +64,17 @@
                         <Insets left="100.0" right="100.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox>
+                  <HBox alignment="CENTER_RIGHT">
                      <VBox.margin>
                         <Insets left="100.0" right="100.0" top="30.0" />
                      </VBox.margin>
                      <children>
-                        <Button fx:id="searchPathButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onSearchPathButtonClick" prefHeight="68.0" prefWidth="507.0" styleClass="loginRegisterViewButton" text="Avvia Ricerca" textFill="WHITE">
+                        <Button fx:id="searchPathButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onSearchPathButtonClick" prefHeight="68.0" prefWidth="390.0" styleClass="loginRegisterViewButton" text="Avvia Ricerca" textFill="WHITE">
                            <font>
                               <Font size="17.0" />
                            </font>
                            <HBox.margin>
-                              <Insets right="50.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button fx:id="buyTicketButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onBuyTicketButtonClick" prefHeight="68.0" prefWidth="507.0" styleClass="loginRegisterViewButton" text="Acquista Titolo Viaggio" textFill="WHITE">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="50.0" />
+                              <Insets />
                            </HBox.margin>
                         </Button>
                      </children>

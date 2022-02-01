@@ -27,7 +27,7 @@ public class EditProfileViewController extends ViewController {
     @FXML
     private TextField emailTextField;
     @FXML
-    private PasswordField passwordSignUpField;
+    private PasswordField passwordField;
     @FXML
     private Button undoButton;
     @FXML
@@ -44,36 +44,30 @@ public class EditProfileViewController extends ViewController {
 
     @FXML
     void onSaveInformationButtonClick(ActionEvent event) {
-        if (nameTextField.getText() == null || nameTextField.getText().trim().isEmpty() ||
-                surnameTextField.getText() == null || surnameTextField.getText().trim().isEmpty() ||
-                emailTextField.getText() == null || emailTextField.getText().trim().isEmpty() ||
-                passwordSignUpField.getText() == null || passwordSignUpField.getText().trim().isEmpty() ||
-                birthDatePicker.getValue() == null) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Hai lasciato uno o più campi vuoti.", ButtonType.OK);
-            alert.showAndWait();
-        } else {
-            // controllo validità credenziali
-            String name = nameTextField.getText(), surname = surnameTextField.getText(), email = emailTextField.getText(), password = passwordSignUpField.getText();
-            LocalDate localDate = birthDatePicker.getValue();
-            if (!localDate.isBefore(LocalDate.now())) {
-                Alert alert = new Alert(Alert.AlertType.ERROR, "Non puoi inserire una data di nascita uguale o successiva ad oggi.", ButtonType.OK);
-                alert.showAndWait();
-                return;
-            }
+        if (!checkTextFieldsConent(nameTextField, surnameTextField, emailTextField, passwordField) || !checkDatePickersContent(birthDatePicker)) return;
 
-            ObservableSingleton.updateCitizen(name, surname, localDate, email, password);
-            if (checkChanges(ObservableSingleton.getCitizen(), citizenEditProfileOriginator.getCurrentCitizen()) == false) {
-                citizenEditProfileOriginator.setCurrentCitizen(new Citizen(name, surname, localDate, email, password, ObservableSingleton.getCitizen().getUsername()));
-                citizenEditProfileOriginator.save();
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Dati aggiornati correttamente.", ButtonType.OK);
-                alert.showAndWait();
-                updateTextFields();
-                undoButton.setDisable(false);
-            } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR, "I dati non risultano essere stati modificati.", ButtonType.OK);
-                alert.showAndWait();
-            }
+        // controllo validità credenziali
+        String name = nameTextField.getText(), surname = surnameTextField.getText(), email = emailTextField.getText(), password = passwordField.getText();
+        LocalDate localDate = birthDatePicker.getValue();
+        if (!localDate.isBefore(LocalDate.now())) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Non puoi inserire una data di nascita uguale o successiva ad oggi.", ButtonType.OK);
+            alert.showAndWait();
+            return;
         }
+
+        ObservableSingleton.updateCitizen(name, surname, localDate, email, password);
+        if (checkChanges(ObservableSingleton.getCitizen(), citizenEditProfileOriginator.getCurrentCitizen()) != false) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "I dati non risultano essere stati modificati.", ButtonType.OK);
+            alert.showAndWait();
+            return;
+        }
+
+        citizenEditProfileOriginator.setCurrentCitizen(new Citizen(name, surname, localDate, email, password, ObservableSingleton.getCitizen().getUsername()));
+        citizenEditProfileOriginator.save();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Dati aggiornati correttamente.", ButtonType.OK);
+        alert.showAndWait();
+        updateTextFields();
+        undoButton.setDisable(false);
     }
 
     @FXML
@@ -95,7 +89,7 @@ public class EditProfileViewController extends ViewController {
         nameTextField.setText(ObservableSingleton.getCitizen().getName());
         surnameTextField.setText(ObservableSingleton.getCitizen().getSurname());
         emailTextField.setText(ObservableSingleton.getCitizen().getEmail());
-        passwordSignUpField.setText(ObservableSingleton.getCitizen().getPassword());
+        passwordField.setText(ObservableSingleton.getCitizen().getPassword());
         birthDatePicker.setValue(ObservableSingleton.getCitizen().getBirthDate());
     }
 
@@ -104,7 +98,9 @@ public class EditProfileViewController extends ViewController {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle) { initializeViewComponents(); }
+    @Override
+    protected void initializeViewComponents() {
         undoButton.setDisable(true);
         citizenEditProfileOriginator = new CitizenEditProfileOriginator();
         citizenEditProfileOriginator.setCurrentCitizen(new Citizen(ObservableSingleton.getCitizen().getName(), ObservableSingleton.getCitizen().getSurname(),

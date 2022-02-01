@@ -2,7 +2,6 @@ package com.prog3.ipt.Model.CitizenClasses;
 
 import com.prog3.ipt.Model.PaymentMethodClasses.PaymentMethodStrategy;
 import com.prog3.ipt.Model.TravelDocumentClasses.TravelDocument;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -81,6 +80,7 @@ public class ObservableSingleton {
         }
         return sessionPaymentMethodStrategy;
     }
+
 
 
     public static void setPaymentMethodString(String paymentMethodString) { ObservableSingleton.paymentMethodString = paymentMethodString; }

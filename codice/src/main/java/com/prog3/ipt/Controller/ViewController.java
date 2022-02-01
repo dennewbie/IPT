@@ -4,9 +4,10 @@ import com.prog3.ipt.IPT_Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.Date;
 
 public abstract class ViewController implements Initializable {
     private FXMLLoader fxmlLoader;
@@ -36,4 +37,33 @@ public abstract class ViewController implements Initializable {
             e.printStackTrace();
         }
     }
+
+    protected boolean checkTextFieldsConent(TextField ... textFields) {
+        for (TextField singleTextField : textFields) if (singleTextField.getText() == null || singleTextField.getText().trim().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Hai lasciato uno o più campi vuoti.", ButtonType.OK);
+            alert.showAndWait();
+            return false;
+        }
+        return true;
+    }
+
+
+    protected boolean checkDatePickersContent(DatePicker... datePickers) {
+        for (DatePicker singleDatePicker : datePickers) if (singleDatePicker.getValue() == null ) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Hai lasciato uno o più campi vuoti.", ButtonType.OK);
+            alert.showAndWait();
+            return false;
+        }
+        return true;
+    }
+
+    protected void clearTextFieldsContent(TextField ... textFields) {
+        for (TextField singleTextField : textFields) singleTextField.clear();
+    }
+
+    protected void clearDatePickersContent(DatePicker... datePickers) {
+        for (DatePicker singleDatePicker : datePickers)  singleDatePicker.setValue(null);
+    }
+
+    protected abstract void initializeViewComponents();
 }

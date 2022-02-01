@@ -38,7 +38,6 @@ public class CreditCardPaymentMethod implements PaymentMethodStrategy {
         Pattern creditCardPattern = Pattern.compile("[a-z]", Pattern.CASE_INSENSITIVE);
         Matcher creditCardMatcher = creditCardPattern.matcher(creditCardNumber);
         if (creditCardMatcher.find()) return false;
-
         return true;
     }
 
@@ -57,7 +56,6 @@ public class CreditCardPaymentMethod implements PaymentMethodStrategy {
         Pattern creditCardCVVPattern = Pattern.compile("[a-z]", Pattern.CASE_INSENSITIVE);
         Matcher creditCardCVVMatcher = creditCardCVVPattern.matcher(creditCardCVV);
         if (creditCardCVVMatcher.find()) return false;
-
         return true;
     }
 
@@ -69,7 +67,7 @@ public class CreditCardPaymentMethod implements PaymentMethodStrategy {
         if (!checkExpirationDate()) return false;
         if (!checkCreditCardCVV()) return false;
         // Metodo pagamento valido. Contatta il gestore della carta, richiedi transazione, etc...
-        System.out.println("Paying " + paymentAmount + " using Credit Card.");
+        // TODO: alert when click concludi acquisto in relative controller
 
         return true;
     }

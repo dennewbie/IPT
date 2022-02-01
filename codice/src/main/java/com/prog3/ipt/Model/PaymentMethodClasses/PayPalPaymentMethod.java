@@ -22,9 +22,7 @@ public class PayPalPaymentMethod implements PaymentMethodStrategy {
     // Others
     @Override
     public boolean pay(double paymentAmount) {
-        // controllo espressione regolare email
-        // controllo password API PayPal
-        System.out.println("Paying " + paymentAmount + " using PayPal.");
+        // TODO: controllo espressione regolare email
         return true;
     }
 

@@ -9,7 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
@@ -44,8 +43,9 @@ public class NoticesViewController extends ViewController {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
+    public void initialize(URL url, ResourceBundle resourceBundle) { initializeViewComponents(); }
+    @Override
+    protected void initializeViewComponents() {
         ObservableList<Notice> noticeObservableList = FacadeSingleton.getNoticesViewContent();
 
         noticeIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("noticeID"));
@@ -57,6 +57,4 @@ public class NoticesViewController extends ViewController {
 
         noticesTableView.setItems(noticeObservableList);
     }
-
-
 }

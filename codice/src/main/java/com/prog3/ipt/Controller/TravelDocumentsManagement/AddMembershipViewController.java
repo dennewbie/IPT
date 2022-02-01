@@ -6,8 +6,6 @@ import com.prog3.ipt.Model.TravelDocumentClasses.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-
-import java.lang.reflect.Member;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
@@ -44,53 +42,48 @@ public class AddMembershipViewController extends TravelDocumentsManagementViewCo
     private void setMyMembership(Membership myMembership) {
         this.myMembership = myMembership;
     }
-
     private Membership getMyMembership() {
         return myMembership;
     }
 
     @FXML
-    void onBackButtonClick(ActionEvent event) {
-        super.onButtonClickNavigateToView(backButton, "TicketsManagementView.fxml");
-    }
+    void onBackButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(backButton, "TicketsManagementView.fxml"); }
 
     @FXML
     void onAddMembershipToCartButtonClick(ActionEvent event) {
         LocalDate startDate = startDatePicker.getValue();
-        if (startDate == null || Integer.valueOf(quantityTextField.getText()) <= 0) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Hai lasciato uno o più campi vuoti.", ButtonType.OK);
+        if (!super.checkDatePickersContent(startDatePicker) || Integer.valueOf(quantityTextField.getText()) <= 0)  return;
+
+        if (startDate.isBefore(LocalDate.now()) || startDate.isEqual(LocalDate.now())) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Non puoi comprare un abbonamento che ha una data di inizio validità nel passato.", ButtonType.OK);
             alert.showAndWait();
-        } else {
-            if (!startDate.isBefore(LocalDate.now())) {
-                // aggiunta al carrello
-                int quantity = Integer.valueOf(quantityTextField.getText());
-                super.myTravelDocumentFactory = new MembershipConcreteFactory();
-                for (int i = 0; i < quantity; i++) {
-                    setMyMembership((Membership) super.myTravelDocumentFactory.createTravelDocument(MyConstants.membershipPrice, null, startDate.plusYears(1), null, null, null, null, startDate));
-                    super.getOrder().getPurchaseList().add(getMyMembership());
-                    super.setOrder(new Order(super.getOrder().getPurchaseDate(), super.getOrder().getPurchasePrice() + MyConstants.membershipPrice, super.getOrder().getCitizenID(), super.getOrder().getPaymentMethodStrategy(), super.getOrder().getPurchaseList()));
-                }
-            } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR, "Non puoi comprare un abbonamento che ha una data di inizio validità nel passato.", ButtonType.OK);
-                alert.showAndWait();
-            }
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Abbonamento/i aggiunto/i correttamente al carrello!", ButtonType.OK);
-            alert.showAndWait();
-            updateTextFields();
+            return;
         }
+
+        // aggiunta al carrello
+        int quantity = Integer.valueOf(quantityTextField.getText());
+        super.myTravelDocumentFactory = new MembershipConcreteFactory();
+        for (int i = 0; i < quantity; i++) {
+            setMyMembership((Membership) super.myTravelDocumentFactory.createTravelDocument(MyConstants.membershipPrice, null, startDate.plusYears(1), null, null, null, null, startDate));
+            super.getOrder().getPurchaseList().add(getMyMembership());
+            super.setOrder(new Order(super.getOrder().getPurchaseDate(), super.getOrder().getPurchasePrice() + MyConstants.membershipPrice, super.getOrder().getCitizenID(), super.getOrder().getPaymentMethodStrategy(), super.getOrder().getPurchaseList()));
+        }
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Abbonamento/i aggiunto/i correttamente al carrello!", ButtonType.OK);
+        alert.showAndWait();
+        initializeViewComponents();
     }
 
     @FXML
     void onIncreaseMembershipQuantityButtonClick(ActionEvent event) {
         quantityTextField.setText(String.valueOf(Integer.parseInt(quantityTextField.getText()) + 1));
-        priceResultLabel.setText("€" + String.valueOf(Integer.parseInt(quantityTextField.getText()) * MyConstants.membershipPrice));
+        priceResultLabel.setText("€ " + String.valueOf(Integer.parseInt(quantityTextField.getText()) * MyConstants.membershipPrice));
     }
 
     @FXML
     void onDecreaseMembershipQuantityButtonClick(ActionEvent event) {
         int currentQuantity = Integer.parseInt(quantityTextField.getText());
         if (currentQuantity > 0) quantityTextField.setText(String.valueOf(currentQuantity - 1));
-        priceResultLabel.setText("€" + String.valueOf(Integer.parseInt(quantityTextField.getText()) * MyConstants.membershipPrice));
+        priceResultLabel.setText("€ " + String.valueOf(Integer.parseInt(quantityTextField.getText()) * MyConstants.membershipPrice));
     }
 
     @FXML
@@ -103,14 +96,12 @@ public class AddMembershipViewController extends TravelDocumentsManagementViewCo
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        quantityTextField.setText(String.valueOf(0));
-        priceResultLabel.setText("€" + String.valueOf(0.0));
-    }
-
-    private void updateTextFields() {
-        startDatePicker.setValue(null);
-        quantityTextField.setText(String.valueOf(0));
-        priceResultLabel.setText("€" + String.valueOf(0.0));
+    public void initialize(URL url, ResourceBundle resourceBundle) { initializeViewComponents(); }
+    @Override
+    protected void initializeViewComponents() {
+        super.clearDatePickersContent(startDatePicker);
+        super.clearTextFieldsContent(quantityTextField);
+        quantityTextField.setText(Integer.toString(0));
+        priceResultLabel.setText("€ " + String.valueOf(0.0));
     }
 }

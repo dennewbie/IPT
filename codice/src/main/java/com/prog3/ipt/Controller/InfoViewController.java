@@ -1,7 +1,6 @@
 package com.prog3.ipt.Controller;
 
 import com.prog3.ipt.Model.FacadeClasses.FacadeSingleton;
-import com.prog3.ipt.Model.Notice;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,7 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
@@ -66,7 +64,9 @@ public class InfoViewController extends ViewController {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle) { initializeViewComponents(); }
+    @Override
+    protected void initializeViewComponents() {
         ObservableList<Linea> lineaObservableList = FacadeSingleton.getLineaViewContent();
         ObservableList<Corsa> corsaObservableList = FacadeSingleton.getCorsaViewContent();
 

@@ -5,12 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e97b81e6-5df3-4387-b0ec-95788485ee96" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/PaymentMethodClasses/PaymentMethodEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/IPT.iml" beforeDir="false" afterPath="$PROJECT_DIR$/IPT.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/EditProfileViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/EditProfileViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/GoogleMapsViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/GoogleMapsViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/HomeViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/HomeViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/InfoViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/InfoViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/LoginRegisterViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/LoginRegisterViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/NoticesViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/NoticesViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/SearchPathViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/SearchPathViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/TravelDocumentsManagement/AddMembershipViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/TravelDocumentsManagement/AddMembershipViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/TravelDocumentsManagement/AddSingleTicketsViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/TravelDocumentsManagement/AddSingleTicketsViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/TravelDocumentsManagement/TravelDocumentsManagementViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/TravelDocumentsManagement/TravelDocumentsManagementViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/ViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/ViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/IPT_Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/IPT_Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/CitizenClasses/ObservableSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/CitizenClasses/ObservableSingleton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/TicketsManagementView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/TicketsManagementView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/CitizenClasses/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/CitizenClasses/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/FacadeClasses/FacadeSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/FacadeClasses/FacadeSingleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/PaymentMethodClasses/CreditCardPaymentMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/PaymentMethodClasses/CreditCardPaymentMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/PaymentMethodClasses/PayPalPaymentMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/PaymentMethodClasses/PayPalPaymentMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/PaymentMethodClasses/PhoneNumberBillPaymentMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/PaymentMethodClasses/PhoneNumberBillPaymentMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/TravelDocumentClasses/TravelDocumentFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/TravelDocumentClasses/TravelDocumentFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/EditProfileView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/EditProfileView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/SearchPathView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/SearchPathView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/prog3/ipt/TicketsManagementView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/prog3/ipt/TicketsManagementView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
