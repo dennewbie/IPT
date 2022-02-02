@@ -1,5 +1,7 @@
 package com.prog3.ipt.Model.PaymentMethodClasses;
 
+import com.prog3.ipt.Model.CitizenClasses.ObservableSingleton;
+
 import java.util.Objects;
 
 public class PayPalPaymentMethod implements PaymentMethodStrategy {
@@ -22,18 +24,12 @@ public class PayPalPaymentMethod implements PaymentMethodStrategy {
     // Others
     @Override
     public boolean pay(double paymentAmount) {
-        // TODO: controllo espressione regolare email
+        if (!this.getPassword().equals(((PayPalPaymentMethod) ObservableSingleton.getPaymentMethodStrategy()).getPassword())) return false;
         return true;
     }
 
     @Override
-    public String toString() {
-        return "PayPalPaymentMethod{" +
-                "email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
-
+    public String toString() { return "PayPalPaymentMethod{ email='" + email + '\'' + ", password='" + password + '\'' + '}'; }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -41,9 +37,6 @@ public class PayPalPaymentMethod implements PaymentMethodStrategy {
         PayPalPaymentMethod that = (PayPalPaymentMethod) o;
         return email.equals(that.email) && password.equals(that.password);
     }
-
     @Override
-    public int hashCode() {
-        return Objects.hash(email, password);
-    }
+    public int hashCode() { return Objects.hash(email, password); }
 }
