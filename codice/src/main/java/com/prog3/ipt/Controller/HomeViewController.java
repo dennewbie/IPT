@@ -25,7 +25,7 @@ public class HomeViewController extends ViewController {
     @FXML
     private Button searchPathButton;
     @FXML
-    private Button buyTravelDocumentsButton;
+    private Button manageTravelDocumentsButton;
     @FXML
     private Button infoButton;
     @FXML
@@ -39,50 +39,31 @@ public class HomeViewController extends ViewController {
     void onInfoButtonClick(ActionEvent event) {
         super.onButtonClickNavigateToView(infoButton, "InfoView.fxml");
     }
-
     @FXML
-    void onLoginButtonClick(ActionEvent event) {
-        super.onButtonClickNavigateToView(loginButton, "LoginRegisterView.fxml");
-    }
-
+    void onLoginButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(loginButton, "LoginRegisterView.fxml"); }
     @FXML
-    void onLogoutButtonClick(ActionEvent event) {
-        ObservableSingleton.setCitizen(null);
-        enableGuestUserView();
-    }
-
+    void onLogoutButtonClick(ActionEvent event) { ObservableSingleton.setCitizen(null); enableGuestUserView(); }
     @FXML
-    void onSearchPathButtonClick(ActionEvent event) {
-        super.onButtonClickNavigateToView(searchPathButton,"SearchPathView.fxml");
-    }
-
+    void onSearchPathButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(searchPathButton,"SearchPathView.fxml"); }
     @FXML
-    void onAvvisiUtenzaButtonClick(ActionEvent event) {
-        super.onButtonClickNavigateToView(noticesButton, "NoticesView.fxml");
-    }
-
+    void onNoticesButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(noticesButton, "NoticesView.fxml"); }
     @FXML
-    void onBuyTravelDocumentsButtonClick(ActionEvent event) {
-        super.onButtonClickNavigateToView(buyTravelDocumentsButton, "TicketsManagementView.fxml");
-    }
-
+    void onManageTravelDocumentsButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(manageTravelDocumentsButton, "TicketsManagementView.fxml"); }
     @FXML
-    void onEditProfileButtonClick(ActionEvent event) {
-        super.onButtonClickNavigateToView(editProfileButton, "EditProfileView.fxml");
-    }
+    void onEditProfileButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(editProfileButton, "EditProfileView.fxml"); }
 
     private void enableLoggedUserView(String loggedUsername) {
         loginButton.setDisable(true);
         usernameWelcomeLabel.setText("Benvenuto "  + loggedUsername);
         logoutButton.setVisible(true);
-        buyTravelDocumentsButton.setDisable(false);
+        manageTravelDocumentsButton.setDisable(false);
         editProfileButton.setDisable(false);
     }
 
     private void enableGuestUserView() {
         loginButton.setDisable(false);
         logoutButton.setVisible(false);
-        buyTravelDocumentsButton.setDisable(true);
+        manageTravelDocumentsButton.setDisable(true);
         editProfileButton.setDisable(true);
         usernameWelcomeLabel.setText("Ospite");
     }

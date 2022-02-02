@@ -21,14 +21,6 @@ public class Notice {
         this.lineID = lineID;
     }
 
-    // Getters
-    public String getNoticeID() { return noticeID; }
-    public LocalDate getNoticeDate() { return noticeDate; }
-    public String getNoticeName() { return noticeName; }
-    public String getNoticeText() { return noticeText; }
-    public String getRideID() { return rideID; }
-    public String getLineID() { return lineID; }
-
     // Setters
     public void setNoticeID(String noticeID) { this.noticeID = noticeID; }
     public void setNoticeDate(LocalDate date) { this.noticeDate = date; }
@@ -37,6 +29,15 @@ public class Notice {
     public void setRideID(String rideID) { this.rideID = rideID; }
     public void setLineID(String lineID) { this.lineID = lineID; }
 
+    // Getters
+    public String getNoticeID() { return noticeID; }
+    public LocalDate getNoticeDate() { return noticeDate; }
+    public String getNoticeName() { return noticeName; }
+    public String getNoticeText() { return noticeText; }
+    public String getRideID() { return rideID; }
+    public String getLineID() { return lineID; }
+
+    // Others
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

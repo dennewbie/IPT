@@ -39,7 +39,6 @@ public class LoginRegisterViewController extends ViewController {
     void onBackButtonClick(ActionEvent event) {
         super.onButtonClickNavigateToView(backButton, "HomeView.fxml");
     }
-
     @FXML
     void onSignInButtonClick(ActionEvent event) {
         if (!super.checkTextFieldsContent(passwordSignInField, usernameSignInTextField)) return;
@@ -47,7 +46,7 @@ public class LoginRegisterViewController extends ViewController {
 
         // recupera dati citizen dal DB e salva in Observer
         // SELECT name, etc from cittadino where username = textfield. Si mette tutto nella variable sottostante e via.
-        Citizen loggedCitizen = new Citizen("Pino", "Giogrgietti", LocalDate.of(1999, 12, 31), "pino.giorgietti@gmail.com", "acciderbolina01", "pinogiorg");
+        Citizen loggedCitizen = new Citizen("Alfredo", "Mungari", LocalDate.of(2000, 12, 20), "alfredo@libero.it", "alfred00", "mungowz");
         ObservableSingleton.setCitizen(loggedCitizen);
         super.onButtonClickNavigateToView(signInButton, "HomeView.fxml");
     }
@@ -61,18 +60,13 @@ public class LoginRegisterViewController extends ViewController {
         String name = nameTextField.getText(), surname = surnameTextField.getText(), email = emailTextField.getText();
         String usernameSignUp = usernameSignUpTextField.getText(), passwordSignUp = passwordSignUpField.getText();
         LocalDate localDate = birthDatePicker.getValue();
-        if (!localDate.isBefore(LocalDate.now())) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Non puoi inserire una data di nascita uguale o successiva ad oggi.", ButtonType.OK);
-            alert.showAndWait();
-            return;
-        }
+        if (!localDate.isBefore(LocalDate.now())) { super.raiseErrorAlert("Non puoi inserire una data di nascita uguale o successiva ad oggi."); return; }
+        if (!super.validateEmail(email)) { super.raiseErrorAlert("Formato mail non valido."); return; }
 
-        // controlli dati estratti...
         // creo utente, db, etc.
         Citizen newCitizen = new Citizen(name, surname, localDate, email, passwordSignUp, usernameSignUp);
         // salvataggio nel db...
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Il tuo account è stato creato correttamente. Effettua il login", ButtonType.OK);
-        alert.showAndWait();
+        super.raiseConfirmationAlert("Il tuo account è stato creato correttamente. Effettua il login");
         initializeViewComponents();
     }
 

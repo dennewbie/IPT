@@ -69,7 +69,7 @@ public class FacadeSingleton {
     }
 
     /*
-     * vari metodi che eseguono le query e che restituiscono un risultato (credo un nuovo e singolo ResultSet)
+     * vari metodi che eseguono le query e che restituiscono un risultato
      * */
     private static boolean executeQuery(String queryString) {
         queryOutput = null;
@@ -99,11 +99,7 @@ public class FacadeSingleton {
 
         if (!executeQuery(lineQuery)) return false;
         try {
-
-            if (!queryOutput.next()) {
-                return false;
-            }
-
+            if (!queryOutput.next()) return false;
             String queryLineID = queryOutput.getString("id_linea");
             String queryRideID = queryOutput.getString("id_corsa");
             String queryState = queryOutput.getString("stato");
@@ -111,30 +107,21 @@ public class FacadeSingleton {
             Time queryStopTime = queryOutput.getTime("ora_fine");
             Integer queryPriority = queryOutput.getInt("priorita");
 
-            if (!queryLineID.equals(lineID) || !(queryRideID.equals(rideID))) {
-                return false;
-            }
+            if (!queryLineID.equals(lineID) || !(queryRideID.equals(rideID))) return false;
 
         } catch (SQLException e) {
             Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, e);
             e.printStackTrace();
         }
-
-
         return true;
     }
 
-    //  `
     public static ObservableList<Notice> getNoticesViewContent() {
         noticeObservableList = FXCollections.observableArrayList();
-
-        // SQL Query
         String noticeViewQuery = "select * from avviso_utenza";
-
         try {
             if (!executeQuery(noticeViewQuery)) return null;
             while (queryOutput.next()) {
-
                 String queryNoticeID = queryOutput.getString("id_avviso_utenza");
                 String queryLineID = queryOutput.getString("id_linea");
                 String queryRideID = queryOutput.getString("id_corsa");
@@ -162,7 +149,6 @@ public class FacadeSingleton {
             if (!executeQuery(lineaViewQuery)) return null;
 
             while (queryOutput.next()) {
-
                 String queryLineaID = queryOutput.getString("id_linea");
                 Integer queryLineaLunghezza = queryOutput.getInt("lunghezza");
                 String queryLineaFermataInizio = queryOutput.getString("fermata_inizio");
@@ -172,19 +158,13 @@ public class FacadeSingleton {
                 Time queryLineaOrarioChiusura = queryOutput.getTime("orario_chiusura");
 
                 lineaObservableList.add(new Linea(queryLineaID, queryLineaLunghezza, queryLineaFermataInizio, queryLineaFermataFine, queryLineaDataAttivazione, null, null));
-
-
             }
 
         } catch (SQLException ex) {
             Logger.getLogger(InfoViewController.class.getName()).log(Level.SEVERE, null, ex);
             ex.printStackTrace();
         }
-
-
         return lineaObservableList;
-
-
     }
 
     public static ObservableList<Corsa> getCorsaViewContent() {
@@ -204,7 +184,6 @@ public class FacadeSingleton {
                 LocalDate queryCorsaOraFine = queryOutput.getDate("ora_fine").toLocalDate();
                 Integer queryCorsaPriorità = queryOutput.getInt("priorita");
 
-
                 corsaObservableList.add(new Corsa(queryCorsaID, queryLineaID, queryCorsaStato, queryCorsaOraInizio, queryCorsaOraFine, queryCorsaPriorità));
             }
         } catch (SQLException ex) {
@@ -216,10 +195,7 @@ public class FacadeSingleton {
 
     public static ObservableList<TravelDocumentFX> getMyTicketsViewContent(String citizenID) {
         travelDocumentObservableList = FXCollections.observableArrayList();
-
-        // SQL Query
         String myTicketsViewQuery = "";
-
         try {
             if (!executeQuery(myTicketsViewQuery)) return null;
             while (queryOutput.next()) {

@@ -42,24 +42,14 @@ public class AddMembershipViewController extends TravelDocumentsManagementViewCo
     private void setMyMembership(Membership myMembership) {
         this.myMembership = myMembership;
     }
-    private Membership getMyMembership() {
-        return myMembership;
-    }
-
+    private Membership getMyMembership() { return myMembership; }
     @FXML
     void onBackButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(backButton, "TicketsManagementView.fxml"); }
-
     @FXML
     void onAddMembershipToCartButtonClick(ActionEvent event) {
         LocalDate startDate = startDatePicker.getValue();
-        if (!super.checkDatePickersContent(startDatePicker) || Integer.valueOf(quantityTextField.getText()) <= 0)  return;
-
-        if (startDate.isBefore(LocalDate.now()) || startDate.isEqual(LocalDate.now())) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Non puoi comprare un abbonamento che ha una data di inizio validità nel passato.", ButtonType.OK);
-            alert.showAndWait();
-            return;
-        }
-
+        if (!super.checkDatePickersContent(startDatePicker) || Integer.valueOf(quantityTextField.getText()) <= 0) { super.raiseErrorAlert("Hai lasciato uno o più campi vuoti"); return; }
+        if (startDate.isBefore(LocalDate.now()) || startDate.isEqual(LocalDate.now())) { super.raiseErrorAlert("Non puoi comprare un abbonamento che ha una data di inizio validità nel passato."); return; }
         // aggiunta al carrello
         int quantity = Integer.valueOf(quantityTextField.getText());
         super.myTravelDocumentFactory = new MembershipConcreteFactory();
@@ -68,8 +58,7 @@ public class AddMembershipViewController extends TravelDocumentsManagementViewCo
             super.getOrder().addTravelDocument(getMyMembership());
             super.setOrder(new Order(super.getOrder().getPurchaseDate(), super.getOrder().getPurchasePrice(), super.getOrder().getCitizenID(), super.getOrder().getPaymentMethodStrategy(), super.getOrder().getPurchaseList(), super.getOrder().getPurchaseObservableList()));
         }
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Abbonamento/i aggiunto/i correttamente al carrello!", ButtonType.OK);
-        alert.showAndWait();
+        super.raiseConfirmationAlert("Abbonamento/i aggiunto/i correttamente al carrello!");
         initializeViewComponents();
     }
 
@@ -87,14 +76,7 @@ public class AddMembershipViewController extends TravelDocumentsManagementViewCo
     }
 
     @FXML
-    void onHelpButtonClick(ActionEvent event) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION, "È possibile aggiungere uno o più abbonamenti al carrello. " +
-                "L'abbonamneto avrà la data di inizio validità pari a quella da te inserita e sarà valido per un anno. " +
-                "Se selezioni più abbonamenti avranno tutti la stessa data di inizio validità. Se è necessario che siano diverse, aggiungi" +
-                "separatamente gli abbonamenti al carrello.", ButtonType.OK);
-        alert.showAndWait();
-    }
-
+    void onHelpButtonClick(ActionEvent event) { super.raiseInformationAlert("È possibile aggiungere uno o più abbonamenti al carrello. L'abbonamneto avrà la data di inizio validità pari a quella da te inserita e sarà valido per un anno. Se selezioni più abbonamenti avranno tutti la stessa data di inizio validità. Se è necessario che siano diverse, aggiungi separatamente gli abbonamenti al carrello."); }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { initializeViewComponents(); }
     @Override

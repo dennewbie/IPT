@@ -49,23 +49,14 @@ public class EditProfileViewController extends ViewController {
         // controllo validità credenziali
         String name = nameTextField.getText(), surname = surnameTextField.getText(), email = emailTextField.getText(), password = passwordField.getText();
         LocalDate localDate = birthDatePicker.getValue();
-        if (!localDate.isBefore(LocalDate.now())) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Non puoi inserire una data di nascita uguale o successiva ad oggi.", ButtonType.OK);
-            alert.showAndWait();
-            return;
-        }
-
+        if (!super.validateEmail(email)) { super.raiseErrorAlert("Formato mail non valido."); return; }
+        if (!localDate.isBefore(LocalDate.now())) { super.raiseErrorAlert("Non puoi inserire una data di nascita uguale o successiva ad oggi."); return; }
         ObservableSingleton.updateCitizen(name, surname, localDate, email, password);
-        if (checkChanges(ObservableSingleton.getCitizen(), citizenEditProfileOriginator.getCurrentCitizen()) != false) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "I dati non risultano essere stati modificati.", ButtonType.OK);
-            alert.showAndWait();
-            return;
-        }
+        if (checkChanges(ObservableSingleton.getCitizen(), citizenEditProfileOriginator.getCurrentCitizen()) != false) { super.raiseErrorAlert("I dati non risultano essere stati modificati."); return; }
 
         citizenEditProfileOriginator.setCurrentCitizen(new Citizen(name, surname, localDate, email, password, ObservableSingleton.getCitizen().getUsername()));
         citizenEditProfileOriginator.save();
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Dati aggiornati correttamente.", ButtonType.OK);
-        alert.showAndWait();
+        super.raiseConfirmationAlert("Dati aggiornati correttamente.");
         updateTextFields();
         undoButton.setDisable(false);
     }
@@ -76,12 +67,10 @@ public class EditProfileViewController extends ViewController {
         if (returnValue != false) {
             ObservableSingleton.updateCitizen(citizenEditProfileOriginator.getCurrentCitizen().getName(), citizenEditProfileOriginator.getCurrentCitizen().getSurname(), citizenEditProfileOriginator.getCurrentCitizen().getBirthDate(), citizenEditProfileOriginator.getCurrentCitizen().getEmail(), citizenEditProfileOriginator.getCurrentCitizen().getPassword());
             updateTextFields();
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Annullamento modifica avvenuto con successo", ButtonType.OK);
-            alert.showAndWait();
+            super.raiseConfirmationAlert("Annullamento modifica avvenuto con successo");
         } else {
             undoButton.setDisable(true);
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Non è possibile tornare ulteriormente indietro con le modifiche", ButtonType.OK);
-            alert.showAndWait();
+            super.raiseErrorAlert("Non è possibile tornare ulteriormente indietro con le modifiche");
         }
     }
 
@@ -93,10 +82,7 @@ public class EditProfileViewController extends ViewController {
         birthDatePicker.setValue(ObservableSingleton.getCitizen().getBirthDate());
     }
 
-    private boolean checkChanges(Citizen firstCitizen, Citizen secondCitizen) {
-        return (firstCitizen.getName().equals(secondCitizen.getName())  && firstCitizen.getSurname().equals(secondCitizen.getSurname()) && firstCitizen.getEmail().equals(secondCitizen.getEmail()) && firstCitizen.getBirthDate().isEqual(secondCitizen.getBirthDate()) && firstCitizen.getPassword().equals(secondCitizen.getPassword()));
-    }
-
+    private boolean checkChanges(Citizen firstCitizen, Citizen secondCitizen) { return (firstCitizen.getName().equals(secondCitizen.getName())  && firstCitizen.getSurname().equals(secondCitizen.getSurname()) && firstCitizen.getEmail().equals(secondCitizen.getEmail()) && firstCitizen.getBirthDate().isEqual(secondCitizen.getBirthDate()) && firstCitizen.getPassword().equals(secondCitizen.getPassword())); }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { initializeViewComponents(); }
     @Override

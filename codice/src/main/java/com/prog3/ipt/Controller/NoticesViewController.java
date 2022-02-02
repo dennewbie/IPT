@@ -41,7 +41,6 @@ public class NoticesViewController extends ViewController {
     void onBackButtonClick(ActionEvent event) {
         super.onButtonClickNavigateToView(backButton, "HomeView.fxml");
     }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { initializeViewComponents(); }
     @Override

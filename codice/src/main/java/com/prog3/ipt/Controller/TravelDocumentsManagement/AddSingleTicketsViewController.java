@@ -44,30 +44,16 @@ public class AddSingleTicketsViewController extends TravelDocumentsManagementVie
 
 
 
-    private void setMySingleTicket(SingleTicket mySingleTicket) {
-        this.mySingleTicket = mySingleTicket;
-    }
-    private SingleTicket getMySingleTicket() {
-        return mySingleTicket;
-    }
-
+    private void setMySingleTicket(SingleTicket mySingleTicket) { this.mySingleTicket = mySingleTicket; }
+    private SingleTicket getMySingleTicket() { return mySingleTicket; }
     @FXML
-    void onBackButtonClick(ActionEvent event) {
-        super.onButtonClickNavigateToView(backButton, "TicketsManagementView.fxml");
-    }
-
+    void onBackButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(backButton, "TicketsManagementView.fxml"); }
     @FXML
     void onAddSingleTicketsToCartButtonClick(ActionEvent event) {
         // controllo esistenza corsa e linea
         String ID_Ride = ID_RideTextField.getText(), ID_Line = ID_LineTextField.getText();
-        if (!super.checkTextFieldsContent(ID_LineTextField, ID_RideTextField) || Integer.valueOf(quantityTextField.getText()) <= 0) return;
-
-        if (!FacadeSingleton.validateRide(ID_Line, ID_Ride)) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Biglietto/i singolo/i selezionato/i non valido/i!", ButtonType.OK);
-            alert.showAndWait();
-
-            return;
-        }
+        if (!super.checkTextFieldsContent(ID_LineTextField, ID_RideTextField) || Integer.valueOf(quantityTextField.getText()) <= 0) { super.raiseErrorAlert("Hai lasciato uno o più campi vuoti"); return; }
+        if (!FacadeSingleton.validateRide(ID_Line, ID_Ride)) { super.raiseErrorAlert("Biglietto/i singolo/i selezionato/i non valido/i!"); return; }
 
         // aggiunta al carrello
         int quantity = Integer.valueOf(quantityTextField.getText());
@@ -77,8 +63,7 @@ public class AddSingleTicketsViewController extends TravelDocumentsManagementVie
             super.getOrder().addTravelDocument(getMySingleTicket());
             super.setOrder(new Order(super.getOrder().getPurchaseDate(), super.getOrder().getPurchasePrice(), super.getOrder().getCitizenID(), super.getOrder().getPaymentMethodStrategy(), super.getOrder().getPurchaseList(), super.getOrder().getPurchaseObservableList()));
         }
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Biglietto/i singolo/i aggiunto/i correttamente al carrello!", ButtonType.OK);
-        alert.showAndWait();
+        super.raiseConfirmationAlert("Biglietto/i singolo/i aggiunto/i correttamente al carrello!");
         initializeViewComponents();
     }
 
@@ -96,15 +81,7 @@ public class AddSingleTicketsViewController extends TravelDocumentsManagementVie
     }
 
     @FXML
-    void onHelpButtonClick(ActionEvent event) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION, "È possibile aggiungere uno o più biglietti singoli al carrello. " +
-                "È possibile utilizzare il biglietto singolo per la corsa e per la linea da te specificata. La validità del titolo di viaggio è a partire" +
-                "dalla data di timbratura del biglietto fino al giorno seguente allo stesso orario. Se selezioni più biglietti singoli, questi" +
-                " saranno validi tutti per la stessa corsa e per la stessa linea. Se è necessario che siano diverse, aggiungi" +
-                "separatamente i biglietti singoli al carrello.", ButtonType.OK);
-        alert.showAndWait();
-    }
-
+    void onHelpButtonClick(ActionEvent event) { super.raiseInformationAlert("È possibile aggiungere uno o più biglietti singoli al carrello. È possibile utilizzare il biglietto singolo per la corsa e per la linea da te specificata. La validità del titolo di viaggio è a partire dalla data di timbratura del biglietto fino al giorno seguente allo stesso orario. Se selezioni più biglietti singoli, questi saranno validi tutti per la stessa corsa e per la stessa linea. Se è necessario che siano diverse, aggiungi separatamente i biglietti singoli al carrello."); }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { initializeViewComponents(); }
     @Override

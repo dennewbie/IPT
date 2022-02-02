@@ -102,36 +102,23 @@ public class TravelDocumentsManagementViewController extends ViewController {
 
 
 
-    // create temporary transaction
     @FXML
-    void onBackButtonClick(ActionEvent event) {
-        super.onButtonClickNavigateToView(backButton, "HomeView.fxml");
-    }
+    void onBackButtonClick(ActionEvent event) {super.onButtonClickNavigateToView(backButton, "HomeView.fxml"); }
     @FXML
     void onAddSingleTicketsButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(addSingleTicketsButton, "AddSingleTicketsView.fxml"); }
     @FXML
     void onAddMembershipsButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(addMembershipsButton, "AddMembershipView.fxml"); }
     @FXML
     void onBuyCartItemsButtonClick(ActionEvent event) {
+        if (ObservableSingleton.getOrder().getPurchaseList().size() <= 0) { super.raiseErrorAlert("Il tuo carrello è vuoto. Non puoi procedere con l'acquisto."); return; }
         onSavePaymentMethodButtonClick(new ActionEvent());
-        if (ObservableSingleton.getOrder().getPurchaseList().size() <= 0) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Il tuo carrello è vuoto. Non puoi procedere con l'acquisto.", ButtonType.OK);
-            alert.showAndWait();
-            return;
-        }
-
-        if (!isValidTransaction || !ObservableSingleton.getPaymentMethodStrategy().pay(ObservableSingleton.getOrder().getPurchasePrice())) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Non è possibile procedere con l'acquisto: metodo di pagamento non valido.", ButtonType.OK);
-            alert.showAndWait();
-            return;
-        }
+        if (!isValidTransaction || !ObservableSingleton.getPaymentMethodStrategy().pay(ObservableSingleton.getOrder().getPurchasePrice())) { raiseErrorAlert("Non è possibile procedere con l'acquisto: metodo di pagamento non valido."); return; }
         // TODO: query DB transazione, svuota table view
         // insert record into transaction table
 
         //if (!FacadeSingleton.insertRecord(ObservableSingleton.getOrder(), ""));
 
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Il tuo acquisto è andato a buon fine. Costo totale: " + ObservableSingleton.getOrder().getPurchasePrice() + ". Modalità pagamento: " + ObservableSingleton.getPaymentMethodString(), ButtonType.OK);
-        alert.showAndWait();
+        super.raiseConfirmationAlert("Il tuo acquisto è andato a buon fine. Costo totale: " + ObservableSingleton.getOrder().getPurchasePrice() + ". Modalità pagamento: " + ObservableSingleton.getPaymentMethodString());
         ObservableSingleton.setOrder(null);
         initializeViewComponents();
     }
@@ -141,95 +128,53 @@ public class TravelDocumentsManagementViewController extends ViewController {
         String currentCreditCardNumber = null, currentCreditCartCVV = null;
         LocalDate currentCreditCardExpirationDate = null;
         // add payment method to user payment methods
-        if (paymentMethodsDropDownList.getSelectionModel().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Hai lasciato uno o più campi vuoti.", ButtonType.OK);
-            alert.showAndWait();
-            return;
-        }
+        if (paymentMethodsDropDownList.getSelectionModel().isEmpty()) { super.raiseErrorAlert("Hai lasciato uno o più campi vuoti."); return; }
         setConvertedDropDownListString(PaymentMethodEnum.valueOf(paymentMethodsDropDownList.getValue()).toString());
-        switch (PaymentMethodEnum.valueOf(paymentMethodsDropDownList.getValue())) {
-            case PAYPAL -> {
-                if (!super.checkTextFieldsContent(creditCardNumberTextField)) return;
-
-                Dialog<String> dialog = new Dialog<>();
-                dialog.setTitle("PayPal Request");
-                dialog.setHeaderText("Attenzione. È richiesta la tua password PayPal per continuare");
-                dialog.setGraphic(new Circle(15, Color.RED)); // Custom graphic
-                dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
-
-                PasswordField pwd = new PasswordField();
-                HBox content = new HBox();
-                content.setAlignment(Pos.CENTER_LEFT);
-                content.setSpacing(10);
-                content.getChildren().addAll(new Label("Inserisci la tua password PayPal per procedere con il salvataggio:"), pwd);
-                dialog.getDialogPane().setContent(content);
-                dialog.setResultConverter(dialogButton -> {
-                    if (dialogButton == ButtonType.OK) return pwd.getText();
-                    return null;
-                });
-
-                Optional<String> result = dialog.showAndWait();
-                if (result.isPresent()) {
+        try {
+            switch (PaymentMethodEnum.valueOf(paymentMethodsDropDownList.getValue())) {
+                case PAYPAL -> {
+                    if (!super.checkTextFieldsContent(creditCardNumberTextField)) return;
+                    super.generatePayPalAlert(currentCreditCardNumber, currentCreditCartCVV, creditCardNumberTextField);
+                }
+                case CREDIT_CARD -> {
+                    if (!super.checkTextFieldsContent(creditCardNumberTextField, CVV_TextField)) return;
+                    if (!super.checkDatePickersContent(expirationCreditCardDatePicker)) return;
                     currentCreditCardNumber = creditCardNumberTextField.getText();
                     currentCreditCartCVV = CVV_TextField.getText();
-                    ObservableSingleton.setPaymentMethodStrategy(new PayPalPaymentMethod(currentCreditCardNumber, currentCreditCartCVV));
-                    ObservableSingleton.setPaymentMethodString(new String("PayPal"));
+                    currentCreditCardExpirationDate = expirationCreditCardDatePicker.getValue();
+
+                    if (!currentCreditCardExpirationDate.isAfter(LocalDate.now())) { super.raiseErrorAlert("Non puoi inserire una carta di credito scaduta."); return; }
+                    ObservableSingleton.setPaymentMethodStrategy(new CreditCardPaymentMethod(currentCreditCardNumber, currentCreditCardExpirationDate, currentCreditCartCVV));
+                    ObservableSingleton.setPaymentMethodString(new String("Carta di Credito"));
                 }
-            }
-            case CREDIT_CARD -> {
-                if (!super.checkTextFieldsContent(creditCardNumberTextField, CVV_TextField)) return;
-                if (!super.checkDatePickersContent(expirationCreditCardDatePicker)) return;
-
-                currentCreditCardNumber = creditCardNumberTextField.getText();
-                currentCreditCartCVV = CVV_TextField.getText();
-                currentCreditCardExpirationDate = expirationCreditCardDatePicker.getValue();
-
-                if (!currentCreditCardExpirationDate.isAfter(LocalDate.now())) {
-                    Alert alert = new Alert(Alert.AlertType.ERROR, "Non puoi inserire una carta di credito scaduta.", ButtonType.OK);
-                    alert.showAndWait();
-                    return;
+                case PHONE_NUMBER_BILL -> {
+                    if (!super.checkTextFieldsContent(creditCardNumberTextField)) return;
+                    currentCreditCardNumber = creditCardNumberTextField.getText();
+                    ObservableSingleton.setPaymentMethodStrategy(new PhoneNumberBillPaymentMethod(currentCreditCardNumber));
+                    ObservableSingleton.setPaymentMethodString(new String("Addebito numero di telefono"));
                 }
-                ObservableSingleton.setPaymentMethodStrategy(new CreditCardPaymentMethod(currentCreditCardNumber, currentCreditCardExpirationDate, currentCreditCartCVV));
-                ObservableSingleton.setPaymentMethodString(new String("Carta di Credito"));
+                default -> throw new IllegalStateException("Unexpected value: " + valueOf(paymentMethodsDropDownList.getValue()));
             }
-            case PHONE_NUMBER_BILL -> {
-                if (!super.checkTextFieldsContent(creditCardNumberTextField)) return;
-
-                currentCreditCardNumber = creditCardNumberTextField.getText();
-                ObservableSingleton.setPaymentMethodStrategy(new PhoneNumberBillPaymentMethod(currentCreditCardNumber));
-                ObservableSingleton.setPaymentMethodString(new String("Addebito numero di telefono"));
-            }
-            default -> throw new IllegalStateException("Unexpected value: " + valueOf(paymentMethodsDropDownList.getValue()));
-        }
+        } catch (IllegalStateException e) { e.printStackTrace(); return; }
         isValidTransaction = true;
-    }
-
-    @FXML
-    void onSelectedDropDownListElement(ActionEvent event) {
-        switch (PaymentMethodEnum.valueOf(paymentMethodsDropDownList.getValue())) {
-            case PAYPAL -> payPalPaymentMethodSelected();
-            case CREDIT_CARD -> creditCardPaymentMethodSelected();
-            case PHONE_NUMBER_BILL -> phoneNumberBillPaymentMethodSelected();
-            default -> throw new IllegalStateException("Unexpected value: " + valueOf(paymentMethodsDropDownList.getValue()));
-        }
+        super.raiseConfirmationAlert("Metodo di pagamento salvato con successo!");
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { initializeViewComponents(); }
     @Override
     protected void initializeViewComponents() {
-
-        isValidTransaction = false;
-
         // initialize left side
+        isValidTransaction = false;
         totalPriceLabel.setText("€  " + String.valueOf(ObservableSingleton.getOrder().getPurchasePrice()));
-
         paymentMethodsDropDownList.getItems().addAll("CREDIT_CARD", "PAYPAL", "PHONE_NUMBER_BILL");
+        paymentMethodsDropDownList.setValue(null);
         paymentMethodsDropDownList.setPromptText("Seleziona un metodo di pagamento...");
         CVV_TextField.setVisible(false);
         creditCardNumberTextField.setVisible(false);
         expirationCreditCardDatePicker.setVisible(false);
 
+ /*     GENERA ERRORI
         // create observable list for myTicketsView according to citizenID
         ObservableList<TravelDocumentFX> myTicketsObservableList = FacadeSingleton.getMyTicketsViewContent(ObservableSingleton.getCitizen().getCitizenID());
 
@@ -245,9 +190,8 @@ public class TravelDocumentsManagementViewController extends ViewController {
         myTicketsStampDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("stampDate"));
 
         myTicketsTableView.setItems(null);
-
-        // initialize right side
-        // update right table view with new items
+*/
+        // initialize right side. Update right table view with new items
 
         travelDocumentIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("travelDocumentID"));
         lineIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("lineID"));
@@ -258,7 +202,6 @@ public class TravelDocumentsManagementViewController extends ViewController {
         priceTableColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
 
         myCartTableView.setItems(ObservableSingleton.getOrder().getPurchaseObservableList());
-
     }
 
     protected void setOrder(Order order) { ObservableSingleton.updateOrder(order.getPurchaseDate(), order.getPurchasePrice(), order.getCitizenID(), order.getPaymentMethodStrategy(), order.getPurchaseList(), order.getPurchaseObservableList()); }
@@ -266,26 +209,22 @@ public class TravelDocumentsManagementViewController extends ViewController {
     public void setConvertedDropDownListString(String convertedDropDownListString) { this.convertedDropDownListString = convertedDropDownListString; }
     public String getConvertedDropDownListString() { return this.convertedDropDownListString; }
 
-    private void payPalPaymentMethodSelected() {
-        creditCardNumberTextField.clear();
-        CVV_TextField.clear();
-        expirationCreditCardDatePicker.setValue(null);
-        creditCardNumberTextField.setPromptText("Inserisci l'email di PayPal...");
-        creditCardNumberTextField.setVisible(true);
-        CVV_TextField.setVisible(false);
-        expirationCreditCardDatePicker.setVisible(false);
-
-        if (ObservableSingleton.getPaymentMethodString() == null) return;
-        if (ObservableSingleton.getPaymentMethodString().equals(PAYPAL.toString())) {
-            creditCardNumberTextField.setText(((PayPalPaymentMethod) ObservableSingleton.getPaymentMethodStrategy()).getEmail());
-            return;
-        }
+    // ComboBox / DropDownList payment methods handling
+    @FXML
+    void onSelectedDropDownListElement(ActionEvent event) {
+        super.clearTextFieldsContent(creditCardNumberTextField, CVV_TextField);
+        super.clearDatePickersContent(expirationCreditCardDatePicker);
+        try {
+            switch (PaymentMethodEnum.valueOf(paymentMethodsDropDownList.getValue())) {
+                case PAYPAL -> payPalPaymentMethodSelected();
+                case CREDIT_CARD -> creditCardPaymentMethodSelected();
+                case PHONE_NUMBER_BILL -> phoneNumberBillPaymentMethodSelected();
+                default -> throw new IllegalStateException("Unexpected value: " + valueOf(paymentMethodsDropDownList.getValue()));
+            }
+        } catch (IllegalStateException e) { e.printStackTrace(); return; }
     }
 
     private void creditCardPaymentMethodSelected() {
-        creditCardNumberTextField.clear();
-        CVV_TextField.clear();
-        expirationCreditCardDatePicker.setValue(null);
         creditCardNumberTextField.setPromptText("Inserisci il numero di carta di credito...");
         CVV_TextField.setPromptText("Inserisci il CVV...");
         creditCardNumberTextField.setVisible(true);
@@ -297,23 +236,24 @@ public class TravelDocumentsManagementViewController extends ViewController {
             creditCardNumberTextField.setText(((CreditCardPaymentMethod) ObservableSingleton.getPaymentMethodStrategy()).getCreditCardNumber());
             CVV_TextField.setText(((CreditCardPaymentMethod) ObservableSingleton.getPaymentMethodStrategy()).getCreditCardCVV());
             expirationCreditCardDatePicker.setValue(((CreditCardPaymentMethod) ObservableSingleton.getPaymentMethodStrategy()).getCreditCardExpirationDate());
-            return;
         }
     }
 
+    private void payPalPaymentMethodSelected() {
+        creditCardNumberTextField.setPromptText("Inserisci l'email di PayPal...");
+        creditCardNumberTextField.setVisible(true);
+        CVV_TextField.setVisible(false);
+        expirationCreditCardDatePicker.setVisible(false);
+        if (ObservableSingleton.getPaymentMethodString() == null) return;
+        if (ObservableSingleton.getPaymentMethodString().equals(PAYPAL.toString())) creditCardNumberTextField.setText(((PayPalPaymentMethod) ObservableSingleton.getPaymentMethodStrategy()).getEmail());
+    }
+
     private void phoneNumberBillPaymentMethodSelected() {
-        creditCardNumberTextField.clear();
-        CVV_TextField.clear();
-        expirationCreditCardDatePicker.setValue(null);
         creditCardNumberTextField.setPromptText("Inserisci il tuo numero di telefono...");
         creditCardNumberTextField.setVisible(true);
         expirationCreditCardDatePicker.setVisible(false);
         CVV_TextField.setVisible(false);
-
         if (ObservableSingleton.getPaymentMethodString() == null) return;
-        if (ObservableSingleton.getPaymentMethodString().equals(PHONE_NUMBER_BILL.toString())) {
-            creditCardNumberTextField.setText(((PhoneNumberBillPaymentMethod) ObservableSingleton.getPaymentMethodStrategy()).getPhoneNumber());
-            return;
-        }
+        if (ObservableSingleton.getPaymentMethodString().equals(PHONE_NUMBER_BILL.toString())) creditCardNumberTextField.setText(((PhoneNumberBillPaymentMethod) ObservableSingleton.getPaymentMethodStrategy()).getPhoneNumber());
     }
 }

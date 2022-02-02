@@ -64,7 +64,7 @@ public class InfoViewController extends ViewController {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {initializeViewComponents(); }
+    public void initialize(URL url, ResourceBundle resourceBundle) { initializeViewComponents(); }
 
     @Override
     protected void initializeViewComponents() {

@@ -45,5 +45,6 @@
     <orderEntry type="library" name="Maven: org.openjfx:javafx-base:mac:17.0.1" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.25" level="project" />
     <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.11.4" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-8.0.281" level="project" />
   </component>
 </module>

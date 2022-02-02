@@ -36,7 +36,7 @@ public class SearchPathViewController extends ViewController implements Initiali
     }
     @FXML
     void onSearchPathButtonClick(ActionEvent event) {
-        if (!super.checkTextFieldsContent(destinationPointTextField, startingPointTextField)) return;
+        if (!super.checkTextFieldsContent(destinationPointTextField, startingPointTextField)) { super.raiseErrorAlert("Hai lasciato uno o più campi vuoti."); return; }
         // avvia ricerca...
         String startingPoint = startingPointTextField.getText().replace(" ", "+");
         String destinationPoint = destinationPointTextField.getText().replace(" ", "+");
