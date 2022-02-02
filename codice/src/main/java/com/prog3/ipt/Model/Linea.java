@@ -4,7 +4,7 @@ import com.prog3.ipt.Controller.InfoViewController;
 import java.sql.Time;
 import java.time.LocalDate;
 import java.util.Objects;
-public class Linea {
+public class Linea   {
     private String lineaID;
     private Integer lineaLunghezza;
     private String lineaFermataInizio;

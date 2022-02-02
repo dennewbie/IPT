@@ -1,7 +1,7 @@
 package com.prog3.ipt.Model;
 import java.time.LocalDate;
 import java.util.Objects;
-public class Corsa {
+public class Corsa  {
     private String corsaID;
     private String lineaID;
     private String corsaStato;
