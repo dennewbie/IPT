@@ -5,12 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e97b81e6-5df3-4387-b0ec-95788485ee96" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/TravelDocumentsManagement/MyMembershipViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/TravelDocumentsManagement/MySingleTicketsViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/MyMembershipView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/MySingleTicketsView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/myMembershipViewStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/mySingleTicketsViewStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IPT.iml" beforeDir="false" afterPath="$PROJECT_DIR$/IPT.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/TravelDocumentsManagement/TravelDocumentsManagementViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/TravelDocumentsManagement/TravelDocumentsManagementViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/ViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/ViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/PaymentMethodClasses/CreditCardPaymentMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/PaymentMethodClasses/CreditCardPaymentMethod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/PaymentMethodClasses/PayPalPaymentMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/PaymentMethodClasses/PayPalPaymentMethod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/PaymentMethodClasses/PhoneNumberBillPaymentMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/PaymentMethodClasses/PhoneNumberBillPaymentMethod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/AddMembershipView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/AddMembershipView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/AddSingleTicketsView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/AddSingleTicketsView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/EditProfileView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/EditProfileView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/GoogleMapsView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/GoogleMapsView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/InfoView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/InfoView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/LoginRegisterView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/LoginRegisterView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/NoticesView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/NoticesView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/SearchPathView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/SearchPathView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/TicketsManagementView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/TicketsManagementView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/prog3/ipt/TicketsManagementView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/prog3/ipt/TicketsManagementView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,9 +37,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="FxmlFile" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -78,7 +91,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.36430544" />
-    <property name="settings.editor.selected.configurable" value="advanced.settings" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">

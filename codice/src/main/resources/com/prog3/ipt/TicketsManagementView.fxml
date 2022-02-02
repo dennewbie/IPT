@@ -32,24 +32,35 @@
                           </Label>
                   </children>
                </HBox>
-               <HBox alignment="CENTER" prefHeight="235.0" prefWidth="500.0">
+               <HBox prefHeight="102.0" prefWidth="500.0">
                   <VBox.margin>
-                     <Insets left="15.0" right="15.0" top="15.0" />
+                     <Insets left="15.0" right="15.0" top="20.0" />
                   </VBox.margin>
                   <children>
-                     <TableView fx:id="myTicketsTableView" prefHeight="235.0" prefWidth="517.0" styleClass="textField_box">
-                       <columns>
-                           <TableColumn fx:id="myTicketsTransactionIDTableColumn" prefWidth="58.3999969959259" text="Numero Transazione" />
-                         <TableColumn fx:id="myTicketsTravelDocumentIDTableColumn" minWidth="0.0" prefWidth="44.000003814697266" text="ID" />
-                         <TableColumn fx:id="myTicketsLineIDTableColumn" prefWidth="40.79998779296875" text="Linea" />
-                           <TableColumn fx:id="myTicketsRideIDTableColumn" minWidth="2.39996337890625" prefWidth="42.39996337890625" text="Corsa" />
-                           <TableColumn fx:id="myTicketsIssueDateTableColumn" prefWidth="99.199951171875" text="Data Emissione" />
-                           <TableColumn fx:id="myTicketsStartDateTableColumn" prefWidth="79.199951171875" text="Data Inizio Validità" />
-                           <TableColumn fx:id="myTicketsExpirationDateTableColumn" minWidth="0.79998779296875" prefWidth="39.20001220703125" text="Data Scadenza" />
-                           <TableColumn fx:id="myTicketsPriceTableColumn" minWidth="0.0" prefWidth="49.5999755859375" text="Prezzo" />
-                           <TableColumn fx:id="myTicketsStampDateTableColumn" prefWidth="46.4000244140625" text="Data Timbro" />
-                       </columns>
-                     </TableView>
+                     <Label prefHeight="50.0" prefWidth="500.0" text="Con i pulsanti sottostanti è possibile visionare rispettivamente i biglietti singoli e gli abbonamenti acquistati." textAlignment="JUSTIFY" wrapText="true" />
+                  </children>
+               </HBox>
+               <HBox alignment="CENTER" prefHeight="76.0" prefWidth="500.0">
+                  <VBox.margin>
+                     <Insets left="15.0" right="15.0" top="20.0" />
+                  </VBox.margin>
+                  <children>
+                     <Button fx:id="mySingleTicketsButton" mnemonicParsing="false" onAction="#onMySingleTicketsButtonClick" prefHeight="68.0" prefWidth="239.0" styleClass="ticketsManagementViewButton" text="I miei biglietti singoli" textFill="WHITE">
+                        <HBox.margin>
+                           <Insets right="15.0" />
+                        </HBox.margin>
+                        <font>
+                           <Font size="17.0" />
+                        </font>
+                     </Button>
+                     <Button fx:id="myMembershipButton" mnemonicParsing="false" onAction="#onMyMembershipButtonClick" prefHeight="68.0" prefWidth="239.0" styleClass="ticketsManagementViewButton" text="I miei abbonamenti" textFill="WHITE">
+                        <HBox.margin>
+                           <Insets left="15.0" />
+                        </HBox.margin>
+                        <font>
+                           <Font size="17.0" />
+                        </font>
+                     </Button>
                   </children>
                </HBox>
                <HBox>
@@ -61,12 +72,12 @@
                      </Label>
                   </children>
                   <VBox.margin>
-                     <Insets left="15.0" right="15.0" top="15.0" />
+                     <Insets left="15.0" right="15.0" top="40.0" />
                   </VBox.margin>
                </HBox>
                <HBox>
                   <VBox.margin>
-                     <Insets left="15.0" right="15.0" top="15.0" />
+                     <Insets left="15.0" right="15.0" top="20.0" />
                   </VBox.margin>
                   <children>
                      <ComboBox fx:id="paymentMethodsDropDownList" onAction="#onSelectedDropDownListElement" prefHeight="27.0" prefWidth="526.0" promptText="Seleziona un metodo di pagamento..." styleClass="textField_box" visibleRowCount="3" />
@@ -229,7 +240,7 @@
             </VBox>
         </children>
     </Pane>
-    <Button fx:id="backButton" layoutX="7.0" layoutY="15.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="45.0" prefWidth="250.0" styleClass="backToHomeButton" text="Home" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0">
+    <Button fx:id="backButton" alignment="BASELINE_LEFT" layoutX="7.0" layoutY="15.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="45.0" prefWidth="280.0" styleClass="backToHomeButton" text="Home" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0">
         <graphic>
             <FontAwesomeIconView fill="WHITE" glyphName="ARROW_LEFT" />
         </graphic>

@@ -14,7 +14,7 @@
             <WebView fx:id="webView" prefHeight="652.0" prefWidth="1080.0" />
          </children>
       </Pane>
-      <Button fx:id="backButton" layoutX="17.0" layoutY="25.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="45.0" prefWidth="250.0" styleClass="backToSearchPathButton" text="Ricerca Percorso" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0">
+      <Button fx:id="backButton" alignment="BASELINE_LEFT" layoutX="17.0" layoutY="25.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="45.0" prefWidth="280.0" styleClass="backToSearchPathButton" text="Ricerca Percorso" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0">
          <graphic>
             <FontAwesomeIconView fill="WHITE" glyphName="ARROW_LEFT" />
          </graphic>

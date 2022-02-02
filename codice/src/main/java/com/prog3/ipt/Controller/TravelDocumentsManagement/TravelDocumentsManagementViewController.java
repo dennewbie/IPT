@@ -3,25 +3,17 @@ package com.prog3.ipt.Controller.TravelDocumentsManagement;
 import com.prog3.ipt.Controller.ViewController;
 import com.prog3.ipt.Model.CitizenClasses.ObservableSingleton;
 import com.prog3.ipt.Model.CitizenClasses.Order;
-import com.prog3.ipt.Model.FacadeClasses.FacadeSingleton;
 import com.prog3.ipt.Model.PaymentMethodClasses.*;
 import com.prog3.ipt.Model.TravelDocumentClasses.*;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.scene.control.Button;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
+
 import static com.prog3.ipt.Model.PaymentMethodClasses.PaymentMethodEnum.*;
 
 // TODO: Aggiungere gestione tabella con interfacciamento DB, possibilità di rimozione dalla table view con puslante dedicato per ogni riga
@@ -40,28 +32,9 @@ public class TravelDocumentsManagementViewController extends ViewController {
 
     // Left Vbox
     @FXML
-    private TableView<TravelDocumentFX> myTicketsTableView;
+    private Button myMembershipButton;
     @FXML
-    private TableColumn<TravelDocumentFX, String> myTicketsTransactionIDTableColumn;
-    @FXML
-    private TableColumn<TravelDocumentFX, String> myTicketsTravelDocumentIDTableColumn;
-    @FXML
-    private TableColumn<TravelDocumentFX, String> myTicketsLineIDTableColumn;
-    @FXML
-    private TableColumn<TravelDocumentFX, String> myTicketsRideIDTableColumn;
-    @FXML
-    private TableColumn<TravelDocumentFX, LocalDate> myTicketsIssueDateTableColumn;
-    @FXML
-    private TableColumn<TravelDocumentFX, LocalDate> myTicketsStartDateTableColumn;
-    @FXML
-    private TableColumn<TravelDocumentFX, LocalDate> myTicketsExpirationDateTableColumn;
-    @FXML
-    private TableColumn<TravelDocumentFX, Double> myTicketsPriceTableColumn;
-    @FXML
-    private TableColumn<TravelDocumentFX, LocalDate> myTicketsStampDateTableColumn;
-
-
-
+    private Button mySingleTicketsButton;
     @FXML
     private ComboBox<String> paymentMethodsDropDownList;
     @FXML
@@ -102,6 +75,10 @@ public class TravelDocumentsManagementViewController extends ViewController {
 
 
 
+    @FXML
+    private void onMySingleTicketsButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(mySingleTicketsButton, "MySingleTicketsView.fxml"); }
+    @FXML
+    private void onMyMembershipButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(myMembershipButton, "MyMembershipView.fxml"); }
     @FXML
     void onBackButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(backButton, "HomeView.fxml"); }
     @FXML

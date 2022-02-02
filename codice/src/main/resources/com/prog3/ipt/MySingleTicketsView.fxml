@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" styleClass="parent" stylesheets="@mySingleTicketsViewStyle.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prog3.ipt.Controller.TravelDocumentsManagement.MySingleTicketsViewController">
+    <children>
+        <Pane layoutY="89.0" prefHeight="655.0" prefWidth="1080.0" styleClass="white-pane" stylesheets="@mySingleTicketsViewStyle.css" AnchorPane.topAnchor="70.0">
+            <children>
+                <TableView fx:id="mySingleTicketsTableView" prefHeight="657.0" prefWidth="1080.0" styleClass="textField_box">
+                    <columns>
+                        <TableColumn fx:id="mySingleTicketsTransactionIDTableColumn" prefWidth="162.9133917093277" text="Numero Transazione" />
+                        <TableColumn fx:id="mySingleTicketsIDTableColumn" minWidth="0.0" prefWidth="54.58660888671875" text="ID" />
+                        <TableColumn fx:id="mySingleTicketsLineIDTableColumn" prefWidth="81.51163482666016" text="Linea" />
+                        <TableColumn fx:id="mySingleTicketsRideIDTableColumn" minWidth="2.39996337890625" prefWidth="117.71173095703125" text="Corsa" />
+                        <TableColumn fx:id="mySingleTicketsIssueDateTableColumn" prefWidth="109.10737609863281" text="Data Emissione" />
+                        <TableColumn fx:id="mySingleTicketsStartDateTableColumn" prefWidth="115.4483642578125" text="Data Inizio Validità" />
+                        <TableColumn fx:id="mySingleTicketsExpirationDateTableColumn" minWidth="0.79998779296875" prefWidth="102.22787475585938" text="Data Scadenza" />
+                        <TableColumn fx:id="mySingleTicketsPriceTableColumn" minWidth="0.0" prefWidth="83.94622802734375" text="Prezzo" />
+                        <TableColumn fx:id="mySingleTicketsStampDateTableColumn" prefWidth="105.55770874023438" text="Data Timbro" />
+                        <TableColumn fx:id="mySingleTicketsDeleteTableColumn" prefWidth="147.43966674804688" text="Azione Disponibile" />
+                    </columns>
+                </TableView>
+            </children></Pane>
+        <Button fx:id="backButton" alignment="BASELINE_LEFT" layoutX="27.0" layoutY="35.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="45.0" prefWidth="280.0" styleClass="backToTicketsManagementView" text="Acquista Titoli Viaggio" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0">
+            <graphic>
+                <FontAwesomeIconView fill="WHITE" glyphName="ARROW_LEFT" />
+            </graphic>
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Button>
+    </children>
+</AnchorPane>
