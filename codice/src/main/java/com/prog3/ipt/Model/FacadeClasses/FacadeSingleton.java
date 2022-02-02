@@ -2,11 +2,13 @@ package com.prog3.ipt.Model.FacadeClasses;
 
 import com.prog3.ipt.Controller.InfoViewController;
 import com.prog3.ipt.Controller.NoticesViewController;
+import com.prog3.ipt.Model.CitizenClasses.ObservableSingleton;
 import com.prog3.ipt.Model.CitizenClasses.Order;
 import com.prog3.ipt.Model.Corsa;
 import com.prog3.ipt.Model.CorsaLineaFX;
 import com.prog3.ipt.Model.Linea;
 import com.prog3.ipt.Model.Notice;
+import com.prog3.ipt.Model.PaymentMethodClasses.PaymentMethodStrategy;
 import com.prog3.ipt.Model.TravelDocumentClasses.TravelDocument;
 import com.prog3.ipt.Model.TravelDocumentClasses.TravelDocumentFX;
 import javafx.collections.FXCollections;
@@ -83,13 +85,12 @@ public class FacadeSingleton {
 
             statement = connection.createStatement();
             queryOutput = statement.executeQuery(queryString);
-
-            return true;
         } catch (SQLException e) {
             Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, e);
             e.printStackTrace();
+            return false;
         }
-        return false;
+        return true;
     }
 
     public static boolean validateRide(String lineID, String rideID) {
@@ -108,11 +109,12 @@ public class FacadeSingleton {
             Time queryStopTime = queryOutput.getTime("ora_fine");
             Integer queryPriority = queryOutput.getInt("priorita");
 
-            if (!queryLineID.equals(lineID) || !(queryRideID.equals(rideID))) return false;
+            //if (!queryLineID.equals(lineID) || !(queryRideID.equals(rideID))) return false;
 
         } catch (SQLException e) {
             Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, e);
             e.printStackTrace();
+            return false;
         }
         return true;
     }
@@ -208,16 +210,17 @@ public class FacadeSingleton {
         return travelDocumentObservableList;
     }
 
-    public static boolean insertRecord(Order citizenOrder, String paymentMethod) {
+    public static boolean insertTransaction() {
         // set transaction code;
+        ObservableSingleton.setOrder(new Order(UUID.randomUUID().toString(), ObservableSingleton.getOrder().getPurchaseDate(), ObservableSingleton.getOrder().getPurchasePrice(), ObservableSingleton.getCitizen().getCitizenID(), ObservableSingleton.getOrder().getPaymentMethodStrategy(), ObservableSingleton.getOrder().getPurchaseList(), ObservableSingleton.getOrder().getPurchaseObservableList()));
 
         // SQL Query
-        String insertQuery = "INSERT INTO transazione (id_transazione, id_cittadino, costo, metodo_pagamento, data_pagamento) VALUES (\""+
-                citizenOrder.getTransactionCode() +"\", \"" +
-                citizenOrder.getCitizenID() +"\", "+
-                citizenOrder.getPurchasePrice() +", \""+
-                paymentMethod +"\", "+
-                citizenOrder.getPurchaseDate() +");";
+        String insertQuery = "INSERT INTO transazione (id_transazione, id_cittadino, costo, metodo_pagamento, data_pagamento) VALUES (\"" +
+                ObservableSingleton.getOrder().getTransactionCode() + "\", \"" +
+                ObservableSingleton.getOrder().getCitizenID() + "\", " +
+                ObservableSingleton.getOrder().getPurchasePrice() + ", \"" +
+                ObservableSingleton.getPaymentMethodString() + "\", " +
+                ObservableSingleton.getOrder().getPurchaseDate() + ");";
 
         if (!executeQuery(insertQuery)) return false;
         return true;
