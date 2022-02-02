@@ -7,10 +7,8 @@ public class PhoneNumberBillPaymentMethod implements PaymentMethodStrategy {
 
 
 
-    public PhoneNumberBillPaymentMethod(String phoneNumber) {
-        setPhoneNumber(phoneNumber);
-    }
-
+    public PhoneNumberBillPaymentMethod(String phoneNumber) { setPhoneNumber(phoneNumber); }
+    
     // Setters
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
@@ -23,18 +21,10 @@ public class PhoneNumberBillPaymentMethod implements PaymentMethodStrategy {
 
     // Others
     @Override
-    public boolean pay(double paymentAmount) {
-        // TODO: controllo incredibile sul numero di telefono (es. cifre etc.)
-        return true;
-    }
+    public boolean pay(double paymentAmount) { return true; }
 
     @Override
-    public String toString() {
-        return "PhoneNumberBillPaymentMethod{" +
-                "phoneNumber='" + phoneNumber + '\'' +
-                '}';
-    }
-
+    public String toString() { return "PhoneNumberBillPaymentMethod{ phoneNumber='" + phoneNumber + '\'' + '}'; }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -42,7 +32,6 @@ public class PhoneNumberBillPaymentMethod implements PaymentMethodStrategy {
         PhoneNumberBillPaymentMethod that = (PhoneNumberBillPaymentMethod) o;
         return getPhoneNumber().equals(that.getPhoneNumber());
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(getPhoneNumber());

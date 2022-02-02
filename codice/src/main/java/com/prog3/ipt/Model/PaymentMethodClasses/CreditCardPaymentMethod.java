@@ -67,8 +67,6 @@ public class CreditCardPaymentMethod implements PaymentMethodStrategy {
         if (!checkExpirationDate()) return false;
         if (!checkCreditCardCVV()) return false;
         // Metodo pagamento valido. Contatta il gestore della carta, richiedi transazione, etc...
-        // TODO: alert when click concludi acquisto in relative controller
-
         return true;
     }
 

@@ -83,7 +83,7 @@ public abstract class ViewController implements Initializable {
         alert.showAndWait();
     }
 
-    protected void generatePayPalAlert(String currentUsername, String currentPassword, TextField usernameTextField) {
+    protected void generatePayPalAlert(String currentEmail, String currentPassword, TextField usernameTextField) {
         Dialog<String> dialog = new Dialog<>();
         dialog.setTitle("PayPal Request");
         dialog.setHeaderText("Attenzione. È richiesta la tua password PayPal per continuare");
@@ -103,10 +103,9 @@ public abstract class ViewController implements Initializable {
 
         Optional<String> result = dialog.showAndWait();
         if (result.isPresent()) {
-            currentUsername = usernameTextField.getText();
+            currentEmail = usernameTextField.getText();
             currentPassword = pwd.getText();
-            if (ObservableSingleton.getPaymentMethodString().equals("PayPal")) if (((PayPalPaymentMethod) ObservableSingleton.getPaymentMethodStrategy()).getPassword().equals(currentPassword)) { raiseErrorAlert("Password non valida."); return; }
-            ObservableSingleton.setPaymentMethodStrategy(new PayPalPaymentMethod(currentUsername, currentPassword));
+            ObservableSingleton.setPaymentMethodStrategy(new PayPalPaymentMethod(currentEmail, currentPassword));
             ObservableSingleton.setPaymentMethodString(new String("PayPal"));
         }
     }

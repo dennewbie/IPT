@@ -103,7 +103,7 @@ public class TravelDocumentsManagementViewController extends ViewController {
 
 
     @FXML
-    void onBackButtonClick(ActionEvent event) {super.onButtonClickNavigateToView(backButton, "HomeView.fxml"); }
+    void onBackButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(backButton, "HomeView.fxml"); }
     @FXML
     void onAddSingleTicketsButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(addSingleTicketsButton, "AddSingleTicketsView.fxml"); }
     @FXML
@@ -118,7 +118,7 @@ public class TravelDocumentsManagementViewController extends ViewController {
 
         //if (!FacadeSingleton.insertRecord(ObservableSingleton.getOrder(), ""));
 
-        super.raiseConfirmationAlert("Il tuo acquisto è andato a buon fine. Costo totale: " + ObservableSingleton.getOrder().getPurchasePrice() + ". Modalità pagamento: " + ObservableSingleton.getPaymentMethodString());
+        super.raiseConfirmationAlert("Il tuo acquisto è andato a buon fine. Costo totale: " + ObservableSingleton.getOrder().getPurchasePrice() + " euro. Modalità pagamento: " + ObservableSingleton.getPaymentMethodString());
         ObservableSingleton.setOrder(null);
         initializeViewComponents();
     }
@@ -133,7 +133,7 @@ public class TravelDocumentsManagementViewController extends ViewController {
         try {
             switch (PaymentMethodEnum.valueOf(paymentMethodsDropDownList.getValue())) {
                 case PAYPAL -> {
-                    if (!super.checkTextFieldsContent(creditCardNumberTextField)) return;
+                    if (!super.checkTextFieldsContent(creditCardNumberTextField) || (!super.validateEmail(creditCardNumberTextField.getText()))) { raiseErrorAlert("Formato mail non valido."); return; }
                     super.generatePayPalAlert(currentCreditCardNumber, currentCreditCartCVV, creditCardNumberTextField);
                 }
                 case CREDIT_CARD -> {
@@ -167,9 +167,8 @@ public class TravelDocumentsManagementViewController extends ViewController {
         // initialize left side
         isValidTransaction = false;
         totalPriceLabel.setText("€  " + String.valueOf(ObservableSingleton.getOrder().getPurchasePrice()));
-        paymentMethodsDropDownList.getItems().addAll("CREDIT_CARD", "PAYPAL", "PHONE_NUMBER_BILL");
-        paymentMethodsDropDownList.setValue(null);
         paymentMethodsDropDownList.setPromptText("Seleziona un metodo di pagamento...");
+        paymentMethodsDropDownList.getItems().addAll("CREDIT_CARD", "PAYPAL", "PHONE_NUMBER_BILL");
         CVV_TextField.setVisible(false);
         creditCardNumberTextField.setVisible(false);
         expirationCreditCardDatePicker.setVisible(false);
