@@ -24,7 +24,7 @@ public class Order {
 
 
     public Order(LocalDate purchaseDate, double purchasePrice, String citizenID, PaymentMethodStrategy paymentMethodStrategy, ArrayList<TravelDocument> purchaseList, ObservableList<TravelDocumentFX> purchaseObservableList) {
-        setTransactionCode(UUID.randomUUID().toString());
+        setTransactionCode(null);
         setPurchaseDate(purchaseDate);
         setPurchasePrice(purchasePrice);
         setCitizenID(citizenID);

@@ -39,14 +39,15 @@
                   <children>
                      <TableView fx:id="myTicketsTableView" prefHeight="235.0" prefWidth="517.0" styleClass="textField_box">
                        <columns>
-                           <TableColumn prefWidth="68.79998779296875" text="Numero Transazione" />
-                         <TableColumn minWidth="0.0" prefWidth="30.400023460388184" text="ID" />
-                         <TableColumn prefWidth="40.79998779296875" text="Linea" />
-                           <TableColumn minWidth="2.39996337890625" prefWidth="42.39996337890625" text="Corsa" />
-                           <TableColumn prefWidth="99.199951171875" text="Data Emissione" />
-                           <TableColumn prefWidth="79.199951171875" text="Data Inizio Validità" />
-                           <TableColumn prefWidth="70.4000244140625" text="Data Scadenza" />
-                           <TableColumn prefWidth="65.60003662109375" text="Prezzo" />
+                           <TableColumn fx:id="myTicketsTransactionIDTableColumn" prefWidth="58.3999969959259" text="Numero Transazione" />
+                         <TableColumn fx:id="myTicketsTravelDocumentIDTableColumn" minWidth="0.0" prefWidth="44.000003814697266" text="ID" />
+                         <TableColumn fx:id="myTicketsLineIDTableColumn" prefWidth="40.79998779296875" text="Linea" />
+                           <TableColumn fx:id="myTicketsRideIDTableColumn" minWidth="2.39996337890625" prefWidth="42.39996337890625" text="Corsa" />
+                           <TableColumn fx:id="myTicketsIssueDateTableColumn" prefWidth="99.199951171875" text="Data Emissione" />
+                           <TableColumn fx:id="myTicketsStartDateTableColumn" prefWidth="79.199951171875" text="Data Inizio Validità" />
+                           <TableColumn fx:id="myTicketsExpirationDateTableColumn" minWidth="0.79998779296875" prefWidth="39.20001220703125" text="Data Scadenza" />
+                           <TableColumn fx:id="myTicketsPriceTableColumn" minWidth="0.0" prefWidth="49.5999755859375" text="Prezzo" />
+                           <TableColumn fx:id="myTicketsStampDateTableColumn" prefWidth="46.4000244140625" text="Data Timbro" />
                        </columns>
                      </TableView>
                   </children>

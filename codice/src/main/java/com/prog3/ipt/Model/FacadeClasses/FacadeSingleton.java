@@ -2,15 +2,18 @@ package com.prog3.ipt.Model.FacadeClasses;
 
 import com.prog3.ipt.Controller.InfoViewController;
 import com.prog3.ipt.Controller.NoticesViewController;
+import com.prog3.ipt.Model.CitizenClasses.Order;
 import com.prog3.ipt.Model.Corsa;
 import com.prog3.ipt.Model.Linea;
 import com.prog3.ipt.Model.Notice;
 import com.prog3.ipt.Model.TravelDocumentClasses.TravelDocument;
+import com.prog3.ipt.Model.TravelDocumentClasses.TravelDocumentFX;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -25,7 +28,7 @@ public class FacadeSingleton {
     private static ObservableList<Notice> noticeObservableList;
     private static ObservableList<Linea> lineaObservableList;
     private static ObservableList<Corsa> corsaObservableList;
-    private static ObservableList<TravelDocument> travelDocumentObservableList;
+    private static ObservableList<TravelDocumentFX> travelDocumentObservableList;
 
 
     private FacadeSingleton() {
@@ -33,7 +36,9 @@ public class FacadeSingleton {
         if (instance != null) throw new IllegalStateException("Already initialized.");
     }
 
-    /** The instance doesn't get created until the method is called for the first time. */
+    /**
+     * The instance doesn't get created until the method is called for the first time.
+     */
     public static FacadeSingleton getInstance() {
         if (instance == null) {
             synchronized (FacadeSingleton.class) {
@@ -43,23 +48,29 @@ public class FacadeSingleton {
         return instance;
     }
 
-    /** Connection to IPT-db */
+    /**
+     * Connection to IPT-db
+     */
     private static void connect() {
         try {
             databaseConnection = DatabaseConnectionSingleton.getInstance();
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public static void closeConnection() {
-        try { statement.close(); } catch (Exception e) { /* Ignored */ }
-        try { databaseConnection.getConnection().close(); } catch (Exception e) { /* Ignored */ }
+        try {
+            statement.close();
+        } catch (Exception e) { /* Ignored */ }
+        try {
+            databaseConnection.getConnection().close();
+        } catch (Exception e) { /* Ignored */ }
     }
 
     /*
-    * vari metodi che eseguono le query e che restituiscono un risultato (credo un nuovo e singolo ResultSet)
-    * */
+     * vari metodi che eseguono le query e che restituiscono un risultato (credo un nuovo e singolo ResultSet)
+     * */
     private static boolean executeQuery(String queryString) {
         queryOutput = null;
         statement = null;
@@ -84,12 +95,14 @@ public class FacadeSingleton {
         // SQL query
         String lineQuery = "select corsa.id_corsa, corsa.id_linea, corsa.stato, corsa.ora_inizio, corsa.ora_fine, corsa.priorita " +
                 "from linea join corsa on linea.id_linea = corsa.id_linea " +
-                "where linea.id_linea = \""+ lineID + "\" and corsa.id_corsa = \""+ rideID +"\";";
+                "where linea.id_linea = \"" + lineID + "\" and corsa.id_corsa = \"" + rideID + "\";";
 
         if (!executeQuery(lineQuery)) return false;
         try {
 
-            if (!queryOutput.next()) { return false; }
+            if (!queryOutput.next()) {
+                return false;
+            }
 
             String queryLineID = queryOutput.getString("id_linea");
             String queryRideID = queryOutput.getString("id_corsa");
@@ -98,11 +111,14 @@ public class FacadeSingleton {
             Time queryStopTime = queryOutput.getTime("ora_fine");
             Integer queryPriority = queryOutput.getInt("priorita");
 
-            if (!queryLineID.equals(lineID) || !(queryRideID.equals(rideID))) { return false;  }
+            if (!queryLineID.equals(lineID) || !(queryRideID.equals(rideID))) {
+                return false;
+            }
 
         } catch (SQLException e) {
             Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, e);
-            e.printStackTrace(); }
+            e.printStackTrace();
+        }
 
 
         return true;
@@ -128,7 +144,7 @@ public class FacadeSingleton {
 
                 noticeObservableList.add(new Notice(queryNoticeID, queryNoticeDate, queryNoticeName, queryNoticeText, queryRideID, queryLineID));
             }
-        } catch(SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, ex);
             ex.printStackTrace();
         }
@@ -155,12 +171,12 @@ public class FacadeSingleton {
                 Time queryLineaOrarioApertura = queryOutput.getTime("orario_apertura");
                 Time queryLineaOrarioChiusura = queryOutput.getTime("orario_chiusura");
 
-                lineaObservableList.add(new Linea(queryLineaID, queryLineaLunghezza, queryLineaFermataInizio, queryLineaFermataFine, queryLineaDataAttivazione, null,null));
+                lineaObservableList.add(new Linea(queryLineaID, queryLineaLunghezza, queryLineaFermataInizio, queryLineaFermataFine, queryLineaDataAttivazione, null, null));
 
 
             }
 
-        } catch(SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(InfoViewController.class.getName()).log(Level.SEVERE, null, ex);
             ex.printStackTrace();
         }
@@ -169,14 +185,10 @@ public class FacadeSingleton {
         return lineaObservableList;
 
 
-
-
-
-
-
     }
+
     public static ObservableList<Corsa> getCorsaViewContent() {
-       corsaObservableList = FXCollections.observableArrayList();
+        corsaObservableList = FXCollections.observableArrayList();
 
         // SQL Query
         String corsaViewQuery = "select * from corsa";
@@ -195,35 +207,59 @@ public class FacadeSingleton {
 
                 corsaObservableList.add(new Corsa(queryCorsaID, queryLineaID, queryCorsaStato, queryCorsaOraInizio, queryCorsaOraFine, queryCorsaPriorità));
             }
-        } catch(SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(InfoViewController.class.getName()).log(Level.SEVERE, null, ex);
             ex.printStackTrace();
         }
         return corsaObservableList;
     }
-    public static ObservableList<TravelDocument> getTravelDocumentsViewContent() {
+
+    public static ObservableList<TravelDocumentFX> getMyTicketsViewContent(String citizenID) {
         travelDocumentObservableList = FXCollections.observableArrayList();
 
         // SQL Query
-        String travelDocumentsViewQuery = "";
+        String myTicketsViewQuery = "";
 
         try {
-            if (!executeQuery(travelDocumentsViewQuery)) return null;
+            if (!executeQuery(myTicketsViewQuery)) return null;
             while (queryOutput.next()) {
-
-
                 // retrive information on travel documents bought by citizenID
+                String queryTransactionID = queryOutput.getString("id_transizione");
 
-                //
+                // alias for the column in SQL query
+                String queryTravelDocumentID = queryOutput.getString("id_");
+
+                String queryLineID = queryOutput.getString("id_linea");
+                String queryRideID = queryOutput.getString("id_corsa");
+                LocalDate queryIssueDate = queryOutput.getDate("data_emissione").toLocalDate();
+                LocalDate queryStartDate = queryOutput.getDate("data_inizio_validita").toLocalDate();
+                LocalDate queryStampDate = queryOutput.getDate("data_timbro").toLocalDate();
+                LocalDate queryExpirationDate = queryOutput.getDate("data_scadenza").toLocalDate();
+                Double queryPrice = queryOutput.getDouble("prezzo");
 
                 // add travel documents to observable list
+                travelDocumentObservableList.add(new TravelDocumentFX(queryTravelDocumentID, queryPrice, queryIssueDate, queryExpirationDate, queryTransactionID, queryLineID, queryRideID, queryStampDate, queryStartDate));
 
             }
-        } catch(SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, ex);
             ex.printStackTrace();
         }
         return travelDocumentObservableList;
     }
 
+    public static boolean insertRecord(Order citizenOrder, String paymentMethod) {
+        // set transaction code;
+
+        // SQL Query
+        String insertQuery = "INSERT INTO transazione (id_transazione, id_cittadino, costo, metodo_pagamento, data_pagamento) VALUES (\""+
+                citizenOrder.getTransactionCode() +"\", \"" +
+                citizenOrder.getCitizenID() +"\", "+
+                citizenOrder.getPurchasePrice() +", \""+
+                paymentMethod +"\", "+
+                citizenOrder.getPurchaseDate() +");";
+
+        if (!executeQuery(insertQuery)) return false;
+        return true;
+    }
 }

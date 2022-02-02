@@ -3,6 +3,7 @@ package com.prog3.ipt.Controller.TravelDocumentsManagement;
 import com.prog3.ipt.Controller.ViewController;
 import com.prog3.ipt.Model.CitizenClasses.ObservableSingleton;
 import com.prog3.ipt.Model.CitizenClasses.Order;
+import com.prog3.ipt.Model.FacadeClasses.FacadeSingleton;
 import com.prog3.ipt.Model.PaymentMethodClasses.*;
 import com.prog3.ipt.Model.TravelDocumentClasses.*;
 import javafx.collections.FXCollections;
@@ -39,7 +40,27 @@ public class TravelDocumentsManagementViewController extends ViewController {
 
     // Left Vbox
     @FXML
-    private TableView<?> myTicketsTableView;
+    private TableView<TravelDocumentFX> myTicketsTableView;
+    @FXML
+    private TableColumn<TravelDocumentFX, String> myTicketsTransactionIDTableColumn;
+    @FXML
+    private TableColumn<TravelDocumentFX, String> myTicketsTravelDocumentIDTableColumn;
+    @FXML
+    private TableColumn<TravelDocumentFX, String> myTicketsLineIDTableColumn;
+    @FXML
+    private TableColumn<TravelDocumentFX, String> myTicketsRideIDTableColumn;
+    @FXML
+    private TableColumn<TravelDocumentFX, LocalDate> myTicketsIssueDateTableColumn;
+    @FXML
+    private TableColumn<TravelDocumentFX, LocalDate> myTicketsStartDateTableColumn;
+    @FXML
+    private TableColumn<TravelDocumentFX, LocalDate> myTicketsExpirationDateTableColumn;
+    @FXML
+    private TableColumn<TravelDocumentFX, Double> myTicketsPriceTableColumn;
+    @FXML
+    private TableColumn<TravelDocumentFX, LocalDate> myTicketsStampDateTableColumn;
+
+
 
     @FXML
     private ComboBox<String> paymentMethodsDropDownList;
@@ -98,12 +119,16 @@ public class TravelDocumentsManagementViewController extends ViewController {
             alert.showAndWait();
             return;
         }
-        // TODO: query DB transazione, svuota table view
+
         if (!isValidTransaction || !ObservableSingleton.getPaymentMethodStrategy().pay(ObservableSingleton.getOrder().getPurchasePrice())) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Non è possibile procedere con l'acquisto: metodo di pagamento non valido.", ButtonType.OK);
             alert.showAndWait();
             return;
         }
+        // TODO: query DB transazione, svuota table view
+        // insert record into transaction table
+
+        //if (!FacadeSingleton.insertRecord(ObservableSingleton.getOrder(), ""));
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Il tuo acquisto è andato a buon fine. Costo totale: " + ObservableSingleton.getOrder().getPurchasePrice() + ". Modalità pagamento: " + ObservableSingleton.getPaymentMethodString(), ButtonType.OK);
         alert.showAndWait();
@@ -204,8 +229,24 @@ public class TravelDocumentsManagementViewController extends ViewController {
         creditCardNumberTextField.setVisible(false);
         expirationCreditCardDatePicker.setVisible(false);
 
+        // create observable list for myTicketsView according to citizenID
+        ObservableList<TravelDocumentFX> myTicketsObservableList = FacadeSingleton.getMyTicketsViewContent(ObservableSingleton.getCitizen().getCitizenID());
+
+        // update left table view with new items
+        myTicketsTransactionIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("transactionID"));
+        myTicketsTravelDocumentIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("travelDocumentID"));
+        myTicketsLineIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("lineID"));
+        myTicketsRideIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("rideID"));
+        myTicketsIssueDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("issueDate"));
+        myTicketsStartDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("startDate"));
+        myTicketsExpirationDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("expirationDate"));
+        myTicketsPriceTableColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+        myTicketsStampDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("stampDate"));
+
+        myTicketsTableView.setItems(null);
+
         // initialize right side
-        // update table view with new items
+        // update right table view with new items
 
         travelDocumentIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("travelDocumentID"));
         lineIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("lineID"));
@@ -216,7 +257,6 @@ public class TravelDocumentsManagementViewController extends ViewController {
         priceTableColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
 
         myCartTableView.setItems(ObservableSingleton.getOrder().getPurchaseObservableList());
-
 
     }
 
