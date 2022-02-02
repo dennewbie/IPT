@@ -194,19 +194,8 @@ public class TravelDocumentsManagementViewController extends ViewController {
     @Override
     protected void initializeViewComponents() {
         isValidTransaction = false;
-        /*
-        // update price
-        double totalOrderValue = 0.0;
-
-        // create observable list
-        for (TravelDocument travelDocumentObject: ObservableSingleton.getOrder().getPurchaseList()) {
-            totalOrderValue += travelDocumentObject.getPrice();
-        }
-
-         */
 
         // initialize left side
-        //totalPriceLabel.setText("€" + String.valueOf(totalOrderValue));
         totalPriceLabel.setText("€" + String.valueOf(ObservableSingleton.getOrder().getPurchasePrice()));
 
         paymentMethodsDropDownList.getItems().addAll("CREDIT_CARD", "PAYPAL", "PHONE_NUMBER_BILL");
