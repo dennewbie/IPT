@@ -10,10 +10,9 @@ public class CorsaLineaFX  {
 
     //Corsa
     private String corsaID;
-    private String lineaIDCorsa;
     private String corsaStato;
-    private LocalDate corsaOraInizio;
-    private LocalDate corsaOraFine;
+    private Time corsaOraInizio;
+    private Time corsaOraFine;
     private Integer corsaPriorità;
 
 
@@ -27,9 +26,8 @@ public class CorsaLineaFX  {
     private Time lineaOrarioChiusura;
 
     //Constructor
-    public CorsaLineaFX (String corsaID, String lineaIDCorsa, String corsaStato, LocalDate corsaOraInizio, LocalDate corsaOraFine, Integer corsaPriorità, String lineaID, Integer lineaLunghezza, String lineaFermataInizio, String lineaFermataFine, LocalDate lineaDataAttivazione, Time lineaOrarioApertura, Time lineaOrarioChiusura){
+    public CorsaLineaFX (String corsaID,   String corsaStato, Time corsaOraInizio, Time corsaOraFine, Integer corsaPriorità, String lineaID, Integer lineaLunghezza, String lineaFermataInizio, String lineaFermataFine, LocalDate lineaDataAttivazione, Time lineaOrarioApertura, Time lineaOrarioChiusura){
         this.corsaID = corsaID;
-        this.lineaIDCorsa = lineaIDCorsa;
         this.corsaStato = corsaStato;
         this.corsaOraInizio = corsaOraInizio;
         this.corsaOraFine = corsaOraFine;
@@ -45,7 +43,6 @@ public class CorsaLineaFX  {
 
     public CorsaLineaFX(Corsa corsa){
         this.corsaID = corsaID;
-        this.lineaID = lineaIDCorsa;
         this.corsaStato = corsaStato;
         this.corsaOraInizio = corsaOraInizio;
         this.corsaOraFine = corsaOraFine;
@@ -63,13 +60,12 @@ public class CorsaLineaFX  {
     //Getters
     public String getCorsaID() {return corsaID;}
 
-    public String getLineaIDCorsa() {return lineaIDCorsa;}
 
     public String getCorsaStato() {return corsaStato;}
 
-    public LocalDate getCorsaOraInizio() {return corsaOraInizio;}
+    public Time getCorsaOraInizio() {return corsaOraInizio;}
 
-    public LocalDate getCorsaOraFine() {return corsaOraFine;}
+    public Time getCorsaOraFine() {return corsaOraFine;}
 
     public Integer getCorsaPriorità() {return corsaPriorità;}
 
@@ -89,13 +85,12 @@ public class CorsaLineaFX  {
     //Setters
     public void setCorsaID(String corsaID) {this.corsaID = corsaID;}
 
-    public void setLineaIDCorsa(String lineaIDCorsa) {this.lineaID = lineaID;}
 
     public void setCorsaStato(String corsaStato) {this.corsaStato = corsaStato;}
 
-    public void setCorsaOraInizio(LocalDate corsaOraInizio) {this.corsaOraInizio = corsaOraInizio;}
+    public void setCorsaOraInizio(Time corsaOraInizio) {this.corsaOraInizio = corsaOraInizio;}
 
-    public void setCorsaOraFine(LocalDate corsaOraFine) {this.corsaOraFine = corsaOraFine;}
+    public void setCorsaOraFine(Time corsaOraFine) {this.corsaOraFine = corsaOraFine;}
 
     public void setCorsaPriorità(Integer corsaPriorità) {this.corsaPriorità = corsaPriorità;}
     public void setLineaID(String lineaID) {this.lineaID = lineaID;}
@@ -117,12 +112,12 @@ public class CorsaLineaFX  {
         if (this == o) return true;
         if (!(o instanceof CorsaLineaFX)) return false;
         CorsaLineaFX that = (CorsaLineaFX) o;
-        return getCorsaID().equals(that.getCorsaID()) && getLineaIDCorsa().equals(that.getLineaIDCorsa()) && getCorsaStato().equals(that.getCorsaStato()) && getCorsaOraInizio().equals(that.getCorsaOraInizio()) && getCorsaOraFine().equals(that.getCorsaOraFine()) && getCorsaPriorità().equals(that.getCorsaPriorità()) && getLineaID().equals(that.getLineaID()) && getLineaLunghezza().equals(that.getLineaLunghezza()) && getLineaFermataInizio().equals(that.getLineaFermataInizio()) && getLineaFermataFine().equals(that.getLineaFermataFine()) && getLineaDataAttivazione().equals(that.getLineaDataAttivazione()) && getLineaOrarioApertura().equals(that.getLineaOrarioApertura()) && getLineaOrarioChiusura().equals(that.getLineaOrarioChiusura());
+        return getCorsaID().equals(that.getCorsaID()) &&  getCorsaStato().equals(that.getCorsaStato()) && getCorsaOraInizio().equals(that.getCorsaOraInizio()) && getCorsaOraFine().equals(that.getCorsaOraFine()) && getCorsaPriorità().equals(that.getCorsaPriorità()) && getLineaID().equals(that.getLineaID()) && getLineaLunghezza().equals(that.getLineaLunghezza()) && getLineaFermataInizio().equals(that.getLineaFermataInizio()) && getLineaFermataFine().equals(that.getLineaFermataFine()) && getLineaDataAttivazione().equals(that.getLineaDataAttivazione()) && getLineaOrarioApertura().equals(that.getLineaOrarioApertura()) && getLineaOrarioChiusura().equals(that.getLineaOrarioChiusura());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getCorsaID(), getLineaID(), getCorsaStato(), getCorsaOraInizio(), getCorsaOraFine(), getCorsaPriorità(),getLineaID(), getLineaLunghezza(), getLineaFermataInizio(), getLineaFermataFine(), getLineaDataAttivazione(), getLineaOrarioApertura(), getLineaOrarioChiusura());
+        return Objects.hash(getCorsaID(), getCorsaStato(), getCorsaOraInizio(), getCorsaOraFine(), getCorsaPriorità(),getLineaID(), getLineaLunghezza(), getLineaFermataInizio(), getLineaFermataFine(), getLineaDataAttivazione(), getLineaOrarioApertura(), getLineaOrarioChiusura());
 
     }
 
@@ -131,7 +126,6 @@ public class CorsaLineaFX  {
     public String toString() {
         return "CorsaLineaFX{" +
                 "corsaID='" + corsaID + '\'' +
-                ", lineaIDCorsa=" + lineaIDCorsa +
                 ", corsaStato=" + corsaStato +
                 ", corsaOraInizio=" + corsaOraInizio +
                 ", corsaOraFine='" + corsaOraFine + '\'' +

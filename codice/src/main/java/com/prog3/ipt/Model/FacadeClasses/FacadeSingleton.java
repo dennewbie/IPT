@@ -4,6 +4,7 @@ import com.prog3.ipt.Controller.InfoViewController;
 import com.prog3.ipt.Controller.NoticesViewController;
 import com.prog3.ipt.Model.CitizenClasses.Order;
 import com.prog3.ipt.Model.Corsa;
+import com.prog3.ipt.Model.CorsaLineaFX;
 import com.prog3.ipt.Model.Linea;
 import com.prog3.ipt.Model.Notice;
 import com.prog3.ipt.Model.TravelDocumentClasses.TravelDocument;
@@ -26,8 +27,8 @@ public class FacadeSingleton {
     private static Statement statement;
     private static ResultSet queryOutput;
     private static ObservableList<Notice> noticeObservableList;
-    private static ObservableList<Linea> lineaObservableList;
-    private static ObservableList<Corsa> corsaObservableList;
+    private static ObservableList<CorsaLineaFX> corsaLineaObservableList;
+
     private static ObservableList<TravelDocumentFX> travelDocumentObservableList;
 
 
@@ -139,14 +140,14 @@ public class FacadeSingleton {
     }
 
 
-    public static ObservableList<Linea> getLineaViewContent() {
-        lineaObservableList = FXCollections.observableArrayList();
+    public static ObservableList<CorsaLineaFX> getCorsaLineaViewContent() {
+        corsaLineaObservableList = FXCollections.observableArrayList();
 
         // SQL Query
-        String lineaViewQuery = "select * from linea";
+        String corsaLineaViewQuery = "select * from linea join corsa on linea.id_linea = corsa.id_linea";
 
         try {
-            if (!executeQuery(lineaViewQuery)) return null;
+            if (!executeQuery(corsaLineaViewQuery)) return null;
 
             while (queryOutput.next()) {
                 String queryLineaID = queryOutput.getString("id_linea");
@@ -156,42 +157,25 @@ public class FacadeSingleton {
                 LocalDate queryLineaDataAttivazione = queryOutput.getDate("data_attivazione").toLocalDate();
                 Time queryLineaOrarioApertura = queryOutput.getTime("orario_apertura");
                 Time queryLineaOrarioChiusura = queryOutput.getTime("orario_chiusura");
-
-                lineaObservableList.add(new Linea(queryLineaID, queryLineaLunghezza, queryLineaFermataInizio, queryLineaFermataFine, queryLineaDataAttivazione, null, null));
-            }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(InfoViewController.class.getName()).log(Level.SEVERE, null, ex);
-            ex.printStackTrace();
-        }
-        return lineaObservableList;
-    }
-
-    public static ObservableList<Corsa> getCorsaViewContent() {
-        corsaObservableList = FXCollections.observableArrayList();
-
-        // SQL Query
-        String corsaViewQuery = "select * from corsa";
-
-        try {
-            if (!executeQuery(corsaViewQuery)) return null;
-            while (queryOutput.next()) {
-
                 String queryCorsaID = queryOutput.getString("id_corsa");
-                String queryLineaID = queryOutput.getString("id_linea");
-                String queryCorsaStato = queryOutput.getString("stato");
-                LocalDate queryCorsaOraInizio = queryOutput.getDate("ora_inizio").toLocalDate();
-                LocalDate queryCorsaOraFine = queryOutput.getDate("ora_fine").toLocalDate();
-                Integer queryCorsaPriorità = queryOutput.getInt("priorita");
 
-                corsaObservableList.add(new Corsa(queryCorsaID, queryLineaID, queryCorsaStato, queryCorsaOraInizio, queryCorsaOraFine, queryCorsaPriorità));
+
+                String queryCorsaStato = queryOutput.getString("stato");
+                Time queryCorsaOraInizio = queryOutput.getTime("ora_inizio");
+                Time queryCorsaOraFine = queryOutput.getTime("ora_fine");
+                Integer queryCorsaPriorità = queryOutput.getInt("priorita");
+                corsaLineaObservableList.add(new CorsaLineaFX(queryCorsaID,   queryCorsaStato, queryCorsaOraInizio, queryCorsaOraFine, queryCorsaPriorità, queryLineaID, queryLineaLunghezza,queryLineaFermataInizio, queryLineaFermataFine, queryLineaDataAttivazione, queryLineaOrarioApertura, queryLineaOrarioChiusura));
             }
+
         } catch (SQLException ex) {
             Logger.getLogger(InfoViewController.class.getName()).log(Level.SEVERE, null, ex);
             ex.printStackTrace();
         }
-        return corsaObservableList;
+        return corsaLineaObservableList;
     }
+
+
+
 
     public static ObservableList<TravelDocumentFX> getMyTicketsViewContent(String citizenID) {
         travelDocumentObservableList = FXCollections.observableArrayList();

@@ -82,14 +82,14 @@
                <graphic>
                   <FontAwesomeIconView fill="WHITE" glyphName="INFO" size="50.0" />
                </graphic></Button>
-                <Button fx:id="noticesButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#onAvvisiUtenzaButtonClick" prefHeight="185.0" prefWidth="441.0" styleClass="homeViewButton" stylesheets="@homeViewStyle.css" text="Avvisi Utenza" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <Button fx:id="noticesButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#onNoticesButtonClick" prefHeight="185.0" prefWidth="441.0" styleClass="homeViewButton" stylesheets="@homeViewStyle.css" text="Avvisi Utenza" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="20.0" />
                </font>
                <graphic>
                   <FontAwesomeIconView fill="WHITE" glyphName="WARNING" size="50" />
                </graphic></Button>
-            <Button fx:id="buyTravelDocumentsButton" alignment="CENTER" contentDisplay="TOP" disable="true" mnemonicParsing="false" onAction="#onBuyTravelDocumentsButtonClick" prefHeight="185.0" prefWidth="441.0" styleClass="homeViewButton" stylesheets="@homeViewStyle.css" text="Acquista Titoli Viaggio" textFill="WHITE" GridPane.columnIndex="2">
+            <Button fx:id="manageTravelDocumentsButton" alignment="CENTER" contentDisplay="TOP" disable="true" mnemonicParsing="false" onAction="#onManageTravelDocumentsButtonClick" prefHeight="185.0" prefWidth="441.0" styleClass="homeViewButton" stylesheets="@homeViewStyle.css" text="Acquista Titoli Viaggio" textFill="WHITE" GridPane.columnIndex="2">
                <font>
                   <Font size="20.0" />
                </font>
