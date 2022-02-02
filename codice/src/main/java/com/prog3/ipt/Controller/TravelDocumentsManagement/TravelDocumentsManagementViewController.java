@@ -4,10 +4,7 @@ import com.prog3.ipt.Controller.ViewController;
 import com.prog3.ipt.Model.CitizenClasses.ObservableSingleton;
 import com.prog3.ipt.Model.CitizenClasses.Order;
 import com.prog3.ipt.Model.PaymentMethodClasses.*;
-import com.prog3.ipt.Model.TravelDocumentClasses.Membership;
-import com.prog3.ipt.Model.TravelDocumentClasses.SingleTicket;
-import com.prog3.ipt.Model.TravelDocumentClasses.TravelDocument;
-import com.prog3.ipt.Model.TravelDocumentClasses.TravelDocumentFactory;
+import com.prog3.ipt.Model.TravelDocumentClasses.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -58,7 +55,7 @@ public class TravelDocumentsManagementViewController extends ViewController {
 
     // Right VBox
     @FXML
-    private TableView<TravelDocument> myCartTableView;
+    private TableView<TravelDocumentFX> myCartTableView;
     @FXML
     private Label totalPriceLabel;
     @FXML
@@ -68,19 +65,19 @@ public class TravelDocumentsManagementViewController extends ViewController {
     @FXML
     private Button buyCartItemsButton;
     @FXML
-    private TableColumn<TravelDocument, String> travelDocumentIDTableColumn;
+    private TableColumn<TravelDocumentFX, String> travelDocumentIDTableColumn;
     @FXML
-    private TableColumn<TravelDocument, String> lineIDTableColumn;
+    private TableColumn<TravelDocumentFX, String> lineIDTableColumn;
     @FXML
-    private TableColumn<TravelDocument, String> rideIDTableColumn;
+    private TableColumn<TravelDocumentFX, String> rideIDTableColumn;
     @FXML
-    private TableColumn<TravelDocument, LocalDate> issueDateTableColumn;
+    private TableColumn<TravelDocumentFX, LocalDate> issueDateTableColumn;
     @FXML
-    private TableColumn<TravelDocument, LocalDate> startDateTableColumn;
+    private TableColumn<TravelDocumentFX, LocalDate> startDateTableColumn;
     @FXML
-    private TableColumn<TravelDocument, LocalDate> expirationDateTableColumn;
+    private TableColumn<TravelDocumentFX, LocalDate> expirationDateTableColumn;
     @FXML
-    private TableColumn<TravelDocument, Double> priceTableColumn;
+    private TableColumn<TravelDocumentFX, Double> priceTableColumn;
 
 
 
@@ -197,18 +194,21 @@ public class TravelDocumentsManagementViewController extends ViewController {
     @Override
     protected void initializeViewComponents() {
         isValidTransaction = false;
+        /*
         // update price
         double totalOrderValue = 0.0;
 
         // create observable list
-        ObservableList<TravelDocument> travelDocumentObservableList = FXCollections.observableArrayList();
         for (TravelDocument travelDocumentObject: ObservableSingleton.getOrder().getPurchaseList()) {
-            travelDocumentObservableList.add(travelDocumentObject);
             totalOrderValue += travelDocumentObject.getPrice();
         }
 
+         */
+
         // initialize left side
-        totalPriceLabel.setText("€" + String.valueOf(totalOrderValue));
+        //totalPriceLabel.setText("€" + String.valueOf(totalOrderValue));
+        totalPriceLabel.setText("€" + String.valueOf(ObservableSingleton.getOrder().getPurchasePrice()));
+
         paymentMethodsDropDownList.getItems().addAll("CREDIT_CARD", "PAYPAL", "PHONE_NUMBER_BILL");
         paymentMethodsDropDownList.setPromptText("Seleziona un metodo di pagamento...");
         CVV_TextField.setVisible(false);
@@ -226,7 +226,7 @@ public class TravelDocumentsManagementViewController extends ViewController {
         expirationDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("expirationDate"));
         priceTableColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
 
-        myCartTableView.setItems(travelDocumentObservableList);
+        myCartTableView.setItems(ObservableSingleton.getOrder().getPurchaseObservableList());
 
 
     }

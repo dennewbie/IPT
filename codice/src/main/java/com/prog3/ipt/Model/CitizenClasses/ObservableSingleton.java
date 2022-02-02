@@ -2,6 +2,8 @@ package com.prog3.ipt.Model.CitizenClasses;
 
 import com.prog3.ipt.Model.PaymentMethodClasses.PaymentMethodStrategy;
 import com.prog3.ipt.Model.TravelDocumentClasses.TravelDocument;
+import javafx.collections.FXCollections;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -56,7 +58,7 @@ public class ObservableSingleton {
     public static Order getOrder() {
         if (sessionOrder == null) {
             synchronized (ObservableSingleton.class) {
-                if (sessionOrder == null) sessionOrder = new Order(null, 0.00, null, null,  new ArrayList<>());
+                if (sessionOrder == null) sessionOrder = new Order(null, 0.00, null, null,  new ArrayList<>(), FXCollections.observableArrayList());
             }
         }
         return sessionOrder;
