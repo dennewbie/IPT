@@ -23,8 +23,8 @@ public class Order {
 
 
 
-    public Order(LocalDate purchaseDate, double purchasePrice, String citizenID, PaymentMethodStrategy paymentMethodStrategy, ArrayList<TravelDocument> purchaseList, ObservableList<TravelDocumentFX> purchaseObservableList) {
-        setTransactionCode(null);
+    public Order(String transactionCode, LocalDate purchaseDate, double purchasePrice, String citizenID, PaymentMethodStrategy paymentMethodStrategy, ArrayList<TravelDocument> purchaseList, ObservableList<TravelDocumentFX> purchaseObservableList) {
+        setTransactionCode(transactionCode);
         setPurchaseDate(purchaseDate);
         setPurchasePrice(purchasePrice);
         setCitizenID(citizenID);

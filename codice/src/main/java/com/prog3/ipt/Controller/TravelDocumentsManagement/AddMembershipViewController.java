@@ -56,7 +56,7 @@ public class AddMembershipViewController extends TravelDocumentsManagementViewCo
         for (int i = 0; i < quantity; i++) {
             setMyMembership((Membership) super.myTravelDocumentFactory.createTravelDocument(MyConstants.membershipPrice, LocalDate.now(), startDate.plusYears(1), null, null, null, null, startDate));
             super.getOrder().addTravelDocument(getMyMembership());
-            super.setOrder(new Order(super.getOrder().getPurchaseDate(), super.getOrder().getPurchasePrice(), super.getOrder().getCitizenID(), super.getOrder().getPaymentMethodStrategy(), super.getOrder().getPurchaseList(), super.getOrder().getPurchaseObservableList()));
+            super.setOrder(new Order(null, super.getOrder().getPurchaseDate(), super.getOrder().getPurchasePrice(), super.getOrder().getCitizenID(), super.getOrder().getPaymentMethodStrategy(), super.getOrder().getPurchaseList(), super.getOrder().getPurchaseObservableList()));
         }
         super.raiseConfirmationAlert("Abbonamento/i aggiunto/i correttamente al carrello!");
         initializeViewComponents();

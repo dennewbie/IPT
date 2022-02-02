@@ -61,7 +61,7 @@ public class ObservableSingleton {
     public static Order getOrder() {
         if (sessionOrder == null) {
             synchronized (ObservableSingleton.class) {
-                if (sessionOrder == null) sessionOrder = new Order(null, 0.00, null, null,  new ArrayList<>(), FXCollections.observableArrayList());
+                if (sessionOrder == null) sessionOrder = new Order(null, null, 0.00, null, null,  new ArrayList<>(), FXCollections.observableArrayList());
             }
         }
         return sessionOrder;
