@@ -29,5 +29,7 @@ module com.prog3.ipt {
     opens com.prog3.ipt.Model.PaymentMethodClasses to javafx.fxml;
     exports com.prog3.ipt.Model.FacadeClasses;
     opens com.prog3.ipt.Model.FacadeClasses to javafx.fxml;
+    exports com.prog3.ipt.Model.LineRide;
+    opens com.prog3.ipt.Model.LineRide to javafx.fxml;
 
 }

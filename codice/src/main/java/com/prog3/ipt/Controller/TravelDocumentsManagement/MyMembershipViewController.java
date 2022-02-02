@@ -53,6 +53,13 @@ public class MyMembershipViewController extends TravelDocumentsManagementViewCon
     @Override
     protected void initializeViewComponents() {
         deleteRowButton = new Button("Elimina Abbonamento");
+        deleteRowButton.setId("myMembershipViewButton");
+        /*
+        Probabilmente non necessarie le seguenti righe: lo scopriremo al popolamento della table view
+
+        String viewStyle = getClass().getResource("myMembershipViewStyle.css").toExternalForm();
+        super.getLocalScene().getStylesheets().add(viewStyle);
+        */
         myMembershipDeleteTableColumn.setCellValueFactory(new PropertyValueFactory<TravelDocumentFX, String>("deleteRowButton"));
         Callback<TableColumn<TravelDocumentFX, String>, TableCell<TravelDocumentFX, String>> cellFactory =
                 new Callback<TableColumn<TravelDocumentFX, String>, TableCell<TravelDocumentFX, String>>() {
@@ -68,9 +75,7 @@ public class MyMembershipViewController extends TravelDocumentsManagementViewCon
                                     setGraphic(null);
                                     setText(null);
                                 } else {
-                                    btn.setOnAction(event -> {
-                                        TravelDocumentFX travelDocumentFX = getTableView().getItems().get(getIndex());
-                                    });
+                                    btn.setOnAction(event -> { TravelDocumentFX travelDocumentFX = getTableView().getItems().get(getIndex()); });
                                     setGraphic(btn);
                                     setText(null);
                                 }

@@ -31,7 +31,7 @@
                         </HBox>
                         <HBox prefHeight="21.0" prefWidth="500.0">
                             <children>
-                                <Label text="Inserisci l'ID della corsa di riferimento:" />
+                                <Label text="Inserisci l'ID della ride di riferimento:" />
                             </children>
                             <VBox.margin>
                                 <Insets left="100.0" right="100.0" top="20.0" />
@@ -47,7 +47,7 @@
                         </HBox>
                         <HBox prefHeight="21.0" prefWidth="500.0">
                             <children>
-                                <Label text="Inserisci l'ID della linea di riferimento:" />
+                                <Label text="Inserisci l'ID della line di riferimento:" />
                             </children>
                             <VBox.margin>
                                 <Insets left="100.0" right="100.0" top="20.0" />

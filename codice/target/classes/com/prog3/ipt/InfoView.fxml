@@ -13,23 +13,23 @@
     <children>
         <Pane layoutY="89.0" prefHeight="655.0" prefWidth="1080.0" styleClass="white-pane" stylesheets="@infoViewStyle.css" AnchorPane.topAnchor="70.0">
             <children>
-                <TableView fx:id="CorsaLineaTableView" prefHeight="657.0" prefWidth="1081.0" styleClass="textField_box">
+                <TableView fx:id="LineRideTableView" prefHeight="657.0" prefWidth="1081.0" styleClass="textField_box">
                     <columns>
-                        <TableColumn fx:id="lineaIDTableColumn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="66.0" text="ID LINEA" />
-                        <TableColumn fx:id="lineaLunghezzaTableColumn" minWidth="0.0" prefWidth="92.0" text="LUNGHEZZA" />
-                        <TableColumn fx:id="lineaFermataInizioTableColumn" prefWidth="107.0" text="INIZIO FERMATA " />
-                        <TableColumn fx:id="lineaFermataFineTableColumn" minWidth="0.0" prefWidth="180.0" text="FINE FERMATA" />
-                        <TableColumn fx:id="lineaDataAttivazioneTableColumn" prefWidth="124.0" text="DATA ATTIVAZIONE " />
-                        <TableColumn fx:id="lineaOrarioAperturaTableColumn" minWidth="0.0" prefWidth="131.0" text="ORARIO APERTURA" />
-                        <TableColumn fx:id="lineaOrarioChiusuraTableColumn" prefWidth="127.0" text="ORARIO CHIUSURA" />
+                        <TableColumn fx:id="lineIDTableColumn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="66.0" text="ID LINEA" />
+                        <TableColumn fx:id="lineLenghtTableColumn" minWidth="0.0" prefWidth="92.0" text="LUNGHEZZA" />
+                        <TableColumn fx:id="lineStartingStationTableColumn" prefWidth="107.0" text="INIZIO FERMATA " />
+                        <TableColumn fx:id="lineEndingStationTableColumn" minWidth="0.0" prefWidth="180.0" text="FINE FERMATA" />
+                        <TableColumn fx:id="lineActivationDateTableColumn" prefWidth="124.0" text="DATA ATTIVAZIONE " />
+                        <TableColumn fx:id="lineOpeningHourTableColumn" minWidth="0.0" prefWidth="131.0" text="ORARIO APERTURA" />
+                        <TableColumn fx:id="lineClosingHourTableColumn" prefWidth="127.0" text="ORARIO CHIUSURA" />
 
 
 
-                        <TableColumn fx:id="corsaIDTableColumn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="71.0" text="ID CORSA" />
-                        <TableColumn fx:id="corsaStatoTableColumn" minWidth="0.0" prefWidth="140.0" text="STATO CORSA" />
-                        <TableColumn fx:id="corsaOraInizioTableColumn" maxWidth="120.0" minWidth="0.0" prefWidth="120.0" text="ORA INIZIO CORSA" />
-                        <TableColumn fx:id="corsaOraFineTableColumn" maxWidth="190.0" prefWidth="120.0" text="ORA FINE CORSA" />
-                        <TableColumn fx:id="corsaPrioritàTableColumn" maxWidth="120.0" prefWidth="177.0" text="PRIORITA'" />
+                        <TableColumn fx:id="rideIDTableColumn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="71.0" text="ID CORSA" />
+                        <TableColumn fx:id="rideStatusTableColumn" minWidth="0.0" prefWidth="140.0" text="STATO CORSA" />
+                        <TableColumn fx:id="rideStartingHourTableColumn" maxWidth="120.0" minWidth="0.0" prefWidth="120.0" text="ORA INIZIO CORSA" />
+                        <TableColumn fx:id="rideEndingHourTableColumn" maxWidth="190.0" prefWidth="120.0" text="ORA FINE CORSA" />
+                        <TableColumn fx:id="ridePriorityTableColumn" maxWidth="120.0" prefWidth="177.0" text="PRIORITA'" />
 
 
                     </columns>

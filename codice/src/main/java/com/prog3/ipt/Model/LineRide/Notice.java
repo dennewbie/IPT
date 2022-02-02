@@ -1,4 +1,4 @@
-package com.prog3.ipt.Model;
+package com.prog3.ipt.Model.LineRide;
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -11,7 +11,8 @@ public class Notice {
     private String rideID;
     private String lineID;
 
-    // Constructor
+
+
     public Notice(String noticeID, LocalDate date, String noticeName, String text, String rideID, String lineID) {
         this.noticeID = noticeID;
         this.noticeDate = date;
@@ -52,14 +53,5 @@ public class Notice {
     }
 
     @Override
-    public String toString() {
-        return "Notice{" +
-                "noticeID='" + noticeID + '\'' +
-                ", noticeDate=" + noticeDate +
-                ", noticeName='" + noticeName + '\'' +
-                ", noticeText='" + noticeText + '\'' +
-                ", rideID='" + rideID + '\'' +
-                ", lineID='" + lineID + '\'' +
-                '}';
-    }
+    public String toString() { return "Notice{ noticeID='" + noticeID + ", noticeDate=" + noticeDate + ", noticeName='" + noticeName + " , noticeText='" + noticeText + ", rideID='" + rideID + " , lineID='" + lineID + '}'; }
 }

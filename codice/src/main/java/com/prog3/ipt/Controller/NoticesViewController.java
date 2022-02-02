@@ -1,7 +1,7 @@
 package com.prog3.ipt.Controller;
 
 import com.prog3.ipt.Model.FacadeClasses.FacadeSingleton;
-import com.prog3.ipt.Model.Notice;
+import com.prog3.ipt.Model.LineRide.Notice;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

@@ -35,11 +35,7 @@
                 </Pane>
             <Pane layoutX="753.0" layoutY="22.0" prefHeight="92.0" prefWidth="300.0">
                <children>
-                  <Label id="usernameWelcomeLabel" fx:id="usernameWelcomeLabel" alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="300.0" text="Ospite" textAlignment="RIGHT" textFill="WHITE">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
+                  <Label id="usernameWelcomeLabel" fx:id="usernameWelcomeLabel" alignment="TOP_RIGHT" prefHeight="61.0" prefWidth="300.0" text="Ospite" textAlignment="RIGHT" textFill="WHITE" wrapText="true" />
                </children>
             </Pane>
             <Button fx:id="logoutButton" ellipsisString="" layoutX="1014.0" layoutY="118.0" mnemonicParsing="false" onAction="#onLogoutButtonClick" styleClass="logoutButton" stylesheets="@homeViewStyle.css" visible="false">

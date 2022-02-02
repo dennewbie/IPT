@@ -1,9 +1,6 @@
 package com.prog3.ipt.Controller.TravelDocumentsManagement;
 
-import com.prog3.ipt.Model.CorsaLineaFX;
-import com.prog3.ipt.Model.FacadeClasses.FacadeSingleton;
 import com.prog3.ipt.Model.TravelDocumentClasses.TravelDocumentFX;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -58,6 +55,7 @@ public class MySingleTicketsViewController extends TravelDocumentsManagementView
     @Override
     protected void initializeViewComponents() {
         deleteRowButton = new Button("Elimina Biglietto Singolo");
+        deleteRowButton.setId("mySingleTicketsViewStyle.css");
         mySingleTicketsDeleteTableColumn.setCellValueFactory(new PropertyValueFactory<TravelDocumentFX, String>("deleteRowButton"));
         Callback<TableColumn<TravelDocumentFX, String>, TableCell<TravelDocumentFX, String>> cellFactory =
                 new Callback<TableColumn<TravelDocumentFX, String>, TableCell<TravelDocumentFX, String>>() {
@@ -73,9 +71,7 @@ public class MySingleTicketsViewController extends TravelDocumentsManagementView
                                     setGraphic(null);
                                     setText(null);
                                 } else {
-                                    btn.setOnAction(event -> {
-                                        TravelDocumentFX travelDocumentFX = getTableView().getItems().get(getIndex());
-                                    });
+                                    btn.setOnAction(event -> { TravelDocumentFX travelDocumentFX = getTableView().getItems().get(getIndex()); });
                                     setGraphic(btn);
                                     setText(null);
                                 }
