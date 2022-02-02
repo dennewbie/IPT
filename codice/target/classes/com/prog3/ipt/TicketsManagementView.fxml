@@ -40,7 +40,8 @@
                      <TableView fx:id="myTicketsTableView" prefHeight="235.0" prefWidth="517.0" styleClass="textField_box">
                        <columns>
                            <TableColumn fx:id="myTicketsTransactionIDTableColumn" prefWidth="58.3999969959259" text="Numero Transazione" />
-                         <TableColumn fx:id="myTicketsTravelDocumentIDTableColumn" minWidth="0.0" prefWidth="44.000003814697266" text="ID" />
+                         <TableColumn fx:id="myTicketsTicketIDTableColumn" minWidth="0.0" prefWidth="44.000003814697266" text="ID Biglietto" />
+                           <TableColumn fx:id="myTicketsMembershipIDTableColumn" prefWidth="75.0" text="ID Abbonamento" />
                          <TableColumn fx:id="myTicketsLineIDTableColumn" prefWidth="40.79998779296875" text="Linea" />
                            <TableColumn fx:id="myTicketsRideIDTableColumn" minWidth="2.39996337890625" prefWidth="42.39996337890625" text="Corsa" />
                            <TableColumn fx:id="myTicketsIssueDateTableColumn" prefWidth="99.199951171875" text="Data Emissione" />

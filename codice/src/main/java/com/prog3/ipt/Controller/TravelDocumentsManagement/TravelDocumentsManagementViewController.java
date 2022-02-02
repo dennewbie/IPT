@@ -116,7 +116,7 @@ public class TravelDocumentsManagementViewController extends ViewController {
         // TODO: query DB transazione, svuota table view
         // insert record into transaction table
 
-        //if (!FacadeSingleton.insertRecord(ObservableSingleton.getOrder(), ""));
+        //if (!FacadeSingleton.insertTransaction());
 
         super.raiseConfirmationAlert("Il tuo acquisto è andato a buon fine. Costo totale: " + ObservableSingleton.getOrder().getPurchasePrice() + " euro. Modalità pagamento: " + ObservableSingleton.getPaymentMethodString());
         ObservableSingleton.setOrder(null);
