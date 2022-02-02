@@ -218,10 +218,11 @@ public class TravelDocumentsManagementViewController extends ViewController {
     public void initialize(URL url, ResourceBundle resourceBundle) { initializeViewComponents(); }
     @Override
     protected void initializeViewComponents() {
+
         isValidTransaction = false;
 
         // initialize left side
-        totalPriceLabel.setText("€" + String.valueOf(ObservableSingleton.getOrder().getPurchasePrice()));
+        totalPriceLabel.setText("€  " + String.valueOf(ObservableSingleton.getOrder().getPurchasePrice()));
 
         paymentMethodsDropDownList.getItems().addAll("CREDIT_CARD", "PAYPAL", "PHONE_NUMBER_BILL");
         paymentMethodsDropDownList.setPromptText("Seleziona un metodo di pagamento...");

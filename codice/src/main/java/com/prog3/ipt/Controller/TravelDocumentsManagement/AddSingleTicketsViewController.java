@@ -85,14 +85,14 @@ public class AddSingleTicketsViewController extends TravelDocumentsManagementVie
     @FXML
     void onIncreaseSingleTicketQuantityButtonClick(ActionEvent event) {
         quantityTextField.setText(String.valueOf(Integer.parseInt(quantityTextField.getText()) + 1));
-        priceResultLabel.setText("€ " + String.valueOf(Integer.parseInt(quantityTextField.getText()) * MyConstants.singleTicketPrice));
+        priceResultLabel.setText("€  " + String.valueOf(Integer.parseInt(quantityTextField.getText()) * MyConstants.singleTicketPrice));
     }
 
     @FXML
     void onDecreaseSingleTicketQuantityButtonClick(ActionEvent event) {
         int currentQuantity = Integer.parseInt(quantityTextField.getText());
         if (currentQuantity > 0) quantityTextField.setText(String.valueOf(currentQuantity - 1));
-        priceResultLabel.setText("€ " + String.valueOf(Integer.parseInt(quantityTextField.getText()) * MyConstants.singleTicketPrice));
+        priceResultLabel.setText("€  " + String.valueOf(Integer.parseInt(quantityTextField.getText()) * MyConstants.singleTicketPrice));
     }
 
     @FXML
@@ -111,6 +111,6 @@ public class AddSingleTicketsViewController extends TravelDocumentsManagementVie
     protected void initializeViewComponents() {
         super.clearTextFieldsContent(ID_RideTextField, ID_LineTextField, quantityTextField);
         quantityTextField.setText(Integer.toString(0));
-        priceResultLabel.setText("€ " + String.valueOf(0.0));
+        priceResultLabel.setText("€  " + String.valueOf(0.0));
     }
  }
