@@ -5,6 +5,7 @@ import com.prog3.ipt.Controller.NoticesViewController;
 import com.prog3.ipt.Model.Corsa;
 import com.prog3.ipt.Model.Linea;
 import com.prog3.ipt.Model.Notice;
+import com.prog3.ipt.Model.TravelDocumentClasses.TravelDocument;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -24,6 +25,7 @@ public class FacadeSingleton {
     private static ObservableList<Notice> noticeObservableList;
     private static ObservableList<Linea> lineaObservableList;
     private static ObservableList<Corsa> corsaObservableList;
+    private static ObservableList<TravelDocument> travelDocumentObservableList;
 
 
     private FacadeSingleton() {
@@ -191,4 +193,29 @@ public class FacadeSingleton {
         }
         return corsaObservableList;
     }
+    public static ObservableList<TravelDocument> getTravelDocumentsViewContent() {
+        travelDocumentObservableList = FXCollections.observableArrayList();
+
+        // SQL Query
+        String travelDocumentsViewQuery = "";
+
+        try {
+            if (!executeQuery(travelDocumentsViewQuery)) return null;
+            while (queryOutput.next()) {
+
+
+                // retrive information on travel documents bought by citizenID
+
+                //
+
+                // add travel documents to observable list
+
+            }
+        } catch(SQLException ex) {
+            Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
+        }
+        return travelDocumentObservableList;
+    }
+
 }

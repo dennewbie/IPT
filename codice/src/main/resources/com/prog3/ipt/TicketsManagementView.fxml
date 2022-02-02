@@ -39,8 +39,14 @@
                   <children>
                      <TableView fx:id="myTicketsTableView" prefHeight="235.0" prefWidth="517.0" styleClass="textField_box">
                        <columns>
-                         <TableColumn prefWidth="75.0" text="C1" />
-                         <TableColumn prefWidth="75.0" text="C2" />
+                           <TableColumn prefWidth="68.79998779296875" text="Numero Transazione" />
+                         <TableColumn minWidth="0.0" prefWidth="30.400023460388184" text="ID" />
+                         <TableColumn prefWidth="40.79998779296875" text="Linea" />
+                           <TableColumn minWidth="2.39996337890625" prefWidth="42.39996337890625" text="Corsa" />
+                           <TableColumn prefWidth="99.199951171875" text="Data Emissione" />
+                           <TableColumn prefWidth="79.199951171875" text="Data Inizio Validità" />
+                           <TableColumn prefWidth="70.4000244140625" text="Data Scadenza" />
+                           <TableColumn prefWidth="65.60003662109375" text="Prezzo" />
                        </columns>
                      </TableView>
                   </children>

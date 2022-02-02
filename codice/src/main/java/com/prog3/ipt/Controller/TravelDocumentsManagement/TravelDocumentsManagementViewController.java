@@ -43,6 +43,7 @@ public class TravelDocumentsManagementViewController extends ViewController {
     // Left Vbox
     @FXML
     private TableView<?> myTicketsTableView;
+
     @FXML
     private ComboBox<String> paymentMethodsDropDownList;
     @FXML
