@@ -64,9 +64,9 @@ public class AddMembershipViewController extends TravelDocumentsManagementViewCo
         int quantity = Integer.valueOf(quantityTextField.getText());
         super.myTravelDocumentFactory = new MembershipConcreteFactory();
         for (int i = 0; i < quantity; i++) {
-            setMyMembership((Membership) super.myTravelDocumentFactory.createTravelDocument(MyConstants.membershipPrice, null, startDate.plusYears(1), null, null, null, null, startDate));
-            super.getOrder().getPurchaseList().add(getMyMembership());
-            super.setOrder(new Order(super.getOrder().getPurchaseDate(), super.getOrder().getPurchasePrice() + MyConstants.membershipPrice, super.getOrder().getCitizenID(), super.getOrder().getPaymentMethodStrategy(), super.getOrder().getPurchaseList()));
+            setMyMembership((Membership) super.myTravelDocumentFactory.createTravelDocument(MyConstants.membershipPrice, LocalDate.now(), startDate.plusYears(1), null, null, null, null, startDate));
+            super.getOrder().addTravelDocument(getMyMembership());
+            super.setOrder(new Order(super.getOrder().getPurchaseDate(), super.getOrder().getPurchasePrice(), super.getOrder().getCitizenID(), super.getOrder().getPaymentMethodStrategy(), super.getOrder().getPurchaseList(), super.getOrder().getPurchaseObservableList()));
         }
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Abbonamento/i aggiunto/i correttamente al carrello!", ButtonType.OK);
         alert.showAndWait();

@@ -73,9 +73,9 @@ public class AddSingleTicketsViewController extends TravelDocumentsManagementVie
         int quantity = Integer.valueOf(quantityTextField.getText());
         super.myTravelDocumentFactory = new SingleTicketConcreteFactory();
         for (int i = 0; i < quantity; i++) {
-            setMySingleTicket((SingleTicket) super.myTravelDocumentFactory.createTravelDocument(MyConstants.singleTicketPrice, LocalDate.now(), LocalDate.now().plusDays(1), null, ID_Line, ID_Ride, null, null));
-            super.getOrder().getPurchaseList().add(getMySingleTicket());
-            super.setOrder(new Order(super.getOrder().getPurchaseDate(), super.getOrder().getPurchasePrice() + MyConstants.singleTicketPrice, super.getOrder().getCitizenID(), super.getOrder().getPaymentMethodStrategy(), super.getOrder().getPurchaseList()));
+            setMySingleTicket((SingleTicket) super.myTravelDocumentFactory.createTravelDocument(MyConstants.singleTicketPrice, LocalDate.now(), null, null, ID_Line, ID_Ride, null, null));
+            super.getOrder().addTravelDocument(getMySingleTicket());
+            super.setOrder(new Order(super.getOrder().getPurchaseDate(), super.getOrder().getPurchasePrice(), super.getOrder().getCitizenID(), super.getOrder().getPaymentMethodStrategy(), super.getOrder().getPurchaseList(), super.getOrder().getPurchaseObservableList()));
         }
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Biglietto/i singolo/i aggiunto/i correttamente al carrello!", ButtonType.OK);
         alert.showAndWait();
