@@ -1,19 +1,20 @@
 package com.prog3.ipt.Model;
 import com.prog3.ipt.Controller.InfoViewController;
 
+import java.sql.Time;
 import java.time.LocalDate;
 import java.util.Objects;
-public class Linea extends InfoViewController {
+public class Linea {
     private String lineaID;
     private Integer lineaLunghezza;
     private String lineaFermataInizio;
     private String lineaFermataFine;
     private LocalDate lineaDataAttivazione;
-    private LocalDate lineaOrarioApertura;
-    private LocalDate lineaOrarioChiusura;
+    private Time lineaOrarioApertura;
+    private Time lineaOrarioChiusura;
 
     //Constructor
-    public Linea(String lineaID, Integer lineaLunghezza, String lineaFermataInizio, String lineaFermataFine, LocalDate lineaDataAttivazione, LocalDate lineaOrarioApertura, LocalDate lineaOrarioChiusura){
+    public Linea(String lineaID, Integer lineaLunghezza, String lineaFermataInizio, String lineaFermataFine, LocalDate lineaDataAttivazione, Time lineaOrarioApertura, Time lineaOrarioChiusura){
         this.lineaID = lineaID;
         this.lineaLunghezza = lineaLunghezza;
         this.lineaFermataInizio = lineaFermataInizio;
@@ -32,9 +33,9 @@ public class Linea extends InfoViewController {
 
     public LocalDate getLineaDataAttivazione() {return lineaDataAttivazione;}
 
-    public LocalDate getLineaOrarioApertura() {return lineaOrarioApertura;}
+    public Time getLineaOrarioApertura() {return lineaOrarioApertura;}
 
-    public LocalDate getLineaOrarioChiusura() {return lineaOrarioChiusura;}
+    public Time getLineaOrarioChiusura() {return lineaOrarioChiusura;}
 
     //Setters
     public void setLineaID(String lineaID) {this.lineaID = lineaID;}
@@ -47,9 +48,9 @@ public class Linea extends InfoViewController {
 
     public void setLineaDataAttivazione(LocalDate lineaDataAttivazione) {this.lineaDataAttivazione = lineaDataAttivazione;}
 
-    public void setLineaOrarioApertura(LocalDate lineaOrarioApertura) {this.lineaOrarioApertura = lineaOrarioApertura;}
+    public void setLineaOrarioApertura(Time lineaOrarioApertura) {this.lineaOrarioApertura = lineaOrarioApertura;}
 
-    public void setLineaOrarioChiusura(LocalDate lineaOrarioChiusura) {this.lineaOrarioChiusura = lineaOrarioChiusura;}
+    public void setLineaOrarioChiusura(Time lineaOrarioChiusura) {this.lineaOrarioChiusura = lineaOrarioChiusura;}
 
     @Override
     public boolean equals(Object o) {

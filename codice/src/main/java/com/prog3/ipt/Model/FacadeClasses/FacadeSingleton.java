@@ -134,6 +134,8 @@ public class FacadeSingleton {
         }
         return noticeObservableList;
     }
+
+
     public static ObservableList<Linea> getLineaViewContent() {
         lineaObservableList = FXCollections.observableArrayList();
 
@@ -142,6 +144,7 @@ public class FacadeSingleton {
 
         try {
             if (!executeQuery(lineaViewQuery)) return null;
+
             while (queryOutput.next()) {
 
                 String queryLineaID = queryOutput.getString("id_linea");
@@ -149,15 +152,20 @@ public class FacadeSingleton {
                 String queryLineaFermataInizio = queryOutput.getString("fermata_inizio");
                 String queryLineaFermataFine = queryOutput.getString("fermata_fine");
                 LocalDate queryLineaDataAttivazione = queryOutput.getDate("data_attivazione").toLocalDate();
-                LocalDate queryLineaOrarioApertura = queryOutput.getDate("orario_apertura").toLocalDate();
-                LocalDate queryLineaOrarioChiusura = queryOutput.getDate("orario_chiusura").toLocalDate();
+                Time queryLineaOrarioApertura = queryOutput.getTime("orario_apertura");
+                Time queryLineaOrarioChiusura = queryOutput.getTime("orario_chiusura");
 
-                lineaObservableList.add(new Linea(queryLineaID, queryLineaLunghezza, queryLineaFermataInizio, queryLineaFermataFine, queryLineaDataAttivazione, queryLineaOrarioApertura,queryLineaOrarioChiusura));
+                lineaObservableList.add(new Linea(queryLineaID, queryLineaLunghezza, queryLineaFermataInizio, queryLineaFermataFine, queryLineaDataAttivazione, null,null));
+
+
             }
+
         } catch(SQLException ex) {
             Logger.getLogger(InfoViewController.class.getName()).log(Level.SEVERE, null, ex);
             ex.printStackTrace();
         }
+
+
         return lineaObservableList;
 
 

@@ -11,15 +11,15 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import java.net.URL;
+import java.sql.Time;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class InfoViewController extends ViewController {
+    //protected void initializeViewComponents(){};
     // Navigation Bar
     @FXML
     private Button backButton;
-
-
 
     // Pane
     @FXML
@@ -39,9 +39,9 @@ public class InfoViewController extends ViewController {
     @FXML
     private TableColumn<Linea, LocalDate> lineaDataAttivazioneTableColumn;
     @FXML
-    private TableColumn<Linea, LocalDate> lineaOrarioAperturaTableColumn;
+    private TableColumn<Linea, Time> lineaOrarioAperturaTableColumn;
     @FXML
-    private TableColumn<Linea, LocalDate> lineaOrarioChiusuraTableColumn;
+    private TableColumn<Linea, Time> lineaOrarioChiusuraTableColumn;
 
     //Table Column Corsa
     @FXML
@@ -64,11 +64,12 @@ public class InfoViewController extends ViewController {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) { initializeViewComponents(); }
+    public void initialize(URL url, ResourceBundle resourceBundle) {initializeViewComponents(); }
+
     @Override
     protected void initializeViewComponents() {
         ObservableList<Linea> lineaObservableList = FacadeSingleton.getLineaViewContent();
-        ObservableList<Corsa> corsaObservableList = FacadeSingleton.getCorsaViewContent();
+       // ObservableList<Corsa> corsaObservableList = FacadeSingleton.getCorsaViewContent();
 
         lineaIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("lineaID"));
         lineaLunghezzaTableColumn.setCellValueFactory(new PropertyValueFactory<>("lineaLunghezza"));
@@ -78,6 +79,7 @@ public class InfoViewController extends ViewController {
         lineaOrarioAperturaTableColumn.setCellValueFactory(new PropertyValueFactory<>("lineaOrarioApertura"));
         lineaOrarioChiusuraTableColumn.setCellValueFactory(new PropertyValueFactory<>("lineaOrarioChiusura"));
 
+/*
         corsaIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("corsaID"));
         corsaLineaIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("corsaLineaID"));
         corsaStatoTableColumn.setCellValueFactory(new PropertyValueFactory<>("corsaStato"));
@@ -85,7 +87,10 @@ public class InfoViewController extends ViewController {
         corsaOraFineTableColumn.setCellValueFactory(new PropertyValueFactory<>("corsaOraFine"));
         corsaPrioritàTableColumn.setCellValueFactory(new PropertyValueFactory<>("corsaPriorità"));
 
-        lineaTableView.setItems(lineaObservableList);
-        corsaTableView.setItems(corsaObservableList);
+ */
+         lineaTableView.setItems(lineaObservableList);
+         //corsaTableView.setItems(corsaObservableList);
     }
+
+
 }
