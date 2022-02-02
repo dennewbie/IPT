@@ -57,7 +57,7 @@ public class AddSingleTicketsViewController extends TravelDocumentsManagementVie
     void onAddSingleTicketsToCartButtonClick(ActionEvent event) {
         // controllo esistenza corsa e linea
         String ID_Ride = ID_RideTextField.getText(), ID_Line = ID_LineTextField.getText();
-        if (!super.checkTextFieldsConent(ID_LineTextField, ID_RideTextField) || Integer.valueOf(quantityTextField.getText()) <= 0) return;
+        if (!super.checkTextFieldsContent(ID_LineTextField, ID_RideTextField) || Integer.valueOf(quantityTextField.getText()) <= 0) return;
 
         // aggiunta al carrello
         int quantity = Integer.valueOf(quantityTextField.getText());

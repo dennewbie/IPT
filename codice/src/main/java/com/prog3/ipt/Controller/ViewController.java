@@ -38,7 +38,7 @@ public abstract class ViewController implements Initializable {
         }
     }
 
-    protected boolean checkTextFieldsConent(TextField ... textFields) {
+    protected boolean checkTextFieldsContent(TextField ... textFields) {
         for (TextField singleTextField : textFields) if (singleTextField.getText() == null || singleTextField.getText().trim().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Hai lasciato uno o più campi vuoti.", ButtonType.OK);
             alert.showAndWait();

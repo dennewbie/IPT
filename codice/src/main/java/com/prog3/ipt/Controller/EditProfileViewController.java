@@ -44,7 +44,7 @@ public class EditProfileViewController extends ViewController {
 
     @FXML
     void onSaveInformationButtonClick(ActionEvent event) {
-        if (!checkTextFieldsConent(nameTextField, surnameTextField, emailTextField, passwordField) || !checkDatePickersContent(birthDatePicker)) return;
+        if (!checkTextFieldsContent(nameTextField, surnameTextField, emailTextField, passwordField) || !checkDatePickersContent(birthDatePicker)) return;
 
         // controllo validità credenziali
         String name = nameTextField.getText(), surname = surnameTextField.getText(), email = emailTextField.getText(), password = passwordField.getText();

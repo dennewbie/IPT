@@ -9,23 +9,28 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" styleClass="parent" stylesheets="@infoViewStyle.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prog3.ipt.Controller.InfoViewController">
-   <children>
-      <Pane layoutY="89.0" prefHeight="655.0" prefWidth="1080.0" styleClass="white-pane" stylesheets="@infoViewStyle.css" AnchorPane.topAnchor="70.0">
-         <children>
-            <TableView fx:id="infoTableView" prefHeight="657.0" prefWidth="1080.0" styleClass="textField_box">
-              <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
-              </columns>
-            </TableView>
-         </children></Pane>
-      <Button fx:id="backButton" layoutX="27.0" layoutY="35.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="45.0" prefWidth="250.0" styleClass="backToHome" text="Home" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0">
-         <graphic>
-            <FontAwesomeIconView fill="WHITE" glyphName="ARROW_LEFT" />
-         </graphic>
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-   </children>
+    <children>
+        <Pane layoutY="89.0" prefHeight="655.0" prefWidth="1080.0" styleClass="white-pane" stylesheets="@noticesViewStyle.css" AnchorPane.topAnchor="70.0">
+            <children>
+                <TableView fx:id="LineaTableView" prefHeight="657.0" prefWidth="1081.0" styleClass="textField_box">
+                    <columns>
+                        <TableColumn fx:id="lineaIDTableColumn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="78.0" text="ID LINEA" />
+                        <TableColumn fx:id="lineaLunghezzaTableColumn" minWidth="0.0" prefWidth="0.0" text="LUNGHEZZA LINEA" />
+                        <TableColumn fx:id="lineaFermataInizioTableColumn" prefWidth="157.0" text="INIZIO FERMATA LINEA" />
+                        <TableColumn fx:id="lineaFermataFineTableColumn" minWidth="0.0" prefWidth="137.0" text="FINE FERMATA LINEA" />
+                        <TableColumn fx:id="lineaDataAttivazioneTableColumn" prefWidth="177.0" text="DATA ATTIVAZIONE LINEA" />
+                        <TableColumn fx:id="lineaOrarioAperturaTableColumn" minWidth="0.0" prefWidth="183.0" text="ORARIO APERTURA LINEA" />
+                        <TableColumn fx:id="lineaOrarioChiusuraTableColumn" prefWidth="166.0" text="ORARIO CHIUSURA LINEA" />
+                    </columns>
+                </TableView>
+            </children></Pane>
+        <Button fx:id="backButton" layoutX="27.0" layoutY="35.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="45.0" prefWidth="250.0" styleClass="backToHome" text="Home" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0">
+            <graphic>
+                <FontAwesomeIconView fill="WHITE" glyphName="ARROW_LEFT" />
+            </graphic>
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Button>
+    </children>
 </AnchorPane>

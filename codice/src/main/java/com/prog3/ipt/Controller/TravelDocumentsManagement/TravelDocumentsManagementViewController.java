@@ -126,7 +126,7 @@ public class TravelDocumentsManagementViewController extends ViewController {
         setConvertedDropDownListString(PaymentMethodEnum.valueOf(paymentMethodsDropDownList.getValue()).toString());
         switch (PaymentMethodEnum.valueOf(paymentMethodsDropDownList.getValue())) {
             case PAYPAL -> {
-                if (!super.checkTextFieldsConent(creditCardNumberTextField)) return;
+                if (!super.checkTextFieldsContent(creditCardNumberTextField)) return;
 
                 Dialog<String> dialog = new Dialog<>();
                 dialog.setTitle("PayPal Request");
@@ -154,7 +154,7 @@ public class TravelDocumentsManagementViewController extends ViewController {
                 }
             }
             case CREDIT_CARD -> {
-                if (!super.checkTextFieldsConent(creditCardNumberTextField, CVV_TextField)) return;
+                if (!super.checkTextFieldsContent(creditCardNumberTextField, CVV_TextField)) return;
                 if (!super.checkDatePickersContent(expirationCreditCardDatePicker)) return;
 
                 currentCreditCardNumber = creditCardNumberTextField.getText();
@@ -170,7 +170,7 @@ public class TravelDocumentsManagementViewController extends ViewController {
                 ObservableSingleton.setPaymentMethodString(new String("Carta di Credito"));
             }
             case PHONE_NUMBER_BILL -> {
-                if (!super.checkTextFieldsConent(creditCardNumberTextField)) return;
+                if (!super.checkTextFieldsContent(creditCardNumberTextField)) return;
 
                 currentCreditCardNumber = creditCardNumberTextField.getText();
                 ObservableSingleton.setPaymentMethodStrategy(new PhoneNumberBillPaymentMethod(currentCreditCardNumber));

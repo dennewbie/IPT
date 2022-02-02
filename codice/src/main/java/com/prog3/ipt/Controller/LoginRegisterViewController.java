@@ -42,7 +42,7 @@ public class LoginRegisterViewController extends ViewController {
 
     @FXML
     void onSignInButtonClick(ActionEvent event) {
-        if (!super.checkTextFieldsConent(passwordSignInField, usernameSignInTextField)) return;
+        if (!super.checkTextFieldsContent(passwordSignInField, usernameSignInTextField)) return;
         // controllo validità credenziali
 
         // recupera dati citizen dal DB e salva in Observer
@@ -54,7 +54,7 @@ public class LoginRegisterViewController extends ViewController {
 
     @FXML
     void onSignUpButtonClick(ActionEvent event) {
-        if (!super.checkTextFieldsConent(nameTextField, surnameTextField, emailTextField, passwordSignUpField, usernameSignUpTextField)) return;
+        if (!super.checkTextFieldsContent(nameTextField, surnameTextField, emailTextField, passwordSignUpField, usernameSignUpTextField)) return;
         if (!super.checkDatePickersContent(birthDatePicker)) return;
 
         // controllo validità credenziali
