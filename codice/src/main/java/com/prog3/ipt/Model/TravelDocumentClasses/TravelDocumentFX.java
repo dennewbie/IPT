@@ -80,15 +80,15 @@ public class TravelDocumentFX {
     public LocalDate getStartDate() { return startDate; }
 
     // Setters
-    public void setTravelDocumentID(String travelDocumentID) { this.travelDocumentID = travelDocumentID; }
-    public void setPrice(double price) { this.price = price;}
-    public void setIssueDate(LocalDate issueDate) { this.issueDate = issueDate; }
-    public void setExpirationDate(LocalDate expirationDate) { this.expirationDate = expirationDate; }
-    public void setTransactionID(String transactionID) { this.transactionID = transactionID; }
-    public void setLineID(String lineID) { this.lineID = lineID; }
-    public void setRideID(String rideID) { this.rideID = rideID; }
-    public void setStampDate(LocalDate stampDate) { this.stampDate = stampDate; }
-    public void setStartDate(LocalDate startDate) { this.startDate = startDate; }
+    protected void setTravelDocumentID(String travelDocumentID) { this.travelDocumentID = travelDocumentID; }
+    protected void setPrice(double price) { this.price = price;}
+    protected void setIssueDate(LocalDate issueDate) { this.issueDate = issueDate; }
+    protected void setExpirationDate(LocalDate expirationDate) { this.expirationDate = expirationDate; }
+    protected void setTransactionID(String transactionID) { this.transactionID = transactionID; }
+    protected void setLineID(String lineID) { this.lineID = lineID; }
+    protected void setRideID(String rideID) { this.rideID = rideID; }
+    protected void setStampDate(LocalDate stampDate) { this.stampDate = stampDate; }
+    protected void setStartDate(LocalDate startDate) { this.startDate = startDate; }
 
     @Override
     public boolean equals(Object o) {
