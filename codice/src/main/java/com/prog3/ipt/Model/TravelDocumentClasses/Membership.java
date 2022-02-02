@@ -41,4 +41,11 @@ public class Membership extends TravelDocument {
     public int hashCode() {
         return Objects.hash(super.hashCode(), getStartDate());
     }
+
+    @Override
+    public TravelDocumentFX convertToFX() {
+        TravelDocumentFX travelDocumentFX =  super.convertToFX();
+        travelDocumentFX.setStartDate(getStartDate());
+        return travelDocumentFX;
+    }
 }

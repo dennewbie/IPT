@@ -59,4 +59,8 @@ public abstract class TravelDocument {
     public int hashCode() {
         return Objects.hash(getTravelDocumentID(), getPrice(), getIssueDate(), getExpirationDate(), getTransactionID());
     }
+
+    public TravelDocumentFX convertToFX() {
+        return new TravelDocumentFX(getTravelDocumentID(), getPrice(), getIssueDate(), getExpirationDate(), getTransactionID(), null, null, null, null);
+    }
 }

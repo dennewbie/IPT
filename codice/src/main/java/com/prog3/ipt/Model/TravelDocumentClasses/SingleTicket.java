@@ -52,4 +52,15 @@ public class SingleTicket extends TravelDocument {
     public int hashCode() {
         return Objects.hash(super.hashCode(), getLineID(), getRideID(), getStampDate());
     }
+
+
+    @Override
+    public TravelDocumentFX convertToFX() {
+        TravelDocumentFX travelDocumentFX = super.convertToFX();
+        travelDocumentFX.setLineID(getLineID());
+        travelDocumentFX.setRideID(getRideID());
+        travelDocumentFX.setStampDate(getStampDate());
+
+        return travelDocumentFX;
+    }
 }
