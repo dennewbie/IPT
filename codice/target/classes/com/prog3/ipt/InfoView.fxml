@@ -10,9 +10,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" styleClass="parent" stylesheets="@infoViewStyle.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prog3.ipt.Controller.InfoViewController">
     <children>
-        <Pane layoutY="89.0" prefHeight="655.0" prefWidth="1080.0" styleClass="white-pane" stylesheets="@noticesViewStyle.css" AnchorPane.topAnchor="70.0">
+        <Pane layoutY="89.0" prefHeight="655.0" prefWidth="1080.0" styleClass="white-pane" stylesheets="@infoViewStyle.css" AnchorPane.topAnchor="70.0">
             <children>
-                <TableView fx:id="LineaTableView" prefHeight="657.0" prefWidth="1081.0" styleClass="textField_box">
+                <TableView fx:id="lineaTableView" prefHeight="657.0" prefWidth="1081.0" styleClass="textField_box">
                     <columns>
                         <TableColumn fx:id="lineaIDTableColumn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="78.0" text="ID LINEA" />
                         <TableColumn fx:id="lineaLunghezzaTableColumn" minWidth="0.0" prefWidth="0.0" text="LUNGHEZZA LINEA" />

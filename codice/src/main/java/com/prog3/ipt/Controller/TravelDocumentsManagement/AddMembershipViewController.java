@@ -76,14 +76,14 @@ public class AddMembershipViewController extends TravelDocumentsManagementViewCo
     @FXML
     void onIncreaseMembershipQuantityButtonClick(ActionEvent event) {
         quantityTextField.setText(String.valueOf(Integer.parseInt(quantityTextField.getText()) + 1));
-        priceResultLabel.setText("€ " + String.valueOf(Integer.parseInt(quantityTextField.getText()) * MyConstants.membershipPrice));
+        priceResultLabel.setText("€  " + String.valueOf(Integer.parseInt(quantityTextField.getText()) * MyConstants.membershipPrice));
     }
 
     @FXML
     void onDecreaseMembershipQuantityButtonClick(ActionEvent event) {
         int currentQuantity = Integer.parseInt(quantityTextField.getText());
         if (currentQuantity > 0) quantityTextField.setText(String.valueOf(currentQuantity - 1));
-        priceResultLabel.setText("€ " + String.valueOf(Integer.parseInt(quantityTextField.getText()) * MyConstants.membershipPrice));
+        priceResultLabel.setText("€  " + String.valueOf(Integer.parseInt(quantityTextField.getText()) * MyConstants.membershipPrice));
     }
 
     @FXML
@@ -102,6 +102,6 @@ public class AddMembershipViewController extends TravelDocumentsManagementViewCo
         super.clearDatePickersContent(startDatePicker);
         super.clearTextFieldsContent(quantityTextField);
         quantityTextField.setText(Integer.toString(0));
-        priceResultLabel.setText("€ " + String.valueOf(0.0));
+        priceResultLabel.setText("€  " + String.valueOf(0.0));
     }
 }

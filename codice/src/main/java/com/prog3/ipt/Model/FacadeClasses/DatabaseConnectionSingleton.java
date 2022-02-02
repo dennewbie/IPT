@@ -7,7 +7,7 @@ public class DatabaseConnectionSingleton {
     private Connection connection;
     private String url = "jdbc:mysql://localhost:3306/ipt";
     private String username = "root";
-    private String password = "ipt22";
+    private String password = "rootroot";
 
 
 
