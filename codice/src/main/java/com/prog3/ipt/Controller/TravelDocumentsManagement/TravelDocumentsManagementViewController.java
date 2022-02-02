@@ -220,7 +220,7 @@ public class TravelDocumentsManagementViewController extends ViewController {
 
     }
 
-    protected void setOrder(Order order) { ObservableSingleton.updateOrder(order.getPurchaseDate(), order.getPurchasePrice(), order.getCitizenID(), order.getPaymentMethodStrategy(), order.getPurchaseList()); }
+    protected void setOrder(Order order) { ObservableSingleton.updateOrder(order.getPurchaseDate(), order.getPurchasePrice(), order.getCitizenID(), order.getPaymentMethodStrategy(), order.getPurchaseList(), order.getPurchaseObservableList()); }
     protected Order getOrder() { return ObservableSingleton.getOrder(); }
     public void setConvertedDropDownListString(String convertedDropDownListString) { this.convertedDropDownListString = convertedDropDownListString; }
     public String getConvertedDropDownListString() { return this.convertedDropDownListString; }

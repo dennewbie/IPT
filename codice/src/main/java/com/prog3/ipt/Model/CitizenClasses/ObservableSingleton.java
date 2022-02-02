@@ -2,7 +2,9 @@ package com.prog3.ipt.Model.CitizenClasses;
 
 import com.prog3.ipt.Model.PaymentMethodClasses.PaymentMethodStrategy;
 import com.prog3.ipt.Model.TravelDocumentClasses.TravelDocument;
+import com.prog3.ipt.Model.TravelDocumentClasses.TravelDocumentFX;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -48,12 +50,13 @@ public class ObservableSingleton {
 
     // Order
     public static void setOrder(Order newOrder) { sessionOrder = newOrder; }
-    public static void updateOrder(LocalDate purchaseDate, double purchasePrice, String citizenID, PaymentMethodStrategy paymentMethodStrategy, ArrayList<TravelDocument> purchaseList) {
+    public static void updateOrder(LocalDate purchaseDate, double purchasePrice, String citizenID, PaymentMethodStrategy paymentMethodStrategy, ArrayList<TravelDocument> purchaseList, ObservableList<TravelDocumentFX> observableList) {
         getOrder().setPurchaseDate(purchaseDate);
         getOrder().setPurchasePrice(purchasePrice);
         getOrder().setCitizenID(citizenID);
         getOrder().setPaymentMethodStrategy(paymentMethodStrategy);
         getOrder().setPurchaseList(purchaseList);
+        getOrder().setPurchaseObservableList(observableList);
     }
     public static Order getOrder() {
         if (sessionOrder == null) {
