@@ -4,17 +4,23 @@ import com.prog3.ipt.Controller.ViewController;
 import com.prog3.ipt.Model.CitizenClasses.ObservableSingleton;
 import com.prog3.ipt.Model.CitizenClasses.Order;
 import com.prog3.ipt.Model.PaymentMethodClasses.*;
+import com.prog3.ipt.Model.TravelDocumentClasses.Membership;
+import com.prog3.ipt.Model.TravelDocumentClasses.SingleTicket;
 import com.prog3.ipt.Model.TravelDocumentClasses.TravelDocument;
 import com.prog3.ipt.Model.TravelDocumentClasses.TravelDocumentFactory;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.scene.control.Button;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -51,7 +57,7 @@ public class TravelDocumentsManagementViewController extends ViewController {
 
     // Right VBox
     @FXML
-    private TableView<?> myCartTableView;
+    private TableView<TravelDocument> myCartTableView;
     @FXML
     private Label totalPriceLabel;
     @FXML
@@ -60,6 +66,20 @@ public class TravelDocumentsManagementViewController extends ViewController {
     private Button addMembershipsButton;
     @FXML
     private Button buyCartItemsButton;
+    @FXML
+    private TableColumn<TravelDocument, String> travelDocumentIDTableColumn;
+    @FXML
+    private TableColumn<SingleTicket, String> lineIDTableColumn;
+    @FXML
+    private TableColumn<SingleTicket, String> rideIDTableColumn;
+    @FXML
+    private TableColumn<TravelDocument, LocalDate> issueDateTableColumn;
+    @FXML
+    private TableColumn<Membership, LocalDate> startDateTableColumn;
+    @FXML
+    private TableColumn<TravelDocument, LocalDate> expirationDateTableColumn;
+    @FXML
+    private TableColumn<TravelDocument, Double> priceTableColumn;
 
 
 
@@ -176,15 +196,38 @@ public class TravelDocumentsManagementViewController extends ViewController {
     @Override
     protected void initializeViewComponents() {
         isValidTransaction = false;
-        //aggiorno la table view
+        // update price
         double totalOrderValue = 0.0;
-        for (TravelDocument singleTravelDocument : ObservableSingleton.getOrder().getPurchaseList()) totalOrderValue += singleTravelDocument.getPrice();
+
+        // create observable list
+        ObservableList<TravelDocument> travelDocumentObservableList = FXCollections.observableArrayList();
+        for (TravelDocument travelDocumentObject: ObservableSingleton.getOrder().getPurchaseList()) {
+            travelDocumentObservableList.add(travelDocumentObject);
+            totalOrderValue += travelDocumentObject.getPrice();
+        }
+
+        // initialize left side
         totalPriceLabel.setText("€" + String.valueOf(totalOrderValue));
         paymentMethodsDropDownList.getItems().addAll("CREDIT_CARD", "PAYPAL", "PHONE_NUMBER_BILL");
         paymentMethodsDropDownList.setPromptText("Seleziona un metodo di pagamento...");
         CVV_TextField.setVisible(false);
         creditCardNumberTextField.setVisible(false);
         expirationCreditCardDatePicker.setVisible(false);
+
+        // initialize right side
+        // update table view with new items
+
+        travelDocumentIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("}travelDocumentID"));
+        lineIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("lineID"));
+        rideIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("rideID"));
+        issueDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("issueDate"));
+        startDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("startDate"));
+        expirationDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("expirationDate"));
+        priceTableColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+        myCartTableView.setItems(travelDocumentObservableList);
+
+
     }
 
     protected void setOrder(Order order) { ObservableSingleton.updateOrder(order.getPurchaseDate(), order.getPurchasePrice(), order.getCitizenID(), order.getPaymentMethodStrategy(), order.getPurchaseList()); }

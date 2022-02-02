@@ -27,6 +27,7 @@ public class FacadeSingleton {
     private static ObservableList<Linea> lineaObservableList;
     private static ObservableList<Corsa> corsaObservableList;
 
+
     private FacadeSingleton() {
         /** Protect against instantiation via reflection */
         if (instance != null) throw new IllegalStateException("Already initialized.");
@@ -59,6 +60,8 @@ public class FacadeSingleton {
     /*
     * vari metodi che eseguono le query e che restituiscono un risultato (credo un nuovo e singolo ResultSet)
     * */
+
+
     //  `
     public static ObservableList<Notice> getNoticesViewContent() {
         noticeObservableList = FXCollections.observableArrayList();
