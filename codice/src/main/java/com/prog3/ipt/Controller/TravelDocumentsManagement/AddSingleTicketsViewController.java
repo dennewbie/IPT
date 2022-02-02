@@ -1,6 +1,7 @@
 package com.prog3.ipt.Controller.TravelDocumentsManagement;
 
 import com.prog3.ipt.Model.CitizenClasses.Order;
+import com.prog3.ipt.Model.FacadeClasses.FacadeSingleton;
 import com.prog3.ipt.Model.MyConstants;
 import com.prog3.ipt.Model.TravelDocumentClasses.SingleTicket;
 import com.prog3.ipt.Model.TravelDocumentClasses.SingleTicketConcreteFactory;
@@ -8,7 +9,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
+import java.util.UUID;
 
 public class AddSingleTicketsViewController extends TravelDocumentsManagementViewController {
     SingleTicket mySingleTicket;
@@ -59,11 +62,18 @@ public class AddSingleTicketsViewController extends TravelDocumentsManagementVie
         String ID_Ride = ID_RideTextField.getText(), ID_Line = ID_LineTextField.getText();
         if (!super.checkTextFieldsContent(ID_LineTextField, ID_RideTextField) || Integer.valueOf(quantityTextField.getText()) <= 0) return;
 
+        if (!FacadeSingleton.validateRide(ID_Line, ID_Ride)) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Biglietto/i singolo/i selezionato/i non valido/i!", ButtonType.OK);
+            alert.showAndWait();
+
+            return;
+        }
+
         // aggiunta al carrello
         int quantity = Integer.valueOf(quantityTextField.getText());
         super.myTravelDocumentFactory = new SingleTicketConcreteFactory();
         for (int i = 0; i < quantity; i++) {
-            setMySingleTicket((SingleTicket) super.myTravelDocumentFactory.createTravelDocument(MyConstants.singleTicketPrice, null, null, null, ID_Line, ID_Ride, null, null));
+            setMySingleTicket((SingleTicket) super.myTravelDocumentFactory.createTravelDocument(MyConstants.singleTicketPrice, LocalDate.now(), LocalDate.now().plusDays(1), null, ID_Line, ID_Ride, null, null));
             super.getOrder().getPurchaseList().add(getMySingleTicket());
             super.setOrder(new Order(super.getOrder().getPurchaseDate(), super.getOrder().getPurchasePrice() + MyConstants.singleTicketPrice, super.getOrder().getCitizenID(), super.getOrder().getPaymentMethodStrategy(), super.getOrder().getPurchaseList()));
         }

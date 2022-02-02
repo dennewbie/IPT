@@ -69,13 +69,13 @@ public class TravelDocumentsManagementViewController extends ViewController {
     @FXML
     private TableColumn<TravelDocument, String> travelDocumentIDTableColumn;
     @FXML
-    private TableColumn<SingleTicket, String> lineIDTableColumn;
+    private TableColumn<TravelDocument, String> lineIDTableColumn;
     @FXML
-    private TableColumn<SingleTicket, String> rideIDTableColumn;
+    private TableColumn<TravelDocument, String> rideIDTableColumn;
     @FXML
     private TableColumn<TravelDocument, LocalDate> issueDateTableColumn;
     @FXML
-    private TableColumn<Membership, LocalDate> startDateTableColumn;
+    private TableColumn<TravelDocument, LocalDate> startDateTableColumn;
     @FXML
     private TableColumn<TravelDocument, LocalDate> expirationDateTableColumn;
     @FXML
@@ -217,7 +217,7 @@ public class TravelDocumentsManagementViewController extends ViewController {
         // initialize right side
         // update table view with new items
 
-        travelDocumentIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("}travelDocumentID"));
+        travelDocumentIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("travelDocumentID"));
         lineIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("lineID"));
         rideIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("rideID"));
         issueDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("issueDate"));
