@@ -39,5 +39,6 @@ public class PayPalPaymentMethod implements PaymentMethodStrategy {
     @Override
     public int hashCode() { return Objects.hash(email, password); }
     @Override
-    public String toString() { return "PayPalPaymentMethod{ email='" + email + '\'' + ", password='" + password + '\'' + '}'; }
+    public String toString() { return "PayPalPaymentMethod{ email='" + email + '\'' +  ", password='" + password + '\'' +  '}';
+    }
 }

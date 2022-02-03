@@ -67,7 +67,7 @@ public abstract class User {
         return Objects.hash(getName(), getSurname(), getBirthDate(), getEmail(), getPassword());
     }
     @Override
-    public String toString() { return "User{" +  "name='" + name + '\'' + ", surname='" + surname + '\'' + ", birthDate=" + birthDate + ", email='" + email + '\'' + ", password='" + password + '\'' + '}'; }
+    public String toString() { return "User{ name='" + name + '\'' + ", surname='" + surname + '\'' + ", birthDate=" + birthDate + ", email='" + email + '\'' + ", password='" + password + '\'' + '}'; }
 }
 
 

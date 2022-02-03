@@ -1,6 +1,8 @@
 package com.prog3.ipt.Model.PaymentMethodClasses;
 
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class PhoneNumberBillPaymentMethod implements PaymentMethodStrategy {
     private String phoneNumber;
@@ -21,7 +23,11 @@ public class PhoneNumberBillPaymentMethod implements PaymentMethodStrategy {
 
     // Others
     @Override
-    public boolean pay(double paymentAmount) { return true; }
+    public boolean pay(double paymentAmount) {
+        Pattern pattern = Pattern.compile("^(\\+\\d{1,3}( )?)?((\\(\\d{3}\\))|\\d{3})[- .]?\\d{3}[- .]?\\d{4}$");
+        Matcher matcher = pattern.matcher(this.getPhoneNumber());
+        return matcher.matches();
+    }
 
 
     @Override
@@ -36,5 +42,5 @@ public class PhoneNumberBillPaymentMethod implements PaymentMethodStrategy {
         return Objects.hash(getPhoneNumber());
     }
     @Override
-    public String toString() { return "PhoneNumberBillPaymentMethod{ phoneNumber='" + phoneNumber + '\'' + '}'; }
+    public String toString() { return "PhoneNumberBillPaymentMethod{ phoneNumber='" + phoneNumber + '\'' +  '}'; }
 }

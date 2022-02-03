@@ -54,5 +54,5 @@ public class Line {
     @Override
     public int hashCode() { return Objects.hash(getLineID(), getLineLength(), getLineStartStation(), getLineStopStation(), getLineActivationDate(), getLineOpeningHour(), getLineClosingHour()); }
     @Override
-    public String toString() { return "Line{ lineID='" + lineID + ", lineLength=" + lineLength + ", lineStartStation='" + lineStartStation + ", lineStopStation='" + lineStopStation + ", lineActivationDate=" + lineActivationDate + ", lineOpeningHour=" + lineOpeningHour + ", lineClosingHour=" + lineClosingHour + '}'; }
+    public String toString() { return "Line{ lineID='" + lineID + '\'' +  ", lineLength=" + lineLength + ", lineStartStation='" + lineStartStation + '\'' + ", lineStopStation='" + lineStopStation + '\'' + ", lineActivationDate=" + lineActivationDate + ", lineOpeningHour=" + lineOpeningHour + ", lineClosingHour=" + lineClosingHour + '}'; }
 }

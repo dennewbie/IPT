@@ -46,7 +46,7 @@ public abstract class TravelDocument {
     @Override
     public int hashCode() { return Objects.hash(getTravelDocumentID(), getPrice(), getIssueDate(), getExpirationDate(), getTransactionID()); }
     @Override
-    public String toString() { return "TravelDocument{ travelDocumentID='" + travelDocumentID + ", price=" + price + ", issueDate=" + issueDate + ", expirationDate=" + expirationDate + ", transactionCode='" + transactionID + '}'; }
+    public String toString() { return "TravelDocument{ travelDocumentID='" + travelDocumentID + '\'' + ", price=" + price + ", issueDate=" + issueDate + ", expirationDate=" + expirationDate + ", transactionID='" + transactionID + '\'' + '}'; }
 
     public TravelDocumentFX convertToFX() {
         return new TravelDocumentFX(getTravelDocumentID(), getPrice(), getIssueDate(), getExpirationDate(), getTransactionID(), null, null, null, null);

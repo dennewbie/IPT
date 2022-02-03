@@ -396,8 +396,7 @@ public class FacadeSingleton {
             String querySurname = FacadeSingleton.queryOutput.getString("cognome");
             LocalDate queryBirthDate = FacadeSingleton.queryOutput.getDate("data_nascita").toLocalDate();
 
-            retrievedCitizen = new Citizen(queryName, querySurname, queryBirthDate, queryEmail, queryPassword, queryUsername);
-            retrievedCitizen.setCitizenID(queryCitizenID);
+            retrievedCitizen = new Citizen(queryCitizenID, queryName, querySurname, queryBirthDate, queryEmail, queryPassword, queryUsername);
             if (!citizenUsername.equals(queryUsername) || !citizenPassword.equals(queryPassword)) return null;
         } catch (SQLException e) {
             Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, e);

@@ -42,6 +42,5 @@ public class Ride {
     @Override
     public int hashCode() { return Objects.hash(getRideID(), getRideStatus(), getRideStartingHour(), getRideEndingHour(), getRidePriority()); }
     @Override
-    public String toString() { return "Ride{ rideID='" + rideID + ", rideStatus='" + rideStatus + ", rideStartingHour=" + rideStartingHour + ", rideEndingHour=" + rideEndingHour + ", ridePriority=" + ridePriority + '}'; }
-
+    public String toString() { return "Ride{ rideID='" + rideID + '\'' + ", rideStatus='" + rideStatus + '\'' + ", rideStartingHour=" + rideStartingHour + ", rideEndingHour=" + rideEndingHour + ", ridePriority=" + ridePriority + '}'; }
 }

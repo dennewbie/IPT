@@ -75,9 +75,5 @@ public class Order {
     @Override
     public int hashCode() { return Objects.hash(getTransactionCode(), getPurchaseDate(), getPurchasePrice(), getCitizenID(), getPaymentMethodStrategy(), getPurchaseList()); }
     @Override
-    public String toString() {
-        String travelDocumentsInfo = null;
-        for (TravelDocument travelDocumentObject : purchaseList) travelDocumentsInfo += travelDocumentObject.toString();
-        return "Order{ transactionCode='" + transactionCode + '\'' +  ", purchaseDate=" + purchaseDate +  ", purchasePrice=" + purchasePrice +  ", citizenID='" + citizenID + '\'' +  ", paymentMethodStrategy=" + paymentMethodStrategy +  ", purchaseList=" + purchaseList + travelDocumentsInfo +  '}';
-    }
+    public String toString() { return "Order{ transactionCode='" + transactionCode + '\'' + ", purchaseDate=" + purchaseDate + ", purchasePrice=" + purchasePrice + ", citizenID='" + citizenID + '\'' + ", paymentMethodStrategy=" + paymentMethodStrategy + ", purchaseList=" + purchaseList + ", purchaseObservableList=" + purchaseObservableList + '}'; }
 }
