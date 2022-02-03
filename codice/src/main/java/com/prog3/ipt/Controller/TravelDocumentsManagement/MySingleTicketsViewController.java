@@ -1,6 +1,9 @@
 package com.prog3.ipt.Controller.TravelDocumentsManagement;
 
+import com.prog3.ipt.Model.CitizenClasses.ObservableSingleton;
+import com.prog3.ipt.Model.FacadeClasses.FacadeSingleton;
 import com.prog3.ipt.Model.TravelDocumentClasses.TravelDocumentFX;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -21,28 +24,26 @@ public class MySingleTicketsViewController extends TravelDocumentsManagementView
 
 
     @FXML
-    private TableView<?> mySingleTicketsTableView;
+    private TableView<TravelDocumentFX> mySingleTicketsTableView;
 
     @FXML
-    private TableColumn<TravelDocumentFX, String> mySingleTicketsTransactionIDTableColumn;
+    private TableColumn<TravelDocumentFX, String> transactionIDTableColumn;
     @FXML
-    private TableColumn<TravelDocumentFX, String> mySingleTicketsIDTableColumn;
+    private TableColumn<TravelDocumentFX, String> travelDocumentIDTableColumn;
     @FXML
-    private TableColumn<TravelDocumentFX, String> mySingleTicketsLineIDTableColumn;
+    private TableColumn<TravelDocumentFX, String> lineIDTableColumn;
     @FXML
-    private TableColumn<TravelDocumentFX, String> mySingleTicketsRideIDTableColumn;
+    private TableColumn<TravelDocumentFX, String> rideIDTableColumn;
     @FXML
-    private TableColumn<TravelDocumentFX, LocalDate> mySingleTicketsIssueDateTableColumn;
+    private TableColumn<TravelDocumentFX, LocalDate> issueDateTableColumn;
     @FXML
-    private TableColumn<TravelDocumentFX, LocalDate> mySingleTicketsStartDateTableColumn;
+    private TableColumn<TravelDocumentFX, LocalDate> expirationDateTableColumn;
     @FXML
-    private TableColumn<TravelDocumentFX, LocalDate> mySingleTicketsExpirationDateTableColumn;
+    private TableColumn<TravelDocumentFX, Double> priceTableColumn;
     @FXML
-    private TableColumn<TravelDocumentFX, Double> mySingleTicketsPriceTableColumn;
+    private TableColumn<TravelDocumentFX, LocalDate> stampDateTableColumn;
     @FXML
-    private TableColumn<TravelDocumentFX, LocalDate> mySingleTicketsStampDateTableColumn;
-    @FXML
-    private TableColumn<TravelDocumentFX, String> mySingleTicketsDeleteTableColumn;
+    private TableColumn<TravelDocumentFX, String> deleteTableColumn;
     @FXML
     private Button deleteRowButton;
 
@@ -56,7 +57,7 @@ public class MySingleTicketsViewController extends TravelDocumentsManagementView
     protected void initializeViewComponents() {
         deleteRowButton = new Button("Elimina Biglietto Singolo");
         deleteRowButton.setId("mySingleTicketsViewStyle.css");
-        mySingleTicketsDeleteTableColumn.setCellValueFactory(new PropertyValueFactory<TravelDocumentFX, String>("deleteRowButton"));
+        deleteTableColumn.setCellValueFactory(new PropertyValueFactory<TravelDocumentFX, String>("deleteRowButton"));
         Callback<TableColumn<TravelDocumentFX, String>, TableCell<TravelDocumentFX, String>> cellFactory =
                 new Callback<TableColumn<TravelDocumentFX, String>, TableCell<TravelDocumentFX, String>>() {
                     @Override
@@ -80,6 +81,24 @@ public class MySingleTicketsViewController extends TravelDocumentsManagementView
                         return cell;
                     }
                 };
-        mySingleTicketsDeleteTableColumn.setCellFactory(cellFactory);
+        deleteTableColumn.setCellFactory(cellFactory);
+
+
+        // create observable list for myTicketsView according to citizenID
+        ObservableList<TravelDocumentFX> myTicketsObservableList = FacadeSingleton.getMyTicketsViewContent();
+
+        // update table view with new items
+        transactionIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("transactionID"));
+        travelDocumentIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("travelDocumentID"));
+        lineIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("lineID"));
+        rideIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("rideID"));
+        issueDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("issueDate"));
+        stampDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("stampDate"));
+        expirationDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("expirationDate"));
+        priceTableColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+        mySingleTicketsTableView.setItems(myTicketsObservableList);
+
     }
+
 }
