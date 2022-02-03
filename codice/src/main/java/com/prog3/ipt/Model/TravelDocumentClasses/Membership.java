@@ -41,4 +41,9 @@ public class Membership extends TravelDocument {
         travelDocumentFX.setStartDate(getStartDate());
         return travelDocumentFX;
     }
+
+    @Override
+    public void updateTravelDocument(double price, LocalDate issueDate, LocalDate expirationDate, String transactionID, String lineID, String rideID, LocalDate stampDate, LocalDate startDate) {
+        super.setPrice(price); super.setIssueDate(issueDate); super.setExpirationDate(expirationDate); super.setTransactionID(transactionID); setStartDate(startDate);
+    }
 }

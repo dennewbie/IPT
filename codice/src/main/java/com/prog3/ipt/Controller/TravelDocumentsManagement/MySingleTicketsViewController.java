@@ -2,9 +2,13 @@ package com.prog3.ipt.Controller.TravelDocumentsManagement;
 
 import com.prog3.ipt.Model.CitizenClasses.ObservableSingleton;
 import com.prog3.ipt.Model.FacadeClasses.FacadeSingleton;
+import com.prog3.ipt.Model.TravelDocumentClasses.SingleTicket;
 import com.prog3.ipt.Model.TravelDocumentClasses.TravelDocumentFX;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
@@ -43,7 +47,7 @@ public class MySingleTicketsViewController extends TravelDocumentsManagementView
     @FXML
     private TableColumn<TravelDocumentFX, LocalDate> stampDateTableColumn;
     @FXML
-    private TableColumn<TravelDocumentFX, String> deleteTableColumn;
+    private TableColumn<TravelDocumentFX, Button> deleteTableColumn;
     @FXML
     private Button deleteRowButton;
 
@@ -55,38 +59,11 @@ public class MySingleTicketsViewController extends TravelDocumentsManagementView
 
     @Override
     protected void initializeViewComponents() {
-        deleteRowButton = new Button("Elimina Biglietto Singolo");
-        deleteRowButton.setId("mySingleTicketsViewStyle.css");
-        deleteTableColumn.setCellValueFactory(new PropertyValueFactory<TravelDocumentFX, String>("deleteRowButton"));
-        Callback<TableColumn<TravelDocumentFX, String>, TableCell<TravelDocumentFX, String>> cellFactory =
-                new Callback<TableColumn<TravelDocumentFX, String>, TableCell<TravelDocumentFX, String>>() {
-                    @Override
-                    public TableCell call(final TableColumn<TravelDocumentFX, String> param) {
-                        final TableCell<TravelDocumentFX, String> cell = new TableCell<TravelDocumentFX, String>() {
-                            final Button btn = new Button("Elimina Titolo Viaggio");
-
-                            @Override
-                            public void updateItem(String item, boolean empty) {
-                                super.updateItem(item, empty);
-                                if (empty) {
-                                    setGraphic(null);
-                                    setText(null);
-                                } else {
-                                    btn.setOnAction(event -> { TravelDocumentFX travelDocumentFX = getTableView().getItems().get(getIndex()); });
-                                    setGraphic(btn);
-                                    setText(null);
-                                }
-                            }
-                        };
-                        return cell;
-                    }
-                };
-        deleteTableColumn.setCellFactory(cellFactory);
-
-
+        // deleteRowButton = new Button("Elimina Biglietto Singolo");
+        // deleteRowButton.setId("mySingleTicketsViewStyle.css");
         // create observable list for myTicketsView according to citizenID
-        ObservableList<TravelDocumentFX> myTicketsObservableList = FacadeSingleton.getMyTicketsViewContent();
 
+        ObservableList<TravelDocumentFX> myTicketsObservableList = FacadeSingleton.getMyTicketsViewContent();
         // update table view with new items
         transactionIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("transactionID"));
         travelDocumentIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("travelDocumentID"));
@@ -96,8 +73,13 @@ public class MySingleTicketsViewController extends TravelDocumentsManagementView
         stampDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("stampDate"));
         expirationDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("expirationDate"));
         priceTableColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+        // deleteTableColumn.setCellValueFactory(new PropertyValueFactory<>());
+        deleteTableColumn.setCellFactory(ActionDeleteButtonTableCell.<TravelDocumentFX>forTableColumn("Elimina Titolo Viaggio", (TravelDocumentFX singleTravelDocumentFX) -> {
+            mySingleTicketsTableView.getItems().remove(singleTravelDocumentFX);
+            if (!FacadeSingleton.deleteMySingleTicket(singleTravelDocumentFX)) { raiseErrorAlert("Impossibile cancellare questo titolo di viaggio!"); return null; }
+            return singleTravelDocumentFX;
+        }));
 
         mySingleTicketsTableView.setItems(myTicketsObservableList);
-
     }
 }

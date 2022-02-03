@@ -22,11 +22,11 @@ public abstract class TravelDocument {
     }
 
     // Setters
-    private void setPrice(double price) { this.price = price; }
-    private void setIssueDate(LocalDate issueDate) { this.issueDate = issueDate; }
-    private void setExpirationDate(LocalDate expirationDate) { this.expirationDate = expirationDate; }
-    private void setTravelDocumentID(String travelDocumentID) { this.travelDocumentID = travelDocumentID; }
-    private void setTransactionID(String transactionID) { this.transactionID = transactionID; }
+    protected void setPrice(double price) { this.price = price; }
+    protected void setIssueDate(LocalDate issueDate) { this.issueDate = issueDate; }
+    protected void setExpirationDate(LocalDate expirationDate) { this.expirationDate = expirationDate; }
+    protected void setTravelDocumentID(String travelDocumentID) { this.travelDocumentID = travelDocumentID; }
+    protected void setTransactionID(String transactionID) { this.transactionID = transactionID; }
 
     // Getters
     public String getTravelDocumentID() { return travelDocumentID; }
@@ -51,4 +51,6 @@ public abstract class TravelDocument {
     public TravelDocumentFX convertToFX() {
         return new TravelDocumentFX(getTravelDocumentID(), getPrice(), getIssueDate(), getExpirationDate(), getTransactionID(), null, null, null, null);
     }
+
+    public abstract void updateTravelDocument(double price, LocalDate issueDate, LocalDate expirationDate, String transactionID, String lineID, String rideID, LocalDate stampDate, LocalDate startDate);
 }

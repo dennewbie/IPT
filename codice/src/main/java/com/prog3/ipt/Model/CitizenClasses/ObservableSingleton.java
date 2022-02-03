@@ -57,6 +57,12 @@ public class ObservableSingleton {
         getOrder().setPurchaseList(purchaseList);
         getOrder().setPurchaseObservableList(observableList);
     }
+
+    public static void updateOrderWithOrderID(String orderID, LocalDate purchaseDate, double purchasePrice, String citizenID, PaymentMethodStrategy paymentMethodStrategy, ArrayList<TravelDocument> purchaseList, ObservableList<TravelDocumentFX> observableList) {
+        getOrder().setTransactionCode(orderID);
+        updateOrder(purchaseDate, purchasePrice, citizenID, paymentMethodStrategy, purchaseList, observableList);
+    }
+
     public static Order getOrder() {
         if (sessionOrder == null) {
             synchronized (ObservableSingleton.class) {
