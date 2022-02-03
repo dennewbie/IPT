@@ -6,12 +6,16 @@ import com.prog3.ipt.Model.CitizenClasses.ObservableSingleton;
 import com.prog3.ipt.Model.CitizenClasses.Order;
 import com.prog3.ipt.Model.LineRide.RideLineFX;
 import com.prog3.ipt.Model.LineRide.Notice;
+import com.prog3.ipt.Model.MyConstants;
+import com.prog3.ipt.Model.TravelDocumentClasses.Membership;
+import com.prog3.ipt.Model.TravelDocumentClasses.TravelDocument;
 import com.prog3.ipt.Model.TravelDocumentClasses.TravelDocumentFX;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,7 +27,9 @@ public class FacadeSingleton {
     private static DatabaseConnectionSingleton databaseConnection;
     private static Connection connection;
     private static Statement statement;
+    private static PreparedStatement preparedStatement;
     private static ResultSet queryOutput;
+    private static int queryOutputDML;
     private static ObservableList<Notice> noticeObservableList;
     private static ObservableList<RideLineFX> lineRideObservableList;
 
@@ -81,6 +87,33 @@ public class FacadeSingleton {
 
             statement = connection.createStatement();
             queryOutput = statement.executeQuery(queryString);
+        } catch (SQLException e) {
+            Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, e);
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    private static boolean executeUpdate(String queryTemplate) {
+        queryOutput = null;
+        statement = null;
+        connection = null;
+
+        try {
+            connect();
+            connection = databaseConnection.getConnection();
+
+            preparedStatement = connection.prepareStatement(queryTemplate);
+            preparedStatement.setString(1, ObservableSingleton.getOrder().getTransactionCode());
+            preparedStatement.setString(2, ObservableSingleton.getOrder().getCitizenID());
+            preparedStatement.setDouble(3, ObservableSingleton.getOrder().getPurchasePrice());
+            preparedStatement.setString(4, ObservableSingleton.getPaymentMethodString());
+            preparedStatement.setDate(5, Date.valueOf(ObservableSingleton.getOrder().getPurchaseDate()));
+
+            queryOutputDML = preparedStatement.executeUpdate();
+
+            if (queryOutputDML == 0) return false;
         } catch (SQLException e) {
             Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, e);
             e.printStackTrace();
@@ -169,28 +202,63 @@ public class FacadeSingleton {
         return lineRideObservableList;
     }
 
-    public static ObservableList<TravelDocumentFX> getMyTicketsViewContent(String citizenID) {
+    public static ObservableList<TravelDocumentFX> getMyTicketsViewContent() {
         travelDocumentObservableList = FXCollections.observableArrayList();
-        String myTicketsViewQuery = "";
+        String myTicketsViewQuery = "select transazione.id_transazione, biglietto.id_biglietto, biglietto.id_linea, biglietto.id_corsa, biglietto.data_emissione, biglietto.data_timbro, biglietto.data_scadenza, biglietto.prezzo " +
+                "from biglietto join transazione on biglietto.id_transazione = transazione.id_transazione and biglietto.id_cittadino = transazione.id_cittadino "+
+                "where transazione.id_transazione in (" +
+                    "select transazione.id_transazione "+
+                    "from transazione join cittadino on cittadino.id_cittadino = transazione.id_cittadino "+
+                    "where cittadino.id_cittadino = \""+ ObservableSingleton.getCitizen().getCitizenID() +"\");";
+
         try {
             if (!executeQuery(myTicketsViewQuery)) return null;
             while (queryOutput.next()) {
-                // retrive information on travel documents bought by citizenID
-                String queryTransactionID = queryOutput.getString("id_transizione");
 
-                // alias for the column in SQL query
-                String queryTravelDocumentID = queryOutput.getString("id_");
-
+                // retrive information on tickets bought by citizenID
+                String queryTransactionID = queryOutput.getString("id_transazione");
+                String queryTravelDocumentID = queryOutput.getString("id_biglietto");
                 String queryLineID = queryOutput.getString("id_linea");
                 String queryRideID = queryOutput.getString("id_corsa");
                 LocalDate queryIssueDate = queryOutput.getDate("data_emissione").toLocalDate();
-                LocalDate queryStartDate = queryOutput.getDate("data_inizio_validita").toLocalDate();
                 LocalDate queryStampDate = queryOutput.getDate("data_timbro").toLocalDate();
                 LocalDate queryExpirationDate = queryOutput.getDate("data_scadenza").toLocalDate();
                 Double queryPrice = queryOutput.getDouble("prezzo");
 
+
                 // add travel documents to observable list
-                travelDocumentObservableList.add(new TravelDocumentFX(queryTravelDocumentID, queryPrice, queryIssueDate, queryExpirationDate, queryTransactionID, queryLineID, queryRideID, queryStampDate, queryStartDate));
+                travelDocumentObservableList.add(new TravelDocumentFX(queryTravelDocumentID, queryPrice, queryIssueDate, queryExpirationDate, queryTransactionID, queryLineID, queryRideID, queryStampDate, null));
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
+        }
+        return travelDocumentObservableList;
+    }
+    public static ObservableList<TravelDocumentFX> getMyMembershipsViewContent() {
+        travelDocumentObservableList = FXCollections.observableArrayList();
+        String myMembershipsViewQuery = "select transazione.id_transazione, abbonamento.id_abbonamento, abbonamento.data_emissione, abbonamento.data_inizio_validita, abbonamento.data_scadenza, abbonamento.prezzo "+
+                "from abbonamento join transazione on abbonamento.id_cittadino = transazione.id_cittadino and abbonamento.id_transazione = transazione.id_transazione "+
+                "where transazione.id_transazione in ("+
+                "select transazione.id_transazione "+
+                "from transazione join cittadino on cittadino.id_cittadino = transazione.id_cittadino "+
+                "where cittadino.id_cittadino = \""+ ObservableSingleton.getCitizen().getCitizenID() +"\");";
+
+        try {
+            if (!executeQuery(myMembershipsViewQuery)) return null;
+            while (queryOutput.next()) {
+
+                // retrive information on tickets bought by citizenID
+                String queryTransactionID = queryOutput.getString("id_transazione");
+                String queryTravelDocumentID = queryOutput.getString("id_abbonamento");
+                LocalDate queryIssueDate = queryOutput.getDate("data_emissione").toLocalDate();
+                LocalDate queryStartDate = queryOutput.getDate("data_inizio_validita").toLocalDate();
+                LocalDate queryExpirationDate = queryOutput.getDate("data_scadenza").toLocalDate();
+                Double queryPrice = queryOutput.getDouble("prezzo");
+
+                // add travel documents to observable list
+                travelDocumentObservableList.add(new TravelDocumentFX(queryTravelDocumentID, queryPrice, queryIssueDate, queryExpirationDate, queryTransactionID, null, null, null, queryStartDate));
 
             }
         } catch (SQLException ex) {
@@ -200,19 +268,30 @@ public class FacadeSingleton {
         return travelDocumentObservableList;
     }
 
+
     public static boolean insertTransaction() {
-        // set transaction code;
-        ObservableSingleton.setOrder(new Order(UUID.randomUUID().toString(), ObservableSingleton.getOrder().getPurchaseDate(), ObservableSingleton.getOrder().getPurchasePrice(), ObservableSingleton.getCitizen().getCitizenID(), ObservableSingleton.getOrder().getPaymentMethodStrategy(), ObservableSingleton.getOrder().getPurchaseList(), ObservableSingleton.getOrder().getPurchaseObservableList()));
+        // generate transaction code;
+        String transactionCode = UUID.randomUUID().toString().substring(0, 5);
 
-        // SQL Query
-        String insertQuery = "INSERT INTO transazione (id_transazione, id_cittadino, costo, metodo_pagamento, data_pagamento) VALUES (\"" +
-                ObservableSingleton.getOrder().getTransactionCode() + "\", \"" +
-                ObservableSingleton.getOrder().getCitizenID() + "\", " +
-                ObservableSingleton.getOrder().getPurchasePrice() + ", \"" +
-                ObservableSingleton.getPaymentMethodString() + "\", " +
-                ObservableSingleton.getOrder().getPurchaseDate() + ");";
+        // set transaction code to a temporary order
+        Order temporaryOrder = new Order(UUID.randomUUID().toString().substring(0, 5), LocalDate.now(), ObservableSingleton.getOrder().getPurchasePrice(), ObservableSingleton.getCitizen().getCitizenID(), ObservableSingleton.getOrder().getPaymentMethodStrategy(), ObservableSingleton.getOrder().getPurchaseList(), ObservableSingleton.getOrder().getPurchaseObservableList());
 
-        if (!executeQuery(insertQuery)) return false;
+        // for each travel document in purchase list, set transaction code
+        for (TravelDocument travelDocumentObject : ObservableSingleton.getOrder().getPurchaseList()) {
+
+            // create new travel document using Factory, set transaction code to new travel document
+
+            // add travel document to temporary order's purchase list
+
+        }
+        // set temporary order to observable singleton order
+        ObservableSingleton.setOrder(new Order(UUID.randomUUID().toString().substring(0, 5), LocalDate.now(), ObservableSingleton.getOrder().getPurchasePrice(), ObservableSingleton.getCitizen().getCitizenID(), ObservableSingleton.getOrder().getPaymentMethodStrategy(), ObservableSingleton.getOrder().getPurchaseList(), ObservableSingleton.getOrder().getPurchaseObservableList()));
+
+        // Template Insert Query
+        String insertQueryTemplate = "INSERT INTO transazione (id_transazione, id_cittadino, costo, metodo_pagamento, data_pagamento) VALUES (?, ?, ?, ?, ?);";
+
+        if (!executeUpdate(insertQueryTemplate)) return false;
         return true;
     }
+
 }

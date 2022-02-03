@@ -93,7 +93,9 @@ public class TravelDocumentsManagementViewController extends ViewController {
         if (!isValidTransaction || !ObservableSingleton.getPaymentMethodStrategy().pay(ObservableSingleton.getOrder().getPurchasePrice())) { raiseErrorAlert("Non è possibile procedere con l'acquisto: metodo di pagamento non valido."); return; }
 
         // insert record into transaction table
-        //if (!FacadeSingleton.insertTransaction());
+        if (!FacadeSingleton.insertTransaction()) {
+            // alert for failed insert
+        }
 
         super.raiseConfirmationAlert("Il tuo acquisto è andato a buon fine. Costo totale: " + ObservableSingleton.getOrder().getPurchasePrice() + " euro. Modalità pagamento: " + ObservableSingleton.getPaymentMethodString());
         ObservableSingleton.setOrder(null);
