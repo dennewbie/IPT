@@ -118,8 +118,8 @@ public class FacadeSingleton {
 
             preparedStatement.setString(1, singleTicket.getTravelDocumentID());
             preparedStatement.setDate(2, Date.valueOf(singleTicket.getIssueDate()));
-            preparedStatement.setDate(3, Date.valueOf(singleTicket.getExpirationDate()));
-            preparedStatement.setDate(4, Date.valueOf(singleTicket.getStampDate()));
+            preparedStatement.setNull(3, Types.DATE);
+            preparedStatement.setNull(4, Types.DATE);
             preparedStatement.setDouble(5, singleTicket.getPrice());
             preparedStatement.setString(6, singleTicket.getRideID());
             preparedStatement.setString(7, singleTicket.getLineID());
@@ -361,6 +361,7 @@ public class FacadeSingleton {
 
         // generate transaction code;
         String transactionCode = UUID.randomUUID().toString().substring(0, 5);
+        LocalDate issueDate = LocalDate.now();
 
         // set transaction code to a temporary order
         Order observedOrder = ObservableSingleton.getOrder();
