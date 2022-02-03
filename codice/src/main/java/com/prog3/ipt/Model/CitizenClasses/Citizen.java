@@ -19,13 +19,13 @@ public class Citizen extends User {
     }
 
     // Setters
-    private void setCitizenID(String citizenID) {
+    public void setCitizenID(String citizenID) {
         this.citizenID = citizenID;
     }
-    private void setRegistrationDate(LocalDate registrationDate) {
+    void setRegistrationDate(LocalDate registrationDate) {
         this.registrationDate = registrationDate;
     }
-    private void setUsername(String username) {
+    void setUsername(String username) {
         this.username = username;
     }
 
@@ -52,5 +52,5 @@ public class Citizen extends User {
     @Override
     public int hashCode() { return Objects.hash(super.hashCode(), getCitizenID(), getRegistrationDate(), getUsername()); }
     @Override
-    public String toString() { return "Citizen{ citizenID='" + citizenID + ", registrationDate=" + registrationDate + ", username='" + username + ", email='" + super.getEmail() + ", name='" + super.getName() + ", surname='" + super.getSurname() + ", birthDate='" + super.getBirthDate() + '}'; }
+    public String toString() { return super.toString() + "Citizen{ citizenID='" + citizenID + ", registrationDate=" + registrationDate + ", username='" + username + ", email='" + super.getEmail() + ", name='" + super.getName() + ", surname='" + super.getSurname() + ", birthDate='" + super.getBirthDate() + '}'; }
 }
