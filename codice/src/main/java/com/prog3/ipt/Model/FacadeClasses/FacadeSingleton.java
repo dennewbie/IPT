@@ -398,6 +398,7 @@ public class FacadeSingleton {
 
             retrievedCitizen = new Citizen(queryName, querySurname, queryBirthDate, queryEmail, queryPassword, queryUsername);
             retrievedCitizen.setCitizenID(queryCitizenID);
+            if (!citizenUsername.equals(queryUsername) || !citizenPassword.equals(queryPassword)) return null;
         } catch (SQLException e) {
             Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, e);
             e.printStackTrace();
