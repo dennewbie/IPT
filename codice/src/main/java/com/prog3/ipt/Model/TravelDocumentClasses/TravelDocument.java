@@ -14,7 +14,7 @@ public abstract class TravelDocument {
 
 
     public TravelDocument(double price, LocalDate issueDate, LocalDate expirationDate, String transactionID) {
-        setTravelDocumentID(UUID.randomUUID().toString());
+        setTravelDocumentID(UUID.randomUUID().toString().substring(0, 5));
         setPrice(price);
         setIssueDate(issueDate);
         setExpirationDate(expirationDate);

@@ -13,7 +13,7 @@ public class Citizen extends User {
 
     public Citizen(String name, String surname, LocalDate birthDate, String email, String password, String username) {
         super(name, surname, birthDate, email, password);
-        setCitizenID(UUID.randomUUID().toString());
+        setCitizenID("00003"/* UUID.randomUUID().toString().substring(0, 5 )*/);
         setRegistrationDate(LocalDate.now());
         setUsername(username);
     }
