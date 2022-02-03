@@ -7,8 +7,6 @@ import com.prog3.ipt.Model.CitizenClasses.ObservableSingleton;
 import com.prog3.ipt.Model.CitizenClasses.Order;
 import com.prog3.ipt.Model.LineRide.RideLineFX;
 import com.prog3.ipt.Model.LineRide.Notice;
-import com.prog3.ipt.Model.MyConstants;
-import com.prog3.ipt.Model.TravelDocumentClasses.Membership;
 import com.prog3.ipt.Model.TravelDocumentClasses.TravelDocument;
 import com.prog3.ipt.Model.TravelDocumentClasses.TravelDocumentFX;
 import javafx.collections.FXCollections;
@@ -16,7 +14,6 @@ import javafx.collections.ObservableList;
 
 import java.sql.*;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -96,7 +93,7 @@ public class FacadeSingleton {
         return true;
     }
 
-    private static boolean updatePrepareStatement(String queryTemplate) {
+    private static boolean updatePreparedStatement(String queryTemplate) {
         queryOutput = null;
         preparedStatement = null;
         connection = null;
@@ -104,33 +101,7 @@ public class FacadeSingleton {
         try {
             connect();
             connection = databaseConnection.getConnection();
-
             preparedStatement = connection.prepareStatement(queryTemplate);
-        } catch (SQLException e) {
-            Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, e);
-            e.printStackTrace();
-            return false;
-        }
-        return true;
-    }
-
-
-    private static boolean updateCitizenStatement(String queryTemplate, Citizen newCitizen) {
-        try {
-            if (!updatePrepareStatement(queryTemplate)) return false;
-
-            preparedStatement.setString(1, newCitizen.getCitizenID());
-            preparedStatement.setString(2, newCitizen.getUsername());
-            preparedStatement.setString(3, newCitizen.getPassword());
-            preparedStatement.setString(4, newCitizen.getEmail());
-            preparedStatement.setString(5, newCitizen.getName());
-            preparedStatement.setString(6, newCitizen.getSurname());
-            preparedStatement.setDate(7, Date.valueOf(newCitizen.getRegistrationDate()));
-            preparedStatement.setDate(8, Date.valueOf(newCitizen.getBirthDate()));
-
-            queryOutputDML = preparedStatement.executeUpdate();
-
-            if (queryOutputDML == 0) return false;
         } catch (SQLException e) {
             Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, e);
             e.printStackTrace();
@@ -141,7 +112,7 @@ public class FacadeSingleton {
 
     private static boolean updateTransactionStatement(String queryTemplate) {
         try {
-            if (!updatePrepareStatement(queryTemplate)) return false;
+            if (!updatePreparedStatement(queryTemplate)) return false;
 
             preparedStatement.setString(1, ObservableSingleton.getOrder().getTransactionCode());
             preparedStatement.setString(2, ObservableSingleton.getOrder().getCitizenID());
@@ -331,15 +302,44 @@ public class FacadeSingleton {
         return true;
     }
 
+
+
+
+
+
+
+
+
+
+    // Sezione @dennewbie
+    private static boolean updateCitizenPreparedStatement(String queryTemplate, Citizen newCitizen) {
+        try {
+            if (!updatePreparedStatement(queryTemplate)) return false;
+            preparedStatement.setString(1, newCitizen.getCitizenID());
+            preparedStatement.setString(2, newCitizen.getUsername());
+            preparedStatement.setString(3, newCitizen.getPassword());
+            preparedStatement.setString(4, newCitizen.getEmail());
+            preparedStatement.setString(5, newCitizen.getName());
+            preparedStatement.setString(6, newCitizen.getSurname());
+            preparedStatement.setDate(7, Date.valueOf(newCitizen.getRegistrationDate()));
+            preparedStatement.setDate(8, Date.valueOf(newCitizen.getBirthDate()));
+            queryOutputDML = preparedStatement.executeUpdate();
+
+            if (queryOutputDML == 0) return false;
+        } catch (SQLException e) {
+            Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, e);
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
     public static Citizen retrieveCitizen(String citizenUsername, String citizenPassword) {
         Citizen retrievedCitizen;
-        // SQL Query
         String queryCitizen = "select * from cittadino where username = \""+ citizenUsername +"\" and password = \"" + citizenPassword + "\";";
-
         if (!executeQuery(queryCitizen)) return null;
         try {
             if (!queryOutput.next()) return null;
-
             String queryCitizenID = queryOutput.getString("id_cittadino");
             String queryUsername = queryOutput.getString("username");
             String queryPassword = queryOutput.getString("password");
@@ -358,18 +358,21 @@ public class FacadeSingleton {
         return retrievedCitizen;
     }
 
-    public static boolean insertCitizen(String name, String surname, LocalDate birthDate, String email, String password, String username) {
-        // generate citizen ID
-        // NOTA: generazione di un altro UUID
-        String citizenID = UUID.randomUUID().toString().substring(0, 5);
-
-        Citizen newCitizen = new Citizen(name, surname, birthDate, email, password, username);
-
-        // Template Insert Query
+    public static boolean insertCitizen(Citizen localCitizen) {
         String insertQueryTemplate = "INSERT INTO cittadino (id_cittadino, username, password, email, nome, cognome, data_registrazione, data_nascita) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
-
-        if (!updateCitizenStatement(insertQueryTemplate, newCitizen)) return false;
+        if (!updateCitizenPreparedStatement(insertQueryTemplate, localCitizen)) return false;
         return true;
     }
 
+    public static boolean checkValidityCitizenID(Citizen localCitizen) {
+        String checkCitizenQueryTemplate = "select * from cittadino where cittadino.id_cittadino = \"" + localCitizen.getCitizenID() + "\";";
+        try {
+            if (!executeQuery(checkCitizenQueryTemplate)) return true;
+            if (queryOutput.next()) return false;
+        } catch (SQLException ex) {
+            Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
+        }
+        return true;
+    }
 }

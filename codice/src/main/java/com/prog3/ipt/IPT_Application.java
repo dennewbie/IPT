@@ -15,10 +15,6 @@ import java.io.IOException;
     Si imposta il titolo della finestra, il suo contenuto, si disattiva la possibilità di resize e infine la si mostra.
  */
 
-/*
- TODO: cambiare le eccezioni che vengono throwate (è presente throws nella firma del metodo) in eccezioni gestite dal metodo:
-  è difficile tenere traccia delle propagazione delle eccezioni.
- */
 public class IPT_Application extends Application {
     @Override
     public void start(Stage stage)  {

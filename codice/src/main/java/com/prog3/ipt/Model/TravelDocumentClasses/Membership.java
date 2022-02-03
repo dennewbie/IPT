@@ -5,7 +5,6 @@ import java.util.Objects;
 
 public class Membership extends TravelDocument {
     private LocalDate startDate;
-    /* TODO: data convalida va messo qui, se non si sceglie di metterlo sulla M:N */
 
 
 
