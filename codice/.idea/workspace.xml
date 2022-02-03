@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e97b81e6-5df3-4387-b0ec-95788485ee96" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/TravelDocumentsManagement/ActionDeleteButtonTableCell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IPT.iml" beforeDir="false" afterPath="$PROJECT_DIR$/IPT.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/TravelDocumentsManagement/MyMembershipViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/TravelDocumentsManagement/MyMembershipViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/TravelDocumentsManagement/MySingleTicketsViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/TravelDocumentsManagement/MySingleTicketsViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/TravelDocumentsManagement/TravelDocumentsManagementViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/TravelDocumentsManagement/TravelDocumentsManagementViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/CitizenClasses/ObservableSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/CitizenClasses/ObservableSingleton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/FacadeClasses/FacadeSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/FacadeClasses/FacadeSingleton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/TravelDocumentClasses/Membership.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/TravelDocumentClasses/Membership.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/TravelDocumentClasses/SingleTicket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/TravelDocumentClasses/SingleTicket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/TravelDocumentClasses/TravelDocument.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/TravelDocumentClasses/TravelDocument.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

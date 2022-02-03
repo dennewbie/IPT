@@ -50,12 +50,6 @@ public class MyMembershipViewController extends TravelDocumentsManagementViewCon
     protected void initializeViewComponents() {
         deleteRowButton = new Button("Elimina Abbonamento");
         deleteRowButton.setId("myMembershipViewButton");
-        /*
-        Probabilmente non necessarie le seguenti righe: lo scopriremo al popolamento della table view
-
-        String viewStyle = getClass().getResource("myMembershipViewStyle.css").toExternalForm();
-        super.getLocalScene().getStylesheets().add(viewStyle);
-        */
 
         // create observable list for myTicketsView according to citizenID
         ObservableList<TravelDocumentFX> myMembershipsObservableList = FacadeSingleton.getMyMembershipsViewContent();
@@ -68,9 +62,10 @@ public class MyMembershipViewController extends TravelDocumentsManagementViewCon
         expirationDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("expirationDate"));
         priceTableColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
 
-        deleteTableColumn.setCellFactory(ActionDeleteButtonTableCell.<TravelDocumentFX>forTableColumn("Elimina Titolo Viaggio", (TravelDocumentFX p) -> {
-            myMembershipTableView.getItems().remove(p);
-            return p;
+        deleteTableColumn.setCellFactory(ActionDeleteButtonTableCell.<TravelDocumentFX>forTableColumn("Elimina Titolo Viaggio", (TravelDocumentFX singleTravelDocumentFX) -> {
+            myMembershipTableView.getItems().remove(singleTravelDocumentFX);
+            if (!FacadeSingleton.deleteMyMembership(singleTravelDocumentFX)) { raiseErrorAlert("Impossibile cancellare questo titolo di viaggio!"); return null; }
+            return singleTravelDocumentFX;
         }));
 
         myMembershipTableView.setItems(myMembershipsObservableList);
