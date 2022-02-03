@@ -2,6 +2,7 @@ package com.prog3.ipt.Controller;
 
 import com.prog3.ipt.Model.CitizenClasses.Citizen;
 import com.prog3.ipt.Model.CitizenClasses.ObservableSingleton;
+import com.prog3.ipt.Model.FacadeClasses.FacadeSingleton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -43,10 +44,17 @@ public class LoginRegisterViewController extends ViewController {
     void onSignInButtonClick(ActionEvent event) {
         if (!super.checkTextFieldsContent(passwordSignInField, usernameSignInTextField)) return;
         // controllo validità credenziali
-
-        // recupera dati citizen dal DB e salva in Observer
-        // SELECT name, etc from cittadino where username = textfield. Si mette tutto nella variable sottostante e via.
         Citizen loggedCitizen = new Citizen("Alfredo", "Mungari", LocalDate.of(2000, 12, 20), "alfredo@libero.it", "alfred00", "mungowz");
+
+        // retrive citizen data from database
+        //Citizen loggedCitizen = FacadeSingleton.retrieveCitizen(usernameSignInTextField.getText(), passwordSignInField.getText());
+
+        if (loggedCitizen == null) {
+            // alert: wrong mail or password
+            // reset view and repeat login
+        }
+
+        // save citizen data in observer
         ObservableSingleton.setCitizen(loggedCitizen);
         super.onButtonClickNavigateToView(signInButton, "HomeView.fxml");
     }
@@ -63,9 +71,15 @@ public class LoginRegisterViewController extends ViewController {
         if (!localDate.isBefore(LocalDate.now())) { super.raiseErrorAlert("Non puoi inserire una data di nascita uguale o successiva ad oggi."); return; }
         if (!super.validateEmail(email)) { super.raiseErrorAlert("Formato mail non valido."); return; }
 
+        // create and save user in database
+        // if (!insertCitizen(name, surname, localDate, email, passwordSignUp, usernameSignUp)) {
+        //      some error, need testing
+        // }
+
         // creo utente, db, etc.
         Citizen newCitizen = new Citizen(name, surname, localDate, email, passwordSignUp, usernameSignUp);
         // salvataggio nel db...
+
         super.raiseConfirmationAlert("Il tuo account è stato creato correttamente. Effettua il login");
         initializeViewComponents();
     }

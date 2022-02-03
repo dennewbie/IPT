@@ -2,6 +2,7 @@ package com.prog3.ipt.Model.FacadeClasses;
 
 import com.prog3.ipt.Controller.InfoViewController;
 import com.prog3.ipt.Controller.NoticesViewController;
+import com.prog3.ipt.Model.CitizenClasses.Citizen;
 import com.prog3.ipt.Model.CitizenClasses.ObservableSingleton;
 import com.prog3.ipt.Model.CitizenClasses.Order;
 import com.prog3.ipt.Model.LineRide.RideLineFX;
@@ -95,9 +96,9 @@ public class FacadeSingleton {
         return true;
     }
 
-    private static boolean executeUpdate(String queryTemplate) {
+    private static boolean updatePrepareStatement(String queryTemplate) {
         queryOutput = null;
-        statement = null;
+        preparedStatement = null;
         connection = null;
 
         try {
@@ -105,6 +106,43 @@ public class FacadeSingleton {
             connection = databaseConnection.getConnection();
 
             preparedStatement = connection.prepareStatement(queryTemplate);
+        } catch (SQLException e) {
+            Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, e);
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+
+    private static boolean updateCitizenStatement(String queryTemplate, Citizen newCitizen) {
+        try {
+            if (!updatePrepareStatement(queryTemplate)) return false;
+
+            preparedStatement.setString(1, newCitizen.getCitizenID());
+            preparedStatement.setString(2, newCitizen.getUsername());
+            preparedStatement.setString(3, newCitizen.getPassword());
+            preparedStatement.setString(4, newCitizen.getEmail());
+            preparedStatement.setString(5, newCitizen.getName());
+            preparedStatement.setString(6, newCitizen.getSurname());
+            preparedStatement.setDate(7, Date.valueOf(newCitizen.getRegistrationDate()));
+            preparedStatement.setDate(8, Date.valueOf(newCitizen.getBirthDate()));
+
+            queryOutputDML = preparedStatement.executeUpdate();
+
+            if (queryOutputDML == 0) return false;
+        } catch (SQLException e) {
+            Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, e);
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    private static boolean updateTransactionStatement(String queryTemplate) {
+        try {
+            if (!updatePrepareStatement(queryTemplate)) return false;
+
             preparedStatement.setString(1, ObservableSingleton.getOrder().getTransactionCode());
             preparedStatement.setString(2, ObservableSingleton.getOrder().getCitizenID());
             preparedStatement.setDouble(3, ObservableSingleton.getOrder().getPurchasePrice());
@@ -290,7 +328,47 @@ public class FacadeSingleton {
         // Template Insert Query
         String insertQueryTemplate = "INSERT INTO transazione (id_transazione, id_cittadino, costo, metodo_pagamento, data_pagamento) VALUES (?, ?, ?, ?, ?);";
 
-        if (!executeUpdate(insertQueryTemplate)) return false;
+        if (!updateTransactionStatement(insertQueryTemplate)) return false;
+        return true;
+    }
+
+    public static Citizen retrieveCitizen(String citizenUsername, String citizenPassword) {
+        Citizen retrievedCitizen;
+        // SQL Query
+        String queryCitizen = "select * from cittadino where username = \""+ citizenUsername +"\" and password = \"" + citizenPassword + "\";";
+
+        if (!executeQuery(queryCitizen)) return null;
+        try {
+            if (!queryOutput.next()) return null;
+
+            String queryCitizenID = queryOutput.getString("id_cittadino");
+            String queryUsername = queryOutput.getString("username");
+            String queryPassword = queryOutput.getString("password");
+            String queryEmail = queryOutput.getString("email");
+            String queryName = queryOutput.getString("nome");
+            String querySurname = queryOutput.getString("cognome");
+            LocalDate queryBirthDate = queryOutput.getDate("data_nascita").toLocalDate();
+
+            retrievedCitizen = new Citizen(queryName, querySurname, queryBirthDate, queryEmail, queryPassword, queryUsername);
+
+        } catch (SQLException e) {
+            Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, e);
+            e.printStackTrace();
+            return null;
+        }
+        return retrievedCitizen;
+    }
+
+    public static boolean insertCitizen(String name, String surname, LocalDate birthDate, String email, String password, String username) {
+        // generate citizen ID
+        String citizenID = UUID.randomUUID().toString().substring(0, 5);
+
+        Citizen newCitizen = new Citizen(name, surname, birthDate, email, password, username);
+
+        // Template Insert Query
+        String insertQueryTemplate = "INSERT INTO cittadino (id_cittadino, username, password, email, nome, cognome, data_registrazione, data_nascita) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+
+        if (!updateCitizenStatement(insertQueryTemplate, newCitizen)) return false;
         return true;
     }
 
