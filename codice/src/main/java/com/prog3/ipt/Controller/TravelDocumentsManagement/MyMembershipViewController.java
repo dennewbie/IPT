@@ -22,9 +22,9 @@ public class MyMembershipViewController extends TravelDocumentsManagementViewCon
     private Button backButton;
 
 
+
     @FXML
     private TableView<TravelDocumentFX> myMembershipTableView;
-
     @FXML
     private TableColumn<TravelDocumentFX, String> transactionIDTableColumn;
     @FXML
@@ -39,8 +39,8 @@ public class MyMembershipViewController extends TravelDocumentsManagementViewCon
     private TableColumn<TravelDocumentFX, Double> priceTableColumn;
     @FXML
     private TableColumn<TravelDocumentFX, Button> deleteTableColumn;
-    @FXML
-    private Button deleteRowButton;
+
+
 
     @FXML
     void onBackButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(backButton, "TicketsManagementView.fxml"); }
@@ -48,9 +48,6 @@ public class MyMembershipViewController extends TravelDocumentsManagementViewCon
     public void initialize(URL url, ResourceBundle resourceBundle) { initializeViewComponents(); }
     @Override
     protected void initializeViewComponents() {
-        deleteRowButton = new Button("Elimina Abbonamento");
-        deleteRowButton.setId("myMembershipViewButton");
-
         // create observable list for myTicketsView according to citizenID
         ObservableList<TravelDocumentFX> myMembershipsObservableList = FacadeSingleton.getMyMembershipsViewContent();
 

@@ -22,7 +22,7 @@
                         <TableColumn fx:id="stampDateTableColumn" prefWidth="143.20001220703125" text="Data Timbro" />
                         <TableColumn fx:id="expirationDateTableColumn" minWidth="0.79998779296875" prefWidth="134.4000244140625" text="Data Scadenza" />
                         <TableColumn fx:id="priceTableColumn" minWidth="0.0" prefWidth="120.79998779296875" text="Prezzo" />
-                        <TableColumn fx:id="deleteTableColumn" prefWidth="152.7999267578125" text="Azione Disponibile" />
+                        <TableColumn fx:id="deleteRowTableColumn" prefWidth="152.7999267578125" text="Azione Disponibile" />
                     </columns>
                 </TableView>
             </children></Pane>

@@ -71,6 +71,8 @@ public class TravelDocumentsManagementViewController extends ViewController {
     private TableColumn<TravelDocumentFX, LocalDate> expirationDateTableColumn;
     @FXML
     private TableColumn<TravelDocumentFX, Double> priceTableColumn;
+    @FXML
+    private TableColumn<TravelDocumentFX, Button> deleteRowTableColumn;
 
 
 
@@ -148,7 +150,6 @@ public class TravelDocumentsManagementViewController extends ViewController {
         expirationCreditCardDatePicker.setVisible(false);
 
         // initialize right side. Update right table view with new items
-
         travelDocumentIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("travelDocumentID"));
         lineIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("lineID"));
         rideIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("rideID"));
@@ -158,6 +159,14 @@ public class TravelDocumentsManagementViewController extends ViewController {
         priceTableColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
 
         myCartTableView.setItems(ObservableSingleton.getOrder().getPurchaseObservableList());
+        deleteRowTableColumn.setCellFactory(ActionDeleteButtonTableCell.<TravelDocumentFX>forTableColumn("Elimina Titolo Viaggio", (TravelDocumentFX singleTravelDocumentFX) -> {
+            myCartTableView.getItems().remove(singleTravelDocumentFX);
+            ObservableSingleton.getOrder().getPurchaseObservableList().remove(singleTravelDocumentFX);
+            ObservableSingleton.getOrder().getPurchaseList().remove(singleTravelDocumentFX);
+            ObservableSingleton.updateOrder(ObservableSingleton.getOrder().getPurchaseDate(), ObservableSingleton.getOrder().getPurchasePrice() - singleTravelDocumentFX.getPrice(), ObservableSingleton.getOrder().getCitizenID(), ObservableSingleton.getPaymentMethodStrategy(), ObservableSingleton.getOrder().getPurchaseList(), ObservableSingleton.getOrder().getPurchaseObservableList());
+            initializeViewComponents();
+            return singleTravelDocumentFX;
+        }));
     }
 
     protected void setOrder(Order order) { ObservableSingleton.updateOrder(order.getPurchaseDate(), order.getPurchasePrice(), order.getCitizenID(), order.getPaymentMethodStrategy(), order.getPurchaseList(), order.getPurchaseObservableList()); }
