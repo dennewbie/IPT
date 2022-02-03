@@ -57,7 +57,6 @@ CREATE TABLE `ipt`.`linea` (
   `orario_apertura` TIME NOT NULL,
   PRIMARY KEY (`id_linea`),
   CONSTRAINT `check_lunghezza` check (`lunghezza` > 0),
-  CONSTRAINT `check_date9` check (`data_attivazione` < `orario_apertura`),
   CONSTRAINT `check_date10` check (`orario_apertura` < `orario_chiusura`),
   CONSTRAINT `check_fermata` check (`fermata_inizio` <> `fermata_fine`));
 
@@ -100,9 +99,9 @@ CREATE TABLE `ipt`.`avviso_utenza` (
 -- totalità rispetto a transazione espressa
 CREATE TABLE `ipt`.`biglietto` (
   `id_biglietto` CHAR(5) NOT NULL,
-  `data_emissione` DATETIME NOT NULL,
-  `data_scadenza` DATETIME,
-  `data_timbro` DATETIME,
+  `data_emissione` DATE NOT NULL,
+  `data_scadenza` DATE,
+  `data_timbro` DATE,
   `prezzo` FLOAT NOT NULL,
   `id_corsa` CHAR(5),
   `id_linea` CHAR(5),
@@ -117,8 +116,8 @@ CREATE TABLE `ipt`.`biglietto` (
   CONSTRAINT `id_corsa_biglietto` FOREIGN KEY (`id_corsa`) REFERENCES `ipt`.`corsa` (`id_corsa`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `id_cittadino_biglietto` FOREIGN KEY (`id_cittadino`) REFERENCES `ipt`.`transazione` (`id_cittadino`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `id_transazione_biglietto` FOREIGN KEY (`id_transazione`) REFERENCES `ipt`.`transazione` (`id_transazione`) ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT `check_date3` check (`data_timbro` < `data_scadenza`),
-  CONSTRAINT `check_date4` check (`data_emissione` < `data_timbro`),
+  CONSTRAINT `check_date3` check (`data_timbro` <= `data_scadenza`),
+  CONSTRAINT `check_date4` check (`data_emissione` <= `data_timbro`),
   CONSTRAINT `check_date5` check (`data_emissione`< `data_scadenza`),
   CONSTRAINT `check_prezzo1` check (`prezzo` > 0)
 );
