@@ -1,6 +1,8 @@
 package com.prog3.ipt.Controller.TravelDocumentsManagement;
 
+import com.prog3.ipt.Model.FacadeClasses.FacadeSingleton;
 import com.prog3.ipt.Model.TravelDocumentClasses.TravelDocumentFX;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -21,26 +23,20 @@ public class MyMembershipViewController extends TravelDocumentsManagementViewCon
 
 
     @FXML
-    private TableView<?> myMembershipTableView;
+    private TableView<TravelDocumentFX> myMembershipTableView;
 
     @FXML
-    private TableColumn<TravelDocumentFX, String> mySingleTicketsTransactionIDTableColumn;
+    private TableColumn<TravelDocumentFX, String> transactionIDTableColumn;
     @FXML
-    private TableColumn<TravelDocumentFX, String> mySingleTicketsIDTableColumn;
+    private TableColumn<TravelDocumentFX, String> travelDocumentIDTableColumn;
     @FXML
-    private TableColumn<TravelDocumentFX, String> mySingleTicketsLineIDTableColumn;
+    private TableColumn<TravelDocumentFX, LocalDate> issueDateTableColumn;
     @FXML
-    private TableColumn<TravelDocumentFX, String> mySingleTicketsRideIDTableColumn;
+    private TableColumn<TravelDocumentFX, LocalDate> startDateTableColumn;
     @FXML
-    private TableColumn<TravelDocumentFX, LocalDate> mySingleTicketsIssueDateTableColumn;
+    private TableColumn<TravelDocumentFX, LocalDate> expirationDateTableColumn;
     @FXML
-    private TableColumn<TravelDocumentFX, LocalDate> mySingleTicketsStartDateTableColumn;
-    @FXML
-    private TableColumn<TravelDocumentFX, LocalDate> mySingleTicketsExpirationDateTableColumn;
-    @FXML
-    private TableColumn<TravelDocumentFX, Double> mySingleTicketsPriceTableColumn;
-    @FXML
-    private TableColumn<TravelDocumentFX, LocalDate> mySingleTicketsStampDateTableColumn;
+    private TableColumn<TravelDocumentFX, Double> priceTableColumn;
     @FXML
     private TableColumn<TravelDocumentFX, String> myMembershipDeleteTableColumn;
     @FXML
@@ -85,5 +81,21 @@ public class MyMembershipViewController extends TravelDocumentsManagementViewCon
                     }
                 };
         myMembershipDeleteTableColumn.setCellFactory(cellFactory);
+
+        // create observable list for myTicketsView according to citizenID
+        ObservableList<TravelDocumentFX> myMembershipsObservableList = FacadeSingleton.getMyMembershipsViewContent();
+
+        // update table view with new items
+        transactionIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("transactionID"));
+        travelDocumentIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("travelDocumentID"));
+        issueDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("issueDate"));
+        startDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("startDate"));
+        expirationDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("expirationDate"));
+        priceTableColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+        myMembershipTableView.setItems(myMembershipsObservableList);
+
     }
+
+
 }
