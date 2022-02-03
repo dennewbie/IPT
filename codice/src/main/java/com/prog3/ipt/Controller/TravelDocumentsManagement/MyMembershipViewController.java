@@ -38,7 +38,7 @@ public class MyMembershipViewController extends TravelDocumentsManagementViewCon
     @FXML
     private TableColumn<TravelDocumentFX, Double> priceTableColumn;
     @FXML
-    private TableColumn<TravelDocumentFX, String> myMembershipDeleteTableColumn;
+    private TableColumn<TravelDocumentFX, String> deleteTableColumn;
     @FXML
     private Button deleteRowButton;
 
@@ -56,7 +56,7 @@ public class MyMembershipViewController extends TravelDocumentsManagementViewCon
         String viewStyle = getClass().getResource("myMembershipViewStyle.css").toExternalForm();
         super.getLocalScene().getStylesheets().add(viewStyle);
         */
-        myMembershipDeleteTableColumn.setCellValueFactory(new PropertyValueFactory<TravelDocumentFX, String>("deleteRowButton"));
+        deleteTableColumn.setCellValueFactory(new PropertyValueFactory<TravelDocumentFX, String>("deleteRowButton"));
         Callback<TableColumn<TravelDocumentFX, String>, TableCell<TravelDocumentFX, String>> cellFactory =
                 new Callback<TableColumn<TravelDocumentFX, String>, TableCell<TravelDocumentFX, String>>() {
                     @Override
@@ -80,7 +80,7 @@ public class MyMembershipViewController extends TravelDocumentsManagementViewCon
                         return cell;
                     }
                 };
-        myMembershipDeleteTableColumn.setCellFactory(cellFactory);
+        deleteTableColumn.setCellFactory(cellFactory);
 
         // create observable list for myTicketsView according to citizenID
         ObservableList<TravelDocumentFX> myMembershipsObservableList = FacadeSingleton.getMyMembershipsViewContent();

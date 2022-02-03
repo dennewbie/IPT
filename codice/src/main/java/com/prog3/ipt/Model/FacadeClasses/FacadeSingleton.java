@@ -131,11 +131,33 @@ public class FacadeSingleton {
         return true;
     }
 
-    public static boolean validateRide(String lineID, String rideID) {
+    public static boolean checkTicketIssueDateValidity(String ticketLineID, LocalDate ticketIssueDate) {
+
+        // SQL Query - retrieve activationDate from linea
+        String activationDateQuery = "select linea.data_attivazione from linea where linea.id_linea = \""+ ticketLineID +"\" LIMIT 1;";
+
+        if (!executeQuery(activationDateQuery)) return false;
+        try {
+            if (!queryOutput.next()) return false;
+
+            LocalDate queryActivationDate = queryOutput.getDate("data_attivazione").toLocalDate();
+
+            // check if ticket issue date is after line activation date
+            if (ticketIssueDate.isBefore(queryActivationDate)) return false;
+        } catch (SQLException e) {
+            Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, e);
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+
+    }
+
+    public static boolean validateRide(String ticketLineID, String ticketRideID) {
         // SQL query
         String lineQuery = "select corsa.id_corsa, corsa.id_linea, corsa.stato, corsa.ora_inizio, corsa.ora_fine, corsa.priorita " +
                 "from linea join corsa on linea.id_linea = corsa.id_linea " +
-                "where linea.id_linea = \"" + lineID + "\" and corsa.id_corsa = \"" + rideID + "\";";
+                "where linea.id_linea = \"" + ticketLineID + "\" and corsa.id_corsa = \"" + ticketRideID + "\";";
 
         if (!executeQuery(lineQuery)) return false;
         try {

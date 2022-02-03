@@ -20,7 +20,7 @@
                         <TableColumn fx:id="startDateTableColumn" prefWidth="212.00009155273438" text="Data Inizio Validità" />
                         <TableColumn fx:id="expirationDateTableColumn" minWidth="0.79998779296875" prefWidth="177.5999755859375" text="Data Scadenza" />
                         <TableColumn fx:id="priceTableColumn" minWidth="0.0" prefWidth="139.99993896484375" text="Prezzo" />
-                        <TableColumn fx:id="myMembershipDeleteTableColumn" prefWidth="163.20001220703125" text="Azione Disponibile" />
+                        <TableColumn fx:id="deleteTableColumn" prefWidth="163.20001220703125" text="Azione Disponibile" />
                     </columns>
                 </TableView>
             </children></Pane>
