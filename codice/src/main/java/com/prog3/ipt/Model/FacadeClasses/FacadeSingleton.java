@@ -218,6 +218,9 @@ public class FacadeSingleton {
             Time queryStartTime = queryOutput.getTime("ora_inizio");
             Time queryStopTime = queryOutput.getTime("ora_fine");
             Integer queryPriority = queryOutput.getInt("priorita");
+
+
+
         } catch (SQLException e) {
             Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, e);
             e.printStackTrace();
@@ -413,20 +416,43 @@ public class FacadeSingleton {
 
 
     // Sezione @dennewbie
-    private static boolean updateCitizenPreparedStatement(String queryTemplate, Citizen newCitizen) {
+    private static boolean insertCitizenQuerySender(String queryTemplate, Citizen newCitizen) {
         try {
-            if (!updatePreparedStatement(queryTemplate)) return false;
-            preparedStatement.setString(1, newCitizen.getCitizenID());
-            preparedStatement.setString(2, newCitizen.getUsername());
-            preparedStatement.setString(3, newCitizen.getPassword());
-            preparedStatement.setString(4, newCitizen.getEmail());
-            preparedStatement.setString(5, newCitizen.getName());
-            preparedStatement.setString(6, newCitizen.getSurname());
-            preparedStatement.setDate(7, Date.valueOf(newCitizen.getRegistrationDate()));
-            preparedStatement.setDate(8, Date.valueOf(newCitizen.getBirthDate()));
-            queryOutputDML = preparedStatement.executeUpdate();
+            if (!FacadeSingleton.updatePreparedStatement(queryTemplate)) return false;
+            FacadeSingleton.preparedStatement.setString(1, newCitizen.getCitizenID());
+            FacadeSingleton.preparedStatement.setString(2, newCitizen.getUsername());
+            FacadeSingleton.preparedStatement.setString(3, newCitizen.getPassword());
+            FacadeSingleton.preparedStatement.setString(4, newCitizen.getEmail());
+            FacadeSingleton.preparedStatement.setString(5, newCitizen.getName());
+            FacadeSingleton.preparedStatement.setString(6, newCitizen.getSurname());
+            FacadeSingleton.preparedStatement.setDate(7, Date.valueOf(newCitizen.getRegistrationDate()));
+            FacadeSingleton.preparedStatement.setDate(8, Date.valueOf(newCitizen.getBirthDate()));
+            FacadeSingleton.queryOutputDML = FacadeSingleton.preparedStatement.executeUpdate();
 
-            if (queryOutputDML == 0) return false;
+
+            if (FacadeSingleton.queryOutputDML == 0) return false;
+        } catch (SQLException e) {
+            Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, e);
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    private static boolean updateCitizenQuerySender(String queryTemplate, Citizen newCitizen) {
+        try {
+            if (!FacadeSingleton.updatePreparedStatement(queryTemplate)) return false;
+
+            //System.out.print(newCitizen);
+            FacadeSingleton.preparedStatement.setString(1, newCitizen.getPassword());
+            FacadeSingleton.preparedStatement.setString(2, newCitizen.getEmail());
+            FacadeSingleton.preparedStatement.setString(3, newCitizen.getName());
+            FacadeSingleton.preparedStatement.setString(4, newCitizen.getSurname());
+            FacadeSingleton.preparedStatement.setDate(5, Date.valueOf(newCitizen.getBirthDate()));
+            FacadeSingleton.preparedStatement.setString(6, newCitizen.getCitizenID());
+            FacadeSingleton.queryOutputDML = FacadeSingleton.preparedStatement.executeUpdate();
+
+            if (FacadeSingleton.queryOutputDML == 0) return false;
         } catch (SQLException e) {
             Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, e);
             e.printStackTrace();
@@ -438,18 +464,20 @@ public class FacadeSingleton {
     public static Citizen retrieveCitizen(String citizenUsername, String citizenPassword) {
         Citizen retrievedCitizen;
         String queryCitizen = "select * from cittadino where username = \""+ citizenUsername +"\" and password = \"" + citizenPassword + "\";";
-        if (!executeQuery(queryCitizen)) return null;
+        if (!FacadeSingleton.executeQuery(queryCitizen)) return null;
         try {
-            if (!queryOutput.next()) return null;
-            String queryCitizenID = queryOutput.getString("id_cittadino");
-            String queryUsername = queryOutput.getString("username");
-            String queryPassword = queryOutput.getString("password");
-            String queryEmail = queryOutput.getString("email");
-            String queryName = queryOutput.getString("nome");
-            String querySurname = queryOutput.getString("cognome");
-            LocalDate queryBirthDate = queryOutput.getDate("data_nascita").toLocalDate();
+            if (!FacadeSingleton.queryOutput.next()) return null;
+            String queryCitizenID = FacadeSingleton.queryOutput.getString("id_cittadino");
+            String queryUsername = FacadeSingleton.queryOutput.getString("username");
+            String queryPassword = FacadeSingleton.queryOutput.getString("password");
+            String queryEmail = FacadeSingleton.queryOutput.getString("email");
+            String queryName = FacadeSingleton.queryOutput.getString("nome");
+            String querySurname = FacadeSingleton.queryOutput.getString("cognome");
+            LocalDate queryBirthDate = FacadeSingleton.queryOutput.getDate("data_nascita").toLocalDate();
 
             retrievedCitizen = new Citizen(queryName, querySurname, queryBirthDate, queryEmail, queryPassword, queryUsername);
+            retrievedCitizen.setCitizenID(queryCitizenID);
+            if (!citizenUsername.equals(queryUsername) || !citizenPassword.equals(queryPassword)) return null;
         } catch (SQLException e) {
             Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, e);
             e.printStackTrace();
@@ -460,19 +488,25 @@ public class FacadeSingleton {
 
     public static boolean insertCitizen(Citizen localCitizen) {
         String insertQueryTemplate = "INSERT INTO cittadino (id_cittadino, username, password, email, nome, cognome, data_registrazione, data_nascita) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
-        if (!updateCitizenPreparedStatement(insertQueryTemplate, localCitizen)) return false;
+        if (!FacadeSingleton.insertCitizenQuerySender(insertQueryTemplate, localCitizen)) return false;
         return true;
     }
 
     public static boolean validateGeneratedCitizenID(Citizen localCitizen) {
         String checkCitizenQueryTemplate = "select * from cittadino where cittadino.id_cittadino = \"" + localCitizen.getCitizenID() + "\";";
         try {
-            if (!executeQuery(checkCitizenQueryTemplate)) return true;
-            if (queryOutput.next()) return false;
+            if (!FacadeSingleton.executeQuery(checkCitizenQueryTemplate)) return true;
+            if (FacadeSingleton.queryOutput.next()) return false;
         } catch (SQLException ex) {
             Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, ex);
             ex.printStackTrace();
         }
+        return true;
+    }
+
+    public static boolean updateCitizenData(Citizen localCitizen) {
+        String updateQueryTemplate = "UPDATE cittadino SET password = ?, email = ?, nome = ?, cognome = ?, data_nascita = ? where id_cittadino = ?";
+        if (!FacadeSingleton.updateCitizenQuerySender(updateQueryTemplate, localCitizen)) return false;
         return true;
     }
 }

@@ -26,9 +26,8 @@ public class ObservableSingleton {
     }
 
     // Citizen
-    public static void setCitizen(Citizen newUser) {
-        sessionUser = newUser;
-    }
+    public static void setCitizenID(String citizenID) { sessionUser.setCitizenID(citizenID); }
+    public static void setCitizen(Citizen newUser) { sessionUser = newUser; }
     public static void updateCitizen(String name, String surname, LocalDate birthDate, String email, String password) {
         getCitizen().setName(name);
         getCitizen().setSurname(surname);

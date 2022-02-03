@@ -6,7 +6,11 @@ public class CitizenEditProfileOriginator {
 
 
 
-    public void setCurrentCitizen(Citizen currentCitizen) { this.currentCitizen = currentCitizen; }
+    public void setCurrentCitizen(Citizen currentCitizen) {
+        this.currentCitizen = currentCitizen;
+        this.currentCitizen.setCitizenID(ObservableSingleton.getCitizen().getCitizenID());
+        this.currentCitizen.setRegistrationDate(ObservableSingleton.getCitizen().getRegistrationDate());
+    }
 
     public Citizen getCurrentCitizen() { return this.currentCitizen; }
 

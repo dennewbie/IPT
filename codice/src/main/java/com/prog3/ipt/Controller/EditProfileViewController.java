@@ -3,6 +3,7 @@ package com.prog3.ipt.Controller;
 import com.prog3.ipt.Model.CitizenClasses.Citizen;
 import com.prog3.ipt.Model.CitizenClasses.CitizenEditProfileOriginator;
 import com.prog3.ipt.Model.CitizenClasses.ObservableSingleton;
+import com.prog3.ipt.Model.FacadeClasses.FacadeSingleton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -44,18 +45,18 @@ public class EditProfileViewController extends ViewController {
 
     @FXML
     void onSaveInformationButtonClick(ActionEvent event) {
-        if (!checkTextFieldsContent(nameTextField, surnameTextField, emailTextField, passwordField) || !checkDatePickersContent(birthDatePicker)) return;
-
         // controllo validità credenziali
+        if (!checkTextFieldsContent(nameTextField, surnameTextField, emailTextField, passwordField) || !checkDatePickersContent(birthDatePicker)) return;
         String name = nameTextField.getText(), surname = surnameTextField.getText(), email = emailTextField.getText(), password = passwordField.getText();
         LocalDate localDate = birthDatePicker.getValue();
         if (!super.validateEmail(email)) { super.raiseErrorAlert("Formato mail non valido."); return; }
         if (!localDate.isBefore(LocalDate.now())) { super.raiseErrorAlert("Non puoi inserire una data di nascita uguale o successiva ad oggi."); return; }
         ObservableSingleton.updateCitizen(name, surname, localDate, email, password);
         if (checkChanges(ObservableSingleton.getCitizen(), citizenEditProfileOriginator.getCurrentCitizen()) != false) { super.raiseErrorAlert("I dati non risultano essere stati modificati."); return; }
-
         citizenEditProfileOriginator.setCurrentCitizen(new Citizen(name, surname, localDate, email, password, ObservableSingleton.getCitizen().getUsername()));
         citizenEditProfileOriginator.save();
+
+        if (!FacadeSingleton.updateCitizenData(ObservableSingleton.getCitizen())) { raiseErrorAlert("Non è stato possibile aggiornare i tuoi dati. Il server potrebbe non essere raggiungibile al momento. Riprovare più tardi."); return; }
         super.raiseConfirmationAlert("Dati aggiornati correttamente.");
         updateTextFields();
         undoButton.setDisable(false);
@@ -66,6 +67,7 @@ public class EditProfileViewController extends ViewController {
         boolean returnValue = citizenEditProfileOriginator.restore();
         if (returnValue != false) {
             ObservableSingleton.updateCitizen(citizenEditProfileOriginator.getCurrentCitizen().getName(), citizenEditProfileOriginator.getCurrentCitizen().getSurname(), citizenEditProfileOriginator.getCurrentCitizen().getBirthDate(), citizenEditProfileOriginator.getCurrentCitizen().getEmail(), citizenEditProfileOriginator.getCurrentCitizen().getPassword());
+            if (!FacadeSingleton.updateCitizenData(ObservableSingleton.getCitizen())) { raiseErrorAlert("Non è stato possibile aggiornare i tuoi dati. Il server potrebbe non essere raggiungibile al momento. Riprovare più tardi."); return; }
             updateTextFields();
             super.raiseConfirmationAlert("Annullamento modifica avvenuto con successo");
         } else {

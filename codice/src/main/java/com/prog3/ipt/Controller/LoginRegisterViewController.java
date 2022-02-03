@@ -49,6 +49,7 @@ public class LoginRegisterViewController extends ViewController {
         if (loggedCitizen == null) { raiseErrorAlert("Username e/o password sbagliata.");  return; }
         // save citizen data in observer-singleton
         ObservableSingleton.setCitizen(loggedCitizen);
+        //System.out.println(ObservableSingleton.getCitizen());
         super.onButtonClickNavigateToView(signInButton, "HomeView.fxml");
     }
 
