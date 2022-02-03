@@ -3,6 +3,7 @@ package com.prog3.ipt.Controller.TravelDocumentsManagement;
 import com.prog3.ipt.Controller.ViewController;
 import com.prog3.ipt.Model.CitizenClasses.ObservableSingleton;
 import com.prog3.ipt.Model.CitizenClasses.Order;
+import com.prog3.ipt.Model.FacadeClasses.FacadeSingleton;
 import com.prog3.ipt.Model.PaymentMethodClasses.*;
 import com.prog3.ipt.Model.TravelDocumentClasses.*;
 import javafx.event.ActionEvent;
@@ -90,9 +91,8 @@ public class TravelDocumentsManagementViewController extends ViewController {
         if (ObservableSingleton.getOrder().getPurchaseList().size() <= 0) { super.raiseErrorAlert("Il tuo carrello è vuoto. Non puoi procedere con l'acquisto."); return; }
         onSavePaymentMethodButtonClick(new ActionEvent());
         if (!isValidTransaction || !ObservableSingleton.getPaymentMethodStrategy().pay(ObservableSingleton.getOrder().getPurchasePrice())) { raiseErrorAlert("Non è possibile procedere con l'acquisto: metodo di pagamento non valido."); return; }
-        // TODO: query DB transazione, svuota table view
-        // insert record into transaction table
 
+        // insert record into transaction table
         //if (!FacadeSingleton.insertTransaction());
 
         super.raiseConfirmationAlert("Il tuo acquisto è andato a buon fine. Costo totale: " + ObservableSingleton.getOrder().getPurchasePrice() + " euro. Modalità pagamento: " + ObservableSingleton.getPaymentMethodString());
@@ -150,23 +150,6 @@ public class TravelDocumentsManagementViewController extends ViewController {
         creditCardNumberTextField.setVisible(false);
         expirationCreditCardDatePicker.setVisible(false);
 
- /*     GENERA ERRORI
-        // create observable list for myTicketsView according to citizenID
-        ObservableList<TravelDocumentFX> myTicketsObservableList = FacadeSingleton.getMyTicketsViewContent(ObservableSingleton.getCitizen().getCitizenID());
-
-        // update left table view with new items
-        myTicketsTransactionIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("transactionID"));
-        myTicketsTravelDocumentIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("travelDocumentID"));
-        myTicketsLineIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("lineID"));
-        myTicketsRideIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("rideID"));
-        myTicketsIssueDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("issueDate"));
-        myTicketsStartDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("startDate"));
-        myTicketsExpirationDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("expirationDate"));
-        myTicketsPriceTableColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
-        myTicketsStampDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("stampDate"));
-
-        myTicketsTableView.setItems(null);
-*/
         // initialize right side. Update right table view with new items
 
         travelDocumentIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("travelDocumentID"));
