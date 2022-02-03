@@ -14,16 +14,13 @@
             <children>
                 <TableView fx:id="myMembershipTableView" prefHeight="657.0" prefWidth="1080.0" styleClass="textField_box">
                     <columns>
-                        <TableColumn fx:id="mySingleTicketsTransactionIDTableColumn" prefWidth="162.9133917093277" text="Numero Transazione" />
-                        <TableColumn fx:id="mySingleTicketsIDTableColumn" minWidth="0.0" prefWidth="54.58660888671875" text="ID" />
-                        <TableColumn fx:id="mySingleTicketsLineIDTableColumn" prefWidth="81.51163482666016" text="Linea" />
-                        <TableColumn fx:id="mySingleTicketsRideIDTableColumn" minWidth="2.39996337890625" prefWidth="117.71173095703125" text="Corsa" />
-                        <TableColumn fx:id="mySingleTicketsIssueDateTableColumn" prefWidth="109.10737609863281" text="Data Emissione" />
-                        <TableColumn fx:id="mySingleTicketsStartDateTableColumn" prefWidth="115.4483642578125" text="Data Inizio Validità" />
-                        <TableColumn fx:id="mySingleTicketsExpirationDateTableColumn" minWidth="0.79998779296875" prefWidth="102.22787475585938" text="Data Scadenza" />
-                        <TableColumn fx:id="mySingleTicketsPriceTableColumn" minWidth="0.0" prefWidth="83.94622802734375" text="Prezzo" />
-                        <TableColumn fx:id="mySingleTicketsStampDateTableColumn" prefWidth="105.55770874023438" text="Data Timbro" />
-                        <TableColumn fx:id="myMembershipDeleteTableColumn" prefWidth="147.43966674804688" text="Azione Disponibile" />
+                        <TableColumn fx:id="transactionIDTableColumn" prefWidth="162.9133917093277" text="Numero Transazione" />
+                        <TableColumn fx:id="travelDocumentIDTableColumn" minWidth="0.0" prefWidth="66.39999389648438" text="ID" />
+                        <TableColumn fx:id="issueDateTableColumn" prefWidth="157.59999084472656" text="Data Emissione" />
+                        <TableColumn fx:id="startDateTableColumn" prefWidth="212.00009155273438" text="Data Inizio Validità" />
+                        <TableColumn fx:id="expirationDateTableColumn" minWidth="0.79998779296875" prefWidth="177.5999755859375" text="Data Scadenza" />
+                        <TableColumn fx:id="priceTableColumn" minWidth="0.0" prefWidth="139.99993896484375" text="Prezzo" />
+                        <TableColumn fx:id="myMembershipDeleteTableColumn" prefWidth="163.20001220703125" text="Azione Disponibile" />
                     </columns>
                 </TableView>
             </children></Pane>
