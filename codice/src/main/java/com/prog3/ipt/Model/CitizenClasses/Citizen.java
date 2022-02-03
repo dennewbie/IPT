@@ -49,22 +49,8 @@ public class Citizen extends User {
         Citizen citizen = (Citizen) o;
         return getCitizenID().equals(citizen.getCitizenID()) && getRegistrationDate().equals(citizen.getRegistrationDate()) && getUsername().equals(citizen.getUsername());
     }
-
     @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), getCitizenID(), getRegistrationDate(), getUsername());
-    }
-
+    public int hashCode() { return Objects.hash(super.hashCode(), getCitizenID(), getRegistrationDate(), getUsername()); }
     @Override
-    public String toString() {
-        return "Citizen{" +
-                "citizenID='" + citizenID + '\'' +
-                ", registrationDate=" + registrationDate +
-                ", username='" + username + '\'' +
-                ", email='" + super.getEmail() + '\'' +
-                ", name='" + super.getName() + '\'' +
-                ", surname='" + super.getSurname() + '\'' +
-                ", birthDate='" + super.getBirthDate() + '\'' +
-                '}';
-    }
+    public String toString() { return "Citizen{ citizenID='" + citizenID + ", registrationDate=" + registrationDate + ", username='" + username + ", email='" + super.getEmail() + ", name='" + super.getName() + ", surname='" + super.getSurname() + ", birthDate='" + super.getBirthDate() + '}'; }
 }

@@ -13,7 +13,7 @@
     <children>
         <Pane layoutY="89.0" prefHeight="655.0" prefWidth="1080.0" styleClass="white-pane" stylesheets="@infoViewStyle.css" AnchorPane.topAnchor="70.0">
             <children>
-                <TableView fx:id="LineRideTableView" prefHeight="657.0" prefWidth="1081.0" styleClass="textField_box">
+                <TableView fx:id="lineRideTableView" prefHeight="657.0" prefWidth="1081.0" styleClass="textField_box">
                     <columns>
                         <TableColumn fx:id="lineIDTableColumn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="66.0" text="ID LINEA" />
                         <TableColumn fx:id="lineLenghtTableColumn" minWidth="0.0" prefWidth="92.0" text="LUNGHEZZA" />

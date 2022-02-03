@@ -46,12 +46,8 @@ public class Notice {
         Notice notice = (Notice) o;
         return getNoticeID().equals(notice.getNoticeID()) && getNoticeDate().equals(notice.getNoticeDate()) && getNoticeName().equals(notice.getNoticeName()) && getNoticeText().equals(notice.getNoticeText()) && getRideID().equals(notice.getRideID()) && getLineID().equals(notice.getLineID());
     }
-
     @Override
-    public int hashCode() {
-        return Objects.hash(getNoticeID(), getNoticeDate(), getNoticeName(), getNoticeText(), getRideID(), getLineID());
-    }
-
+    public int hashCode() { return Objects.hash(getNoticeID(), getNoticeDate(), getNoticeName(), getNoticeText(), getRideID(), getLineID()); }
     @Override
     public String toString() { return "Notice{ noticeID='" + noticeID + ", noticeDate=" + noticeDate + ", noticeName='" + noticeName + " , noticeText='" + noticeText + ", rideID='" + rideID + " , lineID='" + lineID + '}'; }
 }

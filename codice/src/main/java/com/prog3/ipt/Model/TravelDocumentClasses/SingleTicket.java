@@ -31,15 +31,6 @@ public class SingleTicket extends TravelDocument {
 
     // Others
     @Override
-    public String toString() {
-        return super.toString() + "SingleTicket{" +
-                "lineID='" + lineID + '\'' +
-                ", rideID='" + rideID + '\'' +
-                ", stampDate=" + stampDate +
-                '}';
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof SingleTicket)) return false;
@@ -47,12 +38,12 @@ public class SingleTicket extends TravelDocument {
         SingleTicket singleTicket = (SingleTicket) o;
         return getLineID().equals(singleTicket.getLineID()) && getRideID().equals(singleTicket.getRideID()) && Objects.equals(getStampDate(), singleTicket.getStampDate());
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), getLineID(), getRideID(), getStampDate());
     }
-
+    @Override
+    public String toString() { return super.toString() + "SingleTicket{ lineID='" + lineID + ", rideID='" + rideID + ", stampDate=" + stampDate + '}'; }
 
     @Override
     public TravelDocumentFX convertToFX() {
@@ -60,7 +51,6 @@ public class SingleTicket extends TravelDocument {
         travelDocumentFX.setLineID(getLineID());
         travelDocumentFX.setRideID(getRideID());
         travelDocumentFX.setStampDate(getStampDate());
-
         return travelDocumentFX;
     }
 }

@@ -37,28 +37,16 @@ public abstract class TravelDocument {
 
     // Others
     @Override
-    public String toString() {
-        return "TravelDocument{" +
-                "travelDocumentID='" + travelDocumentID + '\'' +
-                ", price=" + price +
-                ", issueDate=" + issueDate +
-                ", expirationDate=" + expirationDate +
-                ", transactionCode='" + transactionID + '\'' +
-                '}';
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof TravelDocument)) return false;
         TravelDocument travelDocument = (TravelDocument) o;
         return travelDocument.getPrice() == this.getPrice() && getTravelDocumentID().equals(travelDocument.getTravelDocumentID()) && getIssueDate().equals(travelDocument.getIssueDate()) && Objects.equals(getExpirationDate(), travelDocument.getExpirationDate()) && Objects.equals(getTransactionID(), travelDocument.getTransactionID());
     }
-
     @Override
-    public int hashCode() {
-        return Objects.hash(getTravelDocumentID(), getPrice(), getIssueDate(), getExpirationDate(), getTransactionID());
-    }
+    public int hashCode() { return Objects.hash(getTravelDocumentID(), getPrice(), getIssueDate(), getExpirationDate(), getTransactionID()); }
+    @Override
+    public String toString() { return "TravelDocument{ travelDocumentID='" + travelDocumentID + ", price=" + price + ", issueDate=" + issueDate + ", expirationDate=" + expirationDate + ", transactionCode='" + transactionID + '}'; }
 
     public TravelDocumentFX convertToFX() {
         return new TravelDocumentFX(getTravelDocumentID(), getPrice(), getIssueDate(), getExpirationDate(), getTransactionID(), null, null, null, null);

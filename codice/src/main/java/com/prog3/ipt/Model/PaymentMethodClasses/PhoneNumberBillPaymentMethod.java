@@ -23,8 +23,7 @@ public class PhoneNumberBillPaymentMethod implements PaymentMethodStrategy {
     @Override
     public boolean pay(double paymentAmount) { return true; }
 
-    @Override
-    public String toString() { return "PhoneNumberBillPaymentMethod{ phoneNumber='" + phoneNumber + '\'' + '}'; }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -36,4 +35,6 @@ public class PhoneNumberBillPaymentMethod implements PaymentMethodStrategy {
     public int hashCode() {
         return Objects.hash(getPhoneNumber());
     }
+    @Override
+    public String toString() { return "PhoneNumberBillPaymentMethod{ phoneNumber='" + phoneNumber + '\'' + '}'; }
 }

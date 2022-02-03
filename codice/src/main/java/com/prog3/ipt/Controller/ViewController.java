@@ -13,6 +13,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -42,9 +43,7 @@ public abstract class ViewController implements Initializable {
             stage = (Stage) clickedButton.getScene().getWindow();
             stage.setScene(localScene);
             stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        } catch (IOException e) { e.printStackTrace(); }
     }
 
     protected boolean checkTextFieldsContent(TextField ... textFields) {
@@ -54,7 +53,6 @@ public abstract class ViewController implements Initializable {
         }
         return true;
     }
-
 
     protected boolean checkDatePickersContent(DatePicker... datePickers) {
         for (DatePicker singleDatePicker : datePickers) if (singleDatePicker.getValue() == null ) {

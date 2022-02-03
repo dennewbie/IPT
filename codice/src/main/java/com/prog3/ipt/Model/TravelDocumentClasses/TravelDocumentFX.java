@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class TravelDocumentFX {
-
     // Travel Document
     private String travelDocumentID;
     private double price;
@@ -97,24 +96,8 @@ public class TravelDocumentFX {
         TravelDocumentFX that = (TravelDocumentFX) o;
         return Double.compare(that.getPrice(), getPrice()) == 0 && getTravelDocumentID().equals(that.getTravelDocumentID()) && getIssueDate().equals(that.getIssueDate()) && getExpirationDate().equals(that.getExpirationDate()) && getTransactionID().equals(that.getTransactionID()) && getLineID().equals(that.getLineID()) && getRideID().equals(that.getRideID()) && getStampDate().equals(that.getStampDate()) && getStartDate().equals(that.getStartDate());
     }
-
     @Override
-    public int hashCode() {
-        return Objects.hash(getTravelDocumentID(), getPrice(), getIssueDate(), getExpirationDate(), getTransactionID(), getLineID(), getRideID(), getStampDate(), getStartDate());
-    }
-
+    public int hashCode() { return Objects.hash(getTravelDocumentID(), getPrice(), getIssueDate(), getExpirationDate(), getTransactionID(), getLineID(), getRideID(), getStampDate(), getStartDate()); }
     @Override
-    public String toString() {
-        return "TravelDocumentFX{" +
-                "travelDocumentID='" + travelDocumentID + '\'' +
-                ", price=" + price +
-                ", issueDate=" + issueDate +
-                ", expirationDate=" + expirationDate +
-                ", transactionID='" + transactionID + '\'' +
-                ", lineID='" + lineID + '\'' +
-                ", rideID='" + rideID + '\'' +
-                ", stampDate=" + stampDate +
-                ", startDate=" + startDate +
-                '}';
-    }
+    public String toString() { return "TravelDocumentFX{ travelDocumentID='" + travelDocumentID + ", price=" + price + ", issueDate=" + issueDate + ", expirationDate=" + expirationDate + ", transactionID='" + transactionID +  ", lineID='" + lineID + ", rideID='" + rideID + ", stampDate=" + stampDate + ", startDate=" + startDate + '}'; }
 }

@@ -175,9 +175,6 @@ public class FacadeSingleton {
             Time queryStartTime = queryOutput.getTime("ora_inizio");
             Time queryStopTime = queryOutput.getTime("ora_fine");
             Integer queryPriority = queryOutput.getInt("priorita");
-
-            //if (!queryLineID.equals(lineID) || !(queryRideID.equals(rideID))) return false;
-
         } catch (SQLException e) {
             Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, e);
             e.printStackTrace();
@@ -188,7 +185,8 @@ public class FacadeSingleton {
 
     public static ObservableList<Notice> getNoticesViewContent() {
         noticeObservableList = FXCollections.observableArrayList();
-        String noticeViewQuery = "select * from avviso_utenza";
+        String noticeViewQuery = "select * from avviso_utenza where DATE(data) >= CURDATE()";
+
         try {
             if (!executeQuery(noticeViewQuery)) return null;
             while (queryOutput.next()) {
@@ -212,8 +210,9 @@ public class FacadeSingleton {
     public static ObservableList<RideLineFX> getCorsaLineaViewContent() {
         lineRideObservableList = FXCollections.observableArrayList();
         // SQL Query
-        // TODO: aggiungere full outer join
-        String allLineRideQuery = "select * from linea join corsa on linea.id_linea = corsa.id_linea";
+        String allLineRideQuery = "select * from linea left join corsa on linea.id_linea = corsa.id_linea union all " +
+                "select * from linea left join corsa on linea.id_linea = corsa.id_linea " +
+                "where linea.id_linea is null";
 
         try {
             if (!executeQuery(allLineRideQuery)) return null;
@@ -361,6 +360,7 @@ public class FacadeSingleton {
 
     public static boolean insertCitizen(String name, String surname, LocalDate birthDate, String email, String password, String username) {
         // generate citizen ID
+        // NOTA: generazione di un altro UUID
         String citizenID = UUID.randomUUID().toString().substring(0, 5);
 
         Citizen newCitizen = new Citizen(name, surname, birthDate, email, password, username);

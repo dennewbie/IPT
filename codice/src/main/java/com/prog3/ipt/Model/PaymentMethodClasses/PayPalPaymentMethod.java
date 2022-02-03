@@ -28,8 +28,7 @@ public class PayPalPaymentMethod implements PaymentMethodStrategy {
         return true;
     }
 
-    @Override
-    public String toString() { return "PayPalPaymentMethod{ email='" + email + '\'' + ", password='" + password + '\'' + '}'; }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -39,4 +38,6 @@ public class PayPalPaymentMethod implements PaymentMethodStrategy {
     }
     @Override
     public int hashCode() { return Objects.hash(email, password); }
+    @Override
+    public String toString() { return "PayPalPaymentMethod{ email='" + email + '\'' + ", password='" + password + '\'' + '}'; }
 }

@@ -45,8 +45,6 @@ public class Line {
     public Time getLineClosingHour() { return lineClosingHour; }
 
     @Override
-    public String toString() { return "Line{ lineID='" + lineID + ", lineLength=" + lineLength + ", lineStartStation='" + lineStartStation + ", lineStopStation='" + lineStopStation + ", lineActivationDate=" + lineActivationDate + ", lineOpeningHour=" + lineOpeningHour + ", lineClosingHour=" + lineClosingHour + '}'; }
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Line)) return false;
@@ -55,4 +53,6 @@ public class Line {
     }
     @Override
     public int hashCode() { return Objects.hash(getLineID(), getLineLength(), getLineStartStation(), getLineStopStation(), getLineActivationDate(), getLineOpeningHour(), getLineClosingHour()); }
+    @Override
+    public String toString() { return "Line{ lineID='" + lineID + ", lineLength=" + lineLength + ", lineStartStation='" + lineStartStation + ", lineStopStation='" + lineStopStation + ", lineActivationDate=" + lineActivationDate + ", lineOpeningHour=" + lineOpeningHour + ", lineClosingHour=" + lineClosingHour + '}'; }
 }

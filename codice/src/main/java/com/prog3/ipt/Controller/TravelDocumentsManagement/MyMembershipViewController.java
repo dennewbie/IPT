@@ -94,8 +94,5 @@ public class MyMembershipViewController extends TravelDocumentsManagementViewCon
         priceTableColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
 
         myMembershipTableView.setItems(myMembershipsObservableList);
-
     }
-
-
 }

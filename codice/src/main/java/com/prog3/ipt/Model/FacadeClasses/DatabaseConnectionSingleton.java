@@ -12,9 +12,14 @@ public class DatabaseConnectionSingleton {
 
 
     /** Protect against instantiation via reflection */
-    private DatabaseConnectionSingleton() throws SQLException {
-        if (instance != null) throw new IllegalStateException("Already initialized.");
-        this.connection = DriverManager.getConnection(url, username, password);
+    private DatabaseConnectionSingleton() {
+        try {
+            if (instance != null) throw new IllegalStateException("Already initialized.");
+        } catch (IllegalStateException e) { e.printStackTrace(); }
+
+        try {
+            this.connection = DriverManager.getConnection(url, username, password);
+        } catch (SQLException e) { e.printStackTrace(); }
     }
 
     public Connection getConnection() {
@@ -22,14 +27,16 @@ public class DatabaseConnectionSingleton {
     }
 
     /** The instance doesn't get created until the method is called for the first time. */
-    public static DatabaseConnectionSingleton getInstance() throws SQLException {
-        synchronized (DatabaseConnectionSingleton.class) {
-            if (instance == null) {
-                instance = new DatabaseConnectionSingleton();
-            } else if (instance.getConnection().isClosed()) {
-                instance = new DatabaseConnectionSingleton();
+    public static DatabaseConnectionSingleton getInstance() {
+        try {
+            synchronized (DatabaseConnectionSingleton.class) {
+                if (instance == null) {
+                    instance = new DatabaseConnectionSingleton();
+                } else if (instance.getConnection().isClosed()) {
+                    instance = new DatabaseConnectionSingleton();
+                }
             }
-        }
+        } catch (SQLException e) { e.printStackTrace(); }
         return instance;
     }
 }

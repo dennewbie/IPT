@@ -71,24 +71,14 @@ public class CreditCardPaymentMethod implements PaymentMethodStrategy {
     }
 
     @Override
-    public String toString() {
-        return "CreditCardPaymentMethod{" +
-                "creditCardNumber='" + creditCardNumber + '\'' +
-                ", creditCardExpirationDate=" + creditCardExpirationDate +
-                ", creditCardCVV='" + creditCardCVV + '\'' +
-                '}';
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof CreditCardPaymentMethod)) return false;
         CreditCardPaymentMethod creditCardPaymentMethod = (CreditCardPaymentMethod) o;
         return getCreditCardNumber().equals(creditCardPaymentMethod.getCreditCardNumber()) && getCreditCardExpirationDate().equals(creditCardPaymentMethod.getCreditCardExpirationDate()) && getCreditCardCVV().equals(creditCardPaymentMethod.getCreditCardCVV());
     }
-
     @Override
-    public int hashCode() {
-        return Objects.hash(getCreditCardNumber(), getCreditCardExpirationDate(), getCreditCardCVV());
-    }
+    public int hashCode() { return Objects.hash(getCreditCardNumber(), getCreditCardExpirationDate(), getCreditCardCVV()); }
+    @Override
+    public String toString() { return "CreditCardPaymentMethod{ creditCardNumber='" + creditCardNumber + '\'' + ", creditCardExpirationDate=" + creditCardExpirationDate +  ", creditCardCVV='" + creditCardCVV + '\'' +  '}'; }
 }

@@ -22,13 +22,6 @@ public class Membership extends TravelDocument {
 
     // Others
     @Override
-    public String toString() {
-        return super.toString() + "Membership{" +
-                "startDate=" + startDate +
-                '}';
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Membership)) return false;
@@ -36,11 +29,12 @@ public class Membership extends TravelDocument {
         Membership membership = (Membership) o;
         return getStartDate().equals(membership.getStartDate());
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), getStartDate());
     }
+    @Override
+    public String toString() { return super.toString() + "Membership{ startDate=" + startDate + '}'; }
 
     @Override
     public TravelDocumentFX convertToFX() {

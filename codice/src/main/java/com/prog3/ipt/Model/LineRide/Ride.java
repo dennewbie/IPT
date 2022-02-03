@@ -32,9 +32,7 @@ public class Ride {
     public Time getRideEndingHour() { return rideEndingHour; }
     public Integer getRidePriority() { return ridePriority; }
 
-    @Override
-    public String toString() { return "Ride{ rideID='" + rideID + ", rideStatus='" + rideStatus + ", rideStartingHour=" + rideStartingHour + ", rideEndingHour=" + rideEndingHour + ", ridePriority=" + ridePriority + '}'; }
-    @Override
+   @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Ride)) return false;
@@ -43,4 +41,7 @@ public class Ride {
     }
     @Override
     public int hashCode() { return Objects.hash(getRideID(), getRideStatus(), getRideStartingHour(), getRideEndingHour(), getRidePriority()); }
+    @Override
+    public String toString() { return "Ride{ rideID='" + rideID + ", rideStatus='" + rideStatus + ", rideStartingHour=" + rideStartingHour + ", rideEndingHour=" + rideEndingHour + ", ridePriority=" + ridePriority + '}'; }
+
 }

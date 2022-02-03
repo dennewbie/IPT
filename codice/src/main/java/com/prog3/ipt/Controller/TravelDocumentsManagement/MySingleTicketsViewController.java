@@ -100,5 +100,4 @@ public class MySingleTicketsViewController extends TravelDocumentsManagementView
         mySingleTicketsTableView.setItems(myTicketsObservableList);
 
     }
-
 }
