@@ -10,6 +10,12 @@ public class Citizen extends User {
     private String username;
 
 
+    public Citizen(String citizenID, String name, String surname, LocalDate birthDate, String email, String password, String username) {
+        super(name, surname, birthDate, email, password);
+        setCitizenID(citizenID);
+        setRegistrationDate(LocalDate.now());
+        setUsername(username);
+    }
 
     public Citizen(String name, String surname, LocalDate birthDate, String email, String password, String username) {
         super(name, surname, birthDate, email, password);
@@ -52,5 +58,5 @@ public class Citizen extends User {
     @Override
     public int hashCode() { return Objects.hash(super.hashCode(), getCitizenID(), getRegistrationDate(), getUsername()); }
     @Override
-    public String toString() { return super.toString() + "Citizen{ citizenID='" + citizenID + ", registrationDate=" + registrationDate + ", username='" + username + ", email='" + super.getEmail() + ", name='" + super.getName() + ", surname='" + super.getSurname() + ", birthDate='" + super.getBirthDate() + '}'; }
+    public String toString() { return super.toString() + "Citizen{ citizenID='" + citizenID + '\'' + ", registrationDate=" + registrationDate + ", username='" + username + '\'' + '}'; }
 }

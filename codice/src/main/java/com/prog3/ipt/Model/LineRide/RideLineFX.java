@@ -75,5 +75,5 @@ public class RideLineFX {
     @Override
     public int hashCode() { return Objects.hash(getRideID(), getRideStatus(), getRideStartingHour(), getRideEndingHour(), getRidePriority(), getLineID(), getLineLength(), getLineStartStation(), getLineStopStation(), getLineActivationDate(), getLineOpeningHour(), getLineClosingHour()); }
     @Override
-    public String toString() { return "RideLineFX{ rideID='" + rideID + ", rideStatus='" + rideStatus + ", rideStartingHour=" + rideStartingHour + ", rideEndingHour=" + rideEndingHour +  ", ridePriority=" + ridePriority + ", lineID='" + lineID + ", lineLength=" + lineLength + ", lineStartStation='" + lineStartStation + ", lineStopStation='" + lineStopStation + ", lineActivationDate=" + lineActivationDate + ", lineOpeningHour=" + lineOpeningHour + ", lineClosingHour=" + lineClosingHour + '}'; }
+    public String toString() { return "RideLineFX{ rideID='" + rideID + '\'' + ", rideStatus='" + rideStatus + '\'' + ", rideStartingHour=" + rideStartingHour + ", rideEndingHour=" + rideEndingHour + ", ridePriority=" + ridePriority + ", lineID='" + lineID + '\'' + ", lineLength=" + lineLength + ", lineStartStation='" + lineStartStation + '\'' + ", lineStopStation='" + lineStopStation + '\'' + ", lineActivationDate=" + lineActivationDate + ", lineOpeningHour=" + lineOpeningHour + ", lineClosingHour=" + lineClosingHour + '}'; }
 }

@@ -49,5 +49,5 @@ public class Notice {
     @Override
     public int hashCode() { return Objects.hash(getNoticeID(), getNoticeDate(), getNoticeName(), getNoticeText(), getRideID(), getLineID()); }
     @Override
-    public String toString() { return "Notice{ noticeID='" + noticeID + ", noticeDate=" + noticeDate + ", noticeName='" + noticeName + " , noticeText='" + noticeText + ", rideID='" + rideID + " , lineID='" + lineID + '}'; }
+    public String toString() { return "Notice{ noticeID='" + noticeID + '\'' + ", noticeDate=" + noticeDate + ", noticeName='" + noticeName + '\'' + ", noticeText='" + noticeText + '\'' + ", rideID='" + rideID + '\'' + ", lineID='" + lineID + '\'' + '}'; }
 }

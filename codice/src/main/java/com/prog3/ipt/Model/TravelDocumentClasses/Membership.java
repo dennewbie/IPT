@@ -33,7 +33,7 @@ public class Membership extends TravelDocument {
         return Objects.hash(super.hashCode(), getStartDate());
     }
     @Override
-    public String toString() { return super.toString() + "Membership{ startDate=" + startDate + '}'; }
+    public String toString() { return "Membership{ startDate=" + startDate +  '}'; }
 
     @Override
     public TravelDocumentFX convertToFX() {

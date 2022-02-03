@@ -14,10 +14,8 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.scene.control.Button;
 import javafx.scene.control.cell.PropertyValueFactory;
-
 import static com.prog3.ipt.Model.PaymentMethodClasses.PaymentMethodEnum.*;
 
-// TODO: Aggiungere gestione tabella con interfacciamento DB, possibilità di rimozione dalla table view con puslante dedicato per ogni riga
 public class TravelDocumentsManagementViewController extends ViewController {
     protected TravelDocumentFactory myTravelDocumentFactory;
     private String convertedDropDownListString;

@@ -43,7 +43,7 @@ public class SingleTicket extends TravelDocument {
         return Objects.hash(super.hashCode(), getLineID(), getRideID(), getStampDate());
     }
     @Override
-    public String toString() { return super.toString() + "SingleTicket{ lineID='" + lineID + ", rideID='" + rideID + ", stampDate=" + stampDate + '}'; }
+    public String toString() { return "SingleTicket{ lineID='" + lineID + '\'' + ", rideID='" + rideID + '\'' + ", stampDate=" + stampDate + '}';}
 
     @Override
     public TravelDocumentFX convertToFX() {
