@@ -50,17 +50,30 @@ public class AddSingleTicketsViewController extends TravelDocumentsManagementVie
     void onBackButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(backButton, "TicketsManagementView.fxml"); }
     @FXML
     void onAddSingleTicketsToCartButtonClick(ActionEvent event) {
-        // controllo esistenza corsa e linea
-        String ID_Ride = ID_RideTextField.getText(), ID_Line = ID_LineTextField.getText();
-        if (!super.checkTextFieldsContent(ID_LineTextField, ID_RideTextField) || Integer.valueOf(quantityTextField.getText()) <= 0) { super.raiseErrorAlert("Hai lasciato uno o più campi vuoti"); return; }
-        if (!FacadeSingleton.validateRide(ID_Line, ID_Ride)) { super.raiseErrorAlert("Biglietto/i singolo/i selezionato/i non valido/i!"); return; }
 
-        // aggiunta al carrello
+        String ID_Ride = ID_RideTextField.getText(), ID_Line = ID_LineTextField.getText();
+        LocalDate ticketIssueDate = LocalDate.now();
+
+        if (!super.checkTextFieldsContent(ID_LineTextField, ID_RideTextField) || Integer.valueOf(quantityTextField.getText()) <= 0) { super.raiseErrorAlert("Hai lasciato uno o più campi vuoti"); return; }
+
+        // check line id, ride id, ticket issue date validity
+        if (!FacadeSingleton.validateRide(ID_Line, ID_Ride)) { super.raiseErrorAlert("Biglietto/i singolo/i selezionato/i non valido/i!"); return; }
+        if (!FacadeSingleton.checkTicketIssueDateValidity(ID_Line, ticketIssueDate)) { super.raiseErrorAlert("Biglietto/i singolo/i selezionato/i non valido/i! Non è possibile acquistare alcuno/i biglietto/i per una linea la cui data di attivazione è successiva alla data di emissione del/i biglietto/i!"); return; }
+
+        // create single ticket factory
         int quantity = Integer.valueOf(quantityTextField.getText());
         super.myTravelDocumentFactory = new SingleTicketConcreteFactory();
+
+        // for each ticket in order
         for (int i = 0; i < quantity; i++) {
-            setMySingleTicket((SingleTicket) super.myTravelDocumentFactory.createTravelDocument(MyConstants.singleTicketPrice, LocalDate.now(), null, null, ID_Line, ID_Ride, null, null));
+
+            // create ticket
+            setMySingleTicket((SingleTicket) super.myTravelDocumentFactory.createTravelDocument(MyConstants.singleTicketPrice, ticketIssueDate, null, null, ID_Line, ID_Ride, null, null));
+
+            // add ticket to order
             super.getOrder().addTravelDocument(getMySingleTicket());
+
+            // set order to observer
             super.setOrder(new Order(null, super.getOrder().getPurchaseDate(), super.getOrder().getPurchasePrice(), super.getOrder().getCitizenID(), super.getOrder().getPaymentMethodStrategy(), super.getOrder().getPurchaseList(), super.getOrder().getPurchaseObservableList()));
         }
         super.raiseConfirmationAlert("Biglietto/i singolo/i aggiunto/i correttamente al carrello!");

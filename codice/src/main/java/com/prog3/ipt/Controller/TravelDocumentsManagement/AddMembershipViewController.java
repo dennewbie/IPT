@@ -50,12 +50,21 @@ public class AddMembershipViewController extends TravelDocumentsManagementViewCo
         LocalDate startDate = startDatePicker.getValue();
         if (!super.checkDatePickersContent(startDatePicker) || Integer.valueOf(quantityTextField.getText()) <= 0) { super.raiseErrorAlert("Hai lasciato uno o più campi vuoti"); return; }
         if (startDate.isBefore(LocalDate.now()) || startDate.isEqual(LocalDate.now())) { super.raiseErrorAlert("Non puoi comprare un abbonamento che ha una data di inizio validità nel passato."); return; }
-        // aggiunta al carrello
+
+        // create membership factory
         int quantity = Integer.valueOf(quantityTextField.getText());
         super.myTravelDocumentFactory = new MembershipConcreteFactory();
+
+        // for each membership in citizen order
         for (int i = 0; i < quantity; i++) {
+
+            // create membership
             setMyMembership((Membership) super.myTravelDocumentFactory.createTravelDocument(MyConstants.membershipPrice, LocalDate.now(), startDate.plusYears(1), null, null, null, null, startDate));
+
+            // add membership to order
             super.getOrder().addTravelDocument(getMyMembership());
+
+            // set order to observer
             super.setOrder(new Order(null, super.getOrder().getPurchaseDate(), super.getOrder().getPurchasePrice(), super.getOrder().getCitizenID(), super.getOrder().getPaymentMethodStrategy(), super.getOrder().getPurchaseList(), super.getOrder().getPurchaseObservableList()));
         }
         super.raiseConfirmationAlert("Abbonamento/i aggiunto/i correttamente al carrello!");
