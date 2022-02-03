@@ -349,7 +349,6 @@ public class FacadeSingleton {
             LocalDate queryBirthDate = queryOutput.getDate("data_nascita").toLocalDate();
 
             retrievedCitizen = new Citizen(queryName, querySurname, queryBirthDate, queryEmail, queryPassword, queryUsername);
-
         } catch (SQLException e) {
             Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, e);
             e.printStackTrace();
@@ -364,7 +363,7 @@ public class FacadeSingleton {
         return true;
     }
 
-    public static boolean checkValidityCitizenID(Citizen localCitizen) {
+    public static boolean validateGeneratedCitizenID(Citizen localCitizen) {
         String checkCitizenQueryTemplate = "select * from cittadino where cittadino.id_cittadino = \"" + localCitizen.getCitizenID() + "\";";
         try {
             if (!executeQuery(checkCitizenQueryTemplate)) return true;
