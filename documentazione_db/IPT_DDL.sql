@@ -40,9 +40,11 @@ CREATE TABLE `ipt`.`transazione` (
   CONSTRAINT `id_cittadino` FOREIGN KEY (`id_cittadino`) REFERENCES `ipt`.`cittadino` (`id_cittadino`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `check_costo1` check (`costo` > 0),
   CONSTRAINT `check_metodo_pagamento1` check ( `metodo_pagamento` IN (
-	'CREDIT CARD', 'Credit Card', 'credit card',
-    'PAYPAL', 'Paypal', 'paypal',
-    'PHONE BILL', 'Phone Bill', 'phone bill'))    
+	'CREDIT CARD', 'Credit Card', 'credit card',  
+    'CARTA DI CREDITO', 'Carta di Credito',
+    'PAYPAL', 'Paypal', 'paypal', 'PayPal',
+    'PHONE BILL', 'Phone Bill', 'phone bill',
+    'Addebito numero di telefono'))    
 );
 
 CREATE TABLE `ipt`.`linea` (
