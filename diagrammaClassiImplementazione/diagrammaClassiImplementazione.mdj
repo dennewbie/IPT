@@ -5070,7 +5070,7 @@
 											"font": "Arial;13;0",
 											"left": 8573,
 											"top": 541,
-											"width": 99.65185546875,
+											"width": 1101.08349609375,
 											"height": 13,
 											"text": "«entity»"
 										},
@@ -5083,7 +5083,7 @@
 											"font": "Arial;13;1",
 											"left": 8573,
 											"top": 556,
-											"width": 99.65185546875,
+											"width": 1101.08349609375,
 											"height": 13,
 											"text": "SingleTicket"
 										},
@@ -5118,7 +5118,7 @@
 									"font": "Arial;13;0",
 									"left": 8568,
 									"top": 536,
-									"width": 109.65185546875,
+									"width": 1111.08349609375,
 									"height": 38,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF95D6Y+gLheio="
@@ -5142,11 +5142,64 @@
 									"model": {
 										"$ref": "AAAAAAF95D6Y+QLdI1Y="
 									},
+									"subViews": [
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF+xvWGi8Z52dk=",
+											"_parent": {
+												"$ref": "AAAAAAF95D6Y+gLlmBM="
+											},
+											"model": {
+												"$ref": "AAAAAAF+xvWGLsZqn/k="
+											},
+											"font": "Arial;13;0",
+											"left": 8573,
+											"top": 579,
+											"width": 1101.08349609375,
+											"height": 13,
+											"text": "-lineID: String",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF+xvXeQsj265g=",
+											"_parent": {
+												"$ref": "AAAAAAF95D6Y+gLlmBM="
+											},
+											"model": {
+												"$ref": "AAAAAAF+xvXdscjnQjM="
+											},
+											"font": "Arial;13;0",
+											"left": 8573,
+											"top": 594,
+											"width": 1101.08349609375,
+											"height": 13,
+											"text": "-rideID: String",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF+xvX6A8o45tw=",
+											"_parent": {
+												"$ref": "AAAAAAF95D6Y+gLlmBM="
+											},
+											"model": {
+												"$ref": "AAAAAAF+xvX5ocopeUs="
+											},
+											"font": "Arial;13;0",
+											"left": 8573,
+											"top": 609,
+											"width": 1101.08349609375,
+											"height": 13,
+											"text": "-stampDate: LocalDate",
+											"horizontalAlignment": 0
+										}
+									],
 									"font": "Arial;13;0",
 									"left": 8568,
 									"top": 574,
-									"width": 109.65185546875,
-									"height": 10
+									"width": 1111.08349609375,
+									"height": 53
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -5157,11 +5210,200 @@
 									"model": {
 										"$ref": "AAAAAAF95D6Y+QLdI1Y="
 									},
+									"subViews": [
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAF+xvagzc9bSP4=",
+											"_parent": {
+												"$ref": "AAAAAAF95D6Y+gLmcrg="
+											},
+											"model": {
+												"$ref": "AAAAAAF+xvagns9MG1g="
+											},
+											"font": "Arial;13;0",
+											"left": 8573,
+											"top": 632,
+											"width": 1101.08349609375,
+											"height": 13,
+											"text": "+SingleTicket(price: Double, issueDate: LocalDate, expirationDate: LocalDate, transactionID: String, lineID: String, rideID: String, stampDate: LocalDate)",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAF+xvldmtXEfdM=",
+											"_parent": {
+												"$ref": "AAAAAAF95D6Y+gLmcrg="
+											},
+											"model": {
+												"$ref": "AAAAAAF+xvldbtW1Zp4="
+											},
+											"font": "Arial;13;0",
+											"left": 8573,
+											"top": 647,
+											"width": 1101.08349609375,
+											"height": 13,
+											"text": "-setRideID(newRideID: String): void",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAF+xvnkaddkBiE=",
+											"_parent": {
+												"$ref": "AAAAAAF95D6Y+gLmcrg="
+											},
+											"model": {
+												"$ref": "AAAAAAF+xvnj5ddVAHA="
+											},
+											"font": "Arial;13;0",
+											"left": 8573,
+											"top": 662,
+											"width": 1101.08349609375,
+											"height": 13,
+											"text": "-setLineID(newLineID: String): void",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAF+xvoaTNkEiWo=",
+											"_parent": {
+												"$ref": "AAAAAAF95D6Y+gLmcrg="
+											},
+											"model": {
+												"$ref": "AAAAAAF+xvoaL9j1dgw="
+											},
+											"font": "Arial;13;0",
+											"left": 8573,
+											"top": 677,
+											"width": 1101.08349609375,
+											"height": 13,
+											"text": "-setStampDate(newStampDate: LocalDate): void",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAF+xvpYrNqkbUY=",
+											"_parent": {
+												"$ref": "AAAAAAF95D6Y+gLmcrg="
+											},
+											"model": {
+												"$ref": "AAAAAAF+xvpYcdqV/vU="
+											},
+											"font": "Arial;13;0",
+											"left": 8573,
+											"top": 692,
+											"width": 1101.08349609375,
+											"height": 13,
+											"text": "+getRideID(): String",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAF+xvqVGtwVRoI=",
+											"_parent": {
+												"$ref": "AAAAAAF95D6Y+gLmcrg="
+											},
+											"model": {
+												"$ref": "AAAAAAF+xvqU/twGNPk="
+											},
+											"font": "Arial;13;0",
+											"left": 8573,
+											"top": 707,
+											"width": 1101.08349609375,
+											"height": 13,
+											"text": "+gelLineID(): String",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAF+xvq1yt2Gv2Q=",
+											"_parent": {
+												"$ref": "AAAAAAF95D6Y+gLmcrg="
+											},
+											"model": {
+												"$ref": "AAAAAAF+xvq1r913bhU="
+											},
+											"font": "Arial;13;0",
+											"left": 8573,
+											"top": 722,
+											"width": 1101.08349609375,
+											"height": 13,
+											"text": "+getStampDate(): LocalDate",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAF+xvrVj973F0Q=",
+											"_parent": {
+												"$ref": "AAAAAAF95D6Y+gLmcrg="
+											},
+											"model": {
+												"$ref": "AAAAAAF+xvrVFt7o+TI="
+											},
+											"font": "Arial;13;0",
+											"left": 8573,
+											"top": 737,
+											"width": 1101.08349609375,
+											"height": 13,
+											"text": "+hashCode(): Int",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAF+xvrveeBofFY=",
+											"_parent": {
+												"$ref": "AAAAAAF95D6Y+gLmcrg="
+											},
+											"model": {
+												"$ref": "AAAAAAF+xvru/+BZiK0="
+											},
+											"font": "Arial;13;0",
+											"left": 8573,
+											"top": 752,
+											"width": 1101.08349609375,
+											"height": 13,
+											"text": "+toString(): String",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAF+xvsHaOHZYjY=",
+											"_parent": {
+												"$ref": "AAAAAAF95D6Y+gLmcrg="
+											},
+											"model": {
+												"$ref": "AAAAAAF+xvsHAuHKynY="
+											},
+											"font": "Arial;13;0",
+											"left": 8573,
+											"top": 767,
+											"width": 1101.08349609375,
+											"height": 13,
+											"text": "+toTravelDocumentFX(): TravelDocumentFX",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAF+xv2PAebcg6c=",
+											"_parent": {
+												"$ref": "AAAAAAF95D6Y+gLmcrg="
+											},
+											"model": {
+												"$ref": "AAAAAAF+xv2O4ObN5ks="
+											},
+											"font": "Arial;13;0",
+											"left": 8573,
+											"top": 782,
+											"width": 1101.08349609375,
+											"height": 13,
+											"text": "+updateTravelDocument(price: Double, issueDate: Local Date, expirationDate: LocalDate, transactionID: String, lineID: String, rideID: String, stampDate: LocalDate, startDate: LocalDate): void",
+											"horizontalAlignment": 0
+										}
+									],
 									"font": "Arial;13;0",
 									"left": 8568,
-									"top": 584,
-									"width": 109.65185546875,
-									"height": 10
+									"top": 627,
+									"width": 1111.08349609375,
+									"height": 173
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -5200,8 +5442,8 @@
 							"containerChangeable": true,
 							"left": 8568,
 							"top": 536,
-							"width": 109.65185546875,
-							"height": 58,
+							"width": 1111.08349609375,
+							"height": 279,
 							"nameCompartment": {
 								"$ref": "AAAAAAF95D6Y+gLg3eA="
 							},
@@ -5245,8 +5487,8 @@
 												"$ref": "AAAAAAF95D64ngOaY6Y="
 											},
 											"font": "Arial;13;0",
-											"left": 8581,
-											"top": 645,
+											"left": 8541,
+											"top": 997,
 											"width": 141.755859375,
 											"height": 13,
 											"text": "«entity»"
@@ -5258,8 +5500,8 @@
 												"$ref": "AAAAAAF95D64ngOaY6Y="
 											},
 											"font": "Arial;13;1",
-											"left": 8581,
-											"top": 660,
+											"left": 8541,
+											"top": 1012,
 											"width": 141.755859375,
 											"height": 13,
 											"text": "Membership"
@@ -5272,8 +5514,8 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 4224,
-											"top": 80,
+											"left": 4144,
+											"top": 784,
 											"width": 237.68798828125,
 											"height": 13,
 											"text": "(from diagrammaClassiImplementazione)"
@@ -5286,15 +5528,15 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 4224,
-											"top": 80,
+											"left": 4144,
+											"top": 784,
 											"height": 13,
 											"horizontalAlignment": 1
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 8576,
-									"top": 640,
+									"left": 8536,
+									"top": 992,
 									"width": 151.755859375,
 									"height": 38,
 									"stereotypeLabel": {
@@ -5330,8 +5572,8 @@
 												"$ref": "AAAAAAF95EaAYSdb4Ow="
 											},
 											"font": "Arial;13;0",
-											"left": 8581,
-											"top": 683,
+											"left": 8541,
+											"top": 1035,
 											"width": 141.755859375,
 											"height": 13,
 											"text": "-startDate: Date",
@@ -5339,8 +5581,8 @@
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 8576,
-									"top": 678,
+									"left": 8536,
+									"top": 1030,
 									"width": 151.755859375,
 									"height": 23
 								},
@@ -5354,8 +5596,8 @@
 										"$ref": "AAAAAAF95D64ngOXC3Q="
 									},
 									"font": "Arial;13;0",
-									"left": 8576,
-									"top": 701,
+									"left": 8536,
+									"top": 1053,
 									"width": 151.755859375,
 									"height": 10
 								},
@@ -5370,8 +5612,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 4160,
-									"top": 40,
+									"left": 4120,
+									"top": 392,
 									"width": 10,
 									"height": 10
 								},
@@ -5386,16 +5628,16 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 4160,
-									"top": 40,
+									"left": 4120,
+									"top": 392,
 									"width": 10,
 									"height": 10
 								}
 							],
 							"font": "Arial;13;0",
 							"containerChangeable": true,
-							"left": 8576,
-							"top": 640,
+							"left": 8536,
+							"top": 992,
 							"width": 151.755859375,
 							"height": 71,
 							"nameCompartment": {
@@ -5436,7 +5678,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 8137,
-									"top": 595,
+									"top": 786,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -5457,7 +5699,7 @@
 									"visible": null,
 									"font": "Arial;13;0",
 									"left": 8122,
-									"top": 595,
+									"top": 786,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 30,
@@ -5477,8 +5719,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 8166,
-									"top": 596,
+									"left": 8167,
+									"top": 787,
 									"height": 13,
 									"alpha": -1.5707963267948966,
 									"distance": 15,
@@ -5495,7 +5737,7 @@
 							"tail": {
 								"$ref": "AAAAAAF95D64ngOZ8LQ="
 							},
-							"points": "8576:645;8152:645;8152:560;8083:560",
+							"points": "8536:1027;8152:1027;8152:560;8083:560",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAF95D+XdAmZm/8="
@@ -18997,7 +19239,406 @@
 							}
 						}
 					],
-					"stereotype": "entity"
+					"stereotype": "entity",
+					"attributes": [
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF+xvWGLsZqn/k=",
+							"_parent": {
+								"$ref": "AAAAAAF95D6Y+QLdI1Y="
+							},
+							"name": "lineID",
+							"visibility": "private",
+							"type": "String"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF+xvXdscjnQjM=",
+							"_parent": {
+								"$ref": "AAAAAAF95D6Y+QLdI1Y="
+							},
+							"name": "rideID",
+							"visibility": "private",
+							"type": "String"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF+xvX5ocopeUs=",
+							"_parent": {
+								"$ref": "AAAAAAF95D6Y+QLdI1Y="
+							},
+							"name": "stampDate",
+							"visibility": "private",
+							"type": "LocalDate"
+						}
+					],
+					"operations": [
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAF+xvagns9MG1g=",
+							"_parent": {
+								"$ref": "AAAAAAF95D6Y+QLdI1Y="
+							},
+							"name": "SingleTicket",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF+xvlWfNQSus0=",
+									"_parent": {
+										"$ref": "AAAAAAF+xvagns9MG1g="
+									},
+									"name": "price",
+									"type": "Double"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF+xvlWftQTbX4=",
+									"_parent": {
+										"$ref": "AAAAAAF+xvagns9MG1g="
+									},
+									"name": "issueDate",
+									"type": "LocalDate"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF+xvlWf9QUE8I=",
+									"_parent": {
+										"$ref": "AAAAAAF+xvagns9MG1g="
+									},
+									"name": "expirationDate",
+									"type": "LocalDate"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF+xvlWgNQVads=",
+									"_parent": {
+										"$ref": "AAAAAAF+xvagns9MG1g="
+									},
+									"name": "transactionID",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF+xvlWgdQWDlU=",
+									"_parent": {
+										"$ref": "AAAAAAF+xvagns9MG1g="
+									},
+									"name": "lineID",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF+xvlWgdQXGQM=",
+									"_parent": {
+										"$ref": "AAAAAAF+xvagns9MG1g="
+									},
+									"name": "rideID",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF+xvlWgtQYRAs=",
+									"_parent": {
+										"$ref": "AAAAAAF+xvagns9MG1g="
+									},
+									"name": "stampDate",
+									"type": "LocalDate"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAF+xvldbtW1Zp4=",
+							"_parent": {
+								"$ref": "AAAAAAF95D6Y+QLdI1Y="
+							},
+							"name": "setRideID",
+							"visibility": "private",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF+xvnh3Nadhjc=",
+									"_parent": {
+										"$ref": "AAAAAAF+xvldbtW1Zp4="
+									},
+									"name": "newRideID",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF+xvnh3daeM/w=",
+									"_parent": {
+										"$ref": "AAAAAAF+xvldbtW1Zp4="
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAF+xvnj5ddVAHA=",
+							"_parent": {
+								"$ref": "AAAAAAF95D6Y+QLdI1Y="
+							},
+							"name": "setLineID",
+							"visibility": "private",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF+xvoX8dg9Pos=",
+									"_parent": {
+										"$ref": "AAAAAAF+xvnj5ddVAHA="
+									},
+									"name": "newLineID",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF+xvoX8tg+UBI=",
+									"_parent": {
+										"$ref": "AAAAAAF+xvnj5ddVAHA="
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAF+xvoaL9j1dgw=",
+							"_parent": {
+								"$ref": "AAAAAAF95D6Y+QLdI1Y="
+							},
+							"name": "setStampDate",
+							"visibility": "private",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF+xvpWY9ndCdM=",
+									"_parent": {
+										"$ref": "AAAAAAF+xvoaL9j1dgw="
+									},
+									"name": "newStampDate",
+									"type": "LocalDate"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF+xvpWZNnet0k=",
+									"_parent": {
+										"$ref": "AAAAAAF+xvoaL9j1dgw="
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAF+xvpYcdqV/vU=",
+							"_parent": {
+								"$ref": "AAAAAAF95D6Y+QLdI1Y="
+							},
+							"name": "getRideID",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF+xvqTxtt9FCE=",
+									"_parent": {
+										"$ref": "AAAAAAF+xvpYcdqV/vU="
+									},
+									"type": "String",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAF+xvqU/twGNPk=",
+							"_parent": {
+								"$ref": "AAAAAAF95D6Y+QLdI1Y="
+							},
+							"name": "gelLineID",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF+xvq0gdzuR+M=",
+									"_parent": {
+										"$ref": "AAAAAAF+xvqU/twGNPk="
+									},
+									"type": "String",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAF+xvq1r913bhU=",
+							"_parent": {
+								"$ref": "AAAAAAF95D6Y+QLdI1Y="
+							},
+							"name": "getStampDate",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF+xvrT795f+Zc=",
+									"_parent": {
+										"$ref": "AAAAAAF+xvq1r913bhU="
+									},
+									"type": "LocalDate",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAF+xvrVFt7o+TI=",
+							"_parent": {
+								"$ref": "AAAAAAF95D6Y+QLdI1Y="
+							},
+							"name": "hashCode",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF+xvrtqt/QP6s=",
+									"_parent": {
+										"$ref": "AAAAAAF+xvrVFt7o+TI="
+									},
+									"type": "Int",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAF+xvru/+BZiK0=",
+							"_parent": {
+								"$ref": "AAAAAAF95D6Y+QLdI1Y="
+							},
+							"name": "toString",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF+xvsF2OFBHDQ=",
+									"_parent": {
+										"$ref": "AAAAAAF+xvru/+BZiK0="
+									},
+									"type": "String",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAF+xvsHAuHKynY=",
+							"_parent": {
+								"$ref": "AAAAAAF95D6Y+QLdI1Y="
+							},
+							"name": "toTravelDocumentFX",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF+xvtDXeKyNbk=",
+									"_parent": {
+										"$ref": "AAAAAAF+xvsHAuHKynY="
+									},
+									"type": "TravelDocumentFX",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAF+xv2O4ObN5ks=",
+							"_parent": {
+								"$ref": "AAAAAAF95D6Y+QLdI1Y="
+							},
+							"name": "updateTravelDocument",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF+xv6S4Oe1gjI=",
+									"_parent": {
+										"$ref": "AAAAAAF+xv2O4ObN5ks="
+									},
+									"name": "price",
+									"type": "Double"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF+xv6S4ue2ARI=",
+									"_parent": {
+										"$ref": "AAAAAAF+xv2O4ObN5ks="
+									},
+									"name": "issueDate",
+									"type": "Local Date"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF+xv6S4ue38as=",
+									"_parent": {
+										"$ref": "AAAAAAF+xv2O4ObN5ks="
+									},
+									"name": "expirationDate",
+									"type": "LocalDate"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF+xv6S4+e4mhk=",
+									"_parent": {
+										"$ref": "AAAAAAF+xv2O4ObN5ks="
+									},
+									"name": "transactionID",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF+xv6S4+e5moY=",
+									"_parent": {
+										"$ref": "AAAAAAF+xv2O4ObN5ks="
+									},
+									"name": "lineID",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF+xv6S4+e6bzM=",
+									"_parent": {
+										"$ref": "AAAAAAF+xv2O4ObN5ks="
+									},
+									"name": "rideID",
+									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF+xv6S5Oe7tbM=",
+									"_parent": {
+										"$ref": "AAAAAAF+xv2O4ObN5ks="
+									},
+									"name": "stampDate",
+									"type": "LocalDate"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF+xv6S5Oe8lt0=",
+									"_parent": {
+										"$ref": "AAAAAAF+xv2O4ObN5ks="
+									},
+									"name": "startDate",
+									"type": "LocalDate"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF+xv6S5ee9oSs=",
+									"_parent": {
+										"$ref": "AAAAAAF+xv2O4ObN5ks="
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
+						}
+					]
 				},
 				{
 					"_type": "UMLClass",
