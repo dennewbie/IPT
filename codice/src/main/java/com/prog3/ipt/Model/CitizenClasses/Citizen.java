@@ -5,7 +5,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 /**
- * Citizen is a class that extends User abstract class which rapresents a Citizen and his data registered
+ * Citizen is a class that extends User abstract class which represents a Citizen and his data registered
  * into the system
  */
 public class Citizen extends User {
