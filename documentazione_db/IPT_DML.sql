@@ -1,4 +1,10 @@
 
+-- salt table
+INSERT INTO `ipt`.`salttable`
+(`salt`)
+VALUES
+('ql9SEufUJiSHYUI5ti70bSRR7FwK0b');
+
 -- cittadino
 
 INSERT INTO `ipt`.`cittadino`

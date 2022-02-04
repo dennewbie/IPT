@@ -10,8 +10,16 @@ import com.prog3.ipt.Model.LineRide.Notice;
 import com.prog3.ipt.Model.TravelDocumentClasses.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.security.spec.InvalidKeySpecException;
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.Base64;
+import java.util.Random;
 import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,6 +37,13 @@ public class FacadeSingleton {
     private static ObservableList<RideLineFX> lineRideObservableList;
     private static ObservableList<TravelDocumentFX> travelDocumentObservableList;
 
+    private static final Random RANDOM = new SecureRandom();
+    private static final String ALPHABET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    private static final int ITERATIONS = 10000;
+    private static final int KEY_LENGTH = 256;
+    // Generate Salt. The generated value can be stored in DB.
+    public static String salt;
+
 
     private FacadeSingleton() {
         /** Protect against instantiation via reflection */
@@ -39,7 +54,14 @@ public class FacadeSingleton {
      * The instance doesn't get created until the method is called for the first time.
      */
     public static FacadeSingleton getInstance() {
-        if (instance == null) { synchronized (FacadeSingleton.class) { if (instance == null) instance = new FacadeSingleton(); } }
+        if (instance == null) {
+            synchronized (FacadeSingleton.class) {
+                if (instance == null) {
+                    instance = new FacadeSingleton();
+                    FacadeSingleton.getSaltFromDB();
+                }
+            }
+        }
         return instance;
     }
 
@@ -179,6 +201,22 @@ public class FacadeSingleton {
         return true;
     }
 
+    /**
+    *   Get salt from DB
+     */
+    private static boolean getSaltFromDB() {
+        String templateQuerySelectSalt = "select salt from salttable;";
+        if (!executeQuery(templateQuerySelectSalt)) return false;
+        try {
+            if (!FacadeSingleton.queryOutput.next()) return false;
+            salt  = queryOutput.getString("salt");
+        } catch (SQLException e) {
+            Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, e);
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
 
     /**
      * Query richieste da TravelDocumentManagementViewController
@@ -421,7 +459,7 @@ public class FacadeSingleton {
 
             FacadeSingleton.preparedStatement.setString(1, newCitizen.getCitizenID());
             FacadeSingleton.preparedStatement.setString(2, newCitizen.getUsername());
-            FacadeSingleton.preparedStatement.setString(3, newCitizen.getPassword());
+            FacadeSingleton.preparedStatement.setString(3, FacadeSingleton.generateSecurePassword(newCitizen.getPassword(), FacadeSingleton.salt));
             FacadeSingleton.preparedStatement.setString(4, newCitizen.getEmail());
             FacadeSingleton.preparedStatement.setString(5, newCitizen.getName());
             FacadeSingleton.preparedStatement.setString(6, newCitizen.getSurname());
@@ -440,7 +478,7 @@ public class FacadeSingleton {
     private static boolean updateCitizenQuerySender(String queryTemplate, Citizen newCitizen) {
         try {
             if (!FacadeSingleton.updatePreparedStatement(queryTemplate)) return false;
-            FacadeSingleton.preparedStatement.setString(1, newCitizen.getPassword());
+            FacadeSingleton.preparedStatement.setString(1, FacadeSingleton.generateSecurePassword(newCitizen.getPassword(), FacadeSingleton.salt));
             FacadeSingleton.preparedStatement.setString(2, newCitizen.getEmail());
             FacadeSingleton.preparedStatement.setString(3, newCitizen.getName());
             FacadeSingleton.preparedStatement.setString(4, newCitizen.getSurname());
@@ -448,6 +486,7 @@ public class FacadeSingleton {
             FacadeSingleton.preparedStatement.setString(6, newCitizen.getCitizenID());
             FacadeSingleton.queryOutputDML = FacadeSingleton.preparedStatement.executeUpdate();
 
+            System.out.println("NUOVA PASS: " + newCitizen.getPassword());
             if (FacadeSingleton.queryOutputDML == 0) return false;
         } catch (SQLException e) {
             Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, e);
@@ -458,7 +497,7 @@ public class FacadeSingleton {
     }
     public static Citizen retrieveCitizen(String citizenUsername, String citizenPassword) {
         Citizen retrievedCitizen;
-        String queryCitizen = "select * from cittadino where username = \""+ citizenUsername +"\" and password = \"" + citizenPassword + "\";";
+        String queryCitizen = "select * from cittadino where cittadino.username = \"" + citizenUsername + "\";";
         if (!FacadeSingleton.executeQuery(queryCitizen)) return null;
         try {
             if (!FacadeSingleton.queryOutput.next()) return null;
@@ -470,8 +509,8 @@ public class FacadeSingleton {
             String querySurname = FacadeSingleton.queryOutput.getString("cognome");
             LocalDate queryBirthDate = FacadeSingleton.queryOutput.getDate("data_nascita").toLocalDate();
 
-            retrievedCitizen = new Citizen(queryCitizenID, queryName, querySurname, queryBirthDate, queryEmail, queryPassword, queryUsername);
-            if (!citizenUsername.equals(queryUsername) || !citizenPassword.equals(queryPassword)) return null;
+            if (!FacadeSingleton.verifyUserPassword(citizenPassword, queryPassword, FacadeSingleton.salt)) return null;
+            retrievedCitizen = new Citizen(queryCitizenID, queryName, querySurname, queryBirthDate, queryEmail, citizenPassword, queryUsername);
         } catch (SQLException e) {
             Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, e);
             e.printStackTrace();
@@ -528,5 +567,43 @@ public class FacadeSingleton {
             ex.printStackTrace();
         }
         return true;
+    }
+
+    /**
+     * Password encrypt
+     */
+    private static String getSalt(int length) {
+        StringBuilder returnValue = new StringBuilder(length);
+        for (int i = 0; i < length; i++) returnValue.append(ALPHABET.charAt(RANDOM.nextInt(ALPHABET.length())));
+        return new String(returnValue);
+    }
+
+    private static byte[] hash(char[] password, byte[] salt) {
+        PBEKeySpec spec = new PBEKeySpec(password, salt, ITERATIONS, KEY_LENGTH);
+        Arrays.fill(password, Character.MIN_VALUE);
+        try {
+            SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+            return skf.generateSecret(spec).getEncoded();
+        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+            throw new AssertionError("Error while hashing a password: " + e.getMessage(), e);
+        } finally {
+            spec.clearPassword();
+        }
+    }
+
+    private static String generateSecurePassword(String password, String salt) {
+        String returnValue = null;
+        byte[] securePassword = hash(password.toCharArray(), salt.getBytes());
+        returnValue = Base64.getEncoder().encodeToString(securePassword);
+        return returnValue;
+    }
+
+    private static boolean verifyUserPassword(String providedPassword, String securedPassword, String salt) {
+        boolean returnValue = false;
+        // Generate New secure password with the same salt
+        String newSecurePassword = generateSecurePassword(providedPassword, salt);
+        // Check if two passwords are equal
+        returnValue = newSecurePassword.equalsIgnoreCase(securedPassword);
+        return returnValue;
     }
 }

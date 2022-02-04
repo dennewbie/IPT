@@ -8,14 +8,19 @@ DROP TABLE  IF EXISTS  `ipt`.`avviso_utenza` CASCADE;
 DROP TABLE  IF EXISTS  `ipt`.`biglietto` CASCADE;
 DROP TABLE  IF EXISTS  `ipt`.`abbonamento` CASCADE;
 DROP TABLE  IF EXISTS  `ipt`.`convalida_abbonamento` CASCADE;
+DROP TABLE  IF EXISTS  `ipt`.`salttable` CASCADE;
 
 SET FOREIGN_KEY_CHECKS = 1;
 
+CREATE TABLE `ipt`.`salttable` (
+  `salt` VARCHAR(50) NOT NULL,
+  PRIMARY KEY (`salt`)
+);
 
 CREATE TABLE `ipt`.`cittadino` (
   `id_cittadino` CHAR(5) NOT NULL,
   `username` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(100) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
   `nome` VARCHAR(45) NOT NULL,
   `cognome` VARCHAR(45) NOT NULL,
