@@ -18,8 +18,8 @@
                   <TableColumn fx:id="lineIDTableColumn" prefWidth="95.99999618530273" text="Linea" />
                   <TableColumn fx:id="rideIDTableColumn" prefWidth="91.19998168945312" text="Corsa" />
                 <TableColumn fx:id="noticeDateTableColumn" prefWidth="105.60005187988281" text="Data" />
-                  <TableColumn fx:id="noticeNameTableColumn" prefWidth="307.199951171875" text="Nome Avviso" />
-                  <TableColumn fx:id="noticeTextTableColumn" maxWidth="1000.0" minWidth="0.0" prefWidth="1000.0" text="Testo" />
+                  <TableColumn fx:id="noticeNameTableColumn" prefWidth="237.0" text="Nome Avviso" />
+                  <TableColumn fx:id="noticeTextTableColumn" maxWidth="1013.0" minWidth="0.0" prefWidth="1013.0" text="Testo" />
               </columns>
             </TableView>
          </children></Pane>
