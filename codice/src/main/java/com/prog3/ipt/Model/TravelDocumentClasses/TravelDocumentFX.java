@@ -5,6 +5,9 @@ import com.prog3.ipt.Model.MyConstants;
 import java.time.LocalDate;
 import java.util.Objects;
 
+/**
+ * TravelDocumentFX is a class made to display content in a TableView JavaFX object.
+ */
 public class TravelDocumentFX {
     // Travel Document
     private String travelDocumentID;
@@ -22,6 +25,19 @@ public class TravelDocumentFX {
 
 
     // Constructor
+
+    /**
+     * TravelDocumentFX constructor
+     * @param travelDocumentID The unique identifier of the travel document
+     * @param price The price of the travel document
+     * @param issueDate The issue date of the travel document
+     * @param expirationDate The date of expire of the travel document
+     * @param transactionID The unique identifier of the transaction which contains travel documents bought by the citizen
+     * @param lineID The unique identifier of the line if the travel document is a single ticket
+     * @param rideID The unique identifier of the ride if the travel document is a single ticket
+     * @param stampDate The stamp date of the travel document, in particular a single ticket
+     * @param startDate The validity start date of the travel document if it is a membership
+     */
     public TravelDocumentFX(String travelDocumentID, double price, LocalDate issueDate, LocalDate expirationDate, String transactionID, String lineID, String rideID, LocalDate stampDate, LocalDate startDate) {
         this.travelDocumentID = travelDocumentID;
         this.price = price;
@@ -33,6 +49,12 @@ public class TravelDocumentFX {
         this.stampDate = stampDate;
         this.startDate = startDate;
     }
+
+    /**
+     * TravelDocumentFX constructor
+     * Builds a TravelDocumentFX object according to the TravelDocument object
+     * @param travelDocument A reference to a generic TravelDocument object
+     */
     public TravelDocumentFX(TravelDocument travelDocument) {
         this.travelDocumentID = travelDocument.getTravelDocumentID();
         this.price = travelDocument.getPrice();
@@ -44,6 +66,12 @@ public class TravelDocumentFX {
         this.stampDate = null;
         this.startDate = null;
     }
+
+    /**
+     * TravelDocumentFX constructor
+     * Builds a TravelDocumentFX object according to a SingleTicket object
+     * @param travelDocument A reference to a SingleTicket object
+     */
     public TravelDocumentFX(SingleTicket travelDocument) {
         this.travelDocumentID = travelDocument.getTravelDocumentID();
         this.price = travelDocument.getPrice();
@@ -55,6 +83,12 @@ public class TravelDocumentFX {
         this.stampDate = travelDocument.getStampDate();
         this.startDate = null;
     }
+
+    /**
+     * TravelDocumentFX constructor
+     * Builds a TravelDocumentFX object according to a Membership object
+     * @param travelDocument A reference to a Membership object
+     */
     public TravelDocumentFX(Membership travelDocument) {
         this.travelDocumentID = travelDocument.getTravelDocumentID();
         this.price = travelDocument.getPrice();
@@ -90,6 +124,11 @@ public class TravelDocumentFX {
     public LocalDate getStartDate() { return startDate; }
 
     // Others
+
+    /**
+     * Produces a TravelDocument object according to the TravelDocumentFX object calling this method
+     * @return A reference to a TravelDocument object
+     */
     public TravelDocument toTravelDocument() {
         TravelDocumentFactory travelDocumentFactory = null;
         TravelDocument travelDocument = null;

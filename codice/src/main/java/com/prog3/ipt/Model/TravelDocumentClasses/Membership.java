@@ -6,11 +6,21 @@ import java.time.LocalDate;
 import java.util.Objects;
 import java.util.UUID;
 
+/**
+ * Membership is a class that extends TravelDocument abstract class
+ */
 public class Membership extends TravelDocument {
     private LocalDate startDate;
 
 
-
+    /**
+     * Membership constructor
+     * @param price The price of the membership
+     * @param issueDate The issue date of the membership
+     * @param expirationDate The date of expire of the membership
+     * @param transactionID The unique identifier of the transaction which contains travel documents bought by the citizen
+     * @param startDate The validity start date of the membership
+     */
     public Membership(double price, LocalDate issueDate, LocalDate expirationDate, String transactionID, LocalDate startDate) {
         super(price, issueDate, expirationDate, transactionID);
         setStartDate(startDate);
@@ -43,6 +53,10 @@ public class Membership extends TravelDocument {
     @Override
     public String toString() { return "Membership{ startDate=" + startDate +  '}'; }
 
+    /**
+     * Produces a Membership object according to the TravelDocumentFX object calling this method
+     * @return A reference to a TravelDocumentFX object
+     */
     @Override
     public TravelDocumentFX toTravelDocumentFX() {
         TravelDocumentFX travelDocumentFX =  super.toTravelDocumentFX();
@@ -50,6 +64,17 @@ public class Membership extends TravelDocument {
         return travelDocumentFX;
     }
 
+    /**
+     * Updates Membership object according to new parameters
+     * @param price The price of the membership
+     * @param issueDate The issue date of the membership
+     * @param expirationDate The date of expire of the membership
+     * @param transactionID The unique identifier of the transaction which contains travel documents bought by the citizen
+     * @param lineID The unique identifier of the line if the travel document is a single ticket
+     * @param rideID The unique identifier of the ride if the travel document is a single ticket
+     * @param stampDate The stamp date of the single ticket
+     * @param startDate The validity start date of the membership
+     */
     @Override
     public void updateTravelDocument(double price, LocalDate issueDate, LocalDate expirationDate, String transactionID, String lineID, String rideID, LocalDate stampDate, LocalDate startDate) {
         super.setPrice(price); super.setIssueDate(issueDate); super.setExpirationDate(expirationDate); super.setTransactionID(transactionID); setStartDate(startDate);
