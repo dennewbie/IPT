@@ -42,6 +42,8 @@ public class InfoViewController extends ViewController {
     private TableColumn<RideLineFX, Time> lineOpeningHourTableColumn;
     @FXML
     private TableColumn<RideLineFX, Time> lineClosingHourTableColumn;
+
+
     // Ride Columns
     @FXML
     private TableColumn<RideLineFX, String> rideIDTableColumn;
@@ -78,6 +80,8 @@ public class InfoViewController extends ViewController {
         rideStartingHourTableColumn.setCellValueFactory(new PropertyValueFactory<>("rideStartingHour"));
         rideEndingHourTableColumn.setCellValueFactory(new PropertyValueFactory<>("rideEndingHour"));
         ridePriorityTableColumn.setCellValueFactory(new PropertyValueFactory<>("ridePriority"));
+
+        // set items to table view
         lineRideTableView.setItems(rideLineFXObservableList);
     }
 }

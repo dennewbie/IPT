@@ -54,6 +54,7 @@ public class NoticesViewController extends ViewController {
         noticeNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("noticeName"));
         noticeTextTableColumn.setCellValueFactory(new PropertyValueFactory<>("noticeText"));
 
+        // set items to notice table view
         noticesTableView.setItems(noticeObservableList);
     }
 }

@@ -61,13 +61,13 @@ public class MySingleTicketsViewController extends TravelDocumentsManagementView
         stampDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("stampDate"));
         expirationDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("expirationDate"));
         priceTableColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
-        // deleteTableColumn.setCellValueFactory(new PropertyValueFactory<>());
         deleteRowTableColumn.setCellFactory(ActionDeleteButtonTableCell.<TravelDocumentFX>forTableColumn("Elimina Titolo Viaggio", (TravelDocumentFX singleTravelDocumentFX) -> {
             mySingleTicketsTableView.getItems().remove(singleTravelDocumentFX);
             if (!FacadeSingleton.deleteMySingleTicket(singleTravelDocumentFX)) { raiseErrorAlert("Impossibile cancellare questo titolo di viaggio!"); return null; }
             return singleTravelDocumentFX;
         }));
 
+        // set items into tickets table view
         mySingleTicketsTableView.setItems(myTicketsObservableList);
     }
 }

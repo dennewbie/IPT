@@ -11,7 +11,6 @@ import javafx.scene.control.*;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
-import java.util.UUID;
 
 public class AddSingleTicketsViewController extends TravelDocumentsManagementViewController {
     SingleTicket mySingleTicket;
@@ -50,12 +49,9 @@ public class AddSingleTicketsViewController extends TravelDocumentsManagementVie
     void onBackButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(backButton, "TicketsManagementView.fxml"); }
     @FXML
     void onAddSingleTicketsToCartButtonClick(ActionEvent event) {
-
         String ID_Ride = ID_RideTextField.getText(), ID_Line = ID_LineTextField.getText();
         LocalDate ticketIssueDate = LocalDate.now();
-
         if (!super.checkTextFieldsContent(ID_LineTextField, ID_RideTextField) || Integer.valueOf(quantityTextField.getText()) <= 0) { super.raiseErrorAlert("Hai lasciato uno o più campi vuoti"); return; }
-
         // check line id, ride id, ticket issue date validity
         if (!FacadeSingleton.validateRide(ID_Line, ID_Ride)) { super.raiseErrorAlert("Biglietto/i singolo/i selezionato/i non valido/i!"); return; }
         if (!FacadeSingleton.checkTicketIssueDateValidity(ID_Line, ticketIssueDate)) { super.raiseErrorAlert("Biglietto/i singolo/i selezionato/i non valido/i! Non è possibile acquistare alcuno/i biglietto/i per una linea la cui data di attivazione è successiva alla data di emissione del/i biglietto/i!"); return; }

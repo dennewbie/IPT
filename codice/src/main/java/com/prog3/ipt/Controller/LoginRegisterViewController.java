@@ -43,13 +43,13 @@ public class LoginRegisterViewController extends ViewController {
     @FXML
     void onSignInButtonClick(ActionEvent event) {
         Citizen loggedCitizen;
+        // check text fields
         if (!super.checkTextFieldsContent(passwordSignInField, usernameSignInTextField)) return;
-        // controllo validità credenziali. Retrive citizen data from database
+        // retrieve citizen data from database
         loggedCitizen = FacadeSingleton.retrieveCitizen(usernameSignInTextField.getText(), passwordSignInField.getText());
         if (loggedCitizen == null) { raiseErrorAlert("Username e/o password sbagliata.");  return; }
         // save citizen data in observer-singleton
         ObservableSingleton.setCitizen(loggedCitizen);
-        //System.out.println(ObservableSingleton.getCitizen());
         super.onButtonClickNavigateToView(signInButton, "HomeView.fxml");
     }
 
@@ -59,16 +59,21 @@ public class LoginRegisterViewController extends ViewController {
         if (!super.checkTextFieldsContent(nameTextField, surnameTextField, emailTextField, passwordSignUpField, usernameSignUpTextField)) return;
         if (!super.checkDatePickersContent(birthDatePicker)) return;
 
-        // controllo validità credenziali
+        // check text fields
         String name = nameTextField.getText(), surname = surnameTextField.getText(), email = emailTextField.getText();
         String usernameSignUp = usernameSignUpTextField.getText(), passwordSignUp = passwordSignUpField.getText();
         LocalDate localDate = birthDatePicker.getValue();
+        // check birth-date validity
         if (!localDate.isBefore(LocalDate.now())) { super.raiseErrorAlert("Non puoi inserire una data di nascita uguale o successiva ad oggi."); return; }
+        // check email validity
         if (!super.validateEmail(email)) { super.raiseErrorAlert("Formato mail non valido."); return; }
+
+        // check generated citizenID validity
         do {
             newCitizen = new Citizen(name, surname, localDate, email, passwordSignUp, usernameSignUp);
         } while (!FacadeSingleton.validateGeneratedCitizenID(newCitizen));
 
+        // insert citizen into database
         if (!FacadeSingleton.insertCitizen(newCitizen)) { super.raiseErrorAlert("Non è possibile effettuare la registrazione. È possibile che lo username o la mail risultano essere associate ad un account già esistente. Oppure il server non è attualmente raggiungibile."); return; }
         super.raiseConfirmationAlert("Il tuo account è stato creato correttamente. Effettua il login");
         initializeViewComponents();
