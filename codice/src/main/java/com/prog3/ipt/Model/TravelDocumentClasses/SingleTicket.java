@@ -1,7 +1,10 @@
 package com.prog3.ipt.Model.TravelDocumentClasses;
 
+import com.prog3.ipt.Model.FacadeClasses.FacadeSingleton;
+
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.UUID;
 
 public class SingleTicket extends TravelDocument {
     private String lineID;
@@ -15,6 +18,12 @@ public class SingleTicket extends TravelDocument {
         setLineID(lineID);
         setRideID(rideID);
         setStampDate(stampDate);
+
+        // check generated ticket ID validity
+        while (!FacadeSingleton.validateGeneratedSingleTicketID(getTravelDocumentID())) {
+             setTravelDocumentID(UUID.randomUUID().toString().substring(0, 5));
+        }
+
     }
 
     // Setters

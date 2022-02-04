@@ -89,12 +89,15 @@ public class TravelDocumentsManagementViewController extends ViewController {
     @FXML
     void onBuyCartItemsButtonClick(ActionEvent event) {
         if (ObservableSingleton.getOrder().getPurchaseList().size() <= 0) { super.raiseErrorAlert("Il tuo carrello è vuoto. Non puoi procedere con l'acquisto."); return; }
+        // save a valid payment method
         onSavePaymentMethodButtonClick(new ActionEvent());
-        if (!isValidTransaction || !ObservableSingleton.getPaymentMethodStrategy().pay(ObservableSingleton.getOrder().getPurchasePrice())) { raiseErrorAlert("Non è possibile procedere con l'acquisto: metodo di pagamento non valido."); return; }
+        if (!isValidTransaction) { return; }
 
         // insert record into transaction table
         if (!FacadeSingleton.insertTransaction()) { raiseErrorAlert("Non è possibile portare a termine la transazione. Riprovare più tardi."); return; }
         super.raiseConfirmationAlert("Il tuo acquisto è andato a buon fine. Costo totale: " + ObservableSingleton.getOrder().getPurchasePrice() + " euro. Modalità pagamento: " + ObservableSingleton.getPaymentMethodString());
+
+        // reset view
         ObservableSingleton.setOrder(null);
         initializeViewComponents();
     }
@@ -132,6 +135,8 @@ public class TravelDocumentsManagementViewController extends ViewController {
                 default -> throw new IllegalStateException("Unexpected value: " + valueOf(paymentMethodsDropDownList.getValue()));
             }
         } catch (IllegalStateException e) { e.printStackTrace(); return; }
+        // check if payment method is valid
+        if (!ObservableSingleton.getPaymentMethodStrategy().pay(ObservableSingleton.getOrder().getPurchasePrice())) { raiseErrorAlert("Non è possibile procedere con l'acquisto: metodo di pagamento non valido."); return; }
         isValidTransaction = true;
         super.raiseConfirmationAlert("Metodo di pagamento salvato con successo!");
     }

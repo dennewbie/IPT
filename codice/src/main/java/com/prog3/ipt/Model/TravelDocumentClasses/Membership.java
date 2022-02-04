@@ -1,7 +1,10 @@
 package com.prog3.ipt.Model.TravelDocumentClasses;
 
+import com.prog3.ipt.Model.FacadeClasses.FacadeSingleton;
+
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.UUID;
 
 public class Membership extends TravelDocument {
     private LocalDate startDate;
@@ -11,6 +14,11 @@ public class Membership extends TravelDocument {
     public Membership(double price, LocalDate issueDate, LocalDate expirationDate, String transactionID, LocalDate startDate) {
         super(price, issueDate, expirationDate, transactionID);
         setStartDate(startDate);
+
+        // check generated membership ID validity
+        while (!FacadeSingleton.validateGeneratedMembershipID(getTravelDocumentID())) {
+            setTravelDocumentID(UUID.randomUUID().toString().substring(0, 5));
+        }
     }
 
     // Setters

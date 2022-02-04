@@ -10,19 +10,14 @@ import com.prog3.ipt.Model.LineRide.Notice;
 import com.prog3.ipt.Model.TravelDocumentClasses.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import com.prog3.ipt.Model.TravelDocumentClasses.TravelDocumentFactory;
-
-import java.lang.reflect.Member;
 import java.sql.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /** Thread-safe Singleton class. The instance is lazily initialized and thus needs synchronization mechanism. */
 public class FacadeSingleton {
-    // metodo connnessione DB, richiesta di operazioni maggiori alle classi Util dei sottosistemi, etc.
     private static volatile FacadeSingleton instance;
     private static DatabaseConnectionSingleton databaseConnection;
     private static Connection connection;
@@ -58,7 +53,6 @@ public class FacadeSingleton {
             e.printStackTrace();
         }
     }
-
     public static void closeConnection() {
         try {
             statement.close();
@@ -88,7 +82,6 @@ public class FacadeSingleton {
         }
         return true;
     }
-
     private static boolean updatePreparedStatement(String queryTemplate) {
         queryOutput = null;
         preparedStatement = null;
@@ -104,7 +97,6 @@ public class FacadeSingleton {
         }
         return true;
     }
-
     private static boolean updateTicketStatement(String queryTemplate, SingleTicket singleTicket) {
         try {
             if (!updatePreparedStatement(queryTemplate)) return false;
@@ -126,7 +118,6 @@ public class FacadeSingleton {
         }
         return true;
     }
-
     private static boolean updateMembershipStatement(String queryTemplate, Membership membership) {
         try {
             if (!updatePreparedStatement(queryTemplate)) return false;
@@ -146,7 +137,6 @@ public class FacadeSingleton {
         }
         return true;
     }
-
     private static boolean deleteSingleTicketStatement(String queryTemplate) {
         try {
             if (!updatePreparedStatement(queryTemplate)) return false;
@@ -159,7 +149,6 @@ public class FacadeSingleton {
         }
         return true;
     }
-
     private static boolean deleteMembershipStatement(String queryTemplate) {
         try {
             if (!updatePreparedStatement(queryTemplate)) return false;
@@ -172,7 +161,6 @@ public class FacadeSingleton {
         }
         return true;
     }
-
     private static boolean updateTransactionStatement(String queryTemplate, Order localOrder) {
         try {
             if (!updatePreparedStatement(queryTemplate)) return false;
@@ -195,18 +183,35 @@ public class FacadeSingleton {
     /**
      * Query richieste da TravelDocumentManagementViewController
      */
+    public static boolean validateGeneratedTransactionID(String transactionCode) {
+        // SQL query
+        String transactionQueryTemplate = "select * from transazione where id_transazione = \"" + transactionCode +"\";";
+        try {
+            if (!FacadeSingleton.executeQuery(transactionQueryTemplate)) return true;
+            if (FacadeSingleton.queryOutput.next()) return false;
+        } catch (SQLException ex) {
+            Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
+        }
+        return true;
+    }
     public static boolean insertTransaction() {
         // Template Insert Query
         String insertTransactionQueryTemplate = "INSERT INTO transazione (id_transazione, id_cittadino, costo, metodo_pagamento, data_pagamento) VALUES (?, ?, ?, ?, ?);";
         String insertTicketQueryTemplate = "INSERT INTO biglietto(id_biglietto, data_emissione, data_scadenza, data_timbro, prezzo, id_corsa, id_linea, id_transazione, id_cittadino) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         String insertMembershipQueryTemplate = "INSERT INTO abbonamento(id_abbonamento, data_emissione, data_scadenza, data_inizio_validita, prezzo, id_transazione, id_cittadino) VALUES (?, ?, ?, ?, ?, ?, ?);";
-        // generate transaction code;
-        String transactionCode = UUID.randomUUID().toString().substring(0, 5);
+        // generate transaction code
+        String transactionCode = null;
+        do {
+            transactionCode = UUID.randomUUID().toString().substring(0, 5);
+        } while(!FacadeSingleton.validateGeneratedTransactionID(transactionCode));
+
         LocalDate issueDate = LocalDate.now();
         ObservableSingleton.updateOrderWithOrderID(transactionCode, issueDate,ObservableSingleton.getOrder().getPurchasePrice(), ObservableSingleton.getCitizen().getCitizenID(), ObservableSingleton.getOrder().getPaymentMethodStrategy(), ObservableSingleton.getOrder().getPurchaseList(), FXCollections.observableArrayList());
 
-        // insert transactionfor each travel document in purchase list, set transaction code
+        // insert transaction
         if (!updateTransactionStatement(insertTransactionQueryTemplate, ObservableSingleton.getOrder())) return false;
+        // for each travel document in purchase list, set transaction code
         for (TravelDocument travelDocumentObject : ObservableSingleton.getOrder().getPurchaseList()) {
             // check travel document type
             // add travel document to temporary order's purchase list
@@ -215,7 +220,7 @@ public class FacadeSingleton {
                 travelDocumentObject.updateTravelDocument(travelDocumentObject.getPrice(), travelDocumentObject.getIssueDate(), null, transactionCode, ((SingleTicket) travelDocumentObject).getLineID(), ((SingleTicket) travelDocumentObject).getRideID(), null, null);
                 if (!updateTicketStatement(insertTicketQueryTemplate, (SingleTicket) travelDocumentObject)) return false;
             } else if (travelDocumentObject instanceof  Membership) {
-                // create new membership using Factory, set transaction code to new membership and insert membership
+                // create new membership, set transaction code to new membership and insert membership
                 travelDocumentObject.updateTravelDocument(travelDocumentObject.getPrice(), travelDocumentObject.getIssueDate(), ((Membership) travelDocumentObject).getStartDate().plusYears(1), transactionCode, null, null, null, ((Membership) travelDocumentObject).getStartDate());
                 if (!updateMembershipStatement(insertMembershipQueryTemplate, (Membership) travelDocumentObject)) return false;
             }
@@ -244,7 +249,6 @@ public class FacadeSingleton {
         return true;
 
     }
-
     public static boolean validateRide(String ticketLineID, String ticketRideID) {
         // SQL query
         String lineQuery = "select corsa.id_corsa, corsa.id_linea, corsa.stato, corsa.ora_inizio, corsa.ora_fine, corsa.priorita " +
@@ -304,9 +308,8 @@ public class FacadeSingleton {
         }
         return travelDocumentObservableList;
     }
-
     public static boolean deleteMySingleTicket(TravelDocumentFX localSingleTicket) {
-        System.out.println(localSingleTicket.getTravelDocumentID());
+
         String deleteTemplateQuery = "delete from biglietto where biglietto.id_biglietto = \"" + localSingleTicket.getTravelDocumentID() + "\";";
         if (!FacadeSingleton.deleteSingleTicketStatement(deleteTemplateQuery)) return false;
         return true;
@@ -343,10 +346,9 @@ public class FacadeSingleton {
         }
         return travelDocumentObservableList;
     }
-
     public static boolean deleteMyMembership(TravelDocumentFX localMembership) {
         String deleteTemplateQuery = "delete from abbonamento where abbonamento.id_abbonamento = \"" + localMembership.getTravelDocumentID() + "\";";
-        if (!FacadeSingleton.deleteSingleTicketStatement(deleteTemplateQuery)) return false;
+        if (!FacadeSingleton.deleteMembershipStatement(deleteTemplateQuery)) return false;
         return true;
     }
 
@@ -417,6 +419,7 @@ public class FacadeSingleton {
     private static boolean insertCitizenQuerySender(String queryTemplate, Citizen newCitizen) {
         try {
             if (!FacadeSingleton.updatePreparedStatement(queryTemplate)) return false;
+
             FacadeSingleton.preparedStatement.setString(1, newCitizen.getCitizenID());
             FacadeSingleton.preparedStatement.setString(2, newCitizen.getUsername());
             FacadeSingleton.preparedStatement.setString(3, newCitizen.getPassword());
@@ -435,7 +438,6 @@ public class FacadeSingleton {
         }
         return true;
     }
-
     private static boolean updateCitizenQuerySender(String queryTemplate, Citizen newCitizen) {
         try {
             if (!FacadeSingleton.updatePreparedStatement(queryTemplate)) return false;
@@ -455,7 +457,6 @@ public class FacadeSingleton {
         }
         return true;
     }
-
     public static Citizen retrieveCitizen(String citizenUsername, String citizenPassword) {
         Citizen retrievedCitizen;
         String queryCitizen = "select * from cittadino where username = \""+ citizenUsername +"\" and password = \"" + citizenPassword + "\";";
@@ -479,13 +480,11 @@ public class FacadeSingleton {
         }
         return retrievedCitizen;
     }
-
     public static boolean insertCitizen(Citizen localCitizen) {
         String insertQueryTemplate = "INSERT INTO cittadino (id_cittadino, username, password, email, nome, cognome, data_registrazione, data_nascita) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
         if (!FacadeSingleton.insertCitizenQuerySender(insertQueryTemplate, localCitizen)) return false;
         return true;
     }
-
     public static boolean validateGeneratedCitizenID(Citizen localCitizen) {
         String checkCitizenQueryTemplate = "select * from cittadino where cittadino.id_cittadino = \"" + localCitizen.getCitizenID() + "\";";
         try {
@@ -497,10 +496,38 @@ public class FacadeSingleton {
         }
         return true;
     }
-
     public static boolean updateCitizenData(Citizen localCitizen) {
         String updateQueryTemplate = "UPDATE cittadino SET password = ?, email = ?, nome = ?, cognome = ?, data_nascita = ? where id_cittadino = ?";
         if (!FacadeSingleton.updateCitizenQuerySender(updateQueryTemplate, localCitizen)) return false;
+        return true;
+    }
+
+
+    /**
+     * Query richieste da SingleTicket e Membership
+     */
+    public static boolean validateGeneratedSingleTicketID(String singleTicketID) {
+        // SQL query
+        String singleTicketQueryTemplate = "select * from biglietto where id_biglietto = \"" + singleTicketID +"\";";
+        try {
+            if (!FacadeSingleton.executeQuery(singleTicketQueryTemplate)) return true;
+            if (FacadeSingleton.queryOutput.next()) return false;
+        } catch (SQLException ex) {
+            Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
+        }
+        return true;
+    }
+    public static boolean validateGeneratedMembershipID(String membershipID) {
+        // SQL query
+        String membershipQueryTemplate = "select * from abbonamento where id_abbonamento = \"" + membershipID +"\";";
+        try {
+            if (!FacadeSingleton.executeQuery(membershipQueryTemplate)) return true;
+            if (FacadeSingleton.queryOutput.next()) return false;
+        } catch (SQLException ex) {
+            Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
+        }
         return true;
     }
 }
