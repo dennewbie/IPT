@@ -3,6 +3,9 @@ package com.prog3.ipt.Model.LineRide;
 import java.sql.Time;
 import java.util.Objects;
 
+/**
+ * Ride is class which rapresent a ride stored into the system's database
+ */
 public class Ride {
     private String rideID;
     private String rideStatus;
@@ -10,6 +13,14 @@ public class Ride {
     private Time rideEndingHour;
     private Integer ridePriority;
 
+    /**
+     * Ride constructor
+     * @param rideID Index which uniquely identifies a ride
+     * @param rideStatus Status of the ride meaning what ride is doing
+     * @param rideStartingHour Departure time of the ride
+     * @param rideEndingHour Arrival time of the ride
+     * @param ridePriority Ride priority
+     */
     public Ride(String rideID, String rideStatus, Time rideStartingHour, Time rideEndingHour, Integer ridePriority) {
         setRideID(rideID); setRideStatus(rideStatus); setRideStartingHour(rideStartingHour);
         setRideEndingHour(rideEndingHour); setRidePriority(ridePriority);
@@ -36,6 +47,7 @@ public class Ride {
         Ride ride = (Ride) o;
         return getRideID().equals(ride.getRideID()) && getRideStatus().equals(ride.getRideStatus()) && getRideStartingHour().equals(ride.getRideStartingHour()) && getRideEndingHour().equals(ride.getRideEndingHour()) && getRidePriority().equals(ride.getRidePriority());
     }
+
     @Override
     public int hashCode() { return Objects.hash(getRideID(), getRideStatus(), getRideStartingHour(), getRideEndingHour(), getRidePriority()); }
     @Override

@@ -3,6 +3,10 @@ package com.prog3.ipt.Model.LineRide;
 import java.time.LocalDate;
 import java.util.Objects;
 
+/**
+ * Notice is a class that rapresents a user notice stored into system's database
+ */
+
 public class Notice {
     private String noticeID;
     private LocalDate noticeDate;
@@ -11,8 +15,15 @@ public class Notice {
     private String rideID;
     private String lineID;
 
-
-
+    /**
+     * Notice constructor
+     * @param noticeID Index which uniquely identifies a notice
+     * @param date Notice's publication date
+     * @param noticeName Notice's name
+     * @param text Text which notice contains
+     * @param rideID Ride which notice is about
+     * @param lineID Line of the ride which notice is about
+     */
     public Notice(String noticeID, LocalDate date, String noticeName, String text, String rideID, String lineID) {
         setNoticeID(noticeID); setNoticeDate(date); setNoticeName(noticeName);
         setNoticeText(text); setRideID(rideID); setLineID(lineID);
