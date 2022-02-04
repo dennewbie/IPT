@@ -4,7 +4,7 @@ import java.sql.Time;
 import java.time.LocalDate;
 import java.util.Objects;
 
-/** Line is a class that rapresents a line stored into the system's database */
+/** Line is a class that represents a line stored into the system's database */
 public class Line {
     private String lineID;
     private Integer lineLength;
