@@ -4,6 +4,10 @@ import java.sql.Time;
 import java.time.LocalDate;
 import java.util.Objects;
 
+/**
+ * Line is a class that rapresents a line saved into the database's system
+ */
+
 public class Line {
     private String lineID;
     private Integer lineLength;
@@ -13,8 +17,16 @@ public class Line {
     private Time lineOpeningHour;
     private Time lineClosingHour;
 
-
-
+    /**
+     * Line constructor
+     * @param lineID The index which uniquely identifies a line
+     * @param lineLength Line's lenght expressed in kilometers
+     * @param lineStartStation Line's start station
+     * @param lineStopStation Line's end station
+     * @param lineActivationDate Line's activation date
+     * @param lineOpeningHour Departure time of the first run of the line
+     * @param lineClosingHour
+     */
     public Line(String lineID, Integer lineLength, String lineStartStation, String lineStopStation, LocalDate lineActivationDate, Time lineOpeningHour, Time lineClosingHour) {
         setLineID(lineID); setLineLength(lineLength); setLineStartStation(lineStartStation);
         setLineStopStation(lineStopStation); setLineActivationDate(lineActivationDate);
@@ -46,6 +58,7 @@ public class Line {
         Line line = (Line) o;
         return getLineID().equals(line.getLineID()) && getLineLength().equals(line.getLineLength()) && getLineStartStation().equals(line.getLineStartStation()) && getLineStopStation().equals(line.getLineStopStation()) && getLineActivationDate().equals(line.getLineActivationDate()) && getLineOpeningHour().equals(line.getLineOpeningHour()) && getLineClosingHour().equals(line.getLineClosingHour());
     }
+
     @Override
     public int hashCode() { return Objects.hash(getLineID(), getLineLength(), getLineStartStation(), getLineStopStation(), getLineActivationDate(), getLineOpeningHour(), getLineClosingHour()); }
     @Override
