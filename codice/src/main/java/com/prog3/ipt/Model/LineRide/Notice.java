@@ -16,7 +16,7 @@ public class Notice {
     private String lineID;
 
     /**
-     *
+     * Notice constructor
      * @param noticeID Index which uniquely identifies a notice
      * @param date Notice's publication date
      * @param noticeName Notice's name

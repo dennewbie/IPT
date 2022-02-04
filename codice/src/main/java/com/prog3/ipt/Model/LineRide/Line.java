@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 /**
- * Line is a class that rapresents a line saved into the system's database 
+ * Line is a class that rapresents a line stored into the system's database
  */
 public class Line {
     private String lineID;
@@ -19,12 +19,12 @@ public class Line {
     /**
      * Line constructor
      * @param lineID Index which uniquely identifies a line
-     * @param lineLength Line's lenght expressed in kilometers
-     * @param lineStartStation Line's start station
-     * @param lineStopStation Line's end station
-     * @param lineActivationDate Line's activation date
-     * @param lineOpeningHour Departure time of the first run of the line
-     * @param lineClosingHour
+     * @param lineLength Line lenght expressed in kilometers
+     * @param lineStartStation Line start station
+     * @param lineStopStation Line end station
+     * @param lineActivationDate Line activation date
+     * @param lineOpeningHour Departure time of the first ride of the line
+     * @param lineClosingHour Arrival time of the last ride of the line
      */
     public Line(String lineID, Integer lineLength, String lineStartStation, String lineStopStation, LocalDate lineActivationDate, Time lineOpeningHour, Time lineClosingHour) {
         setLineID(lineID); setLineLength(lineLength); setLineStartStation(lineStartStation);
