@@ -11,11 +11,8 @@ public class Ride {
     private Integer ridePriority;
 
     public Ride(String rideID, String rideStatus, Time rideStartingHour, Time rideEndingHour, Integer ridePriority) {
-        this.rideID = rideID;
-        this.rideStatus = rideStatus;
-        this.rideStartingHour = rideStartingHour;
-        this.rideEndingHour = rideEndingHour;
-        this.ridePriority = ridePriority;
+        setRideID(rideID); setRideStatus(rideStatus); setRideStartingHour(rideStartingHour);
+        setRideEndingHour(rideEndingHour); setRidePriority(ridePriority);
     }
 
     // Setters

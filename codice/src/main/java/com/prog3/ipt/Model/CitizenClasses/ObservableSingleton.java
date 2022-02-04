@@ -85,6 +85,8 @@ public class ObservableSingleton {
                 if (sessionPaymentMethodStrategy == null) sessionPaymentMethodStrategy = new PaymentMethodStrategy() {
                     @Override
                     public boolean pay(double paymentAmount) { return false; }
+                    @Override
+                    public boolean checkPaymentMethodData() { return false; }
                 };
             }
         }

@@ -183,7 +183,7 @@ public class FacadeSingleton {
     /**
      * Query richieste da TravelDocumentManagementViewController
      */
-    public static boolean validateGeneratedTransactionID(String transactionCode) {
+    private static boolean validateGeneratedTransactionID(String transactionCode) {
         // SQL query
         String transactionQueryTemplate = "select * from transazione where id_transazione = \"" + transactionCode +"\";";
         try {
@@ -411,7 +411,6 @@ public class FacadeSingleton {
         }
         return lineRideObservableList;
     }
-
 
     /**
      * Query richieste da LoginRegisterViewController e EditProfileViewController

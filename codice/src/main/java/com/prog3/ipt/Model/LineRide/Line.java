@@ -16,15 +16,10 @@ public class Line {
 
 
     public Line(String lineID, Integer lineLength, String lineStartStation, String lineStopStation, LocalDate lineActivationDate, Time lineOpeningHour, Time lineClosingHour) {
-        this.lineID = lineID;
-        this.lineLength = lineLength;
-        this.lineStartStation = lineStartStation;
-        this.lineStopStation = lineStopStation;
-        this.lineActivationDate = lineActivationDate;
-        this.lineOpeningHour = lineOpeningHour;
-        this.lineClosingHour = lineClosingHour;
+        setLineID(lineID); setLineLength(lineLength); setLineStartStation(lineStartStation);
+        setLineStopStation(lineStopStation); setLineActivationDate(lineActivationDate);
+        setLineOpeningHour(lineOpeningHour); setLineClosingHour(lineClosingHour);
     }
-
 
     // Setters
     private void setLineID(String lineID) { this.lineID = lineID; }

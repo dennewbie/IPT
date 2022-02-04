@@ -12,14 +12,14 @@ public class TravelDocumentFX {
     private LocalDate issueDate;
     private LocalDate expirationDate;
     private String transactionID;
-
     // SingleTicket
     private String lineID;
     private String rideID;
     private LocalDate stampDate;
-
     // Membership
     private LocalDate startDate;
+
+
 
     // Constructor
     public TravelDocumentFX(String travelDocumentID, double price, LocalDate issueDate, LocalDate expirationDate, String transactionID, String lineID, String rideID, LocalDate stampDate, LocalDate startDate) {
@@ -33,7 +33,6 @@ public class TravelDocumentFX {
         this.stampDate = stampDate;
         this.startDate = startDate;
     }
-
     public TravelDocumentFX(TravelDocument travelDocument) {
         this.travelDocumentID = travelDocument.getTravelDocumentID();
         this.price = travelDocument.getPrice();
@@ -68,6 +67,16 @@ public class TravelDocumentFX {
         this.startDate = travelDocument.getStartDate();
     }
 
+    // Setters
+    protected void setTravelDocumentID(String travelDocumentID) { this.travelDocumentID = travelDocumentID; }
+    protected void setPrice(double price) { this.price = price;}
+    protected void setIssueDate(LocalDate issueDate) { this.issueDate = issueDate; }
+    protected void setExpirationDate(LocalDate expirationDate) { this.expirationDate = expirationDate; }
+    protected void setTransactionID(String transactionID) { this.transactionID = transactionID; }
+    protected void setLineID(String lineID) { this.lineID = lineID; }
+    protected void setRideID(String rideID) { this.rideID = rideID; }
+    protected void setStampDate(LocalDate stampDate) { this.stampDate = stampDate; }
+    protected void setStartDate(LocalDate startDate) { this.startDate = startDate; }
 
     // Getters
     public String getTravelDocumentID() { return travelDocumentID; }
@@ -80,30 +89,13 @@ public class TravelDocumentFX {
     public LocalDate getStampDate() { return stampDate; }
     public LocalDate getStartDate() { return startDate; }
 
-    // Setters
-    protected void setTravelDocumentID(String travelDocumentID) { this.travelDocumentID = travelDocumentID; }
-    protected void setPrice(double price) { this.price = price;}
-    protected void setIssueDate(LocalDate issueDate) { this.issueDate = issueDate; }
-    protected void setExpirationDate(LocalDate expirationDate) { this.expirationDate = expirationDate; }
-    protected void setTransactionID(String transactionID) { this.transactionID = transactionID; }
-    protected void setLineID(String lineID) { this.lineID = lineID; }
-    protected void setRideID(String rideID) { this.rideID = rideID; }
-    protected void setStampDate(LocalDate stampDate) { this.stampDate = stampDate; }
-    protected void setStartDate(LocalDate startDate) { this.startDate = startDate; }
-
+    // Others
     public TravelDocument toTravelDocument() {
         TravelDocumentFactory travelDocumentFactory = null;
         TravelDocument travelDocument = null;
-
-        if (getPrice() == MyConstants.singleTicketPrice) {
-            travelDocumentFactory = new SingleTicketConcreteFactory();
-        } else if (getPrice() == MyConstants.membershipPrice) {
-            travelDocumentFactory = new MembershipConcreteFactory();
-
-        }
-
-        travelDocument = travelDocumentFactory.createTravelDocument(getPrice(), getIssueDate(), getExpirationDate(), getTransactionID(), getLineID(), getRideID(), getStampDate(), getStartDate());
-        travelDocument.setTravelDocumentID(getTravelDocumentID());
+        travelDocumentFactory = (this.getStampDate() == null) ? new SingleTicketConcreteFactory() : new MembershipConcreteFactory();
+        travelDocument = travelDocumentFactory.createTravelDocument(this.getPrice(), this.getIssueDate(), this.getExpirationDate(), this.getTransactionID(), this.getLineID(), this.getRideID(), this.getStampDate(), this.getStartDate());
+        travelDocument.setTravelDocumentID(this.getTravelDocumentID());
         return travelDocument;
     }
 

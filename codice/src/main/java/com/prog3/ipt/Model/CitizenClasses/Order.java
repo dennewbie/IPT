@@ -8,7 +8,6 @@ import javafx.collections.ObservableList;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Objects;
-import java.util.UUID;
 
 public class Order {
     private String transactionCode;
@@ -54,14 +53,14 @@ public class Order {
     // Others
     public void addTravelDocument(TravelDocument travelDocumentObject) {
         getPurchaseList().add(travelDocumentObject);
-        getPurchaseObservableList().add(travelDocumentObject.convertToFX());
+        getPurchaseObservableList().add(travelDocumentObject.toTravelDocumentFX());
 
         setPurchasePrice(getPurchasePrice() + travelDocumentObject.getPrice());
     }
 
     public void removeTravelDocument(TravelDocument travelDocumentObject) {
         getPurchaseList().remove(travelDocumentObject);
-        getPurchaseObservableList().remove(travelDocumentObject.convertToFX());
+        getPurchaseObservableList().remove(travelDocumentObject.toTravelDocumentFX());
         setPurchasePrice(getPurchasePrice() - travelDocumentObject.getPrice());
     }
     public void addTravelDocumentFX(TravelDocumentFX travelDocumentFXObject) {

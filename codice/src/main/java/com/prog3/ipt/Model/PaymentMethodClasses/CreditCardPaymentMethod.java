@@ -63,10 +63,17 @@ public class CreditCardPaymentMethod implements PaymentMethodStrategy {
     @Override
     public boolean pay(double paymentAmount) {
         // check validity
+        if (!checkPaymentMethodData()) return false;
+        // Metodo pagamento valido. Contatta il gestore della carta, richiedi transazione, etc...
+        return true;
+    }
+
+    @Override
+    public boolean checkPaymentMethodData() {
+        // check validity
         if (!checkCreditCardNumber()) return false;
         if (!checkExpirationDate()) return false;
         if (!checkCreditCardCVV()) return false;
-        // Metodo pagamento valido. Contatta il gestore della carta, richiedi transazione, etc...
         return true;
     }
 

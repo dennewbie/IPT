@@ -22,11 +22,12 @@ public class RideLineFX {
 
 
 
-    public RideLineFX(String rideID, String rideStatus, Time rideStartingHour, Time rideEndingHour, Integer ridePriority, String lineID, Integer lineLength, String lineStartStation, String lineStopStation, LocalDate lineActivationDate, Time lineOpeningHour, Time lineClosingHour) {
-        this.rideID = rideID; this.rideStatus = rideStatus; this.rideStartingHour = rideStartingHour;
-        this.rideEndingHour = rideEndingHour; this.ridePriority = ridePriority; this.lineID = lineID;
-        this.lineLength = lineLength; this.lineStartStation = lineStartStation; this.lineStopStation = lineStopStation;
-        this.lineActivationDate = lineActivationDate; this.lineOpeningHour = lineOpeningHour; this.lineClosingHour = lineClosingHour;
+    public RideLineFX(String rideID, String rideStatus, Time rideStartingHour, Time rideEndingHour, Integer ridePriority, String lineID, Integer lineLength,
+                      String lineStartStation, String lineStopStation, LocalDate lineActivationDate, Time lineOpeningHour, Time lineClosingHour) {
+        setRideID(rideID); setRideStatus(rideStatus); setRideStartingHour(rideStartingHour);
+        setRideEndingHour(rideEndingHour); setRidePriority(ridePriority); setLineID(lineID);
+        setLineLength(lineLength); setLineStartStation(lineStartStation); setLineStopStation(lineStopStation);
+        setLineActivationDate(lineActivationDate); setLineOpeningHour(lineOpeningHour); setLineClosingHour(lineClosingHour);
     }
     public RideLineFX(Ride ride) {
         this.rideID = rideID; this.rideStatus = rideStatus; this.rideStartingHour = rideStartingHour;

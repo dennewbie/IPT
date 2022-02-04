@@ -55,8 +55,8 @@ public class SingleTicket extends TravelDocument {
     public String toString() { return "SingleTicket{ lineID='" + lineID + '\'' + ", rideID='" + rideID + '\'' + ", stampDate=" + stampDate + '}';}
 
     @Override
-    public TravelDocumentFX convertToFX() {
-        TravelDocumentFX travelDocumentFX = super.convertToFX();
+    public TravelDocumentFX toTravelDocumentFX() {
+        TravelDocumentFX travelDocumentFX = super.toTravelDocumentFX();
         travelDocumentFX.setLineID(getLineID());
         travelDocumentFX.setRideID(getRideID());
         travelDocumentFX.setStampDate(getStampDate());

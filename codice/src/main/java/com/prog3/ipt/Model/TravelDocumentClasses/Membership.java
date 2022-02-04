@@ -44,8 +44,8 @@ public class Membership extends TravelDocument {
     public String toString() { return "Membership{ startDate=" + startDate +  '}'; }
 
     @Override
-    public TravelDocumentFX convertToFX() {
-        TravelDocumentFX travelDocumentFX =  super.convertToFX();
+    public TravelDocumentFX toTravelDocumentFX() {
+        TravelDocumentFX travelDocumentFX =  super.toTravelDocumentFX();
         travelDocumentFX.setStartDate(getStartDate());
         return travelDocumentFX;
     }

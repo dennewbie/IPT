@@ -48,7 +48,7 @@ public abstract class TravelDocument {
     @Override
     public String toString() { return "TravelDocument{ travelDocumentID='" + travelDocumentID + '\'' + ", price=" + price + ", issueDate=" + issueDate + ", expirationDate=" + expirationDate + ", transactionID='" + transactionID + '\'' + '}'; }
 
-    public TravelDocumentFX convertToFX() {
+    public TravelDocumentFX toTravelDocumentFX() {
         return new TravelDocumentFX(getTravelDocumentID(), getPrice(), getIssueDate(), getExpirationDate(), getTransactionID(), null, null, null, null);
     }
 

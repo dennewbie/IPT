@@ -90,8 +90,9 @@ public class TravelDocumentsManagementViewController extends ViewController {
     void onBuyCartItemsButtonClick(ActionEvent event) {
         if (ObservableSingleton.getOrder().getPurchaseList().size() <= 0) { super.raiseErrorAlert("Il tuo carrello è vuoto. Non puoi procedere con l'acquisto."); return; }
         // save a valid payment method
+        // TODO: rimettere il codice qui
         onSavePaymentMethodButtonClick(new ActionEvent());
-        if (!isValidTransaction) { return; }
+        if (!isValidTransaction || !ObservableSingleton.getPaymentMethodStrategy().pay(ObservableSingleton.getOrder().getPurchasePrice())) { raiseErrorAlert("Non è possibile procedere con l'acquisto: metodo di pagamento non valido."); return; }
 
         // insert record into transaction table
         if (!FacadeSingleton.insertTransaction()) { raiseErrorAlert("Non è possibile portare a termine la transazione. Riprovare più tardi."); return; }
@@ -136,9 +137,9 @@ public class TravelDocumentsManagementViewController extends ViewController {
             }
         } catch (IllegalStateException e) { e.printStackTrace(); return; }
         // check if payment method is valid
-        if (!ObservableSingleton.getPaymentMethodStrategy().pay(ObservableSingleton.getOrder().getPurchasePrice())) { raiseErrorAlert("Non è possibile procedere con l'acquisto: metodo di pagamento non valido."); return; }
+        if (!ObservableSingleton.getPaymentMethodStrategy().checkPaymentMethodData()) { raiseErrorAlert("Non è possibile procedere con il salvataggio del metodo di pagamento: metodo di pagamento non valido."); return; }
         isValidTransaction = true;
-        super.raiseConfirmationAlert("Metodo di pagamento salvato con successo!");
+        if (event.getSource() == savePaymentMethodButton) super.raiseConfirmationAlert("Metodo di pagamento salvato con successo!");
     }
 
     @Override
@@ -148,8 +149,10 @@ public class TravelDocumentsManagementViewController extends ViewController {
         // initialize left side
         isValidTransaction = false;
         totalPriceLabel.setText("€  " + String.valueOf(ObservableSingleton.getOrder().getPurchasePrice()));
-        paymentMethodsDropDownList.setPromptText("Seleziona un metodo di pagamento...");
+        paymentMethodsDropDownList.getItems().removeAll("CREDIT_CARD", "PAYPAL", "PHONE_NUMBER_BILL");
         paymentMethodsDropDownList.getItems().addAll("CREDIT_CARD", "PAYPAL", "PHONE_NUMBER_BILL");
+        paymentMethodsDropDownList.setPromptText("Seleziona un metodo di pagamento...");
+
         CVV_TextField.setVisible(false);
         creditCardNumberTextField.setVisible(false);
         expirationCreditCardDatePicker.setVisible(false);
@@ -166,11 +169,8 @@ public class TravelDocumentsManagementViewController extends ViewController {
         myCartTableView.setItems(ObservableSingleton.getOrder().getPurchaseObservableList());
         deleteRowTableColumn.setCellFactory(ActionDeleteButtonTableCell.<TravelDocumentFX>forTableColumn("Elimina Titolo Viaggio", (TravelDocumentFX singleTravelDocumentFX) -> {
             myCartTableView.getItems().remove(singleTravelDocumentFX);
-
             // remove from purchase list
             ObservableSingleton.getOrder().removeTravelDocumentFX(singleTravelDocumentFX);
-
-            ObservableSingleton.updateOrder(ObservableSingleton.getOrder().getPurchaseDate(), ObservableSingleton.getOrder().getPurchasePrice(), ObservableSingleton.getOrder().getCitizenID(), ObservableSingleton.getPaymentMethodStrategy(), ObservableSingleton.getOrder().getPurchaseList(), ObservableSingleton.getOrder().getPurchaseObservableList());
             initializeViewComponents();
             return singleTravelDocumentFX;
         }));

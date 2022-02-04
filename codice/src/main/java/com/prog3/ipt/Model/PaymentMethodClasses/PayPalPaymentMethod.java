@@ -24,10 +24,15 @@ public class PayPalPaymentMethod implements PaymentMethodStrategy {
     // Others
     @Override
     public boolean pay(double paymentAmount) {
-        if (!this.getPassword().equals(((PayPalPaymentMethod) ObservableSingleton.getPaymentMethodStrategy()).getPassword())) return false;
+        if (!this.checkPaymentMethodData()) return false;
         return true;
     }
 
+    @Override
+    public boolean checkPaymentMethodData() {
+        if (!this.getPassword().equals(((PayPalPaymentMethod) ObservableSingleton.getPaymentMethodStrategy()).getPassword())) return false;
+        return true;
+    }
 
     @Override
     public boolean equals(Object o) {

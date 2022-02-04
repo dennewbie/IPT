@@ -12,7 +12,7 @@ public class PhoneNumberBillPaymentMethod implements PaymentMethodStrategy {
     public PhoneNumberBillPaymentMethod(String phoneNumber) { setPhoneNumber(phoneNumber); }
     
     // Setters
-    public void setPhoneNumber(String phoneNumber) {
+    private void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -24,11 +24,15 @@ public class PhoneNumberBillPaymentMethod implements PaymentMethodStrategy {
     // Others
     @Override
     public boolean pay(double paymentAmount) {
+        return checkPaymentMethodData();
+    }
+
+    @Override
+    public boolean checkPaymentMethodData() {
         Pattern pattern = Pattern.compile("^(\\+\\d{1,3}( )?)?((\\(\\d{3}\\))|\\d{3})[- .]?\\d{3}[- .]?\\d{4}$");
         Matcher matcher = pattern.matcher(this.getPhoneNumber());
         return matcher.matches();
     }
-
 
     @Override
     public boolean equals(Object o) {
