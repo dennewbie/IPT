@@ -174,7 +174,7 @@
                            <TableColumn fx:id="startDateTableColumn" prefWidth="108.5" text="Data Inizio Validità" />
                            <TableColumn fx:id="expirationDateTableColumn" minWidth="0.0" prefWidth="95.0" text="Data Scadenza" />
                            <TableColumn fx:id="priceTableColumn" prefWidth="49.0" text="Prezzo" />
-                           <TableColumn fx:id="deleteRowTableColumn" prefWidth="119.0" text="AzioneDisponibile" />
+                           <TableColumn fx:id="deleteRowTableColumn" prefWidth="160.0" text="AzioneDisponibile" />
                        </columns>
                      </TableView>
                   </children>

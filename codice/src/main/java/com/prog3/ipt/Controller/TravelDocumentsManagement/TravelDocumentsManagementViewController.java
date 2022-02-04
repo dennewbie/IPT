@@ -161,9 +161,11 @@ public class TravelDocumentsManagementViewController extends ViewController {
         myCartTableView.setItems(ObservableSingleton.getOrder().getPurchaseObservableList());
         deleteRowTableColumn.setCellFactory(ActionDeleteButtonTableCell.<TravelDocumentFX>forTableColumn("Elimina Titolo Viaggio", (TravelDocumentFX singleTravelDocumentFX) -> {
             myCartTableView.getItems().remove(singleTravelDocumentFX);
-            ObservableSingleton.getOrder().getPurchaseObservableList().remove(singleTravelDocumentFX);
-            ObservableSingleton.getOrder().getPurchaseList().remove(singleTravelDocumentFX);
-            ObservableSingleton.updateOrder(ObservableSingleton.getOrder().getPurchaseDate(), ObservableSingleton.getOrder().getPurchasePrice() - singleTravelDocumentFX.getPrice(), ObservableSingleton.getOrder().getCitizenID(), ObservableSingleton.getPaymentMethodStrategy(), ObservableSingleton.getOrder().getPurchaseList(), ObservableSingleton.getOrder().getPurchaseObservableList());
+
+            // remove from purchase list
+            ObservableSingleton.getOrder().removeTravelDocumentFX(singleTravelDocumentFX);
+
+            ObservableSingleton.updateOrder(ObservableSingleton.getOrder().getPurchaseDate(), ObservableSingleton.getOrder().getPurchasePrice(), ObservableSingleton.getOrder().getCitizenID(), ObservableSingleton.getPaymentMethodStrategy(), ObservableSingleton.getOrder().getPurchaseList(), ObservableSingleton.getOrder().getPurchaseObservableList());
             initializeViewComponents();
             return singleTravelDocumentFX;
         }));
