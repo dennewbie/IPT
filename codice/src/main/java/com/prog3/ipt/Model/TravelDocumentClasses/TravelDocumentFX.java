@@ -1,5 +1,7 @@
 package com.prog3.ipt.Model.TravelDocumentClasses;
 
+import com.prog3.ipt.Model.MyConstants;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -88,6 +90,22 @@ public class TravelDocumentFX {
     protected void setRideID(String rideID) { this.rideID = rideID; }
     protected void setStampDate(LocalDate stampDate) { this.stampDate = stampDate; }
     protected void setStartDate(LocalDate startDate) { this.startDate = startDate; }
+
+    public TravelDocument toTravelDocument() {
+        TravelDocumentFactory travelDocumentFactory = null;
+        TravelDocument travelDocument = null;
+
+        if (getPrice() == MyConstants.singleTicketPrice) {
+            travelDocumentFactory = new SingleTicketConcreteFactory();
+        } else if (getPrice() == MyConstants.membershipPrice) {
+            travelDocumentFactory = new MembershipConcreteFactory();
+
+        }
+
+        travelDocument = travelDocumentFactory.createTravelDocument(getPrice(), getIssueDate(), getExpirationDate(), getTransactionID(), getLineID(), getRideID(), getStampDate(), getStartDate());
+        travelDocument.setTravelDocumentID(getTravelDocumentID());
+        return travelDocument;
+    }
 
     @Override
     public boolean equals(Object o) {

@@ -59,10 +59,22 @@ public class Order {
         setPurchasePrice(getPurchasePrice() + travelDocumentObject.getPrice());
     }
 
-    // test this
     public void removeTravelDocument(TravelDocument travelDocumentObject) {
-        if (!(getPurchaseList().remove(travelDocumentObject)) || !(getPurchaseObservableList().remove(travelDocumentObject.convertToFX()))) return;
+        getPurchaseList().remove(travelDocumentObject);
+        getPurchaseObservableList().remove(travelDocumentObject.convertToFX());
         setPurchasePrice(getPurchasePrice() - travelDocumentObject.getPrice());
+    }
+    public void addTravelDocumentFX(TravelDocumentFX travelDocumentFXObject) {
+        getPurchaseList().add(travelDocumentFXObject.toTravelDocument());
+        getPurchaseObservableList().add(travelDocumentFXObject);
+
+        setPurchasePrice(getPurchasePrice() + travelDocumentFXObject.getPrice());
+    }
+
+    public void removeTravelDocumentFX(TravelDocumentFX travelDocumentFXObject) {
+        getPurchaseList().remove(travelDocumentFXObject.toTravelDocument());
+        getPurchaseObservableList().remove(travelDocumentFXObject);
+        setPurchasePrice(getPurchasePrice() - travelDocumentFXObject.getPrice());
     }
 
     @Override
