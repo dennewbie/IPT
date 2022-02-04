@@ -4,9 +4,7 @@ import java.sql.Time;
 import java.time.LocalDate;
 import java.util.Objects;
 
-/**
- * RideLineFX is a class made to display content in InfoView JavaFX object.
- */
+/** RideLineFX is a class made to display content in InfoView JavaFX object. */
 public class RideLineFX {
     //Ride
     private String rideID;
