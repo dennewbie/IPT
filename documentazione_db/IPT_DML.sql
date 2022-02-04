@@ -530,6 +530,51 @@ INSERT INTO `ipt`.`avviso_utenza` (`id_avviso_utenza`, `data`, `nome_avviso`, `t
  'SI AVVISA LA GENTILE CLIENTELA CHE LA SEGUENTE CORSA'' VERRA'' SOPPRESSA A CAUSA DI UNO SCIOPERO, CI SCUSIAMO PER IL DISAGIO',
  'C0001', 
  'A0001');
+ 
+ INSERT INTO `ipt`.`avviso_utenza` (`id_avviso_utenza`, `data`, `nome_avviso`, `testo`, `id_corsa`, `id_linea`) VALUES 
+( 'AVV09',
+ '2022-07-21', 
+ 'MANIFESTAZIONE', 
+ 'SI AVVISA LA GENTILE CLIENTELA CHE LA SEGUENTE CORSA'' PARTIRA'' CON 10 MINUTI DI RITARDO, CI SCUSIAMO PER IL DISAGIO',
+ 'C0001', 
+ 'A0001');
+ 
+ INSERT INTO `ipt`.`avviso_utenza` (`id_avviso_utenza`, `data`, `nome_avviso`, `testo`, `id_corsa`, `id_linea`) VALUES 
+( 'AVV10',
+ '2022-12-21', 
+ 'RITARDO', 
+ 'SI AVVISA LA GENTILE CLIENTELA CHE LA SEGUENTE CORSA'' PARTIRA'' CON 10 MINUTI DI RITARDO, CI SCUSIAMO PER IL DISAGIO',
+ 'C0002', 
+ 'A0002');
+
+
+INSERT INTO `ipt`.`avviso_utenza` (`id_avviso_utenza`, `data`, `nome_avviso`, `testo`, `id_corsa`, `id_linea`) VALUES 
+( 'AVV11',
+ '2022-08-15', 
+ 'FESTIVITA''', 
+ 'SI AVVISA LA GENTILE CLIENTELA CHE LA SEGUENTE CORSA'' E'' ANNULLATA CAUSA FESTIVITA''',
+ 'C0001', 
+ 'A0001');
+
+INSERT INTO `ipt`.`avviso_utenza` (`id_avviso_utenza`, `data`, `nome_avviso`, `testo`, `id_corsa`, `id_linea`) VALUES 
+( 'AVV12',
+ '2022-12-01', 
+ 'SOPPRESSIONE', 
+ 'SI AVVISA LA GENTILE CLIENTELA CHE LA SEGUENTE CORSA'' E'' SOPPRESSA, CI SCUSIAMO PER IL DISAGIO',
+ 'C0001', 
+ 'A0001');
+ 
+ INSERT INTO `ipt`.`avviso_utenza` (`id_avviso_utenza`, `data`, `nome_avviso`, `testo`, `id_corsa`, `id_linea`) VALUES 
+( 'AVV13',
+ '2022-03-11', 
+ 'RITARDO', 
+ 'SI AVVISA LA GENTILE CLIENTELA CHE LA SEGUENTE CORSA'' PARTITA'' CON 30 MINUTI DI RITARDO, CI SCUSIAMO PER IL DISAGIO',
+ 'C0001', 
+ 'A0001');
+ 
+ 
+ 
+ 
 
 
 -- biglietto
