@@ -459,7 +459,7 @@ public class FacadeSingleton {
 
             FacadeSingleton.preparedStatement.setString(1, newCitizen.getCitizenID());
             FacadeSingleton.preparedStatement.setString(2, newCitizen.getUsername());
-            FacadeSingleton.preparedStatement.setString(3, FacadeSingleton.generateSecurePassword(newCitizen.getPassword(), FacadeSingleton.salt));
+            FacadeSingleton.preparedStatement.setString(3, FacadeSingleton.generateSecurePassword(newCitizen.getPassword()));
             FacadeSingleton.preparedStatement.setString(4, newCitizen.getEmail());
             FacadeSingleton.preparedStatement.setString(5, newCitizen.getName());
             FacadeSingleton.preparedStatement.setString(6, newCitizen.getSurname());
@@ -478,7 +478,7 @@ public class FacadeSingleton {
     private static boolean updateCitizenQuerySender(String queryTemplate, Citizen newCitizen) {
         try {
             if (!FacadeSingleton.updatePreparedStatement(queryTemplate)) return false;
-            FacadeSingleton.preparedStatement.setString(1, FacadeSingleton.generateSecurePassword(newCitizen.getPassword(), FacadeSingleton.salt));
+            FacadeSingleton.preparedStatement.setString(1, FacadeSingleton.generateSecurePassword(newCitizen.getPassword()));
             FacadeSingleton.preparedStatement.setString(2, newCitizen.getEmail());
             FacadeSingleton.preparedStatement.setString(3, newCitizen.getName());
             FacadeSingleton.preparedStatement.setString(4, newCitizen.getSurname());
@@ -509,7 +509,7 @@ public class FacadeSingleton {
             String querySurname = FacadeSingleton.queryOutput.getString("cognome");
             LocalDate queryBirthDate = FacadeSingleton.queryOutput.getDate("data_nascita").toLocalDate();
 
-            if (!FacadeSingleton.verifyUserPassword(citizenPassword, queryPassword, FacadeSingleton.salt)) return null;
+            if (!FacadeSingleton.verifyUserPassword(citizenPassword, queryPassword)) return null;
             retrievedCitizen = new Citizen(queryCitizenID, queryName, querySurname, queryBirthDate, queryEmail, citizenPassword, queryUsername);
         } catch (SQLException e) {
             Logger.getLogger(NoticesViewController.class.getName()).log(Level.SEVERE, null, e);
@@ -591,17 +591,17 @@ public class FacadeSingleton {
         }
     }
 
-    private static String generateSecurePassword(String password, String salt) {
+    private static String generateSecurePassword(String password) {
         String returnValue = null;
         byte[] securePassword = hash(password.toCharArray(), salt.getBytes());
         returnValue = Base64.getEncoder().encodeToString(securePassword);
         return returnValue;
     }
 
-    private static boolean verifyUserPassword(String providedPassword, String securedPassword, String salt) {
+    private static boolean verifyUserPassword(String providedPassword, String securedPassword) {
         boolean returnValue = false;
         // Generate New secure password with the same salt
-        String newSecurePassword = generateSecurePassword(providedPassword, salt);
+        String newSecurePassword = generateSecurePassword(providedPassword);
         // Check if two passwords are equal
         returnValue = newSecurePassword.equalsIgnoreCase(securedPassword);
         return returnValue;
