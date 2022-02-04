@@ -3,7 +3,8 @@ package com.prog3.ipt.Model.CitizenClasses;
 import java.util.LinkedList;
 
 /**
- * CitizenEditProfileMemento is a class, created to implement Memento Method design pattern.
+ * CitizenEditProfileMemento is a class, created to implement Memento object included into Memento Method
+ * design pattern.
  */
 public class CitizenEditProfileMemento {
     private LinkedList<Citizen> citizensData = new LinkedList<>();
