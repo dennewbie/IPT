@@ -25,7 +25,7 @@ public class Citizen extends User {
     }
 
     // Setters
-    public void setCitizenID(String citizenID) {
+    void setCitizenID(String citizenID) {
         this.citizenID = citizenID;
     }
     void setRegistrationDate(LocalDate registrationDate) {
