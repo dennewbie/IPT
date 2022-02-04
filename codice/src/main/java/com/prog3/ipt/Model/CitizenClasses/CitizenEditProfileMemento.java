@@ -11,7 +11,7 @@ public class CitizenEditProfileMemento {
 
     /**
      * Add a reference to a Citizen into a LinkedList<Citizen></Citizen> object
-     * @param newCitizen Object which rapresents data of one of the citizens registered into system
+     * @param newCitizen Object which represents data of one of the citizens registered into system
      */
     public void addState(Citizen newCitizen) {citizensData.addFirst(newCitizen);}
 
