@@ -5,13 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e97b81e6-5df3-4387-b0ec-95788485ee96" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/LoadingViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/images/spinner.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/LoadingView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/prog3/ipt/loadingViewStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/commons_codec.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/commons_codec_1_15.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IPT.iml" beforeDir="false" afterPath="$PROJECT_DIR$/IPT.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/EditProfileViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Controller/EditProfileViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/IPT_Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/IPT_Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/FacadeClasses/FacadeSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prog3/ipt/Model/FacadeClasses/FacadeSingleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/prog3/ipt/LoadingView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/prog3/ipt/LoadingView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +57,14 @@
         <option name="useMavenConfig" value="true" />
       </MavenGeneralSettings>
     </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="createModuleGroups" value="true" />
+        <option name="downloadDocsAutomatically" value="true" />
+        <option name="downloadSourcesAutomatically" value="true" />
+        <option name="vmOptionsForImporter" value="-Xmx512m" />
+      </MavenImportingSettings>
+    </option>
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -79,10 +90,10 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.36430544" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.importing" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">

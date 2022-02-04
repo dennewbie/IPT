@@ -64,7 +64,6 @@ public class EditProfileViewController extends ViewController {
         // update citizen data into database
         if (!FacadeSingleton.updateCitizenData(ObservableSingleton.getCitizen())) { raiseErrorAlert("Non è stato possibile aggiornare i tuoi dati. Il server potrebbe non essere raggiungibile al momento. Riprovare più tardi."); return; }
         super.raiseConfirmationAlert("Dati aggiornati correttamente.");
-
         // reset text fields
         updateTextFields();
         undoButton.setDisable(false);
@@ -91,8 +90,8 @@ public class EditProfileViewController extends ViewController {
         nameTextField.setText(ObservableSingleton.getCitizen().getName());
         surnameTextField.setText(ObservableSingleton.getCitizen().getSurname());
         emailTextField.setText(ObservableSingleton.getCitizen().getEmail());
-        passwordField.setText(ObservableSingleton.getCitizen().getPassword());
         birthDatePicker.setValue(ObservableSingleton.getCitizen().getBirthDate());
+        passwordField.setText(ObservableSingleton.getCitizen().getPassword());
     }
 
     private boolean checkChanges(Citizen firstCitizen, Citizen secondCitizen) { return (firstCitizen.getName().equals(secondCitizen.getName())  && firstCitizen.getSurname().equals(secondCitizen.getSurname()) && firstCitizen.getEmail().equals(secondCitizen.getEmail()) && firstCitizen.getBirthDate().isEqual(secondCitizen.getBirthDate()) && firstCitizen.getPassword().equals(secondCitizen.getPassword())); }
