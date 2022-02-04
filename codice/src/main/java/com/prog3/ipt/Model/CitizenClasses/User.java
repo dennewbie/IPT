@@ -3,7 +3,7 @@ package com.prog3.ipt.Model.CitizenClasses;
 import java.time.LocalDate;
 import java.util.Objects;
 
-/** User is a class that rapresents a generic user registered into the system */
+/** User is a class that represents a generic user registered into the system */
 public abstract class User {
     private String name;
     private String surname;
