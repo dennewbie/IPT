@@ -3,7 +3,7 @@ package com.prog3.ipt.Model.LineRide;
 import java.time.LocalDate;
 import java.util.Objects;
 
-/** Notice is a class that rapresents a user notice stored into system's database */
+/** Notice is a class represents rapresents a user notice stored into system's database */
 
 public class Notice {
     private String noticeID;
