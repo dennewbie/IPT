@@ -53,7 +53,7 @@ public class NoticesViewController extends ViewController {
      * @see javafx.fxml.Initializable#initialize(URL, ResourceBundle)
      */
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) { initializeViewComponents(); }
+    public void initialize(URL url, ResourceBundle resourceBundle) {initializeViewComponents();}
 
     /**
      * @see ViewController#initializeViewComponents()

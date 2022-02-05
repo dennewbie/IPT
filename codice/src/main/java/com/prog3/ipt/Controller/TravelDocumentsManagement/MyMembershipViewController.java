@@ -14,13 +14,14 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
+/**
+ * MyMembershipViewController is a class that extends TravelDocumentsManagementViewController and
+ * represents view of a membership
+ */
 public class MyMembershipViewController extends TravelDocumentsManagementViewController {
     // Navigation Bar
     @FXML
     private Button backButton;
-
-
-
     @FXML
     private TableView<TravelDocumentFX> myMembershipTableView;
     @FXML
@@ -38,12 +39,22 @@ public class MyMembershipViewController extends TravelDocumentsManagementViewCon
     @FXML
     private TableColumn<TravelDocumentFX, Button> deleteTableColumn;
 
-
-
+    /**
+     * Button to go back to previous view
+     * @param event Button clicked
+     */
     @FXML
     void onBackButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(backButton, "TicketsManagementView.fxml"); }
+
+    /**
+     * @see javafx.fxml.Initializable#initialize(URL, ResourceBundle)
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { initializeViewComponents(); }
+
+    /**
+     * @see com.prog3.ipt.Controller.ViewController#initializeViewComponents()
+     */
     @Override
     protected void initializeViewComponents() {
         // create observable list for myTicketsView according to citizenID

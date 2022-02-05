@@ -12,16 +12,16 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
+/**
+ * AddSingleTicketsViewController is a class that extends TravelDocumentsManagementViewController and
+ * represents view of adding single ticket
+ */
 public class AddSingleTicketsViewController extends TravelDocumentsManagementViewController {
     SingleTicket mySingleTicket;
-
-
 
     // Navigation Bar
     @FXML
     private Button backButton;
-
-
 
     // VBox
     @FXML
@@ -41,12 +41,24 @@ public class AddSingleTicketsViewController extends TravelDocumentsManagementVie
     @FXML
     private Button addMonoTicketsToCart;
 
+    //SingleTicket setter
+    private void setMySingleTicket(SingleTicket mySingleTicket) {this.mySingleTicket = mySingleTicket;}
 
-
-    private void setMySingleTicket(SingleTicket mySingleTicket) { this.mySingleTicket = mySingleTicket; }
+    //SingleTicket getter
     private SingleTicket getMySingleTicket() { return mySingleTicket; }
+
+
+    /**
+     * Button to go back to previous view
+     * @param event Button clicked
+     */
     @FXML
     void onBackButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(backButton, "TicketsManagementView.fxml"); }
+
+    /**
+     * Button to add a single ticket to cart
+     * @param event Button clicked
+     */
     @FXML
     void onAddSingleTicketsToCartButtonClick(ActionEvent event) {
         String ID_Ride = ID_RideTextField.getText(), ID_Line = ID_LineTextField.getText();
@@ -76,12 +88,20 @@ public class AddSingleTicketsViewController extends TravelDocumentsManagementVie
         initializeViewComponents();
     }
 
+    /**
+     * Button to increase ticket quantity
+     * @param event Button clicked
+     */
     @FXML
     void onIncreaseSingleTicketQuantityButtonClick(ActionEvent event) {
         quantityTextField.setText(String.valueOf(Integer.parseInt(quantityTextField.getText()) + 1));
         priceResultLabel.setText("€  " + String.valueOf(Integer.parseInt(quantityTextField.getText()) * MyConstants.singleTicketPrice));
     }
 
+    /**
+     * Button to decrease membership quantity
+     * @param event Button clicked
+     */
     @FXML
     void onDecreaseSingleTicketQuantityButtonClick(ActionEvent event) {
         int currentQuantity = Integer.parseInt(quantityTextField.getText());
@@ -89,10 +109,22 @@ public class AddSingleTicketsViewController extends TravelDocumentsManagementVie
         priceResultLabel.setText("€  " + String.valueOf(Integer.parseInt(quantityTextField.getText()) * MyConstants.singleTicketPrice));
     }
 
+    /**
+     * Button to show help view
+     * @param event
+     */
     @FXML
     void onHelpButtonClick(ActionEvent event) { super.raiseInformationAlert("È possibile aggiungere uno o più biglietti singoli al carrello. È possibile utilizzare il biglietto singolo per la corsa e per la linea da te specificata. La validità del titolo di viaggio è a partire dalla data di timbratura del biglietto fino al giorno seguente allo stesso orario. Se selezioni più biglietti singoli, questi saranno validi tutti per la stessa corsa e per la stessa linea. Se è necessario che siano diverse, aggiungi separatamente i biglietti singoli al carrello."); }
+
+    /**
+     * @see javafx.fxml.Initializable#initialize(URL, ResourceBundle)
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { initializeViewComponents(); }
+
+    /**
+     * @see com.prog3.ipt.Controller.ViewController#initializeViewComponents()
+     */
     @Override
     protected void initializeViewComponents() {
         super.clearTextFieldsContent(ID_RideTextField, ID_LineTextField, quantityTextField);
