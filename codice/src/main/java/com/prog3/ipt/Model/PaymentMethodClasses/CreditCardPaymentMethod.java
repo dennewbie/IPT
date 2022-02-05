@@ -6,15 +6,20 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- *
+ * CreditCardPaymentMethod is a concrete class that implements PaymentMethodStrategy interface. This class
+ * represents a credit card payment
  */
 public class CreditCardPaymentMethod implements PaymentMethodStrategy {
     private String creditCardNumber;
     private LocalDate creditCardExpirationDate;
     private String creditCardCVV;
 
-
-
+    /**
+     * CreditCardPaymentMethod constructor
+     * @param creditCardNumber Numeric code that uniquely identifies a credit card
+     * @param creditCardExpirationDate Credit card expiration date
+     * @param creditCardCVV Security code consisting of 3 digits
+     */
     public CreditCardPaymentMethod(String creditCardNumber, LocalDate creditCardExpirationDate, String creditCardCVV) {
         setCreditCardNumber(creditCardNumber);
         setCreditCardExpirationDate(creditCardExpirationDate);
@@ -31,12 +36,13 @@ public class CreditCardPaymentMethod implements PaymentMethodStrategy {
     public LocalDate getCreditCardExpirationDate() { return creditCardExpirationDate; }
     public String getCreditCardCVV() { return creditCardCVV; }
 
-    // Others
-    // check creditCardNumber validity
+    /**
+     * Checks that the credit card number entered by user is correct
+     * @return boolean value true if card number is correct or false if not
+     */
     private boolean checkCreditCardNumber() {
         // check if credit card number is null or is less than 16 digits
         if (creditCardNumber == null || creditCardNumber.length() != 16) { return false; }
-
         // check if credit card number contains only digits
         Pattern creditCardPattern = Pattern.compile("[a-z]", Pattern.CASE_INSENSITIVE);
         Matcher creditCardMatcher = creditCardPattern.matcher(creditCardNumber);
@@ -44,17 +50,22 @@ public class CreditCardPaymentMethod implements PaymentMethodStrategy {
         return true;
     }
 
-    // check expirationDate validity
+    /**
+     * Checks that the credit card expiration date entered by user is correct
+     * @return boolean value true if card expiration date is correct or false if not
+     */
     private boolean checkCreditCardExpirationDate() {
         if (creditCardExpirationDate.isAfter(LocalDate.now())) return true;
         return false;
     }
 
-    // check creditCardCVV validity
+    /**
+     * Checks that the credit card CCV entered by user is correct
+     * @return boolean value true if card CCV is correct or false if not
+     */
     private boolean checkCreditCardCVV() {
         // check if credit card cvv is null or is less than 3 digits
         if (creditCardCVV == null || creditCardCVV.length() != 3)  return false;
-
         // check if credit card cvv contains any letter
         Pattern creditCardCVVPattern = Pattern.compile("[a-z]", Pattern.CASE_INSENSITIVE);
         Matcher creditCardCVVMatcher = creditCardCVVPattern.matcher(creditCardCVV);
@@ -62,7 +73,11 @@ public class CreditCardPaymentMethod implements PaymentMethodStrategy {
         return true;
     }
 
-    // Payment Algorithm
+    /**
+     * Makes the payment by the user
+     * @param paymentAmount Total amount to be paid by the user
+     * @return boolean value true if transaction was successful or false if not
+     */
     @Override
     public boolean pay(double paymentAmount) {
         // check validity
@@ -71,6 +86,10 @@ public class CreditCardPaymentMethod implements PaymentMethodStrategy {
         return true;
     }
 
+    /**
+     * Checks that the data entered by the user for the payment have been made correctly
+     * @return boolean value true if data are correct or false if not
+     */
     @Override
     public boolean checkPaymentMethodData() {
         // check validity
@@ -89,6 +108,7 @@ public class CreditCardPaymentMethod implements PaymentMethodStrategy {
     }
     @Override
     public int hashCode() { return Objects.hash(getCreditCardNumber(), getCreditCardExpirationDate(), getCreditCardCVV()); }
+
     @Override
     public String toString() { return "CreditCardPaymentMethod{ creditCardNumber='" + creditCardNumber + '\'' + ", creditCardExpirationDate=" + creditCardExpirationDate +  ", creditCardCVV='" + creditCardCVV + '\'' +  '}'; }
 }
