@@ -4,7 +4,9 @@ import java.sql.Time;
 import java.time.LocalDate;
 import java.util.Objects;
 
-/** RideLineFX is a class made to display content in InfoView JavaFX object. */
+/**
+ * RideLineFX is a class made to display content in InfoView JavaFX object.
+ */
 public class RideLineFX {
     //Ride
     private String rideID;
@@ -32,7 +34,7 @@ public class RideLineFX {
      * @param rideEndingHour Arrival time of the ride
      * @param ridePriority Ride priority
      * @param lineID Index which uniquely identifies a line
-     * @param lineLength Line lenght expressed in kilometers
+     * @param lineLength Line length expressed in kilometers
      * @param lineStartStation Line start station
      * @param lineStopStation Line end station
      * @param lineActivationDate Line activation date
@@ -53,8 +55,9 @@ public class RideLineFX {
      * @param ride A reference to a generic Ride object
      */
     public RideLineFX(Ride ride) {
-        this.rideID = rideID; this.rideStatus = rideStatus; this.rideStartingHour = rideStartingHour;
-        this.rideEndingHour = rideEndingHour; this.ridePriority = ridePriority;
+        setRideID(ride.getRideID()); setRideStatus(ride.getRideStatus());
+        setRideStartingHour(ride.getRideStartingHour()); setRideEndingHour(ride.getRideEndingHour());
+        setRidePriority(ride.getRidePriority());
     }
 
     /**
@@ -63,8 +66,9 @@ public class RideLineFX {
      * @param line A reference to a generic Line object
      */
     public RideLineFX(Line line) {
-        this.lineID = lineID; this.lineLength = lineLength; this.lineStartStation = lineStartStation; this.lineStopStation = lineStopStation;
-        this.lineActivationDate = lineActivationDate; this.lineOpeningHour = lineOpeningHour; this.lineClosingHour = lineClosingHour;
+        setLineID(line.getLineID()); setLineLength(line.getLineLength()); setLineStartStation(line.getLineStartStation());
+        setLineStopStation(line.getLineStopStation()); setLineActivationDate(line.getLineActivationDate());
+        setLineOpeningHour(line.getLineOpeningHour()); setLineClosingHour(line.getLineClosingHour());
     }
 
     // Setters
@@ -81,7 +85,7 @@ public class RideLineFX {
     private void setLineOpeningHour(Time lineOpeningHour) { this.lineOpeningHour = lineOpeningHour; }
     private void setLineClosingHour(Time lineClosingHour) { this.lineClosingHour = lineClosingHour; }
 
-    //Getters
+    // Getters
     public String getRideID() { return rideID; }
     public String getRideStatus() { return rideStatus; }
     public Time getRideStartingHour() { return rideStartingHour; }
@@ -99,8 +103,8 @@ public class RideLineFX {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof RideLineFX)) return false;
-        RideLineFX rideLi = (RideLineFX) o;
-        return Objects.equals(getRideID(), rideLi.getRideID()) && Objects.equals(getRideStatus(), rideLi.getRideStatus()) && Objects.equals(getRideStartingHour(), rideLi.getRideStartingHour()) && Objects.equals(getRideEndingHour(), rideLi.getRideEndingHour()) && Objects.equals(getRidePriority(), rideLi.getRidePriority()) && Objects.equals(getLineID(), rideLi.getLineID()) && Objects.equals(getLineLength(), rideLi.getLineLength()) && Objects.equals(getLineStartStation(), rideLi.getLineStartStation()) && Objects.equals(getLineStopStation(), rideLi.getLineStopStation()) && Objects.equals(getLineActivationDate(), rideLi.getLineActivationDate()) && Objects.equals(getLineOpeningHour(), rideLi.getLineOpeningHour()) && Objects.equals(getLineClosingHour(), rideLi.getLineClosingHour());
+        RideLineFX rideLine = (RideLineFX) o;
+        return Objects.equals(getRideID(), rideLine.getRideID()) && Objects.equals(getRideStatus(), rideLine.getRideStatus()) && Objects.equals(getRideStartingHour(), rideLine.getRideStartingHour()) && Objects.equals(getRideEndingHour(), rideLine.getRideEndingHour()) && Objects.equals(getRidePriority(), rideLine.getRidePriority()) && Objects.equals(getLineID(), rideLine.getLineID()) && Objects.equals(getLineLength(), rideLine.getLineLength()) && Objects.equals(getLineStartStation(), rideLine.getLineStartStation()) && Objects.equals(getLineStopStation(), rideLine.getLineStopStation()) && Objects.equals(getLineActivationDate(), rideLine.getLineActivationDate()) && Objects.equals(getLineOpeningHour(), rideLine.getLineOpeningHour()) && Objects.equals(getLineClosingHour(), rideLine.getLineClosingHour());
     }
     @Override
     public int hashCode() { return Objects.hash(getRideID(), getRideStatus(), getRideStartingHour(), getRideEndingHour(), getRidePriority(), getLineID(), getLineLength(), getLineStartStation(), getLineStopStation(), getLineActivationDate(), getLineOpeningHour(), getLineClosingHour()); }

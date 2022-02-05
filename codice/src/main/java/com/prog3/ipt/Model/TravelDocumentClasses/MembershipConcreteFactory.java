@@ -16,7 +16,7 @@ public class MembershipConcreteFactory extends TravelDocumentFactory {
      * @param rideID The unique identifier of the ride if the travel document is a single ticket
      * @param stampDate The stamp date of the travel document, in particular a single ticket
      * @param startDate The validity start date of the travel document if it is a membership
-     * @return
+     * @return TravelDocument
      */
     @Override
     public TravelDocument createTravelDocument(double price, LocalDate issueDate, LocalDate expirationDate, String transactionID, String lineID, String rideID, LocalDate stampDate, LocalDate startDate) {

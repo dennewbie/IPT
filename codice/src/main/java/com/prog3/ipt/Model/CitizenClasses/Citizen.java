@@ -20,10 +20,10 @@ public class Citizen extends User {
      * @param citizenID Index which uniquely identifies a citizen
      * @param name Citizen name
      * @param surname Citizen surname
-     * @param birthDate Citizen birth date
+     * @param birthDate Citizen birthdate
      * @param email Citizen email which is used to register and login into the system
-     * @param password Citizen password which is used to login into the system
-     * @param username Citizen username which is used to login into the system
+     * @param password Citizen password which is used to log into the system
+     * @param username Citizen username which is used to log into the system
      */
     public Citizen(String citizenID, String name, String surname, LocalDate birthDate, String email, String password, String username) {
         super(name, surname, birthDate, email, password);
@@ -36,10 +36,10 @@ public class Citizen extends User {
      * Citizen constructor
      * @param name Citizen name
      * @param surname Citizen surname
-     * @param birthDate Citizen birth date
+     * @param birthDate Citizen birthdate
      * @param email Citizen email which is used to register and login into the system
-     * @param password Citizen password which is used to login into the system
-     * @param username Citizen username which is used to login into the system
+     * @param password Citizen password which is used to log into the system
+     * @param username Citizen username which is used to log into the system
      */
     public Citizen(String name, String surname, LocalDate birthDate, String email, String password, String username) {
         super(name, surname, birthDate, email, password);

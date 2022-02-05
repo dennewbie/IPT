@@ -3,7 +3,9 @@ package com.prog3.ipt.Model.LineRide;
 import java.sql.Time;
 import java.util.Objects;
 
-/** Ride is class which represents a ride stored into the system's database */
+/**
+ * Ride is class which represents a ride stored into the system's database
+ */
 public class Ride {
     private String rideID;
     private String rideStatus;

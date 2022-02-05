@@ -61,7 +61,7 @@ public class EditProfileViewController extends ViewController {
         LocalDate localDate = birthDatePicker.getValue();
         // check email validity
         if (!super.validateEmail(email)) { super.raiseErrorAlert("Formato mail non valido."); return; }
-        // check birth date validity
+        // check birthdate validity
         if (!localDate.isBefore(LocalDate.now())) { super.raiseErrorAlert("Non puoi inserire una data di nascita uguale o successiva ad oggi."); return; }
         // update citizen in observer
         ObservableSingleton.updateCitizen(name, surname, localDate, email, password);

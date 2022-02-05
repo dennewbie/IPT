@@ -8,9 +8,9 @@ import java.sql.*;
 public class DatabaseConnectionSingleton {
     private static DatabaseConnectionSingleton instance;
     private Connection connection;
-    private String url = "jdbc:mysql://localhost:3306/ipt";
-    private String username = "root";
-    private String password = "rootroot";
+    private final String url = "jdbc:mysql://localhost:3306/ipt";
+    private final String username = "root";
+    private final String password = "rootroot";
 
 
 

@@ -3,7 +3,9 @@ package com.prog3.ipt.Model.CitizenClasses;
 import java.time.LocalDate;
 import java.util.Objects;
 
-/** User is a class that represents a generic user registered into the system */
+/**
+ * User is a class that represents a generic user registered into the system
+ */
 public abstract class User {
     private String name;
     private String surname;
@@ -17,9 +19,9 @@ public abstract class User {
      * User constructor
      * @param name User name
      * @param surname User surname
-     * @param birthDate User birth date
+     * @param birthDate User birthdate
      * @param email User email which is used to register and login into the system
-     * @param password User password which is used to login into the system
+     * @param password User password which is used to log into the system
      */
     protected User(String name, String surname, LocalDate birthDate, String email, String password) {
         setName(name);

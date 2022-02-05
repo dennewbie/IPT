@@ -128,8 +128,8 @@ public class TravelDocumentFX {
      * @return A reference to a TravelDocument object
      */
     public TravelDocument toTravelDocument() {
-        TravelDocumentFactory travelDocumentFactory = null;
-        TravelDocument travelDocument = null;
+        TravelDocumentFactory travelDocumentFactory;
+        TravelDocument travelDocument;
         travelDocumentFactory = (this.getStampDate() == null) ? new SingleTicketConcreteFactory() : new MembershipConcreteFactory();
         travelDocument = travelDocumentFactory.createTravelDocument(this.getPrice(), this.getIssueDate(), this.getExpirationDate(), this.getTransactionID(), this.getLineID(), this.getRideID(), this.getStampDate(), this.getStartDate());
         travelDocument.setTravelDocumentID(this.getTravelDocumentID());

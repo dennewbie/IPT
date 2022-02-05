@@ -29,7 +29,7 @@ public class Order {
      * @param transactionCode The unique identifier of the transaction commit by a citizen
      * @param purchaseDate Date on which the transaction took place
      * @param purchasePrice Total cost of the transaction
-     * @param citizenID Citizien who commit transaction
+     * @param citizenID Citizen who commit transaction
      * @param paymentMethodStrategy Method used to pay for the transaction
      * @param purchaseList List of purchases made by the transaction
      * @param purchaseObservableList FX Object which represents list of purchases made by the transaction

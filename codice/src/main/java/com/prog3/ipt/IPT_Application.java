@@ -10,9 +10,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
 
-/*
-    Creo il loader della view FXML, la assegno ad una scena e quest'ultima viene caricata a video.
-    Si imposta il titolo della finestra, il suo contenuto, si disattiva la possibilità di resize e infine la si mostra.
+/**
+ * Creo il loader della view FXML, la assegno ad una scena e quest'ultima viene caricata a video.
+ * Si imposta il titolo della finestra, il suo contenuto, si disattiva la possibilità di resize e infine la si mostra.
  */
 
 public class IPT_Application extends Application {

@@ -258,7 +258,7 @@ public class TravelDocumentsManagementViewController extends ViewController {
                 case PHONE_NUMBER_BILL -> phoneNumberBillPaymentMethodSelected();
                 default -> throw new IllegalStateException("Unexpected value: " + valueOf(paymentMethodsDropDownList.getValue()));
             }
-        } catch (IllegalStateException e) { e.printStackTrace(); return; }
+        } catch (IllegalStateException e) { e.printStackTrace(); }
     }
 
     /** Display content on view when credit card payment method was chosen
@@ -279,7 +279,7 @@ public class TravelDocumentsManagementViewController extends ViewController {
         }
     }
 
-    /** Display content on view when Paypal payment method was chosen
+    /** Display content on view when PayPal payment method was chosen
      * @see ObservableSingleton
      */
     private void payPalPaymentMethodSelected() {

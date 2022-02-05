@@ -48,8 +48,7 @@ public class CreditCardPaymentMethod implements PaymentMethodStrategy {
         // check if credit card number contains only digits
         Pattern creditCardPattern = Pattern.compile("[a-z]", Pattern.CASE_INSENSITIVE);
         Matcher creditCardMatcher = creditCardPattern.matcher(creditCardNumber);
-        if (creditCardMatcher.find()) return false;
-        return true;
+        return !creditCardMatcher.find();
     }
 
     /**
@@ -57,8 +56,7 @@ public class CreditCardPaymentMethod implements PaymentMethodStrategy {
      * @return True if card expiration date is valid or false if not
      */
     private boolean checkCreditCardExpirationDate() {
-        if (creditCardExpirationDate.isAfter(LocalDate.now())) return true;
-        return false;
+        return creditCardExpirationDate.isAfter(LocalDate.now());
     }
 
     /**
@@ -71,8 +69,7 @@ public class CreditCardPaymentMethod implements PaymentMethodStrategy {
         // check if credit card cvv contains any letter
         Pattern creditCardCVVPattern = Pattern.compile("[a-z]", Pattern.CASE_INSENSITIVE);
         Matcher creditCardCVVMatcher = creditCardCVVPattern.matcher(creditCardCVV);
-        if (creditCardCVVMatcher.find()) return false;
-        return true;
+        return !creditCardCVVMatcher.find();
     }
 
     /**
@@ -83,9 +80,8 @@ public class CreditCardPaymentMethod implements PaymentMethodStrategy {
     @Override
     public boolean pay(double paymentAmount) {
         // check validity
-        if (!checkPaymentMethodData()) return false;
+        return checkPaymentMethodData();
         // Metodo pagamento valido. Contatta il gestore della carta, richiedi transazione, etc...
-        return true;
     }
 
     /**

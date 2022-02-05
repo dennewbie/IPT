@@ -16,13 +16,10 @@ public class PayPalPaymentMethod implements PaymentMethodStrategy {
 
     /**
      * PayPalPaymentMethod constructor
-     * @param email Email associated with the user Paypal account
-     * @param password Password associated with the user Paypal account
+     * @param email Email associated with the user PayPal account
+     * @param password Password associated with the user PayPal account
      */
-    public PayPalPaymentMethod(String email, String password) {
-        this.email = email;
-        this.password = password;
-    }
+    public PayPalPaymentMethod(String email, String password) { setEmail(email); setPassword(password); }
 
     // Setters
     private void setEmail(String email) { this.email = email; }
@@ -38,10 +35,7 @@ public class PayPalPaymentMethod implements PaymentMethodStrategy {
      * @return True if transaction was successful or false if not
      */
     @Override
-    public boolean pay(double paymentAmount) {
-        if (!this.checkPaymentMethodData()) return false;
-        return true;
-    }
+    public boolean pay(double paymentAmount) { return this.checkPaymentMethodData(); }
 
     /**
      * Checks that the data entered by the user for the payment have been made successfully
@@ -49,8 +43,7 @@ public class PayPalPaymentMethod implements PaymentMethodStrategy {
      */
     @Override
     public boolean checkPaymentMethodData() {
-        if (!this.getPassword().equals(((PayPalPaymentMethod) ObservableSingleton.getPaymentMethodStrategy()).getPassword())) return false;
-        return true;
+        return this.getPassword().equals(((PayPalPaymentMethod) ObservableSingleton.getPaymentMethodStrategy()).getPassword());
     }
 
     @Override

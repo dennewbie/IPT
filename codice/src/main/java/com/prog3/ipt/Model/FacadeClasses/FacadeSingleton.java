@@ -24,7 +24,9 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/** Thread-safe Singleton class. The instance is lazily initialized and thus needs synchronization mechanism. */
+/**
+ * Thread-safe Singleton class. The instance is lazily initialized and thus needs synchronization mechanism.
+ */
 public class FacadeSingleton {
     private static volatile FacadeSingleton instance;
     private static DatabaseConnectionSingleton databaseConnection;
@@ -48,7 +50,9 @@ public class FacadeSingleton {
      * FacadeSingleton constructor
      */
     private FacadeSingleton() {
-        /** Protect against instantiation via reflection */
+        /**
+         * Protect against instantiation via reflection
+         */
         if (instance != null) throw new IllegalStateException("Already initialized.");
     }
 

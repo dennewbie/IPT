@@ -67,7 +67,7 @@ public class LoginRegisterViewController extends ViewController {
     }
 
     /**
-     * Ciizen signs up to IPT Application
+     * Citizen signs up to IPT Application
      * @see FacadeSingleton#validateGeneratedCitizenID(Citizen)
      * @see FacadeSingleton#insertCitizen(Citizen)
      * @param event Button clicked
@@ -82,7 +82,7 @@ public class LoginRegisterViewController extends ViewController {
         String name = nameTextField.getText(), surname = surnameTextField.getText(), email = emailTextField.getText();
         String usernameSignUp = usernameSignUpTextField.getText(), passwordSignUp = passwordSignUpField.getText();
         LocalDate localDate = birthDatePicker.getValue();
-        // check birth-date validity
+        // check birthdate validity
         if (!localDate.isBefore(LocalDate.now())) { super.raiseErrorAlert("Non puoi inserire una data di nascita uguale o successiva ad oggi."); return; }
         // check email validity
         if (!super.validateEmail(email)) { super.raiseErrorAlert("Formato mail non valido."); return; }

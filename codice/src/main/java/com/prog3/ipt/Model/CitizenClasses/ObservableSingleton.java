@@ -8,7 +8,8 @@ import javafx.collections.ObservableList;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-/** ObersvableSingletion is a class that implents Observer Method design pattern variant with addition
+/**
+ * ObersvableSingleton is a class that implements Observer Method design pattern variant with addition
  * of Singleton Method design pattern
  */
 public class ObservableSingleton {
@@ -19,7 +20,9 @@ public class ObservableSingleton {
 
 
 
-    /** Protect against instantiation via reflection */
+    /**
+     * Protect against instantiation via reflection
+     */
     private ObservableSingleton() {
         if (sessionUser != null) throw new IllegalStateException("Already initialized.");
         if (sessionOrder != null) throw new IllegalStateException("Already initialized.");
@@ -83,7 +86,9 @@ public class ObservableSingleton {
     }
 
     // paymentMethod getter
-    /** The instance doesn't get created until the method is called for the first time. */
+    /**
+     * The instance doesn't get created until the method is called for the first time.
+     */
     public static PaymentMethodStrategy getPaymentMethodStrategy() {
         if (sessionPaymentMethodStrategy == null) {
             synchronized (ObservableSingleton.class) {
