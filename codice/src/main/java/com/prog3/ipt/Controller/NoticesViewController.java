@@ -13,6 +13,9 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
+/**
+ * NoticeViewController is the controller that handles Notices view.
+ */
 public class NoticesViewController extends ViewController {
     // Navigation Bar
     @FXML
@@ -36,13 +39,26 @@ public class NoticesViewController extends ViewController {
     @FXML
     private TableColumn<Notice, String> noticeTextTableColumn;
 
-
+    /**
+     * Back to previous view
+     * @see ViewController#onButtonClickNavigateToView(Button, String)
+     * @param event Button clicked
+     */
     @FXML
     void onBackButtonClick(ActionEvent event) {
         super.onButtonClickNavigateToView(backButton, "HomeView.fxml");
     }
+
+    /**
+     * @see javafx.fxml.Initializable#initialize(URL, ResourceBundle)
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { initializeViewComponents(); }
+
+    /**
+     * @see ViewController#initializeViewComponents()
+     * @see FacadeSingleton#getNoticesViewContent()
+     */
     @Override
     protected void initializeViewComponents() {
         ObservableList<Notice> noticeObservableList = FacadeSingleton.getNoticesViewContent();

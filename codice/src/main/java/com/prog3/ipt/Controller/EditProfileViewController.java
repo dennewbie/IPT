@@ -11,6 +11,9 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
+/**
+ * EditProfileViewController is the controller that handles EditProfile view.
+ */
 public class EditProfileViewController extends ViewController {
     // Navigation Bar
     @FXML
@@ -37,12 +40,22 @@ public class EditProfileViewController extends ViewController {
     private CitizenEditProfileOriginator citizenEditProfileOriginator;
 
 
-
+    /**
+     * Back to previous view
+     * @param event Button clicked
+     */
     @FXML
     void onBackButtonClick(ActionEvent event) {
         super.onButtonClickNavigateToView(backButton, "HomeView.fxml");
     }
 
+    /**
+     * Saves changes to Citizen profile
+     * @param event Button clicked
+     * @see ObservableSingleton#updateCitizen(String, String, LocalDate, String, String)
+     * @see CitizenEditProfileOriginator#setCurrentCitizen(Citizen)
+     * @see CitizenEditProfileOriginator#save()
+     */
     @FXML
     void onSaveInformationButtonClick(ActionEvent event) {
         // check text field validity
@@ -69,6 +82,10 @@ public class EditProfileViewController extends ViewController {
         undoButton.setDisable(false);
     }
 
+    /**
+     * Undoes changes
+     * @param event Button clicked
+     */
     @FXML
     void onUndoButtonClick(ActionEvent event) {
         boolean returnValue = citizenEditProfileOriginator.restore();
@@ -86,6 +103,9 @@ public class EditProfileViewController extends ViewController {
         }
     }
 
+    /**
+     * Update Text Fields in EditProfile view
+     */
     private void updateTextFields() {
         nameTextField.setText(ObservableSingleton.getCitizen().getName());
         surnameTextField.setText(ObservableSingleton.getCitizen().getSurname());
@@ -94,9 +114,24 @@ public class EditProfileViewController extends ViewController {
         passwordField.setText(ObservableSingleton.getCitizen().getPassword());
     }
 
+    /**
+     * Checks if citizen made changes on his profile data
+     * @param firstCitizen A reference to a Citizen object, typically before the changes
+     * @param secondCitizen A reference to a Citizen object, typically after the changes
+     * @return True if there are no changes, otherwise false
+     */
     private boolean checkChanges(Citizen firstCitizen, Citizen secondCitizen) { return (firstCitizen.getName().equals(secondCitizen.getName())  && firstCitizen.getSurname().equals(secondCitizen.getSurname()) && firstCitizen.getEmail().equals(secondCitizen.getEmail()) && firstCitizen.getBirthDate().isEqual(secondCitizen.getBirthDate()) && firstCitizen.getPassword().equals(secondCitizen.getPassword())); }
+
+    /**
+     * @see javafx.fxml.Initializable#initialize(URL, ResourceBundle)
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { initializeViewComponents(); }
+
+    /**
+     * @see ViewController#initializeViewComponents()
+     * @see CitizenEditProfileOriginator
+     */
     @Override
     protected void initializeViewComponents() {
         undoButton.setDisable(true);

@@ -9,6 +9,9 @@ import javafx.scene.web.WebView;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * GoogleMapsViewController is the controller that handles GoogleMaps view.
+ */
 public class GoogleMapsViewController extends ViewController {
     // Navigation Bar
     @FXML
@@ -24,15 +27,33 @@ public class GoogleMapsViewController extends ViewController {
 
 
 
+
+    /**
+     * Back to previous view
+     * @param event Button clicked
+     */
     @FXML
     void onBackButtonClick(ActionEvent event) {
         super.onButtonClickNavigateToView(backButton, "SearchPathView.fxml");
     }
+
+    // Setter
     public void setUrl(String url) {
         this.url = url;
     }
+
+    /**
+     * @see javafx.fxml.Initializable#initialize(URL, ResourceBundle)
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { initializeViewComponents(); }
+
+    /**
+     * @see ViewController#initializeViewComponents()
+     * @see Platform#runLater(Runnable)
+     * @see WebEngine
+     * @see WebView
+     */
     @Override
     protected void initializeViewComponents() {
         Platform.runLater(() -> {

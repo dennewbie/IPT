@@ -10,6 +10,9 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
+/**
+ * LoginRegisterViewController is the controller that handles LoginRegister view.
+ */
 public class LoginRegisterViewController extends ViewController {
     @FXML
     private Button backButton;
@@ -35,11 +38,22 @@ public class LoginRegisterViewController extends ViewController {
     private Button signInButton;
 
 
-
+    /**
+     * Back to previous view
+     * @see ViewController#onButtonClickNavigateToView(Button, String)
+     * @param event Button clicked
+     */
     @FXML
     void onBackButtonClick(ActionEvent event) {
         super.onButtonClickNavigateToView(backButton, "HomeView.fxml");
     }
+
+    /**
+     * Citizen signs in his IPT account
+     * @see FacadeSingleton#retrieveCitizen(String, String)
+     * @see ObservableSingleton#setCitizen(Citizen)
+     * @param event Button Clicked
+     */
     @FXML
     void onSignInButtonClick(ActionEvent event) {
         Citizen loggedCitizen;
@@ -53,6 +67,12 @@ public class LoginRegisterViewController extends ViewController {
         super.onButtonClickNavigateToView(signInButton, "HomeView.fxml");
     }
 
+    /**
+     * Ciizen signs up to IPT Application
+     * @see FacadeSingleton#validateGeneratedCitizenID(Citizen)
+     * @see FacadeSingleton#insertCitizen(Citizen)
+     * @param event Button clicked
+     */
     @FXML
     void onSignUpButtonClick(ActionEvent event) {
         Citizen newCitizen;
@@ -79,8 +99,15 @@ public class LoginRegisterViewController extends ViewController {
         initializeViewComponents();
     }
 
+    /**
+     * @see javafx.fxml.Initializable#initialize(URL, ResourceBundle)
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { initializeViewComponents(); }
+
+    /**
+     * @see ViewController#initializeViewComponents()
+     */
     @Override
     protected void initializeViewComponents() {
         super.clearTextFieldsContent(nameTextField, surnameTextField, emailTextField, passwordSignUpField, usernameSignUpTextField);

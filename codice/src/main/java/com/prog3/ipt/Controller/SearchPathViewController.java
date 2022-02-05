@@ -11,6 +11,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * SearchPathViewController is the controller that handles SearchPath view.
+ */
 public class SearchPathViewController extends ViewController implements Initializable {
     // Navigation Bar
     @FXML
@@ -29,11 +32,21 @@ public class SearchPathViewController extends ViewController implements Initiali
     private String urlResource;
 
 
-
+    /**
+     * Return to the previous view
+     * @see ViewController#onButtonClickNavigateToView(Button, String)
+     * @param event Button clicked
+     */
     @FXML
     void onBackButtonClick(ActionEvent event) {
         super.onButtonClickNavigateToView(backButton, "HomeView.fxml");
     }
+
+    /**
+     * Builds the web url view for the starting and destination point
+     * @see #onButtonClickNavigateToView(Button, String)
+     * @param event Button clicked
+     */
     @FXML
     void onSearchPathButtonClick(ActionEvent event) {
         if (!super.checkTextFieldsContent(destinationPointTextField, startingPointTextField)) { super.raiseErrorAlert("Hai lasciato uno o più campi vuoti."); return; }
@@ -45,11 +58,23 @@ public class SearchPathViewController extends ViewController implements Initiali
         onButtonClickNavigateToView(searchPathButton, "GoogleMapsView.fxml");
     }
 
+    /**
+     * @see Initializable#initialize(URL, ResourceBundle)
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { initializeViewComponents(); }
+
+    /**
+     * @see ViewController#initializeViewComponents()
+     */
     @Override
     protected void initializeViewComponents() { super.clearTextFieldsContent(startingPointTextField, destinationPointTextField); }
 
+    /**
+     * @see ViewController#onButtonClickNavigateToView(Button, String)
+     * @param clickedButton A reference to a Button JavaFX object
+     * @param destinationView A string that represents the filename of the destination view
+     */
     @Override
     protected void onButtonClickNavigateToView(Button clickedButton, String destinationView) {
         try {
