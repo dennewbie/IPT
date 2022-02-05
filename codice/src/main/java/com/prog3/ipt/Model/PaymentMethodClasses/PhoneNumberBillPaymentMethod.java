@@ -26,14 +26,14 @@ public class PhoneNumberBillPaymentMethod implements PaymentMethodStrategy {
     /**
      * Makes the payment by the user
      * @param paymentAmount Total amount to be paid by the user
-     * @return boolean value true if transaction was successful or false if not
+     * @return true if transaction was successfull, otherwise false
      */
     @Override
     public boolean pay(double paymentAmount) {return checkPaymentMethodData();}
 
     /**
-     * Checks that the data entered by the user for the payment have been made correctly
-     * @return boolean value true if data are correct or false if not
+     * Checks that the data entered by the user for the payment have been made successfully
+     * @return True if data are valid, otherwise false
      */
     @Override
     public boolean checkPaymentMethodData() {

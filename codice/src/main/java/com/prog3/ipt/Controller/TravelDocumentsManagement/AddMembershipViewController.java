@@ -11,8 +11,8 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 /**
- * AddMembershipViewController is a class that extends TravelDocumentsManagementViewController and
- * represents view of adding membership
+ * AddMembershipViewController is a class that extends TravelDocumentsManagementViewController.
+ * This class handles AddMembership view
  */
 public class AddMembershipViewController extends TravelDocumentsManagementViewController {
     Membership myMembership;
@@ -44,14 +44,14 @@ public class AddMembershipViewController extends TravelDocumentsManagementViewCo
     private Membership getMyMembership() {return myMembership;}
 
     /**
-     * Button to go back to previous view
+     * Back to previous view
      * @param event Button clicked
      */
     @FXML
     void onBackButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(backButton, "TicketsManagementView.fxml"); }
 
     /**
-     * Button to add a membership to cart
+     * Adds a membership to cart
      * @param event Button clicked
      */
     @FXML
@@ -81,7 +81,7 @@ public class AddMembershipViewController extends TravelDocumentsManagementViewCo
     }
 
     /**
-     * Button to increase membership quantity
+     * Increases the number of membership that the logged citizen wants to buy
      * @param event Button clicked
      */
     @FXML
@@ -91,7 +91,7 @@ public class AddMembershipViewController extends TravelDocumentsManagementViewCo
     }
 
     /**
-     * Button to decrease membership quantity
+     * Decreases the number of membership that the logged citizen wants to buy
      * @param event Button clicked
      */
     @FXML
@@ -102,8 +102,8 @@ public class AddMembershipViewController extends TravelDocumentsManagementViewCo
     }
 
     /**
-     * Button to show help view
-     * @param event
+     * Shows help information
+     * @param event Button clicked
      */
     @FXML
     void onHelpButtonClick(ActionEvent event) { super.raiseInformationAlert("È possibile aggiungere uno o più abbonamenti al carrello. L'abbonamneto avrà la data di inizio validità pari a quella da te inserita e sarà valido per un anno. Se selezioni più abbonamenti avranno tutti la stessa data di inizio validità. Se è necessario che siano diverse, aggiungi separatamente gli abbonamenti al carrello."); }

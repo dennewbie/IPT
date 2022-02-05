@@ -1,6 +1,7 @@
 package com.prog3.ipt.Model.PaymentMethodClasses;
 
-/** PaymentMethodEnum is an enum used to declare a constant string used into PaymenthMethodClasses*/
+/** PaymentMethodEnum is an enum used to declare a constant string used into PaymenthMethodClasses
+ */
 public enum PaymentMethodEnum {
     PAYPAL("PayPal"),
     CREDIT_CARD("Carta di Credito"),

@@ -19,8 +19,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import static com.prog3.ipt.Model.PaymentMethodClasses.PaymentMethodEnum.*;
 
 /**
- * TravelDocumentsManagementViewController class extends ViewController class end represents view of
- * travel documents management
+ * TravelDocumentsManagementViewController class extends ViewController class.
+ * This class handles TravelDocumentManagement view
  */
 public class TravelDocumentsManagementViewController extends ViewController {
     protected TravelDocumentFactory myTravelDocumentFactory;
@@ -75,43 +75,44 @@ public class TravelDocumentsManagementViewController extends ViewController {
     @FXML
     private TableColumn<TravelDocumentFX, Button> deleteRowTableColumn;
 
-    /**
-     * Button to see single ticket
-     * @param event Button clicked
-     */
-    @FXML
-    private void onMySingleTicketsButtonClick(ActionEvent event) {super.onButtonClickNavigateToView(mySingleTicketsButton, "MySingleTicketsView.fxml");}
 
     /**
-     * Button to see a membership
-     * @param event Button clicked
-     */
-    @FXML
-    private void onMyMembershipButtonClick(ActionEvent event) {super.onButtonClickNavigateToView(myMembershipButton, "MyMembershipView.fxml");}
-
-    /**
-     * Button to go back to previous view
+     * Back to previous view
      * @param event Button clicked
      */
     @FXML
     void onBackButtonClick(ActionEvent event) {super.onButtonClickNavigateToView(backButton, "HomeView.fxml");}
 
     /**
-     * Button to add a single ticket
+     * Move on MySingleTickets view
+     * @param event Button clicked
+     */
+    @FXML
+    private void onMySingleTicketsButtonClick(ActionEvent event) {super.onButtonClickNavigateToView(mySingleTicketsButton, "MySingleTicketsView.fxml");}
+
+    /**
+     * Move on MyMemberships view
+     * @param event Button clicked
+     */
+    @FXML
+    private void onMyMembershipButtonClick(ActionEvent event) {super.onButtonClickNavigateToView(myMembershipButton, "MyMembershipView.fxml");}
+
+    /**
+     * Move on AddSingleTickets view
      * @param event Button clicked
      */
     @FXML
     void onAddSingleTicketsButtonClick(ActionEvent event) {super.onButtonClickNavigateToView(addSingleTicketsButton, "AddSingleTicketsView.fxml");}
 
     /**
-     * Button to add a membership
+     * Move on AddMemberships view
      * @param event Button clicked
      */
     @FXML
     void onAddMembershipsButtonClick(ActionEvent event) {super.onButtonClickNavigateToView(addMembershipsButton, "AddMembershipView.fxml");}
 
     /**
-     * Button to made a transaction
+     * Creates and inserts a transaction to the Transaction table according to the logged Citizen order
      * @param event Button clicked
      */
     @FXML
@@ -132,7 +133,7 @@ public class TravelDocumentsManagementViewController extends ViewController {
     }
 
     /**
-     * Button to save payment method
+     * Saves payment method
      * @param event Button clicked
      */
     @FXML
@@ -182,7 +183,6 @@ public class TravelDocumentsManagementViewController extends ViewController {
 
     /**
      * @see ViewController#initializeViewComponents()
-     * @see ObservableSingleton#getOrder()
      */
     @Override
     protected void initializeViewComponents() {

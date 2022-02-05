@@ -15,8 +15,8 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 /**
- * MyMembershipViewController is a class that extends TravelDocumentsManagementViewController and
- * represents view of a single ticket
+ * MyMembershipViewController is a class that extends TravelDocumentsManagementViewController.
+ * This class handles MySingleTickets view
  */
 public class MySingleTicketsViewController extends TravelDocumentsManagementViewController {
     // Navigation Bar
@@ -44,7 +44,7 @@ public class MySingleTicketsViewController extends TravelDocumentsManagementView
     private TableColumn<TravelDocumentFX, Button> deleteRowTableColumn;
 
     /**
-     * Button to go back to previous view
+     * Back to previous view
      * @param event Button clicked
      */
     @FXML
@@ -58,6 +58,7 @@ public class MySingleTicketsViewController extends TravelDocumentsManagementView
 
     /**
      * @see com.prog3.ipt.Controller.ViewController#initializeViewComponents()
+     * @see FacadeSingleton#getMyTicketsViewContent()
      */
     @Override
     protected void initializeViewComponents() {

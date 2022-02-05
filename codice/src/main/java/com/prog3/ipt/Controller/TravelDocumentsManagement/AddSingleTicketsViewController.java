@@ -13,8 +13,8 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 /**
- * AddSingleTicketsViewController is a class that extends TravelDocumentsManagementViewController and
- * represents view of adding single ticket
+ * AddSingleTicketsViewController is a class that extends TravelDocumentsManagementViewController
+ * This class handles AddSingleTickets view
  */
 public class AddSingleTicketsViewController extends TravelDocumentsManagementViewController {
     SingleTicket mySingleTicket;
@@ -49,14 +49,14 @@ public class AddSingleTicketsViewController extends TravelDocumentsManagementVie
 
 
     /**
-     * Button to go back to previous view
+     * Back to previous view
      * @param event Button clicked
      */
     @FXML
     void onBackButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(backButton, "TicketsManagementView.fxml"); }
 
     /**
-     * Button to add a single ticket to cart
+     * Adds a single ticket to cart
      * @param event Button clicked
      */
     @FXML
@@ -89,7 +89,7 @@ public class AddSingleTicketsViewController extends TravelDocumentsManagementVie
     }
 
     /**
-     * Button to increase ticket quantity
+     * Increases ticket quantity
      * @param event Button clicked
      */
     @FXML
@@ -99,7 +99,7 @@ public class AddSingleTicketsViewController extends TravelDocumentsManagementVie
     }
 
     /**
-     * Button to decrease membership quantity
+     * Decreases membership quantity
      * @param event Button clicked
      */
     @FXML
@@ -110,7 +110,7 @@ public class AddSingleTicketsViewController extends TravelDocumentsManagementVie
     }
 
     /**
-     * Button to show help view
+     * Shows help information
      * @param event
      */
     @FXML

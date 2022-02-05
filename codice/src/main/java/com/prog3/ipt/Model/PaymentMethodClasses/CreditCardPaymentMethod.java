@@ -51,8 +51,8 @@ public class CreditCardPaymentMethod implements PaymentMethodStrategy {
     }
 
     /**
-     * Checks that the credit card expiration date entered by user is correct
-     * @return boolean value true if card expiration date is correct or false if not
+     * Checks that the credit card expiration date entered by user is valid
+     * @return True if card expiration date is valid or false if not
      */
     private boolean checkCreditCardExpirationDate() {
         if (creditCardExpirationDate.isAfter(LocalDate.now())) return true;
@@ -60,8 +60,8 @@ public class CreditCardPaymentMethod implements PaymentMethodStrategy {
     }
 
     /**
-     * Checks that the credit card CCV entered by user is correct
-     * @return boolean value true if card CCV is correct or false if not
+     * Checks that the credit card CCV entered by user is valid
+     * @return True if card CCV is valid or false if not
      */
     private boolean checkCreditCardCVV() {
         // check if credit card cvv is null or is less than 3 digits
@@ -76,7 +76,7 @@ public class CreditCardPaymentMethod implements PaymentMethodStrategy {
     /**
      * Makes the payment by the user
      * @param paymentAmount Total amount to be paid by the user
-     * @return boolean value true if transaction was successful or false if not
+     * @return True if transaction was successful or false if not
      */
     @Override
     public boolean pay(double paymentAmount) {
@@ -87,8 +87,8 @@ public class CreditCardPaymentMethod implements PaymentMethodStrategy {
     }
 
     /**
-     * Checks that the data entered by the user for the payment have been made correctly
-     * @return boolean value true if data are correct or false if not
+     * Checks that the data entered by the user for the payment have been made successfully
+     * @return True if data are valid or false if not
      */
     @Override
     public boolean checkPaymentMethodData() {
