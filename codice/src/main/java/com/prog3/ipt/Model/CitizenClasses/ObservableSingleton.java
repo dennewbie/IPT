@@ -28,6 +28,8 @@ public class ObservableSingleton {
     //citizen setters
     public static void setCitizenID(String citizenID) { sessionUser.setCitizenID(citizenID);}
     public static void setCitizen(Citizen newUser) { sessionUser = newUser; }
+
+    //citizen updaters
     public static void updateCitizen(String name, String surname, LocalDate birthDate, String email, String password) {
         getCitizen().setName(name);
         getCitizen().setSurname(surname);
@@ -36,7 +38,7 @@ public class ObservableSingleton {
         getCitizen().setPassword(password);
     }
 
-    //citizen getters
+    //citizen getter
     /** The instance doesn't get created until the method is called for the first time. */
     public static Citizen getCitizen() {
         if (sessionUser == null) {
@@ -47,8 +49,10 @@ public class ObservableSingleton {
         return sessionUser;
     }
 
-    //oder setters
-    public static void setOrder(Order newOrder) { sessionOrder = newOrder; }
+    //order setter
+    public static void setOrder(Order newOrder) {sessionOrder = newOrder;}
+
+    //order updaters
     public static void updateOrder(LocalDate purchaseDate, double purchasePrice, String citizenID, PaymentMethodStrategy paymentMethodStrategy, ArrayList<TravelDocument> purchaseList, ObservableList<TravelDocumentFX> observableList) {
         getOrder().setPurchaseDate(purchaseDate);
         getOrder().setPurchasePrice(purchasePrice);

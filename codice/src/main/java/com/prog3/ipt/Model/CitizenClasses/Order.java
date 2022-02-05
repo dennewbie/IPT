@@ -9,6 +9,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * Order is a class that represents a purchase commit by a citizen due to buy tickets and season tickets
+ * offered for sale by the system
+ */
 public class Order {
     private String transactionCode;
     private LocalDate purchaseDate;
@@ -16,12 +20,18 @@ public class Order {
     private String citizenID;
     private PaymentMethodStrategy paymentMethodStrategy;
     private ArrayList<TravelDocument> purchaseList;
+    private ObservableList<TravelDocumentFX> purchaseObservableList; // Java FX
 
-    // Java FX
-    private ObservableList<TravelDocumentFX> purchaseObservableList;
-
-
-
+    /**
+     * Order constructor
+     * @param transactionCode The unique identifier of the transaction commit by a citizen
+     * @param purchaseDate Date on which the transaction took place
+     * @param purchasePrice Total cost of the transaction
+     * @param citizenID Citizien who commit transaction
+     * @param paymentMethodStrategy Method used to pay for the transaction
+     * @param purchaseList List of purchases made by the transaction
+     * @param purchaseObservableList List of purchases made by the transaction
+     */
     public Order(String transactionCode, LocalDate purchaseDate, double purchasePrice, String citizenID, PaymentMethodStrategy paymentMethodStrategy, ArrayList<TravelDocument> purchaseList, ObservableList<TravelDocumentFX> purchaseObservableList) {
         setTransactionCode(transactionCode);
         setPurchaseDate(purchaseDate);
@@ -54,7 +64,6 @@ public class Order {
     public void addTravelDocument(TravelDocument travelDocumentObject) {
         getPurchaseList().add(travelDocumentObject);
         getPurchaseObservableList().add(travelDocumentObject.toTravelDocumentFX());
-
         setPurchasePrice(getPurchasePrice() + travelDocumentObject.getPrice());
     }
 
@@ -63,10 +72,10 @@ public class Order {
         getPurchaseObservableList().remove(travelDocumentObject.toTravelDocumentFX());
         setPurchasePrice(getPurchasePrice() - travelDocumentObject.getPrice());
     }
+
     public void addTravelDocumentFX(TravelDocumentFX travelDocumentFXObject) {
         getPurchaseList().add(travelDocumentFXObject.toTravelDocument());
         getPurchaseObservableList().add(travelDocumentFXObject);
-
         setPurchasePrice(getPurchasePrice() + travelDocumentFXObject.getPrice());
     }
 
@@ -83,8 +92,10 @@ public class Order {
         Order order = (Order) o;
         return Double.compare(order.getPurchasePrice(), getPurchasePrice()) == 0 && getTransactionCode().equals(order.getTransactionCode()) && getPurchaseDate().equals(order.getPurchaseDate()) && getCitizenID().equals(order.getCitizenID()) && getPaymentMethodStrategy().equals(order.getPaymentMethodStrategy()) && getPurchaseList().equals(order.getPurchaseList()) && getPurchaseObservableList().equals(order.getPurchaseObservableList());
     }
+
     @Override
     public int hashCode() { return Objects.hash(getTransactionCode(), getPurchaseDate(), getPurchasePrice(), getCitizenID(), getPaymentMethodStrategy(), getPurchaseList()); }
+
     @Override
     public String toString() { return "Order{ transactionCode='" + transactionCode + '\'' + ", purchaseDate=" + purchaseDate + ", purchasePrice=" + purchasePrice + ", citizenID='" + citizenID + '\'' + ", paymentMethodStrategy=" + paymentMethodStrategy + ", purchaseList=" + purchaseList + ", purchaseObservableList=" + purchaseObservableList + '}'; }
 }

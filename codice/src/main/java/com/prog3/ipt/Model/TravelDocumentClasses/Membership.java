@@ -12,7 +12,6 @@ import java.util.UUID;
 public class Membership extends TravelDocument {
     private LocalDate startDate;
 
-
     /**
      * Membership constructor
      * @param price The price of the membership
