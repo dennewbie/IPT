@@ -19,7 +19,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public abstract class ViewController implements Initializable {
-    public static final Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+    private static final Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
     private FXMLLoader fxmlLoader;
     private Scene localScene;
     private Stage stage;
@@ -81,7 +81,7 @@ public abstract class ViewController implements Initializable {
         alert.showAndWait();
     }
 
-    protected void generatePayPalAlert(String currentEmail, String currentPassword, TextField usernameTextField) {
+    protected void generatePayPalAlert(String currentEmail, String currentPassword, TextField emailTextField) {
         Dialog<String> dialog = new Dialog<>();
         dialog.setTitle("PayPal Request");
         dialog.setHeaderText("Attenzione. È richiesta la tua password PayPal per continuare");
@@ -101,15 +101,15 @@ public abstract class ViewController implements Initializable {
 
         Optional<String> result = dialog.showAndWait();
         if (result.isPresent()) {
-            currentEmail = usernameTextField.getText();
+            currentEmail = emailTextField.getText();
             currentPassword = pwd.getText();
             ObservableSingleton.setPaymentMethodStrategy(new PayPalPaymentMethod(currentEmail, currentPassword));
             ObservableSingleton.setPaymentMethodString(new String("PayPal"));
         }
     }
 
-    protected boolean validateEmail(String emailStr) {
-        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
+    protected boolean validateEmail(String emailString) {
+        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailString);
         return matcher.find();
     }
 }
