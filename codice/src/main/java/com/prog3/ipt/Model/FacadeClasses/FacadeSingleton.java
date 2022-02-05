@@ -847,7 +847,7 @@ public class FacadeSingleton {
 
     /**
      * Verifies the given user password is valid
-     * @see FacadeSingleton#generateSecurePassword(String) 
+     * @see FacadeSingleton#generateSecurePassword(String)
      * @see java.lang.String#equalsIgnoreCase(String)
      * @param providedPassword A string that represents a user password
      * @param securedPassword A string that represents a secured password stored in the password filed of a Citizen record in the Citizen table of IPT database

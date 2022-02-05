@@ -14,6 +14,9 @@ import java.sql.Time;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
+/**
+ * InfoViewController is the controller that handles LoginRegister view.
+ */
 public class InfoViewController extends ViewController {
     // Navigation Bar
     @FXML
@@ -57,13 +60,25 @@ public class InfoViewController extends ViewController {
     private TableColumn<RideLineFX, Integer> ridePriorityTableColumn;
 
 
-
+    /**
+     * Back to previous view
+     * @param event Button clicked
+     */
     @FXML
     void onBackButtonClick(ActionEvent event) {
         super.onButtonClickNavigateToView(backButton, "HomeView.fxml");
     }
+
+    /**
+     * @see javafx.fxml.Initializable#initialize(URL, ResourceBundle)
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { initializeViewComponents(); }
+
+    /**
+     * @see ViewController#initializeViewComponents()
+     * @see FacadeSingleton#getCorsaLineaViewContent()
+     */
     @Override
     protected void initializeViewComponents() {
         ObservableList<RideLineFX> rideLineFXObservableList = FacadeSingleton.getCorsaLineaViewContent();

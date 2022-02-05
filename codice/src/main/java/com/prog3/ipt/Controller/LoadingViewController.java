@@ -18,6 +18,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
+/**
+ * LoadingViewController is the controller that handles LoadingView view.
+ */
 
 public class LoadingViewController extends ViewController {
     @FXML
@@ -26,9 +29,20 @@ public class LoadingViewController extends ViewController {
     private Label percentageLabel;
 
 
-
+    /**
+     * @see javafx.fxml.Initializable#initialize(URL, ResourceBundle)
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { initializeViewComponents(); }
+
+    /**
+     * @see ViewController#initializeViewComponents()
+     * @see File
+     * @see Image
+     * @see AtomicInteger
+     * @see Timeline
+     * @see KeyFrame
+     */
     @Override
     protected void initializeViewComponents() {
         File file = new File("src/main/java/images/spinner.gif");

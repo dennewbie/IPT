@@ -9,7 +9,9 @@ import javafx.scene.control.Label;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
+/**
+ * HomeViewController is the controller that handles LoginRegister view.
+ */
 public class HomeViewController extends ViewController {
     // Welcome Top Bar
     @FXML
@@ -34,24 +36,62 @@ public class HomeViewController extends ViewController {
     private Button editProfileButton;
 
 
-
+    /**
+     * Move on Info view
+     * @param event Button clicked
+     */
     @FXML
     void onInfoButtonClick(ActionEvent event) {
         super.onButtonClickNavigateToView(infoButton, "InfoView.fxml");
     }
+
+    /**
+     * Login Citizen account
+     * @param event Button clicked
+     */
     @FXML
     void onLoginButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(loginButton, "LoginRegisterView.fxml"); }
+
+    /**
+     * Logout from Citizen account
+     * @see ObservableSingleton#setCitizen(Citizen)
+     * @param event Button clicked
+     */
     @FXML
     void onLogoutButtonClick(ActionEvent event) { ObservableSingleton.setCitizen(null); enableGuestUserView(); }
+
+    /**
+     * Move on Search Path view
+     * @param event Button clicked
+     */
     @FXML
     void onSearchPathButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(searchPathButton,"SearchPathView.fxml"); }
+
+    /**
+     * Move on Notices view
+     * @param event Button clicked
+     */
     @FXML
     void onNoticesButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(noticesButton, "NoticesView.fxml"); }
+
+    /**
+     * Move on Manage Travel Documents view
+     * @param event Button clicked
+     */
     @FXML
     void onManageTravelDocumentsButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(manageTravelDocumentsButton, "TicketsManagementView.fxml"); }
+
+    /**
+     * Move on Edit Profile view
+     * @param event Button clicked
+     */
     @FXML
     void onEditProfileButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(editProfileButton, "EditProfileView.fxml"); }
 
+    /**
+     * Set up a logged User view
+     * @param loggedUsername The string that represents the username of the logged User
+     */
     private void enableLoggedUserView(String loggedUsername) {
         loginButton.setDisable(true);
         usernameWelcomeLabel.setText("Benvenuto "  + loggedUsername);
@@ -60,6 +100,9 @@ public class HomeViewController extends ViewController {
         editProfileButton.setDisable(false);
     }
 
+    /**
+     * Set up the Guest User view
+     */
     private void enableGuestUserView() {
         loginButton.setDisable(false);
         logoutButton.setVisible(false);
@@ -68,8 +111,16 @@ public class HomeViewController extends ViewController {
         usernameWelcomeLabel.setText("Ospite");
     }
 
+    /**
+     * @see javafx.fxml.Initializable#initialize(URL, ResourceBundle)
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { initializeViewComponents(); }
+
+    /**
+     * @see ViewController#initializeViewComponents()
+     * @see ObservableSingleton#getCitizen()
+     */
     @Override
     protected void initializeViewComponents() {
         Citizen tempCitizen = ObservableSingleton.getCitizen();
