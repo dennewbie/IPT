@@ -42,7 +42,7 @@ public class CreditCardPaymentMethod implements PaymentMethodStrategy {
     }
 
     // check expirationDate validity
-    private boolean checkExpirationDate() {
+    private boolean checkCreditCardExpirationDate() {
         if (creditCardExpirationDate.isAfter(LocalDate.now())) return true;
         return false;
     }
@@ -72,7 +72,7 @@ public class CreditCardPaymentMethod implements PaymentMethodStrategy {
     public boolean checkPaymentMethodData() {
         // check validity
         if (!checkCreditCardNumber()) return false;
-        if (!checkExpirationDate()) return false;
+        if (!checkCreditCardExpirationDate()) return false;
         if (!checkCreditCardCVV()) return false;
         return true;
     }
