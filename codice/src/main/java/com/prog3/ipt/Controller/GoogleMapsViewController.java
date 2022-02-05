@@ -26,10 +26,7 @@ public class GoogleMapsViewController extends ViewController {
     private String url;
 
 
-    // Setter
-    public void setUrl(String url) {
-        this.url = url;
-    }
+
 
     /**
      * Back to previous view
@@ -38,6 +35,11 @@ public class GoogleMapsViewController extends ViewController {
     @FXML
     void onBackButtonClick(ActionEvent event) {
         super.onButtonClickNavigateToView(backButton, "SearchPathView.fxml");
+    }
+
+    // Setter
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     /**
