@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 /**
- * AddMembershipViewController is a class that extends TravelDocumentsManagementViewController end
+ * AddMembershipViewController is a class that extends TravelDocumentsManagementViewController and
  * represents view of adding membership
  */
 public class AddMembershipViewController extends TravelDocumentsManagementViewController {
@@ -102,7 +102,7 @@ public class AddMembershipViewController extends TravelDocumentsManagementViewCo
     }
 
     /**
-     * Button to show hel view
+     * Button to show help view
      * @param event
      */
     @FXML
