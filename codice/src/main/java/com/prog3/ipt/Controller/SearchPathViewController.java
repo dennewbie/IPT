@@ -19,8 +19,6 @@ public class SearchPathViewController extends ViewController implements Initiali
     @FXML
     private Button backButton;
 
-
-
     // VBox
     @FXML
     private TextField startingPointTextField;
@@ -32,15 +30,14 @@ public class SearchPathViewController extends ViewController implements Initiali
     private String urlResource;
 
 
+
     /**
      * Return to the previous view
      * @see ViewController#onButtonClickNavigateToView(Button, String)
      * @param event Button clicked
      */
-    @FXML
-    void onBackButtonClick(ActionEvent event) {
-        super.onButtonClickNavigateToView(backButton, "HomeView.fxml");
-    }
+    @FXML @Override
+    protected void onBackButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(backButton, "HomeView.fxml"); }
 
     /**
      * Builds the web url view for the starting and destination point
@@ -48,7 +45,7 @@ public class SearchPathViewController extends ViewController implements Initiali
      * @param event Button clicked
      */
     @FXML
-    void onSearchPathButtonClick(ActionEvent event) {
+    private void onSearchPathButtonClick(ActionEvent event) {
         if (!super.checkTextFieldsContent(destinationPointTextField, startingPointTextField)) { super.raiseErrorAlert("Hai lasciato uno o più campi vuoti."); return; }
         // build starting point and destination point as strings
         String startingPoint = startingPointTextField.getText().replace(" ", "+");

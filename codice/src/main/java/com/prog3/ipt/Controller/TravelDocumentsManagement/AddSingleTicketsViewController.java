@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
  * This class handles AddSingleTickets view
  */
 public class AddSingleTicketsViewController extends TravelDocumentsManagementViewController {
-    SingleTicket mySingleTicket;
+    private SingleTicket mySingleTicket;
 
     // Navigation Bar
     @FXML
@@ -41,10 +41,12 @@ public class AddSingleTicketsViewController extends TravelDocumentsManagementVie
     @FXML
     private Button addMonoTicketsToCart;
 
-    //SingleTicket setter
-    private void setMySingleTicket(SingleTicket mySingleTicket) {this.mySingleTicket = mySingleTicket;}
 
-    //SingleTicket getter
+
+    // SingleTicket setter
+    private void setMySingleTicket(SingleTicket mySingleTicket) { this.mySingleTicket = mySingleTicket; }
+
+    // SingleTicket getter
     private SingleTicket getMySingleTicket() { return mySingleTicket; }
 
 
@@ -52,15 +54,15 @@ public class AddSingleTicketsViewController extends TravelDocumentsManagementVie
      * Back to previous view
      * @param event Button clicked
      */
-    @FXML
-    void onBackButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(backButton, "TicketsManagementView.fxml"); }
+    @FXML @Override
+    protected void onBackButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(backButton, "TicketsManagementView.fxml"); }
 
     /**
      * Adds a single ticket to cart
      * @param event Button clicked
      */
     @FXML
-    void onAddSingleTicketsToCartButtonClick(ActionEvent event) {
+    private void onAddSingleTicketsToCartButtonClick(ActionEvent event) {
         String ID_Ride = ID_RideTextField.getText(), ID_Line = ID_LineTextField.getText();
         LocalDate ticketIssueDate = LocalDate.now();
         if (!super.checkTextFieldsContent(ID_LineTextField, ID_RideTextField) || Integer.valueOf(quantityTextField.getText()) <= 0) { super.raiseErrorAlert("Hai lasciato uno o più campi vuoti"); return; }
@@ -93,7 +95,7 @@ public class AddSingleTicketsViewController extends TravelDocumentsManagementVie
      * @param event Button clicked
      */
     @FXML
-    void onIncreaseSingleTicketQuantityButtonClick(ActionEvent event) {
+    private void onIncreaseSingleTicketQuantityButtonClick(ActionEvent event) {
         quantityTextField.setText(String.valueOf(Integer.parseInt(quantityTextField.getText()) + 1));
         priceResultLabel.setText("€  " + String.valueOf(Integer.parseInt(quantityTextField.getText()) * MyConstants.singleTicketPrice));
     }
@@ -103,7 +105,7 @@ public class AddSingleTicketsViewController extends TravelDocumentsManagementVie
      * @param event Button clicked
      */
     @FXML
-    void onDecreaseSingleTicketQuantityButtonClick(ActionEvent event) {
+    private void onDecreaseSingleTicketQuantityButtonClick(ActionEvent event) {
         int currentQuantity = Integer.parseInt(quantityTextField.getText());
         if (currentQuantity > 0) quantityTextField.setText(String.valueOf(currentQuantity - 1));
         priceResultLabel.setText("€  " + String.valueOf(Integer.parseInt(quantityTextField.getText()) * MyConstants.singleTicketPrice));
@@ -114,7 +116,7 @@ public class AddSingleTicketsViewController extends TravelDocumentsManagementVie
      * @param event
      */
     @FXML
-    void onHelpButtonClick(ActionEvent event) { super.raiseInformationAlert("È possibile aggiungere uno o più biglietti singoli al carrello. È possibile utilizzare il biglietto singolo per la corsa e per la linea da te specificata. La validità del titolo di viaggio è a partire dalla data di timbratura del biglietto fino al giorno seguente allo stesso orario. Se selezioni più biglietti singoli, questi saranno validi tutti per la stessa corsa e per la stessa linea. Se è necessario che siano diverse, aggiungi separatamente i biglietti singoli al carrello."); }
+    private void onHelpButtonClick(ActionEvent event) { super.raiseInformationAlert("È possibile aggiungere uno o più biglietti singoli al carrello. È possibile utilizzare il biglietto singolo per la corsa e per la linea da te specificata. La validità del titolo di viaggio è a partire dalla data di timbratura del biglietto fino al giorno seguente allo stesso orario. Se selezioni più biglietti singoli, questi saranno validi tutti per la stessa corsa e per la stessa linea. Se è necessario che siano diverse, aggiungi separatamente i biglietti singoli al carrello."); }
 
     /**
      * @see javafx.fxml.Initializable#initialize(URL, ResourceBundle)

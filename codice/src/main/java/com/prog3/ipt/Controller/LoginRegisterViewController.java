@@ -38,15 +38,14 @@ public class LoginRegisterViewController extends ViewController {
     private Button signInButton;
 
 
+
     /**
      * Back to previous view
      * @see ViewController#onButtonClickNavigateToView(Button, String)
      * @param event Button clicked
      */
-    @FXML
-    void onBackButtonClick(ActionEvent event) {
-        super.onButtonClickNavigateToView(backButton, "HomeView.fxml");
-    }
+    @FXML @Override
+    protected void onBackButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(backButton, "HomeView.fxml"); }
 
     /**
      * Citizen signs in his IPT account
@@ -55,7 +54,7 @@ public class LoginRegisterViewController extends ViewController {
      * @param event Button Clicked
      */
     @FXML
-    void onSignInButtonClick(ActionEvent event) {
+    private void onSignInButtonClick(ActionEvent event) {
         Citizen loggedCitizen;
         // check text fields
         if (!super.checkTextFieldsContent(passwordSignInField, usernameSignInTextField)) return;
@@ -74,7 +73,7 @@ public class LoginRegisterViewController extends ViewController {
      * @param event Button clicked
      */
     @FXML
-    void onSignUpButtonClick(ActionEvent event) {
+    private void onSignUpButtonClick(ActionEvent event) {
         Citizen newCitizen;
         if (!super.checkTextFieldsContent(nameTextField, surnameTextField, emailTextField, passwordSignUpField, usernameSignUpTextField)) return;
         if (!super.checkDatePickersContent(birthDatePicker)) return;

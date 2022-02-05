@@ -76,47 +76,48 @@ public class TravelDocumentsManagementViewController extends ViewController {
     private TableColumn<TravelDocumentFX, Button> deleteRowTableColumn;
 
 
+
     /**
      * Back to previous view
      * @param event Button clicked
      */
-    @FXML
-    void onBackButtonClick(ActionEvent event) {super.onButtonClickNavigateToView(backButton, "HomeView.fxml");}
+    @FXML @Override
+    protected void onBackButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(backButton, "HomeView.fxml"); }
 
     /**
      * Move on MySingleTickets view
      * @param event Button clicked
      */
     @FXML
-    private void onMySingleTicketsButtonClick(ActionEvent event) {super.onButtonClickNavigateToView(mySingleTicketsButton, "MySingleTicketsView.fxml");}
+    private void onMySingleTicketsButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(mySingleTicketsButton, "MySingleTicketsView.fxml"); }
 
     /**
      * Move on MyMemberships view
      * @param event Button clicked
      */
     @FXML
-    private void onMyMembershipButtonClick(ActionEvent event) {super.onButtonClickNavigateToView(myMembershipButton, "MyMembershipView.fxml");}
+    private void onMyMembershipButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(myMembershipButton, "MyMembershipView.fxml"); }
 
     /**
      * Move on AddSingleTickets view
      * @param event Button clicked
      */
     @FXML
-    void onAddSingleTicketsButtonClick(ActionEvent event) {super.onButtonClickNavigateToView(addSingleTicketsButton, "AddSingleTicketsView.fxml");}
+    private void onAddSingleTicketsButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(addSingleTicketsButton, "AddSingleTicketsView.fxml"); }
 
     /**
      * Move on AddMemberships view
      * @param event Button clicked
      */
     @FXML
-    void onAddMembershipsButtonClick(ActionEvent event) {super.onButtonClickNavigateToView(addMembershipsButton, "AddMembershipView.fxml");}
+    private void onAddMembershipsButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(addMembershipsButton, "AddMembershipView.fxml"); }
 
     /**
      * Creates and inserts a transaction to the Transaction table according to the logged Citizen order
      * @param event Button clicked
      */
     @FXML
-    void onBuyCartItemsButtonClick(ActionEvent event) {
+    private void onBuyCartItemsButtonClick(ActionEvent event) {
         if (ObservableSingleton.getOrder().getPurchaseList().size() <= 0) { super.raiseErrorAlert("Il tuo carrello è vuoto. Non puoi procedere con l'acquisto."); return; }
         // save a valid payment method
         // TODO: rimettere il codice qui
@@ -137,7 +138,7 @@ public class TravelDocumentsManagementViewController extends ViewController {
      * @param event Button clicked
      */
     @FXML
-    void onSavePaymentMethodButtonClick(ActionEvent event) {
+    private void onSavePaymentMethodButtonClick(ActionEvent event) {
         String currentCreditCardNumber = null, currentCreditCartCVV = null;
         LocalDate currentCreditCardExpirationDate = null;
         // add payment method to user payment methods
@@ -179,7 +180,7 @@ public class TravelDocumentsManagementViewController extends ViewController {
      * @see javafx.fxml.Initializable#initialize(URL, ResourceBundle)
      */
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {initializeViewComponents();}
+    public void initialize(URL url, ResourceBundle resourceBundle) { initializeViewComponents(); }
 
     /**
      * @see ViewController#initializeViewComponents()
@@ -221,33 +222,33 @@ public class TravelDocumentsManagementViewController extends ViewController {
      * @see ObservableSingleton#updateOrder(LocalDate, double, String, PaymentMethodStrategy, ArrayList, ObservableList)
      * @param order Reference to Order object
      */
-    protected void setOrder(Order order) {ObservableSingleton.updateOrder(order.getPurchaseDate(), order.getPurchasePrice(), order.getCitizenID(), order.getPaymentMethodStrategy(), order.getPurchaseList(), order.getPurchaseObservableList());}
+    protected void setOrder(Order order) { ObservableSingleton.updateOrder(order.getPurchaseDate(), order.getPurchasePrice(), order.getCitizenID(), order.getPaymentMethodStrategy(), order.getPurchaseList(), order.getPurchaseObservableList()); }
 
     /**
      * Order getter
      * @see ObservableSingleton#getOrder()
      * @return reference to Order object
      */
-    protected Order getOrder() {return ObservableSingleton.getOrder();}
+    protected Order getOrder() { return ObservableSingleton.getOrder(); }
 
     /**
      * ConverterDropDownListString setter
      * @param convertedDropDownListString Reference to a String object
      */
-    public void setConvertedDropDownListString(String convertedDropDownListString) {this.convertedDropDownListString = convertedDropDownListString;}
+    private void setConvertedDropDownListString(String convertedDropDownListString) { this.convertedDropDownListString = convertedDropDownListString; }
 
     /**
      * ConverterDropDownListString getter
      * @return Reference to a String object
      */
-    public String getConvertedDropDownListString() {return this.convertedDropDownListString;}
+    private String getConvertedDropDownListString() { return this.convertedDropDownListString; }
 
     /**
      * ComboBox / DropDownList payment methods handling
      * @param event
      */
     @FXML
-    void onSelectedDropDownListElement(ActionEvent event) {
+    private void onSelectedDropDownListElement(ActionEvent event) {
         super.clearTextFieldsContent(creditCardNumberTextField, CVV_TextField);
         super.clearDatePickersContent(expirationCreditCardDatePicker);
         try {

@@ -29,6 +29,10 @@ public class LoadingViewController extends ViewController {
     private Label percentageLabel;
 
 
+
+    @FXML @Override
+    protected void onBackButtonClick(ActionEvent event) { }
+
     /**
      * @see javafx.fxml.Initializable#initialize(URL, ResourceBundle)
      */

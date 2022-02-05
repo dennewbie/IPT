@@ -4,6 +4,8 @@ import com.prog3.ipt.IPT_Application;
 import com.prog3.ipt.Model.CitizenClasses.ObservableSingleton;
 import com.prog3.ipt.Model.PaymentMethodClasses.PayPalPaymentMethod;
 import com.prog3.ipt.Model.PaymentMethodClasses.PaymentMethodStrategy;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
@@ -14,7 +16,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -40,7 +41,6 @@ public abstract class ViewController implements Initializable {
     protected Stage getStage() { return stage; }
 
     // Others
-
     /**
      * Loads a .fxml file, creates a scene and set up a stage for a clicked button and a destination view
      * @see FXMLLoader
@@ -175,4 +175,7 @@ public abstract class ViewController implements Initializable {
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailString);
         return matcher.find();
     }
+    @FXML
+    protected abstract void onBackButtonClick(ActionEvent event);
+
 }

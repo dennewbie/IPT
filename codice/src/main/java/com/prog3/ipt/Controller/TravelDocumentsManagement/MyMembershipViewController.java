@@ -39,12 +39,14 @@ public class MyMembershipViewController extends TravelDocumentsManagementViewCon
     @FXML
     private TableColumn<TravelDocumentFX, Button> deleteTableColumn;
 
+
+
     /**
      * Back to previous view
      * @param event Button clicked
      */
-    @FXML
-    void onBackButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(backButton, "TicketsManagementView.fxml"); }
+    @FXML @Override
+    protected void onBackButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(backButton, "TicketsManagementView.fxml"); }
 
     /**
      * @see javafx.fxml.Initializable#initialize(URL, ResourceBundle)

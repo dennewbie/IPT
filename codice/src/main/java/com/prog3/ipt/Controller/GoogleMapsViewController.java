@@ -17,7 +17,6 @@ public class GoogleMapsViewController extends ViewController {
     @FXML
     private Button backButton;
 
-
     // Pane
     @FXML
     private WebView webView;
@@ -27,13 +26,12 @@ public class GoogleMapsViewController extends ViewController {
 
 
 
-
     /**
      * Back to previous view
      * @param event Button clicked
      */
-    @FXML
-    void onBackButtonClick(ActionEvent event) {
+    @FXML @Override
+    protected void onBackButtonClick(ActionEvent event) {
         super.onButtonClickNavigateToView(backButton, "SearchPathView.fxml");
     }
 

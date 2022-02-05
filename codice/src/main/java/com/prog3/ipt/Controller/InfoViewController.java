@@ -22,13 +22,9 @@ public class InfoViewController extends ViewController {
     @FXML
     private Button backButton;
 
-
-
     // Pane
     @FXML
     private TableView<RideLineFX> lineRideTableView;
-
-
 
     // Line Columns
     @FXML
@@ -46,7 +42,6 @@ public class InfoViewController extends ViewController {
     @FXML
     private TableColumn<RideLineFX, Time> lineClosingHourTableColumn;
 
-
     // Ride Columns
     @FXML
     private TableColumn<RideLineFX, String> rideIDTableColumn;
@@ -60,14 +55,13 @@ public class InfoViewController extends ViewController {
     private TableColumn<RideLineFX, Integer> ridePriorityTableColumn;
 
 
+
     /**
      * Back to previous view
      * @param event Button clicked
      */
-    @FXML
-    void onBackButtonClick(ActionEvent event) {
-        super.onButtonClickNavigateToView(backButton, "HomeView.fxml");
-    }
+    @FXML @Override
+    protected void onBackButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(backButton, "HomeView.fxml"); }
 
     /**
      * @see javafx.fxml.Initializable#initialize(URL, ResourceBundle)

@@ -19,8 +19,6 @@ public class EditProfileViewController extends ViewController {
     @FXML
     private Button backButton;
 
-
-
     // VBox
     @FXML
     private TextField nameTextField;
@@ -40,14 +38,13 @@ public class EditProfileViewController extends ViewController {
     private CitizenEditProfileOriginator citizenEditProfileOriginator;
 
 
+
     /**
      * Back to previous view
      * @param event Button clicked
      */
-    @FXML
-    void onBackButtonClick(ActionEvent event) {
-        super.onButtonClickNavigateToView(backButton, "HomeView.fxml");
-    }
+    @FXML @Override
+    protected void onBackButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(backButton, "HomeView.fxml"); }
 
     /**
      * Saves changes to Citizen profile
@@ -57,7 +54,7 @@ public class EditProfileViewController extends ViewController {
      * @see CitizenEditProfileOriginator#save()
      */
     @FXML
-    void onSaveInformationButtonClick(ActionEvent event) {
+    private void onSaveInformationButtonClick(ActionEvent event) {
         // check text field validity
         if (!checkTextFieldsContent(nameTextField, surnameTextField, emailTextField, passwordField) || !checkDatePickersContent(birthDatePicker)) return;
         String name = nameTextField.getText(), surname = surnameTextField.getText(), email = emailTextField.getText(), password = passwordField.getText();
@@ -87,7 +84,7 @@ public class EditProfileViewController extends ViewController {
      * @param event Button clicked
      */
     @FXML
-    void onUndoButtonClick(ActionEvent event) {
+    private void onUndoButtonClick(ActionEvent event) {
         boolean returnValue = citizenEditProfileOriginator.restore();
         if (returnValue != false) {
             // reset previous citizen state

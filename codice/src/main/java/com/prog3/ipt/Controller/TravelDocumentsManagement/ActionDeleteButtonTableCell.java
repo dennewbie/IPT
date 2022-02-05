@@ -14,20 +14,22 @@ import javafx.util.Callback;
 public class ActionDeleteButtonTableCell<S> extends TableCell<S, Button> {
     private final Button actionButton;
 
+
+
     /**
      * ActionDeleteButtonTableCell constructor
      * @param label Label written on the button
      * @param function Function performed after clicking the button
      */
-    public ActionDeleteButtonTableCell(String label, Function< S, S> function) {
+    private ActionDeleteButtonTableCell(String label, Function< S, S> function) {
         this.getStyleClass().add("deleteButton");
         this.actionButton = new Button(label);
-        this.actionButton.setOnAction((ActionEvent e) -> { function.apply(getCurrentItem()); });
+        this.actionButton.setOnAction((ActionEvent e) -> function.apply(getCurrentItem()));
         this.actionButton.setMaxWidth(Double.MAX_VALUE);
     }
 
-    //Getter
-    public S getCurrentItem() {return (S) getTableView().getItems().get(getIndex());}
+    // Getter
+    private S getCurrentItem() { return getTableView().getItems().get(getIndex()); }
 
     /**
      * Returns to the screen to return to after pressing the button
@@ -40,7 +42,7 @@ public class ActionDeleteButtonTableCell<S> extends TableCell<S, Button> {
         return param -> new ActionDeleteButtonTableCell<>(label, function);
     }
 
-    //Updater
+    // Updater
     @Override
     public void updateItem(Button item, boolean empty) {
         super.updateItem(item, empty);

@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
  * This class handles AddMembership view
  */
 public class AddMembershipViewController extends TravelDocumentsManagementViewController {
-    Membership myMembership;
+    private Membership myMembership;
 
     // NavigationBar
     @FXML
@@ -37,25 +37,27 @@ public class AddMembershipViewController extends TravelDocumentsManagementViewCo
     @FXML
     private Button addMembershipToCart;
 
-    //Membership setter
-    private void setMyMembership(Membership myMembership) {this.myMembership = myMembership;}
 
-    //Membership getter
-    private Membership getMyMembership() {return myMembership;}
+
+    // Membership setter
+    private void setMyMembership(Membership myMembership) { this.myMembership = myMembership; }
+
+    // Membership getter
+    private Membership getMyMembership() { return myMembership; }
 
     /**
      * Back to previous view
      * @param event Button clicked
      */
-    @FXML
-    void onBackButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(backButton, "TicketsManagementView.fxml"); }
+    @FXML @Override
+    protected void onBackButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(backButton, "TicketsManagementView.fxml"); }
 
     /**
      * Adds a membership to cart
      * @param event Button clicked
      */
     @FXML
-    void onAddMembershipToCartButtonClick(ActionEvent event) {
+    private void onAddMembershipToCartButtonClick(ActionEvent event) {
         LocalDate startDate = startDatePicker.getValue();
         if (!super.checkDatePickersContent(startDatePicker) || Integer.valueOf(quantityTextField.getText()) <= 0) { super.raiseErrorAlert("Hai lasciato uno o più campi vuoti"); return; }
         if (startDate.isBefore(LocalDate.now()) || startDate.isEqual(LocalDate.now())) { super.raiseErrorAlert("Non puoi comprare un abbonamento che ha una data di inizio validità nel passato."); return; }
@@ -85,7 +87,7 @@ public class AddMembershipViewController extends TravelDocumentsManagementViewCo
      * @param event Button clicked
      */
     @FXML
-    void onIncreaseMembershipQuantityButtonClick(ActionEvent event) {
+    private void onIncreaseMembershipQuantityButtonClick(ActionEvent event) {
         quantityTextField.setText(String.valueOf(Integer.parseInt(quantityTextField.getText()) + 1));
         priceResultLabel.setText("€  " + String.valueOf(Integer.parseInt(quantityTextField.getText()) * MyConstants.membershipPrice));
     }
@@ -95,7 +97,7 @@ public class AddMembershipViewController extends TravelDocumentsManagementViewCo
      * @param event Button clicked
      */
     @FXML
-    void onDecreaseMembershipQuantityButtonClick(ActionEvent event) {
+    private void onDecreaseMembershipQuantityButtonClick(ActionEvent event) {
         int currentQuantity = Integer.parseInt(quantityTextField.getText());
         if (currentQuantity > 0) quantityTextField.setText(String.valueOf(currentQuantity - 1));
         priceResultLabel.setText("€  " + String.valueOf(Integer.parseInt(quantityTextField.getText()) * MyConstants.membershipPrice));
@@ -106,7 +108,7 @@ public class AddMembershipViewController extends TravelDocumentsManagementViewCo
      * @param event Button clicked
      */
     @FXML
-    void onHelpButtonClick(ActionEvent event) { super.raiseInformationAlert("È possibile aggiungere uno o più abbonamenti al carrello. L'abbonamneto avrà la data di inizio validità pari a quella da te inserita e sarà valido per un anno. Se selezioni più abbonamenti avranno tutti la stessa data di inizio validità. Se è necessario che siano diverse, aggiungi separatamente gli abbonamenti al carrello."); }
+    private void onHelpButtonClick(ActionEvent event) { super.raiseInformationAlert("È possibile aggiungere uno o più abbonamenti al carrello. L'abbonamneto avrà la data di inizio validità pari a quella da te inserita e sarà valido per un anno. Se selezioni più abbonamenti avranno tutti la stessa data di inizio validità. Se è necessario che siano diverse, aggiungi separatamente gli abbonamenti al carrello."); }
 
     /**
      * @see javafx.fxml.Initializable#initialize(URL, ResourceBundle)

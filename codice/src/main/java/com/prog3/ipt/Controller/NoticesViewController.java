@@ -39,21 +39,21 @@ public class NoticesViewController extends ViewController {
     @FXML
     private TableColumn<Notice, String> noticeTextTableColumn;
 
+
+
     /**
      * Back to previous view
      * @see ViewController#onButtonClickNavigateToView(Button, String)
      * @param event Button clicked
      */
-    @FXML
-    void onBackButtonClick(ActionEvent event) {
-        super.onButtonClickNavigateToView(backButton, "HomeView.fxml");
-    }
+    @FXML @Override
+    protected void onBackButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(backButton, "HomeView.fxml"); }
 
     /**
      * @see javafx.fxml.Initializable#initialize(URL, ResourceBundle)
      */
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {initializeViewComponents();}
+    public void initialize(URL url, ResourceBundle resourceBundle) { initializeViewComponents(); }
 
     /**
      * @see ViewController#initializeViewComponents()

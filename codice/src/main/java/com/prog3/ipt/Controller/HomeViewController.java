@@ -6,6 +6,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import org.controlsfx.control.action.Action;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -18,8 +20,6 @@ public class HomeViewController extends ViewController {
     private Label usernameWelcomeLabel;
     @FXML
     private Button logoutButton;
-
-
 
     // Pane
     @FXML
@@ -36,21 +36,21 @@ public class HomeViewController extends ViewController {
     private Button editProfileButton;
 
 
+    @FXML @Override
+    protected void onBackButtonClick(ActionEvent event) { }
     /**
      * Move on Info view
      * @param event Button clicked
      */
     @FXML
-    void onInfoButtonClick(ActionEvent event) {
-        super.onButtonClickNavigateToView(infoButton, "InfoView.fxml");
-    }
+    private void onInfoButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(infoButton, "InfoView.fxml"); }
 
     /**
      * Login Citizen account
      * @param event Button clicked
      */
     @FXML
-    void onLoginButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(loginButton, "LoginRegisterView.fxml"); }
+    private void onLoginButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(loginButton, "LoginRegisterView.fxml"); }
 
     /**
      * Logout from Citizen account
@@ -58,35 +58,35 @@ public class HomeViewController extends ViewController {
      * @param event Button clicked
      */
     @FXML
-    void onLogoutButtonClick(ActionEvent event) { ObservableSingleton.setCitizen(null); enableGuestUserView(); }
+    private void onLogoutButtonClick(ActionEvent event) { ObservableSingleton.setCitizen(null); enableGuestUserView(); }
 
     /**
      * Move on Search Path view
      * @param event Button clicked
      */
     @FXML
-    void onSearchPathButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(searchPathButton,"SearchPathView.fxml"); }
+    private void onSearchPathButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(searchPathButton,"SearchPathView.fxml"); }
 
     /**
      * Move on Notices view
      * @param event Button clicked
      */
     @FXML
-    void onNoticesButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(noticesButton, "NoticesView.fxml"); }
+    private void onNoticesButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(noticesButton, "NoticesView.fxml"); }
 
     /**
      * Move on Manage Travel Documents view
      * @param event Button clicked
      */
     @FXML
-    void onManageTravelDocumentsButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(manageTravelDocumentsButton, "TicketsManagementView.fxml"); }
+    private void onManageTravelDocumentsButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(manageTravelDocumentsButton, "TicketsManagementView.fxml"); }
 
     /**
      * Move on Edit Profile view
      * @param event Button clicked
      */
     @FXML
-    void onEditProfileButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(editProfileButton, "EditProfileView.fxml"); }
+    private void onEditProfileButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(editProfileButton, "EditProfileView.fxml"); }
 
     /**
      * Set up a logged User view
