@@ -10,16 +10,16 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
+/**
+ * AddMembershipViewController is a class that extends TravelDocumentsManagementViewController end
+ * represents view of adding membership
+ */
 public class AddMembershipViewController extends TravelDocumentsManagementViewController {
     Membership myMembership;
-
-
 
     // NavigationBar
     @FXML
     private Button backButton;
-
-
 
     // VBox
     @FXML
@@ -37,14 +37,23 @@ public class AddMembershipViewController extends TravelDocumentsManagementViewCo
     @FXML
     private Button addMembershipToCart;
 
+    //Membership setter
+    private void setMyMembership(Membership myMembership) {this.myMembership = myMembership;}
 
+    //Membership getter
+    private Membership getMyMembership() {return myMembership;}
 
-    private void setMyMembership(Membership myMembership) {
-        this.myMembership = myMembership;
-    }
-    private Membership getMyMembership() { return myMembership; }
+    /**
+     * Button to go back to previous view
+     * @param event Button clicked
+     */
     @FXML
     void onBackButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(backButton, "TicketsManagementView.fxml"); }
+
+    /**
+     * Button to add a membership to cart
+     * @param event Button clicked
+     */
     @FXML
     void onAddMembershipToCartButtonClick(ActionEvent event) {
         LocalDate startDate = startDatePicker.getValue();
@@ -71,12 +80,20 @@ public class AddMembershipViewController extends TravelDocumentsManagementViewCo
         initializeViewComponents();
     }
 
+    /**
+     * Button to increase membership quantity
+     * @param event Button clicked
+     */
     @FXML
     void onIncreaseMembershipQuantityButtonClick(ActionEvent event) {
         quantityTextField.setText(String.valueOf(Integer.parseInt(quantityTextField.getText()) + 1));
         priceResultLabel.setText("€  " + String.valueOf(Integer.parseInt(quantityTextField.getText()) * MyConstants.membershipPrice));
     }
 
+    /**
+     * Button to decrease membership quantity
+     * @param event Button clicked
+     */
     @FXML
     void onDecreaseMembershipQuantityButtonClick(ActionEvent event) {
         int currentQuantity = Integer.parseInt(quantityTextField.getText());
@@ -84,10 +101,22 @@ public class AddMembershipViewController extends TravelDocumentsManagementViewCo
         priceResultLabel.setText("€  " + String.valueOf(Integer.parseInt(quantityTextField.getText()) * MyConstants.membershipPrice));
     }
 
+    /**
+     * Button to show hel view
+     * @param event
+     */
     @FXML
     void onHelpButtonClick(ActionEvent event) { super.raiseInformationAlert("È possibile aggiungere uno o più abbonamenti al carrello. L'abbonamneto avrà la data di inizio validità pari a quella da te inserita e sarà valido per un anno. Se selezioni più abbonamenti avranno tutti la stessa data di inizio validità. Se è necessario che siano diverse, aggiungi separatamente gli abbonamenti al carrello."); }
+
+    /**
+     * @see javafx.fxml.Initializable#initialize(URL, ResourceBundle)
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { initializeViewComponents(); }
+
+    /**
+    * @see com.prog3.ipt.Controller.ViewController#initializeViewComponents()
+    */
     @Override
     protected void initializeViewComponents() {
         super.clearDatePickersContent(startDatePicker);

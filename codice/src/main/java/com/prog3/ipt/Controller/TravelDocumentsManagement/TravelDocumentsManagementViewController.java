@@ -6,28 +6,30 @@ import com.prog3.ipt.Model.CitizenClasses.Order;
 import com.prog3.ipt.Model.FacadeClasses.FacadeSingleton;
 import com.prog3.ipt.Model.PaymentMethodClasses.*;
 import com.prog3.ipt.Model.TravelDocumentClasses.*;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.scene.control.Button;
 import javafx.scene.control.cell.PropertyValueFactory;
 import static com.prog3.ipt.Model.PaymentMethodClasses.PaymentMethodEnum.*;
 
+/**
+ * TravelDocumentsManagementViewController class extends ViewController class end represents view of
+ * travel documents management
+ */
 public class TravelDocumentsManagementViewController extends ViewController {
     protected TravelDocumentFactory myTravelDocumentFactory;
     private String convertedDropDownListString;
     private boolean isValidTransaction;
 
-
-
     // NavigationBar
     @FXML
     private Button backButton;
-
-
 
     // Left Vbox
     @FXML
@@ -44,7 +46,6 @@ public class TravelDocumentsManagementViewController extends ViewController {
     private DatePicker expirationCreditCardDatePicker;
     @FXML
     private Button savePaymentMethodButton;
-
 
     // Right VBox
     @FXML
@@ -74,18 +75,45 @@ public class TravelDocumentsManagementViewController extends ViewController {
     @FXML
     private TableColumn<TravelDocumentFX, Button> deleteRowTableColumn;
 
+    /**
+     * Button to see single ticket
+     * @param event Button clicked
+     */
+    @FXML
+    private void onMySingleTicketsButtonClick(ActionEvent event) {super.onButtonClickNavigateToView(mySingleTicketsButton, "MySingleTicketsView.fxml");}
 
+    /**
+     * Button to see a membership
+     * @param event Button clicked
+     */
+    @FXML
+    private void onMyMembershipButtonClick(ActionEvent event) {super.onButtonClickNavigateToView(myMembershipButton, "MyMembershipView.fxml");}
 
+    /**
+     * Button to go back to previous view
+     * @param event Button clicked
+     */
     @FXML
-    private void onMySingleTicketsButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(mySingleTicketsButton, "MySingleTicketsView.fxml"); }
+    void onBackButtonClick(ActionEvent event) {super.onButtonClickNavigateToView(backButton, "HomeView.fxml");}
+
+    /**
+     * Button to add a single ticket
+     * @param event Button clicked
+     */
     @FXML
-    private void onMyMembershipButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(myMembershipButton, "MyMembershipView.fxml"); }
+    void onAddSingleTicketsButtonClick(ActionEvent event) {super.onButtonClickNavigateToView(addSingleTicketsButton, "AddSingleTicketsView.fxml");}
+
+    /**
+     * Button to add a membership
+     * @param event Button clicked
+     */
     @FXML
-    void onBackButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(backButton, "HomeView.fxml"); }
-    @FXML
-    void onAddSingleTicketsButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(addSingleTicketsButton, "AddSingleTicketsView.fxml"); }
-    @FXML
-    void onAddMembershipsButtonClick(ActionEvent event) { super.onButtonClickNavigateToView(addMembershipsButton, "AddMembershipView.fxml"); }
+    void onAddMembershipsButtonClick(ActionEvent event) {super.onButtonClickNavigateToView(addMembershipsButton, "AddMembershipView.fxml");}
+
+    /**
+     * Button to made a transaction
+     * @param event Button clicked
+     */
     @FXML
     void onBuyCartItemsButtonClick(ActionEvent event) {
         if (ObservableSingleton.getOrder().getPurchaseList().size() <= 0) { super.raiseErrorAlert("Il tuo carrello è vuoto. Non puoi procedere con l'acquisto."); return; }
@@ -103,6 +131,10 @@ public class TravelDocumentsManagementViewController extends ViewController {
         initializeViewComponents();
     }
 
+    /**
+     * Button to save payment method
+     * @param event Button clicked
+     */
     @FXML
     void onSavePaymentMethodButtonClick(ActionEvent event) {
         String currentCreditCardNumber = null, currentCreditCartCVV = null;
@@ -142,8 +174,16 @@ public class TravelDocumentsManagementViewController extends ViewController {
         if (event.getSource() == savePaymentMethodButton) super.raiseConfirmationAlert("Metodo di pagamento salvato con successo!");
     }
 
+    /**
+     * @see javafx.fxml.Initializable#initialize(URL, ResourceBundle)
+     */
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) { initializeViewComponents(); }
+    public void initialize(URL url, ResourceBundle resourceBundle) {initializeViewComponents();}
+
+    /**
+     * @see ViewController#initializeViewComponents()
+     * @see ObservableSingleton#getOrder()
+     */
     @Override
     protected void initializeViewComponents() {
         // initialize left side
@@ -176,12 +216,36 @@ public class TravelDocumentsManagementViewController extends ViewController {
         }));
     }
 
-    protected void setOrder(Order order) { ObservableSingleton.updateOrder(order.getPurchaseDate(), order.getPurchasePrice(), order.getCitizenID(), order.getPaymentMethodStrategy(), order.getPurchaseList(), order.getPurchaseObservableList()); }
-    protected Order getOrder() { return ObservableSingleton.getOrder(); }
-    public void setConvertedDropDownListString(String convertedDropDownListString) { this.convertedDropDownListString = convertedDropDownListString; }
-    public String getConvertedDropDownListString() { return this.convertedDropDownListString; }
+    /**
+     * Order setter
+     * @see ObservableSingleton#updateOrder(LocalDate, double, String, PaymentMethodStrategy, ArrayList, ObservableList)
+     * @param order Reference to Order object
+     */
+    protected void setOrder(Order order) {ObservableSingleton.updateOrder(order.getPurchaseDate(), order.getPurchasePrice(), order.getCitizenID(), order.getPaymentMethodStrategy(), order.getPurchaseList(), order.getPurchaseObservableList());}
 
-    // ComboBox / DropDownList payment methods handling
+    /**
+     * Order getter
+     * @see ObservableSingleton#getOrder()
+     * @return reference to Order object
+     */
+    protected Order getOrder() {return ObservableSingleton.getOrder();}
+
+    /**
+     * ConverterDropDownListString setter
+     * @param convertedDropDownListString Reference to a String object
+     */
+    public void setConvertedDropDownListString(String convertedDropDownListString) {this.convertedDropDownListString = convertedDropDownListString;}
+
+    /**
+     * ConverterDropDownListString getter
+     * @return Reference to a String object
+     */
+    public String getConvertedDropDownListString() {return this.convertedDropDownListString;}
+
+    /**
+     * ComboBox / DropDownList payment methods handling
+     * @param event
+     */
     @FXML
     void onSelectedDropDownListElement(ActionEvent event) {
         super.clearTextFieldsContent(creditCardNumberTextField, CVV_TextField);
@@ -196,6 +260,9 @@ public class TravelDocumentsManagementViewController extends ViewController {
         } catch (IllegalStateException e) { e.printStackTrace(); return; }
     }
 
+    /** Display content on view when credit card payment method was chosen
+     * @see ObservableSingleton
+     */
     private void creditCardPaymentMethodSelected() {
         creditCardNumberTextField.setPromptText("Inserisci il numero di carta di credito...");
         CVV_TextField.setPromptText("Inserisci il CVV...");
@@ -211,6 +278,9 @@ public class TravelDocumentsManagementViewController extends ViewController {
         }
     }
 
+    /** Display content on view when Paypal payment method was chosen
+     * @see ObservableSingleton
+     */
     private void payPalPaymentMethodSelected() {
         creditCardNumberTextField.setPromptText("Inserisci l'email di PayPal...");
         creditCardNumberTextField.setVisible(true);
@@ -220,6 +290,9 @@ public class TravelDocumentsManagementViewController extends ViewController {
         if (ObservableSingleton.getPaymentMethodString().equals(PAYPAL.toString())) creditCardNumberTextField.setText(((PayPalPaymentMethod) ObservableSingleton.getPaymentMethodStrategy()).getEmail());
     }
 
+    /** Display content on view when phone number bill payment method was chosen
+     * @see ObservableSingleton
+     */
     private void phoneNumberBillPaymentMethodSelected() {
         creditCardNumberTextField.setPromptText("Inserisci il tuo numero di telefono...");
         creditCardNumberTextField.setVisible(true);
