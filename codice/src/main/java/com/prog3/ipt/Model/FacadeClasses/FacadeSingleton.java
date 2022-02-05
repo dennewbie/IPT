@@ -642,7 +642,7 @@ public class FacadeSingleton {
             FacadeSingleton.preparedStatement.setDate(5, Date.valueOf(newCitizen.getBirthDate()));
             FacadeSingleton.preparedStatement.setString(6, newCitizen.getCitizenID());
             FacadeSingleton.queryOutputDML = FacadeSingleton.preparedStatement.executeUpdate();
-
+// delete this
             System.out.println("NUOVA PASS: " + newCitizen.getPassword());
             if (FacadeSingleton.queryOutputDML == 0) return false;
         } catch (SQLException e) {

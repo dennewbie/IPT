@@ -34,7 +34,7 @@ public class InfoViewController extends ViewController {
     @FXML
     private TableColumn<RideLineFX, String> lineIDTableColumn;
     @FXML
-    private TableColumn<RideLineFX, Integer> lineLenghtTableColumn;
+    private TableColumn<RideLineFX, Integer> lineLengthTableColumn;
     @FXML
     private TableColumn<RideLineFX, String> lineStartingStationTableColumn;
     @FXML
@@ -83,7 +83,7 @@ public class InfoViewController extends ViewController {
     protected void initializeViewComponents() {
         ObservableList<RideLineFX> rideLineFXObservableList = FacadeSingleton.getCorsaLineaViewContent();
         lineIDTableColumn.setCellValueFactory(new PropertyValueFactory<>("lineID"));
-        lineLenghtTableColumn.setCellValueFactory(new PropertyValueFactory<>("lineLength"));
+        lineLengthTableColumn.setCellValueFactory(new PropertyValueFactory<>("lineLength"));
         lineStartingStationTableColumn.setCellValueFactory(new PropertyValueFactory<>("lineStartStation"));
         lineEndingStationTableColumn.setCellValueFactory(new PropertyValueFactory<>("lineStopStation"));
         lineActivationDateTableColumn.setCellValueFactory(new PropertyValueFactory<>("lineActivationDate"));
