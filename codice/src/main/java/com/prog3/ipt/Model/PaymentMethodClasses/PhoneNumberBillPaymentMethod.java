@@ -11,17 +11,19 @@ import java.util.regex.Pattern;
 public class PhoneNumberBillPaymentMethod implements PaymentMethodStrategy {
     private String phoneNumber;
 
+
+
     /**
      * PhoneNumberBillPaymentMethod constructor
      * @param phoneNumber Phone number associated with phoneNumber bill payment
      */
-    public PhoneNumberBillPaymentMethod(String phoneNumber) {setPhoneNumber(phoneNumber);}
+    public PhoneNumberBillPaymentMethod(String phoneNumber) { setPhoneNumber(phoneNumber); }
     
     // Setters
-    private void setPhoneNumber(String phoneNumber) {this.phoneNumber = phoneNumber;}
+    private void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
 
     // Getters
-    public String getPhoneNumber() {return phoneNumber;}
+    public String getPhoneNumber() { return phoneNumber; }
 
     /**
      * Makes the payment by the user
@@ -29,7 +31,7 @@ public class PhoneNumberBillPaymentMethod implements PaymentMethodStrategy {
      * @return true if transaction was successfull, otherwise false
      */
     @Override
-    public boolean pay(double paymentAmount) {return checkPaymentMethodData();}
+    public boolean pay(double paymentAmount) { return checkPaymentMethodData(); }
 
     /**
      * Checks that the data entered by the user for the payment have been made successfully
@@ -49,9 +51,8 @@ public class PhoneNumberBillPaymentMethod implements PaymentMethodStrategy {
         PhoneNumberBillPaymentMethod that = (PhoneNumberBillPaymentMethod) o;
         return getPhoneNumber().equals(that.getPhoneNumber());
     }
-
     @Override
-    public int hashCode() {return Objects.hash(getPhoneNumber());}
+    public int hashCode() { return Objects.hash(getPhoneNumber()); }
     @Override
-    public String toString() {return "PhoneNumberBillPaymentMethod{ phoneNumber='" + phoneNumber + '\'' +  '}';}
+    public String toString() { return "PhoneNumberBillPaymentMethod{ phoneNumber='" + phoneNumber + '\'' +  '}'; }
 }

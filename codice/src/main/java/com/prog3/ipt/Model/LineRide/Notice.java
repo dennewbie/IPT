@@ -13,6 +13,8 @@ public class Notice {
     private String rideID;
     private String lineID;
 
+
+
     /**
      * Notice constructor
      * @param noticeID Index which uniquely identifies a notice

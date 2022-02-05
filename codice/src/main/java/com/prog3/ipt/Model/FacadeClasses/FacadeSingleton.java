@@ -42,7 +42,7 @@ public class FacadeSingleton {
     private static final int ITERATIONS = 10000;
     private static final int KEY_LENGTH = 256;
     // Generate Salt. The generated value can be stored in DB.
-    public static String salt;
+    private static String salt;
 
     /**
      * FacadeSingleton constructor
@@ -460,7 +460,6 @@ public class FacadeSingleton {
      * @return True on success, otherwise false
      */
     public static boolean deleteMySingleTicket(TravelDocumentFX localSingleTicket) {
-
         String deleteTemplateQuery = "delete from biglietto where biglietto.id_biglietto = \"" + localSingleTicket.getTravelDocumentID() + "\";";
         if (!FacadeSingleton.deleteSingleTicketStatement(deleteTemplateQuery)) return false;
         return true;

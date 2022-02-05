@@ -1404,7 +1404,7 @@
 											"width": 546.5966796875,
 											"height": 13,
 											"underline": true,
-											"text": "+salt: String",
+											"text": "-salt: String",
 											"horizontalAlignment": 0
 										}
 									],
@@ -22358,6 +22358,7 @@
 								"$ref": "AAAAAAF95An6Ym17SSY="
 							},
 							"name": "salt",
+							"visibility": "private",
 							"isStatic": true,
 							"type": "String"
 						}

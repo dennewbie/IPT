@@ -25,7 +25,6 @@ public class TravelDocumentFX {
 
 
     // Constructor
-
     /**
      * TravelDocumentFX constructor
      * @param travelDocumentID The unique identifier of the travel document
@@ -124,7 +123,6 @@ public class TravelDocumentFX {
     public LocalDate getStartDate() { return startDate; }
 
     // Others
-
     /**
      * Produces a TravelDocument object according to the TravelDocumentFX object calling this method
      * @return A reference to a TravelDocument object

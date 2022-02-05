@@ -12,6 +12,8 @@ public class PayPalPaymentMethod implements PaymentMethodStrategy {
     private String email;
     private String password;
 
+
+
     /**
      * PayPalPaymentMethod constructor
      * @param email Email associated with the user Paypal account
@@ -59,8 +61,7 @@ public class PayPalPaymentMethod implements PaymentMethodStrategy {
         return email.equals(that.email) && password.equals(that.password);
     }
     @Override
-    public int hashCode() {return Objects.hash(email, password);}
-
+    public int hashCode() { return Objects.hash(email, password); }
     @Override
     public String toString() {return "PayPalPaymentMethod{ email='" + email + '\'' +  ", password='" + password + '\'' +  '}';}
 }

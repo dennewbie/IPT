@@ -11,6 +11,8 @@ public abstract class User {
     private String email;
     private String password;
 
+
+
     /**
      * User constructor
      * @param name User name
@@ -69,12 +71,10 @@ public abstract class User {
         User user = (User) o;
         return getName().equals(user.getName()) && getSurname().equals(user.getSurname()) && getBirthDate().equals(user.getBirthDate()) && getEmail().equals(user.getEmail()) && getPassword().equals(user.getPassword());
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(getName(), getSurname(), getBirthDate(), getEmail(), getPassword());
     }
-
     @Override
     public String toString() { return "User{ name='" + name + '\'' + ", surname='" + surname + '\'' + ", birthDate=" + birthDate + ", email='" + email + '\'' + ", password='" + password + '\'' + '}'; }
 }

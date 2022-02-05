@@ -14,6 +14,8 @@ public class CreditCardPaymentMethod implements PaymentMethodStrategy {
     private LocalDate creditCardExpirationDate;
     private String creditCardCVV;
 
+
+
     /**
      * CreditCardPaymentMethod constructor
      * @param creditCardNumber Numeric code that uniquely identifies a credit card
@@ -108,7 +110,6 @@ public class CreditCardPaymentMethod implements PaymentMethodStrategy {
     }
     @Override
     public int hashCode() { return Objects.hash(getCreditCardNumber(), getCreditCardExpirationDate(), getCreditCardCVV()); }
-
     @Override
     public String toString() { return "CreditCardPaymentMethod{ creditCardNumber='" + creditCardNumber + '\'' + ", creditCardExpirationDate=" + creditCardExpirationDate +  ", creditCardCVV='" + creditCardCVV + '\'' +  '}'; }
 }

@@ -11,6 +11,8 @@ public class Ride {
     private Time rideEndingHour;
     private Integer ridePriority;
 
+
+
     /**
      * Ride constructor
      * @param rideID Index which uniquely identifies a ride
@@ -45,7 +47,6 @@ public class Ride {
         Ride ride = (Ride) o;
         return getRideID().equals(ride.getRideID()) && getRideStatus().equals(ride.getRideStatus()) && getRideStartingHour().equals(ride.getRideStartingHour()) && getRideEndingHour().equals(ride.getRideEndingHour()) && getRidePriority().equals(ride.getRidePriority());
     }
-
     @Override
     public int hashCode() { return Objects.hash(getRideID(), getRideStatus(), getRideStartingHour(), getRideEndingHour(), getRidePriority()); }
     @Override

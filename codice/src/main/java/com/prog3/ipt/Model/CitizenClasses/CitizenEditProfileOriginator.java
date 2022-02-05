@@ -8,21 +8,23 @@ public class CitizenEditProfileOriginator {
     private Citizen currentCitizen;
     private CitizenEditProfileMemento savedStates = new CitizenEditProfileMemento();
 
-    //Setter
+
+
+    // Setter
     public void setCurrentCitizen(Citizen currentCitizen) {
         this.currentCitizen = currentCitizen;
         this.currentCitizen.setCitizenID(ObservableSingleton.getCitizen().getCitizenID());
         this.currentCitizen.setRegistrationDate(ObservableSingleton.getCitizen().getRegistrationDate());
     }
 
-    //Getter
+    // Getter
     public Citizen getCurrentCitizen() { return this.currentCitizen; }
 
     /**
      * Add reference to a Citizen object into CitizenEditProfileMemento object to save last status about
      * a Citizen
      */
-    public void save() {savedStates.addState(currentCitizen);}
+    public void save() { savedStates.addState(currentCitizen); }
 
     /**
      * Return boolean value true meaning last status about a Citizen is restored or false meaning last
@@ -31,7 +33,7 @@ public class CitizenEditProfileOriginator {
      */
     public boolean restore() {
         Citizen lastCitizen = savedStates.getLastCitizenData();
-        //Check if was saved a citizen last status
+        // Check if was saved a citizen last status
         if (lastCitizen != null) {
             setCurrentCitizen(lastCitizen);
             return true;

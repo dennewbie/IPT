@@ -14,6 +14,8 @@ public class Line {
     private Time lineOpeningHour;
     private Time lineClosingHour;
 
+
+
     /**
      * Line constructor
      * @param lineID Index which uniquely identifies a line
@@ -55,7 +57,6 @@ public class Line {
         Line line = (Line) o;
         return getLineID().equals(line.getLineID()) && getLineLength().equals(line.getLineLength()) && getLineStartStation().equals(line.getLineStartStation()) && getLineStopStation().equals(line.getLineStopStation()) && getLineActivationDate().equals(line.getLineActivationDate()) && getLineOpeningHour().equals(line.getLineOpeningHour()) && getLineClosingHour().equals(line.getLineClosingHour());
     }
-
     @Override
     public int hashCode() { return Objects.hash(getLineID(), getLineLength(), getLineStartStation(), getLineStopStation(), getLineActivationDate(), getLineOpeningHour(), getLineClosingHour()); }
     @Override

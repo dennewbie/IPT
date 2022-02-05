@@ -15,6 +15,7 @@ public class SingleTicket extends TravelDocument {
     private LocalDate stampDate;
 
 
+
     /**
      * SingleTicket constructor
      * @param price The price of the travel document
@@ -47,8 +48,6 @@ public class SingleTicket extends TravelDocument {
     public String getRideID() { return rideID; }
     public String getLineID() { return lineID; }
     public LocalDate getStampDate() { return stampDate; }
-
-
 
     // Others
     @Override

@@ -22,6 +22,8 @@ public class Order {
     private ArrayList<TravelDocument> purchaseList;
     private ObservableList<TravelDocumentFX> purchaseObservableList; // Java FX
 
+
+
     /**
      * Order constructor
      * @param transactionCode The unique identifier of the transaction commit by a citizen
@@ -121,10 +123,8 @@ public class Order {
         Order order = (Order) o;
         return Double.compare(order.getPurchasePrice(), getPurchasePrice()) == 0 && getTransactionCode().equals(order.getTransactionCode()) && getPurchaseDate().equals(order.getPurchaseDate()) && getCitizenID().equals(order.getCitizenID()) && getPaymentMethodStrategy().equals(order.getPaymentMethodStrategy()) && getPurchaseList().equals(order.getPurchaseList()) && getPurchaseObservableList().equals(order.getPurchaseObservableList());
     }
-
     @Override
     public int hashCode() { return Objects.hash(getTransactionCode(), getPurchaseDate(), getPurchasePrice(), getCitizenID(), getPaymentMethodStrategy(), getPurchaseList()); }
-
     @Override
     public String toString() { return "Order{ transactionCode='" + transactionCode + '\'' + ", purchaseDate=" + purchaseDate + ", purchasePrice=" + purchasePrice + ", citizenID='" + citizenID + '\'' + ", paymentMethodStrategy=" + paymentMethodStrategy + ", purchaseList=" + purchaseList + ", purchaseObservableList=" + purchaseObservableList + '}'; }
 }

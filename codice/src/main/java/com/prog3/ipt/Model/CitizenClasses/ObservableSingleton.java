@@ -5,7 +5,6 @@ import com.prog3.ipt.Model.TravelDocumentClasses.TravelDocument;
 import com.prog3.ipt.Model.TravelDocumentClasses.TravelDocumentFX;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -18,6 +17,8 @@ public class ObservableSingleton {
     private static volatile PaymentMethodStrategy sessionPaymentMethodStrategy;
     private static volatile String paymentMethodString = null;
 
+
+
     /** Protect against instantiation via reflection */
     private ObservableSingleton() {
         if (sessionUser != null) throw new IllegalStateException("Already initialized.");
@@ -25,11 +26,11 @@ public class ObservableSingleton {
         if (sessionPaymentMethodStrategy != null) throw new IllegalStateException("Already initialized.");
     }
 
-    //citizen setters
+    // citizen setters
     public static void setCitizenID(String citizenID) { sessionUser.setCitizenID(citizenID);}
     public static void setCitizen(Citizen newUser) { sessionUser = newUser; }
 
-    //citizen updaters
+    // citizen updaters
     public static void updateCitizen(String name, String surname, LocalDate birthDate, String email, String password) {
         getCitizen().setName(name);
         getCitizen().setSurname(surname);
@@ -38,7 +39,7 @@ public class ObservableSingleton {
         getCitizen().setPassword(password);
     }
 
-    //citizen getter
+    // citizen getter
     /** The instance doesn't get created until the method is called for the first time. */
     public static Citizen getCitizen() {
         if (sessionUser == null) {
@@ -49,10 +50,10 @@ public class ObservableSingleton {
         return sessionUser;
     }
 
-    //order setter
-    public static void setOrder(Order newOrder) {sessionOrder = newOrder;}
+    // order setter
+    public static void setOrder(Order newOrder) { sessionOrder = newOrder; }
 
-    //order updaters
+    // order updaters
     public static void updateOrder(LocalDate purchaseDate, double purchasePrice, String citizenID, PaymentMethodStrategy paymentMethodStrategy, ArrayList<TravelDocument> purchaseList, ObservableList<TravelDocumentFX> observableList) {
         getOrder().setPurchaseDate(purchaseDate);
         getOrder().setPurchasePrice(purchasePrice);
@@ -66,7 +67,7 @@ public class ObservableSingleton {
         updateOrder(purchaseDate, purchasePrice, citizenID, paymentMethodStrategy, purchaseList, observableList);
     }
 
-    //order getter
+    // order getter
     public static Order getOrder() {
         if (sessionOrder == null) {
             synchronized (ObservableSingleton.class) {
@@ -76,12 +77,12 @@ public class ObservableSingleton {
         return sessionOrder;
     }
 
-    //paymentMethod setter
+    // paymentMethod setter
     public static void setPaymentMethodStrategy(PaymentMethodStrategy newPaymentMethodStrategy) {
         sessionPaymentMethodStrategy = newPaymentMethodStrategy;
     }
 
-    //paymentMethod getter
+    // paymentMethod getter
     /** The instance doesn't get created until the method is called for the first time. */
     public static PaymentMethodStrategy getPaymentMethodStrategy() {
         if (sessionPaymentMethodStrategy == null) {
@@ -97,9 +98,9 @@ public class ObservableSingleton {
         return sessionPaymentMethodStrategy;
     }
 
-    //paymentMethodString setter
-    public static void setPaymentMethodString(String paymentMethodString) {ObservableSingleton.paymentMethodString = paymentMethodString;}
+    // paymentMethodString setter
+    public static void setPaymentMethodString(String paymentMethodString) { ObservableSingleton.paymentMethodString = paymentMethodString; }
 
-    //paymentMethodString getter
-    public static String getPaymentMethodString() {return paymentMethodString;}
+    // paymentMethodString getter
+    public static String getPaymentMethodString() { return paymentMethodString; }
 }

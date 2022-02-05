@@ -13,6 +13,8 @@ public class Citizen extends User {
     private LocalDate registrationDate;
     private String username;
 
+
+
     /**
      * Citizen constructor
      * @param citizenID Index which uniquely identifies a citizen
@@ -77,10 +79,8 @@ public class Citizen extends User {
         Citizen citizen = (Citizen) o;
         return getCitizenID().equals(citizen.getCitizenID()) && getRegistrationDate().equals(citizen.getRegistrationDate()) && getUsername().equals(citizen.getUsername());
     }
-
     @Override
     public int hashCode() { return Objects.hash(super.hashCode(), getCitizenID(), getRegistrationDate(), getUsername()); }
-
     @Override
     public String toString() { return super.toString() + "Citizen{ citizenID='" + citizenID + '\'' + ", registrationDate=" + registrationDate + ", username='" + username + '\'' + '}'; }
 }

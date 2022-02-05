@@ -22,6 +22,8 @@ public class RideLineFX {
     private Time lineOpeningHour;
     private Time lineClosingHour;
 
+
+
     /**
      * RideLineFX constructor
      * @param rideID Index which uniquely identifies a ride
@@ -100,7 +102,6 @@ public class RideLineFX {
         RideLineFX rideLi = (RideLineFX) o;
         return Objects.equals(getRideID(), rideLi.getRideID()) && Objects.equals(getRideStatus(), rideLi.getRideStatus()) && Objects.equals(getRideStartingHour(), rideLi.getRideStartingHour()) && Objects.equals(getRideEndingHour(), rideLi.getRideEndingHour()) && Objects.equals(getRidePriority(), rideLi.getRidePriority()) && Objects.equals(getLineID(), rideLi.getLineID()) && Objects.equals(getLineLength(), rideLi.getLineLength()) && Objects.equals(getLineStartStation(), rideLi.getLineStartStation()) && Objects.equals(getLineStopStation(), rideLi.getLineStopStation()) && Objects.equals(getLineActivationDate(), rideLi.getLineActivationDate()) && Objects.equals(getLineOpeningHour(), rideLi.getLineOpeningHour()) && Objects.equals(getLineClosingHour(), rideLi.getLineClosingHour());
     }
-
     @Override
     public int hashCode() { return Objects.hash(getRideID(), getRideStatus(), getRideStartingHour(), getRideEndingHour(), getRidePriority(), getLineID(), getLineLength(), getLineStartStation(), getLineStopStation(), getLineActivationDate(), getLineOpeningHour(), getLineClosingHour()); }
     @Override

@@ -15,6 +15,7 @@ public abstract class TravelDocument {
     private String transactionID;
 
 
+
     /**
      * TravelDocument constructor
      * @param price The price of the travel document
