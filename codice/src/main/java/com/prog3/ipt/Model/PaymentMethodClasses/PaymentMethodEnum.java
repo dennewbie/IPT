@@ -8,6 +8,7 @@ public enum PaymentMethodEnum {
     private final String currentText;
 
     PaymentMethodEnum(final String text) { this.currentText = text; }
+
     @Override
     public String toString() { return this.currentText; }
 }
