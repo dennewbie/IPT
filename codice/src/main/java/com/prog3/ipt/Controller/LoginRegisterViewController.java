@@ -14,25 +14,25 @@ public class LoginRegisterViewController extends ViewController {
     @FXML
     private Button backButton;
     @FXML
+    private TextField nameTextField;
+    @FXML
+    private TextField surnameTextField;
+    @FXML
     private DatePicker birthDatePicker;
     @FXML
     private TextField emailTextField;
     @FXML
-    private TextField nameTextField;
-    @FXML
-    private PasswordField passwordSignInField;
+    private TextField usernameSignUpTextField;
     @FXML
     private PasswordField passwordSignUpField;
     @FXML
-    private Button signInButton;
-    @FXML
     private Button signUpButton;
-    @FXML
-    private TextField surnameTextField;
     @FXML
     private TextField usernameSignInTextField;
     @FXML
-    private TextField usernameSignUpTextField;
+    private PasswordField passwordSignInField;
+    @FXML
+    private Button signInButton;
 
 
 

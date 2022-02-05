@@ -16,7 +16,7 @@
                 <TableView fx:id="lineRideTableView" prefHeight="657.0" prefWidth="1081.0" styleClass="textField_box">
                     <columns>
                         <TableColumn fx:id="lineIDTableColumn" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="66.0" text="ID LINEA" />
-                        <TableColumn fx:id="lineLenghtTableColumn" minWidth="0.0" prefWidth="92.0" text="LUNGHEZZA" />
+                        <TableColumn fx:id="lineLengthTableColumn" minWidth="0.0" prefWidth="92.0" text="LUNGHEZZA" />
                         <TableColumn fx:id="lineStartingStationTableColumn" prefWidth="107.0" text="INIZIO FERMATA " />
                         <TableColumn fx:id="lineEndingStationTableColumn" minWidth="0.0" prefWidth="180.0" text="FINE FERMATA" />
                         <TableColumn fx:id="lineActivationDateTableColumn" prefWidth="124.0" text="DATA ATTIVAZIONE " />

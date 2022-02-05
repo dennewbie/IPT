@@ -64,6 +64,4 @@ public class SearchPathViewController extends ViewController implements Initiali
             e.printStackTrace();
         }
     }
-
-
 }

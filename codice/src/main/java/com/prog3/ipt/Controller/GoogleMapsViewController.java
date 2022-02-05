@@ -24,12 +24,12 @@ public class GoogleMapsViewController extends ViewController {
 
 
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
     @FXML
     void onBackButtonClick(ActionEvent event) {
         super.onButtonClickNavigateToView(backButton, "SearchPathView.fxml");
+    }
+    public void setUrl(String url) {
+        this.url = url;
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { initializeViewComponents(); }
