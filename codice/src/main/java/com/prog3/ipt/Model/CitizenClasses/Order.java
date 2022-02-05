@@ -30,7 +30,7 @@ public class Order {
      * @param citizenID Citizien who commit transaction
      * @param paymentMethodStrategy Method used to pay for the transaction
      * @param purchaseList List of purchases made by the transaction
-     * @param purchaseObservableList List of purchases made by the transaction
+     * @param purchaseObservableList FX Object which represents list of purchases made by the transaction
      */
     public Order(String transactionCode, LocalDate purchaseDate, double purchasePrice, String citizenID, PaymentMethodStrategy paymentMethodStrategy, ArrayList<TravelDocument> purchaseList, ObservableList<TravelDocumentFX> purchaseObservableList) {
         setTransactionCode(transactionCode);
@@ -60,25 +60,54 @@ public class Order {
     public ArrayList<TravelDocument> getPurchaseList() { return purchaseList; }
     public ObservableList<TravelDocumentFX> getPurchaseObservableList() { return purchaseObservableList; }
 
-    // Others
+    /**
+     * Adds a reference to a TravelDocument object into an ArrayList<TravelDocument></TravelDocument>
+     * object, then gets the equivalent FX TravelDocument object of TravelDocument object and adds
+     * reference to it into an ObservableList<TravelDocumentFX></TravelDocumentFX>. In the end adds the
+     * cost of the TravelDocument object in question to the total amount of the transaction.
+     * @param travelDocumentObject Travel document bought by transaction
+     */
     public void addTravelDocument(TravelDocument travelDocumentObject) {
         getPurchaseList().add(travelDocumentObject);
         getPurchaseObservableList().add(travelDocumentObject.toTravelDocumentFX());
         setPurchasePrice(getPurchasePrice() + travelDocumentObject.getPrice());
     }
 
+    /**
+     * Removes a reference to a TravelDocument object into an ArrayList<TravelDocument></TravelDocument>
+     * object, then gets the equivalent FX TravelDocument object of TravelDocument object and removes
+     * reference to it into an ObservableList<TravelDocumentFX></TravelDocumentFX>. In the end removes
+     * the cost of the TravelDocument object in question to the total amount of the transaction.
+     * @param travelDocumentObject Travel document to remove from transaction
+     */
     public void removeTravelDocument(TravelDocument travelDocumentObject) {
         getPurchaseList().remove(travelDocumentObject);
         getPurchaseObservableList().remove(travelDocumentObject.toTravelDocumentFX());
         setPurchasePrice(getPurchasePrice() - travelDocumentObject.getPrice());
     }
 
+    /**
+     * Gets the equivalent TravelDocument object of FX TravelDocument object and adds
+     * reference to it into an ArrayList<TravelDocument></TravelDocument>. Adds a reference to a FX
+     * TravelDocument object into an ObservableList<TravelDocumentFX></TravelDocumentFX> object. In the
+     * end adds the cost of the FX TravelDocument object in question to the total amount of
+     * the transaction.
+     * @param travelDocumentFXObject FX object of Travel document bought by transaction
+     */
     public void addTravelDocumentFX(TravelDocumentFX travelDocumentFXObject) {
         getPurchaseList().add(travelDocumentFXObject.toTravelDocument());
         getPurchaseObservableList().add(travelDocumentFXObject);
         setPurchasePrice(getPurchasePrice() + travelDocumentFXObject.getPrice());
     }
 
+    /**
+     * Gets the equivalent TravelDocument object of FX TravelDocument object and removes
+     * reference to it into an ArrayList<TravelDocument></TravelDocument>. Removes a reference to a FX
+     * TravelDocument object into an ObservableList<TravelDocumentFX></TravelDocumentFX> object. In the
+     * end removes the cost of the FX TravelDocument object in question to the total amount of
+     * the transaction.
+     * @param travelDocumentFXObject FX object of Travel document to remove from transaction
+     */
     public void removeTravelDocumentFX(TravelDocumentFX travelDocumentFXObject) {
         getPurchaseList().remove(travelDocumentFXObject.toTravelDocument());
         getPurchaseObservableList().remove(travelDocumentFXObject);
