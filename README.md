@@ -22,7 +22,9 @@ Si precisa che nella fase di scoperta, analisi dei requisiti e progettazione è 
 [Keynote](https://github.com/dennewbie/IPT/blob/main/presentazione_IPT/IPT_presentazione.pdf)
 
 ### Demo
-(https://github.com/dennewbie/IPT/blob/main/demo.mp4)
+https://user-images.githubusercontent.com/41870472/152678210-da81c5c9-f6b3-4c63-8cae-9d5ff466acac.mp4
+
+
 
 
 ### Documentazione
