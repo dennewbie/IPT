@@ -1,6 +1,7 @@
 # IPT
 
 ![projectLogo](https://github.com/dennewbie/IPT/blob/main/ingegneriaSoftware_interazioneUomoMacchina/design_IPT/initialDesign/IPT.png)
+
 ## Progetto di Ingegneria del Software e Interazione Uomo-Macchina, Programmazione III - Università "Parthenope"
 
 Un’azienda di trasporto urbano richiede un sistema software per la gestione di tutte le attività connesse alla gestione degli impiegati, dei mezzi e del relativo deposito e la comunicazione dei servizi al cittadino. Il sistema deve tenere traccia di tutto quello che riguarda l'impiegato, sia dal punto di vista professionale, ruolo e turni di lavoro, che remunerativo e deve permettere agli impiegati dell'azienda, con il ruolo di addetto al personale, di visualizzare, inserire e modificare tutti i dati relativi all’impiegato.
@@ -17,14 +18,12 @@ Si precisa che nella fase di scoperta, analisi dei requisiti e progettazione è 
 - Gestione del profilo
 - Gestione e acquisto di titoli di viaggio
 
+### Presentazione
+[Keynote](https://github.com/dennewbie/IPT/blob/main/presentazione_IPT/IPT_presentazione.pdf)
+
 ### Demo
 (https://github.com/dennewbie/IPT/blob/main/demo.mp4)
 
-### Team
-- [Dominick Ferraro](https://github.com/dom0000D)
-- [Massimiliano Giordano Orsini](https://github.com/gomax22)
-- [Alfredo Mungari](https://github.com/mungowz)
-- [Denny Caruso](https://github.com/dennewbie)
 
 ### Documentazione
 - [RAD](https://github.com/dennewbie/IPT/blob/main/analisi/RAD.pdf)
@@ -33,9 +32,25 @@ Si precisa che nella fase di scoperta, analisi dei requisiti e progettazione è 
 - [javadoc](https://github.com/dennewbie/IPT/tree/main/prog3/javadoc)
 
 
-### Tool Esterni Utilizzati
+### Strumenti Utilizzati
+- [Oracle OpenJDK 17](https://openjdk.java.net/projects/jdk/17/)
+- [SpotBugs](https://spotbugs.github.io/)
+- [JavaFX](https://openjfx.io/)
+- [SceneBuilder](https://gluonhq.com/products/scene-builder/)
+- [FontAwesomeFX](https://mvnrepository.com/artifact/de.jensd/fontawesomefx)
+- [Maven](https://maven.apache.org/)
+- BootstrapFX, ControlsFX, FormsFX, Ikonli, TilesFX, ValidatorFX
+- MySQLConnector
+- Apache Commons Codec
 - [StarUML](https://staruml.io/)
 - [IntelliJ Edu](https://www.jetbrains.com/idea/)
 - [Sketch](https://www.sketch.com/)
+
+### Team
+- [Dominick Ferraro](https://github.com/dom0000D)
+- [Massimiliano Giordano Orsini](https://github.com/gomax22)
+- [Alfredo Mungari](https://github.com/mungowz)
+- [Denny Caruso](https://github.com/dennewbie) - Team Leader
+
 
 a.a 2021/2022
