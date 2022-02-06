@@ -30,7 +30,7 @@ Si precisa che nella fase di scoperta, analisi dei requisiti e progettazione è 
 - [RAD](https://github.com/dennewbie/IPT/blob/main/ingegneriaSoftware_interazioneUomoMacchina/analisi/RAD.pdf)
 - [SDD](https://github.com/dennewbie/IPT/blob/main/ingegneriaSoftware_interazioneUomoMacchina/progettazione/SDD.pdf)
 - [Diagramma Classi Implementazione](https://github.com/dennewbie/IPT/blob/main/prog3/diagrammaClassiImplementazione/diagrammaClassiImplementazione.pdf)
-- [javadoc](https://github.com/dennewbie/IPT/tree/main/prog3/javadoc)
+- [javadoc](https://github.com/dennewbie/IPT/tree/main/prog3/javadoc) (È necessario effettuare il download della cartella e aprire il file index.html)
 
 
 ### Strumenti Utilizzati
