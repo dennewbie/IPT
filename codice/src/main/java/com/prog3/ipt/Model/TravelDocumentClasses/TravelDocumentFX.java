@@ -50,7 +50,7 @@ public class TravelDocumentFX {
     }
 
     /**
-     * TravelDocumentFX constructor
+     * TravelDocumentFX constructor 
      * Builds a TravelDocumentFX object according to the TravelDocument object
      * @param travelDocument A reference to a generic TravelDocument object
      */
