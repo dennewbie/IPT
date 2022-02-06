@@ -56,4 +56,4 @@ https://user-images.githubusercontent.com/41870472/152678210-da81c5c9-f6b3-4c63-
 - [Denny Caruso](https://github.com/dennewbie) - Team Leader
 
 
-a.a 2021/2022
+a.a. 2021/2022
