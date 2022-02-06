@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="loginRegisterAnchorPane" prefHeight="720.0" prefWidth="1080.0" styleClass="parent" stylesheets="@loginRegisterViewStyle.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prog3.ipt.Controller.EditProfileViewController">
+    <Pane prefHeight="652.0" prefWidth="1080.0" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+        <children>
+            <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="654.0" prefWidth="1080.0" styleClass="white-pane">
+                <children>
+               <HBox prefHeight="39.0" prefWidth="880.0">
+                  <children>
+                          <Label text="Modifica Profilo">
+                              <font>
+                                  <Font size="25.0" />
+                              </font>
+                          </Label>
+                  </children>
+                  <VBox.margin>
+                     <Insets left="100.0" right="100.0" />
+                  </VBox.margin>
+               </HBox>
+               <HBox prefHeight="21.0" prefWidth="500.0">
+                  <children>
+                     <Label text="Inserisci il nuovo nome:" />
+                  </children>
+                  <VBox.margin>
+                     <Insets left="100.0" right="100.0" top="20.0" />
+                  </VBox.margin>
+               </HBox>
+                    <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="500.0">
+                        <children>
+                            <TextField fx:id="nameTextField" prefHeight="30.0" prefWidth="375.0" promptText="Nome" styleClass="textField_box" stylesheets="@editProfileViewStyle.css" HBox.hgrow="ALWAYS" />
+                        </children>
+                        <VBox.margin>
+                            <Insets left="100.0" right="100.0" />
+                        </VBox.margin>
+                    </HBox>
+               <HBox prefHeight="21.0" prefWidth="500.0">
+                  <children>
+                     <Label text="Inserisci il nuovo cognome:" />
+                  </children>
+                  <VBox.margin>
+                     <Insets left="100.0" right="100.0" top="20.0" />
+                  </VBox.margin>
+               </HBox>
+                    <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
+                        <children>
+                            <TextField fx:id="surnameTextField" promptText="Cognome" styleClass="textField_box" HBox.hgrow="ALWAYS" />
+                        </children>
+                        <VBox.margin>
+                            <Insets left="100.0" right="100.0" />
+                        </VBox.margin>
+                    </HBox>
+               <HBox prefHeight="21.0" prefWidth="500.0">
+                  <children>
+                     <Label text="Inserisci la nuova data di nascita:" />
+                  </children>
+                  <VBox.margin>
+                     <Insets left="100.0" right="100.0" top="20.0" />
+                  </VBox.margin>
+               </HBox>
+                    <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
+                        <VBox.margin>
+                            <Insets left="100.0" right="100.0" />
+                        </VBox.margin>
+                        <children>
+                            <DatePicker fx:id="birthDatePicker" prefHeight="27.0" prefWidth="1060.0" promptText="Data di Nascita" styleClass="textField_box" />
+                        </children>
+                    </HBox>
+               <HBox prefHeight="21.0" prefWidth="500.0">
+                  <children>
+                     <Label text="Inserisci la nuova email:" />
+                  </children>
+                  <VBox.margin>
+                     <Insets left="100.0" right="100.0" top="20.0" />
+                  </VBox.margin>
+               </HBox>
+                    <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
+                        <children>
+                            <TextField fx:id="emailTextField" promptText="Email" styleClass="textField_box" HBox.hgrow="ALWAYS" />
+                        </children>
+                        <VBox.margin>
+                            <Insets left="100.0" right="100.0" />
+                        </VBox.margin>
+                    </HBox>
+               <HBox prefHeight="21.0" prefWidth="500.0">
+                  <children>
+                     <Label text="Inserisci la nuova password:" />
+                  </children>
+                  <VBox.margin>
+                     <Insets left="100.0" right="100.0" top="20.0" />
+                  </VBox.margin>
+               </HBox>
+                    <HBox alignment="CENTER" prefHeight="40.0" prefWidth="988.0">
+                        <VBox.margin>
+                            <Insets left="100.0" right="100.0" />
+                        </VBox.margin>
+                        <children>
+                            <PasswordField fx:id="passwordField" prefHeight="32.0" prefWidth="905.0" promptText="Password" styleClass="textField_box" />
+                        </children>
+                    </HBox>
+               <HBox prefHeight="69.0" prefWidth="880.0">
+                  <children>
+                          <Button fx:id="undoButton" alignment="CENTER" contentDisplay="CENTER" disable="true" mnemonicParsing="false" onAction="#onUndoButtonClick" prefHeight="68.0" prefWidth="460.0" styleClass="loginRegisterViewButton" text="Annulla ultima modifica" textFill="WHITE">
+                              <font>
+                                  <Font size="17.0" />
+                              </font>
+                        <HBox.margin>
+                           <Insets right="50.0" />
+                        </HBox.margin>
+                          </Button>
+                     <Button fx:id="saveInformationButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onSaveInformationButtonClick" prefHeight="68.0" prefWidth="460.0" styleClass="loginRegisterViewButton" text="Salva modifiche" textFill="WHITE">
+                        <font>
+                           <Font size="17.0" />
+                        </font>
+                        <HBox.margin>
+                           <Insets left="50.0" />
+                        </HBox.margin>
+                     </Button>
+                  </children>
+                  <VBox.margin>
+                     <Insets left="100.0" right="100.0" top="30.0" />
+                  </VBox.margin>
+               </HBox>
+                </children>
+            </VBox>
+        </children>
+    </Pane>
+    <Button fx:id="backButton" alignment="BASELINE_LEFT" layoutX="7.0" layoutY="15.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="45.0" prefWidth="280.0" styleClass="backToHomeButton" text="Home" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0">
+        <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="ARROW_LEFT" />
+        </graphic>
+        <font>
+            <Font size="20.0" />
+        </font>
+    </Button>
+
+</AnchorPane>

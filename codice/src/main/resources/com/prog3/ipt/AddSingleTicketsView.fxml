@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="addMonoTicketsViewAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" styleClass="parent" stylesheets="@addSingleTicketsViewStyle.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prog3.ipt.Controller.TravelDocumentsManagement.AddSingleTicketsViewController">
+    <children>
+        <Pane layoutY="68.0" prefHeight="652.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+            <children>
+                <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="654.0" prefWidth="1080.0" styleClass="white-pane">
+                    <children>
+                        <HBox prefHeight="39.0" prefWidth="880.0">
+                            <children>
+                                <Label text="Aggiungi biglietti singoli al Carrello">
+                                    <font>
+                                        <Font size="25.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="100.0" right="100.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="21.0" prefWidth="500.0">
+                            <children>
+                                <Label text="Inserisci l'ID della corsa di riferimento:" />
+                            </children>
+                            <VBox.margin>
+                                <Insets left="100.0" right="100.0" top="20.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="500.0">
+                            <children>
+                                <TextField fx:id="ID_RideTextField" prefHeight="30.0" prefWidth="375.0" promptText="ID Corsa" styleClass="textField_box" stylesheets="@addSingleTicketsViewStyle.css" HBox.hgrow="ALWAYS" />
+                            </children>
+                            <VBox.margin>
+                                <Insets left="100.0" right="100.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="21.0" prefWidth="500.0">
+                            <children>
+                                <Label text="Inserisci l'ID della linea di riferimento:" />
+                            </children>
+                            <VBox.margin>
+                                <Insets left="100.0" right="100.0" top="20.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
+                            <children>
+                                <TextField fx:id="ID_LineTextField" promptText="ID Linea" styleClass="textField_box" HBox.hgrow="ALWAYS" />
+                            </children>
+                            <VBox.margin>
+                                <Insets left="100.0" right="100.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="21.0" prefWidth="500.0">
+                            <children>
+                                <Label text="Inserisci il numero di biglietti singoli con le preferenze appena espresse che desideri acquistare:" />
+                            </children>
+                            <VBox.margin>
+                                <Insets left="100.0" right="100.0" top="20.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0">
+                            <children>
+                                <Button fx:id="decreaseMonoTicketQuantityButton" mnemonicParsing="false" onAction="#onDecreaseSingleTicketQuantityButtonClick" styleClass="addMonoTicketViewButton" textFill="WHITE">
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                    <graphic>
+                                        <FontAwesomeIconView fill="WHITE" glyphName="MINUS" />
+                                    </graphic>
+                                </Button>
+                                <TextField fx:id="quantityTextField" editable="false" focusTraversable="false" prefHeight="27.0" prefWidth="100.0" promptText="Quantità" styleClass="textField_box" HBox.hgrow="ALWAYS">
+                                    <HBox.margin>
+                                        <Insets left="50.0" right="50.0" />
+                                    </HBox.margin>
+                                </TextField>
+                                <Button fx:id="increaseMonoTicketQuantityButton" mnemonicParsing="false" onAction="#onIncreaseSingleTicketQuantityButtonClick" styleClass="addMonoTicketViewButton" textFill="WHITE">
+                                    <HBox.margin>
+                                        <Insets right="500.0" />
+                                    </HBox.margin>
+                                    <graphic>
+                                        <FontAwesomeIconView fill="WHITE" glyphName="PLUS" />
+                                    </graphic>
+                                </Button>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="100.0" right="100.0" top="15.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="21.0" prefWidth="500.0">
+                            <children>
+                                <Label prefHeight="26.0" prefWidth="400.0" text="Costo Totale:">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="priceResultLabel" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="494.0" text="€ 0.00">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="100.0" right="100.0" top="40.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="69.0" prefWidth="880.0">
+                            <children>
+                                <Button fx:id="helpButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onHelpButtonClick" prefHeight="68.0" prefWidth="460.0" styleClass="addMonoTicketViewButton" text="Aiuto" textFill="WHITE">
+                                    <font>
+                                        <Font size="17.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets right="50.0" />
+                                    </HBox.margin>
+                                </Button>
+                                <Button fx:id="addMonoTicketsToCart" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onAddSingleTicketsToCartButtonClick" prefHeight="68.0" prefWidth="460.0" styleClass="addMonoTicketViewButton" text="Aggiungi al Carrello" textFill="WHITE">
+                                    <font>
+                                        <Font size="17.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="50.0" />
+                                    </HBox.margin>
+                                </Button>
+                            </children>
+                            <VBox.margin>
+                                <Insets left="100.0" right="100.0" top="30.0" />
+                            </VBox.margin>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </Pane>
+        <Button fx:id="backButton" alignment="BASELINE_LEFT" layoutX="27.0" layoutY="35.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="45.0" prefWidth="280.0" styleClass="backToTicketsManagementViewButton" text="Acquista Titoli Viaggio" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0">
+            <graphic>
+                <FontAwesomeIconView fill="WHITE" glyphName="ARROW_LEFT" />
+            </graphic>
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Button>
+    </children>
+</AnchorPane>

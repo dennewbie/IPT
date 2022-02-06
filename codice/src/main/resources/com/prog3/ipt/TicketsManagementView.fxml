@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="ticketsManagementAnchorPane" prefHeight="720.0" prefWidth="1080.0" styleClass="parent" stylesheets="@ticketsManagementViewStyle.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prog3.ipt.Controller.TravelDocumentsManagement.TravelDocumentsManagementViewController">
+    <Pane prefHeight="652.0" prefWidth="1080.0" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+        <children>
+            <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="654.0" prefWidth="530.0" styleClass="white-pane">
+                <children>
+               <HBox>
+                  <VBox.margin>
+                     <Insets left="15.0" right="15.0" />
+                  </VBox.margin>
+                  <children>
+                          <Label text="I miei titoli di viaggio">
+                              <font>
+                                  <Font size="25.0" />
+                              </font>
+                          </Label>
+                  </children>
+               </HBox>
+               <HBox prefHeight="102.0" prefWidth="500.0">
+                  <VBox.margin>
+                     <Insets left="15.0" right="15.0" top="20.0" />
+                  </VBox.margin>
+                  <children>
+                     <Label prefHeight="50.0" prefWidth="500.0" text="Con i pulsanti sottostanti è possibile visionare rispettivamente i biglietti singoli e gli abbonamenti acquistati." textAlignment="JUSTIFY" wrapText="true" />
+                  </children>
+               </HBox>
+               <HBox alignment="CENTER" prefHeight="76.0" prefWidth="500.0">
+                  <VBox.margin>
+                     <Insets left="15.0" right="15.0" top="20.0" />
+                  </VBox.margin>
+                  <children>
+                     <Button fx:id="mySingleTicketsButton" mnemonicParsing="false" onAction="#onMySingleTicketsButtonClick" prefHeight="68.0" prefWidth="239.0" styleClass="ticketsManagementViewButton" text="I miei biglietti singoli" textFill="WHITE">
+                        <HBox.margin>
+                           <Insets right="15.0" />
+                        </HBox.margin>
+                        <font>
+                           <Font size="17.0" />
+                        </font>
+                     </Button>
+                     <Button fx:id="myMembershipButton" mnemonicParsing="false" onAction="#onMyMembershipButtonClick" prefHeight="68.0" prefWidth="239.0" styleClass="ticketsManagementViewButton" text="I miei abbonamenti" textFill="WHITE">
+                        <HBox.margin>
+                           <Insets left="15.0" />
+                        </HBox.margin>
+                        <font>
+                           <Font size="17.0" />
+                        </font>
+                     </Button>
+                  </children>
+               </HBox>
+               <HBox>
+                  <children>
+                     <Label text="Il mio metodo di pagamento">
+                        <font>
+                           <Font size="25.0" />
+                        </font>
+                     </Label>
+                  </children>
+                  <VBox.margin>
+                     <Insets left="15.0" right="15.0" top="40.0" />
+                  </VBox.margin>
+               </HBox>
+               <HBox>
+                  <VBox.margin>
+                     <Insets left="15.0" right="15.0" top="20.0" />
+                  </VBox.margin>
+                  <children>
+                     <ComboBox fx:id="paymentMethodsDropDownList" onAction="#onSelectedDropDownListElement" prefHeight="27.0" prefWidth="526.0" promptText="Seleziona un metodo di pagamento..." styleClass="textField_box" visibleRowCount="3" />
+                  </children>
+               </HBox>
+               <HBox prefHeight="92.0" prefWidth="500.0">
+                  <children>
+                     <VBox prefHeight="92.0" prefWidth="499.0">
+                        <children>
+                           <HBox>
+                              <children>
+                                 <TextField fx:id="creditCardNumberTextField" prefHeight="26.0" prefWidth="509.0" promptText="Inserisci il numero di carta di credito..." styleClass="textField_box" />
+                              </children>
+                              <VBox.margin>
+                                 <Insets />
+                              </VBox.margin>
+                           </HBox>
+                           <HBox>
+                              <children>
+                                 <TextField fx:id="CVV_TextField" prefHeight="26.0" prefWidth="511.0" promptText="Inserisci il CVV..." styleClass="textField_box" />
+                              </children>
+                              <VBox.margin>
+                                 <Insets top="20.0" />
+                              </VBox.margin>
+                           </HBox>
+                           <HBox>
+                              <VBox.margin>
+                                 <Insets top="20.0" />
+                              </VBox.margin>
+                              <children>
+                                 <DatePicker fx:id="expirationCreditCardDatePicker" prefHeight="26.0" prefWidth="507.0" promptText="Inserisci la data di scadenza..." styleClass="textField_box" />
+                              </children>
+                           </HBox>
+                        </children>
+                        <HBox.margin>
+                           <Insets />
+                        </HBox.margin>
+                     </VBox>
+                  </children>
+                  <VBox.margin>
+                     <Insets left="15.0" right="15.0" top="20.0" />
+                  </VBox.margin>
+               </HBox>
+               <HBox>
+                  <children>
+                     <Button fx:id="savePaymentMethodButton" mnemonicParsing="false" onAction="#onSavePaymentMethodButtonClick" prefHeight="68.0" prefWidth="533.0" styleClass="ticketsManagementViewButton" text="Salva Metodo di Pagamento" textFill="WHITE">
+                        <font>
+                           <Font size="17.0" />
+                        </font>
+                        <HBox.margin>
+                           <Insets />
+                        </HBox.margin>
+                     </Button>
+                  </children>
+                  <VBox.margin>
+                     <Insets left="15.0" right="15.0" top="20.0" />
+                  </VBox.margin>
+               </HBox>
+                </children>
+            </VBox>
+            <VBox alignment="CENTER_LEFT" layoutX="545.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="655.0" prefWidth="535.0" styleClass="white-pane">
+                <children>
+               <HBox>
+                  <VBox.margin>
+                     <Insets left="15.0" right="15.0" />
+                  </VBox.margin>
+                  <children>
+                          <Label text="Il mio carrello">
+                              <font>
+                                  <Font size="25.0" />
+                              </font>
+                          </Label>
+                  </children>
+               </HBox>
+               <HBox>
+                  <children>
+                     <Label prefHeight="46.0" prefWidth="500.0" text="Il tuo carrello contiene i biglietti singoli e gli abbonamenti che hai selezionato per l'acquisto. Aggiungi ed elimina titoli di viaggio, oppure procedi con l'acquisto." textAlignment="JUSTIFY" wrapText="true" />
+                  </children>
+                  <VBox.margin>
+                     <Insets left="15.0" right="15.0" top="20.0" />
+                  </VBox.margin>
+               </HBox>
+               <HBox alignment="CENTER" prefHeight="256.0" prefWidth="505.0">
+                  <VBox.margin>
+                     <Insets left="15.0" right="15.0" top="20.0" />
+                  </VBox.margin>
+                  <children>
+                     <TableView fx:id="myCartTableView" prefHeight="263.0" prefWidth="505.0" styleClass="textField_box">
+                       <columns>
+                         <TableColumn fx:id="travelDocumentIDTableColumn" prefWidth="28.5" text="ID" />
+                           <TableColumn fx:id="lineIDTableColumn" prefWidth="41.0" text="Linea" />
+                           <TableColumn fx:id="rideIDTableColumn" minWidth="0.0" prefWidth="48.0" text="Corsa" />
+                           <TableColumn fx:id="issueDateTableColumn" prefWidth="95.0" text="Data Emissione" />
+                           <TableColumn fx:id="startDateTableColumn" prefWidth="108.5" text="Data Inizio Validità" />
+                           <TableColumn fx:id="expirationDateTableColumn" minWidth="0.0" prefWidth="95.0" text="Data Scadenza" />
+                           <TableColumn fx:id="priceTableColumn" prefWidth="49.0" text="Prezzo" />
+                           <TableColumn fx:id="deleteRowTableColumn" prefWidth="160.0" text="AzioneDisponibile" />
+                       </columns>
+                     </TableView>
+                  </children>
+               </HBox>
+               <HBox alignment="CENTER_LEFT" prefHeight="34.0" prefWidth="535.0">
+                  <children>
+                     <Label prefHeight="26.0" prefWidth="204.0" text="Prezzo Totale:">
+                        <font>
+                           <Font size="20.0" />
+                        </font>
+                        <HBox.margin>
+                           <Insets right="50.0" />
+                        </HBox.margin>
+                     </Label>
+                     <Label fx:id="totalPriceLabel" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="204.0" text="€ 0.0">
+                        <font>
+                           <Font size="20.0" />
+                        </font>
+                        <HBox.margin>
+                           <Insets left="50.0" />
+                        </HBox.margin>
+                     </Label>
+                  </children>
+                  <VBox.margin>
+                     <Insets left="15.0" right="15.0" top="20.0" />
+                  </VBox.margin>
+               </HBox>
+               <HBox prefHeight="62.0" prefWidth="505.0">
+                  <children>
+                     <Button fx:id="addSingleTicketsButton" mnemonicParsing="false" onAction="#onAddSingleTicketsButtonClick" prefHeight="68.0" prefWidth="239.0" styleClass="ticketsManagementViewButton" text="Aggiungi biglietti singoli" textFill="WHITE">
+                        <HBox.margin>
+                           <Insets right="15.0" />
+                        </HBox.margin>
+                        <font>
+                           <Font size="17.0" />
+                        </font>
+                     </Button>
+                     <Button fx:id="addMembershipsButton" mnemonicParsing="false" onAction="#onAddMembershipsButtonClick" prefHeight="68.0" prefWidth="239.0" styleClass="ticketsManagementViewButton" text="Aggiungi abbonamenti" textFill="WHITE">
+                        <HBox.margin>
+                           <Insets left="15.0" />
+                        </HBox.margin>
+                        <font>
+                           <Font size="17.0" />
+                        </font>
+                     </Button>
+                  </children>
+                  <VBox.margin>
+                     <Insets left="15.0" right="15.0" top="20.0" />
+                  </VBox.margin>
+               </HBox>
+               <HBox>
+                  <VBox.margin>
+                     <Insets left="15.0" right="15.0" top="20.0" />
+                  </VBox.margin>
+                  <children>
+                     <Button fx:id="buyCartItemsButton" mnemonicParsing="false" onAction="#onBuyCartItemsButtonClick" prefHeight="68.0" prefWidth="505.0" styleClass="ticketsManagementViewButton" text="Concludi Acquisto" textFill="WHITE">
+                        <font>
+                           <Font size="17.0" />
+                        </font>
+                     </Button>
+                  </children>
+               </HBox>
+                </children>
+            </VBox>
+        </children>
+    </Pane>
+    <Button fx:id="backButton" alignment="BASELINE_LEFT" layoutX="7.0" layoutY="15.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="45.0" prefWidth="280.0" styleClass="backToHomeButton" text="Home" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0">
+        <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="ARROW_LEFT" />
+        </graphic>
+        <font>
+            <Font size="20.0" />
+        </font>
+    </Button>
+</AnchorPane>

@@ -1,0 +1,44 @@
+.parent {
+    -fx-background-color: #251161;
+}
+
+.white-pane {
+    -fx-background-color: #ffffff;
+}
+
+.textField_box {
+    -fx-background-color: transparent;
+    -fx-border-color: gray;
+    -fx-border-width: 0.5px;
+    -fx-border-radius: 5px;
+}
+
+.addMembershipViewButton {
+    -fx-background-color : #4c18f5;
+    -fx-hgap: 20px;
+    -fx-padding: 20px;
+    -fx-background-radius: 100px;
+    -fx-border-radius: 100px;
+    -fx-border-width: 3px;
+    -fx-border-color: black;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);
+}
+
+.addMembershipViewButton:hover {
+    -fx-background-color: #845dfa;
+}
+
+.addMembershipViewButton:pressed {
+    -fx-background-color: #251161;
+    position:relative;
+    top:1px;
+}
+
+.backToTicketsManagementViewButton {
+    -fx-background-color : transparent;
+    -fx-background-radius: 100px;
+    -fx-border-radius: 100px;
+    -fx-border-width: 3px;
+    -fx-border-color: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);
+}

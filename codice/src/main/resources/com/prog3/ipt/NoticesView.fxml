@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" styleClass="parent" stylesheets="@noticesViewStyle.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prog3.ipt.Controller.NoticesViewController">
+    <children>
+        <Pane layoutY="89.0" prefHeight="655.0" prefWidth="1080.0" styleClass="white-pane" stylesheets="@noticesViewStyle.css" AnchorPane.topAnchor="70.0">
+         <children>
+            <TableView fx:id="noticesTableView" prefHeight="657.0" prefWidth="1081.0" styleClass="textField_box">
+              <columns>
+                <TableColumn fx:id="noticeIDTableColumn" text="ID" />
+                  <TableColumn fx:id="lineIDTableColumn" prefWidth="95.99999618530273" text="Linea" />
+                  <TableColumn fx:id="rideIDTableColumn" prefWidth="91.19998168945312" text="Corsa" />
+                <TableColumn fx:id="noticeDateTableColumn" prefWidth="105.60005187988281" text="Data" />
+                  <TableColumn fx:id="noticeNameTableColumn" prefWidth="237.0" text="Nome Avviso" />
+                  <TableColumn fx:id="noticeTextTableColumn" maxWidth="1013.0" minWidth="0.0" prefWidth="1013.0" text="Testo" />
+              </columns>
+            </TableView>
+         </children></Pane>
+        <Button fx:id="backButton" alignment="BASELINE_LEFT" layoutX="27.0" layoutY="35.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="45.0" prefWidth="280.0" styleClass="backToHome" text="Home" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0">
+            <graphic>
+                <FontAwesomeIconView fill="WHITE" glyphName="ARROW_LEFT" />
+            </graphic>
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Button>
+    </children>
+</AnchorPane>

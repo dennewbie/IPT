@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" styleClass="parent" stylesheets="@googleMapsViewStyle.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prog3.ipt.Controller.GoogleMapsViewController">
+   <children>
+      <Pane layoutY="100.0" prefHeight="652.0" prefWidth="1080.0" styleClass="white-pane" stylesheets="@googleMapsViewStyle.css" AnchorPane.topAnchor="70.0">
+         <children>
+            <WebView fx:id="webView" prefHeight="652.0" prefWidth="1080.0" />
+         </children>
+      </Pane>
+      <Button fx:id="backButton" alignment="BASELINE_LEFT" layoutX="17.0" layoutY="25.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="45.0" prefWidth="280.0" styleClass="backToSearchPathButton" text="Ricerca Percorso" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0">
+         <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="ARROW_LEFT" />
+         </graphic>
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

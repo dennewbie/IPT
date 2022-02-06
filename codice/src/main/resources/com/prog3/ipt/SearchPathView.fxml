@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="searchPathAnchorPane" prefHeight="720.0" prefWidth="1080.0" styleClass="parent" stylesheets="@searchPathViewStyle.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prog3.ipt.Controller.SearchPathViewController">
+   <children>
+      <Pane prefHeight="652.0" prefWidth="1080.0" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+         <children>
+            <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="654.0" prefWidth="1080.0" styleClass="white-pane">
+               <children>
+                  <HBox>
+                     <VBox.margin>
+                        <Insets left="100.0" right="100.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label text="Ricerca Percorso">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="21.0" prefWidth="500.0">
+                     <children>
+                        <Label text="Inserisci il punto di partenza:" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="100.0" right="100.0" top="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="500.0">
+                     <children>
+                        <TextField fx:id="startingPointTextField" prefHeight="30.0" prefWidth="375.0" promptText="Località di partenza" styleClass="textField_box" HBox.hgrow="ALWAYS" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="100.0" right="100.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="21.0" prefWidth="500.0">
+                     <children>
+                        <Label text="Inserisci il punto di destinazione:">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin></Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="100.0" right="100.0" top="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="500.0">
+                     <children>
+                        <TextField fx:id="destinationPointTextField" prefHeight="30.0" prefWidth="375.0" promptText="Località di destinazione" styleClass="textField_box" HBox.hgrow="ALWAYS" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="100.0" right="100.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT">
+                     <VBox.margin>
+                        <Insets left="100.0" right="100.0" top="30.0" />
+                     </VBox.margin>
+                     <children>
+                        <Button fx:id="searchPathButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onSearchPathButtonClick" prefHeight="68.0" prefWidth="390.0" styleClass="loginRegisterViewButton" text="Avvia Ricerca" textFill="WHITE">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Button fx:id="backButton" alignment="BASELINE_LEFT" layoutX="7.0" layoutY="15.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="45.0" prefWidth="280.0" styleClass="backToHomeButton" text="Home" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0">
+         <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="ARROW_LEFT" />
+         </graphic>
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
