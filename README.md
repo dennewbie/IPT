@@ -26,8 +26,9 @@ Si precisa che nella fase di scoperta, analisi dei requisiti e progettazione è 
 
 
 ### Documentazione
-- [RAD](https://github.com/dennewbie/IPT/blob/main/analisi/RAD.pdf)
-- [SDD](https://github.com/dennewbie/IPT/blob/main/progettazione/SDD.pdf)
+- [Scoperta dei Requisiti](https://github.com/dennewbie/IPT/blob/main/ingegneriaSoftware_interazioneUomoMacchina/analisi/ScopertaRequisiti.pdf)
+- [RAD](https://github.com/dennewbie/IPT/blob/main/ingegneriaSoftware_interazioneUomoMacchina/analisi/RAD.pdf)
+- [SDD](https://github.com/dennewbie/IPT/blob/main/ingegneriaSoftware_interazioneUomoMacchina/progettazione/SDD.pdf)
 - [Diagramma Classi Implementazione](https://github.com/dennewbie/IPT/blob/main/prog3/diagrammaClassiImplementazione/diagrammaClassiImplementazione.pdf)
 - [javadoc](https://github.com/dennewbie/IPT/tree/main/prog3/javadoc)
 
