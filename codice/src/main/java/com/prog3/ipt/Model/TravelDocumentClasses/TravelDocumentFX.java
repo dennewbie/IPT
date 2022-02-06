@@ -55,15 +55,10 @@ public class TravelDocumentFX {
      * @param travelDocument A reference to a generic TravelDocument object
      */
     public TravelDocumentFX(TravelDocument travelDocument) {
-        this.travelDocumentID = travelDocument.getTravelDocumentID();
-        this.price = travelDocument.getPrice();
-        this.issueDate = travelDocument.getIssueDate();
-        this.expirationDate = travelDocument.getExpirationDate();
-        this.transactionID = travelDocument.getTransactionID();
-        this.lineID = null;
-        this.rideID = null;
-        this.stampDate = null;
-        this.startDate = null;
+        setTravelDocumentID(travelDocument.getTravelDocumentID()); setPrice(travelDocument.getPrice());
+        setIssueDate(travelDocument.getIssueDate()); setExpirationDate(travelDocument.getExpirationDate());
+        setTransactionID(travelDocument.getTransactionID()); setLineID(null); setRideID(null);
+        setStampDate(null); setStartDate(null);
     }
 
     /**
@@ -72,15 +67,10 @@ public class TravelDocumentFX {
      * @param travelDocument A reference to a SingleTicket object
      */
     public TravelDocumentFX(SingleTicket travelDocument) {
-        this.travelDocumentID = travelDocument.getTravelDocumentID();
-        this.price = travelDocument.getPrice();
-        this.issueDate = travelDocument.getIssueDate();
-        this.expirationDate = travelDocument.getExpirationDate();
-        this.transactionID = travelDocument.getTransactionID();
-        this.lineID = travelDocument.getLineID();
-        this.rideID = travelDocument.getRideID();
-        this.stampDate = travelDocument.getStampDate();
-        this.startDate = null;
+        setTravelDocumentID(travelDocument.getTravelDocumentID()); setPrice(travelDocument.getPrice());
+        setIssueDate(travelDocument.getIssueDate()); setExpirationDate(travelDocument.getExpirationDate());
+        setTransactionID(travelDocument.getTransactionID()); setLineID(travelDocument.getLineID()); setRideID(travelDocument.getRideID());
+        setStampDate(travelDocument.getStampDate()); setStartDate(null);
     }
 
     /**
@@ -89,15 +79,10 @@ public class TravelDocumentFX {
      * @param travelDocument A reference to a Membership object
      */
     public TravelDocumentFX(Membership travelDocument) {
-        this.travelDocumentID = travelDocument.getTravelDocumentID();
-        this.price = travelDocument.getPrice();
-        this.issueDate = travelDocument.getIssueDate();
-        this.expirationDate = travelDocument.getExpirationDate();
-        this.transactionID = travelDocument.getTransactionID();
-        this.lineID = null;
-        this.rideID = null;
-        this.stampDate = null;
-        this.startDate = travelDocument.getStartDate();
+        setTravelDocumentID(travelDocument.getTravelDocumentID()); setPrice(travelDocument.getPrice());
+        setIssueDate(travelDocument.getIssueDate()); setExpirationDate(travelDocument.getExpirationDate());
+        setTransactionID(travelDocument.getTransactionID()); setLineID(null); setRideID(null);
+        setStampDate(null); setStartDate(travelDocument.getStartDate());
     }
 
     // Setters
