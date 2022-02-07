@@ -10,7 +10,7 @@ Il deposito si configura come un vero e proprio parcheggio mezzi, all'interno de
 
 Il sistema deve fornire anche supporto ai cittadini per il reperimento di tutte le informazioni relative alle corse ed ai percorsi. Tra i servizi offerti ai cittadini si prevede un sistema di ricerca per ogni linea del percorso effettuato tra due capolinea e un sistema di ricerca della linea che parte da un punto ed arriva ad un altro punto.
 
-Si precisa che nella fase di scoperta, analisi dei requisiti e progettazione è stata considerata l'intera traccia proposta poc'anzi. Invece, la parte implementativa riguarda solo l'interfacciamento del sistema con i cittadini fornendo i seguenti servizi:
+Si precisa che nella fase di scoperta, analisi dei requisiti e progettazione è stata considerata l'intera traccia proposta poc'anzi. Invece, la parte implementativa riguarda solo l'interfacciamento del sistema con i cittadini, fornendo i seguenti servizi:
 - Login e Registrazione
 - Visualizzazione di avvisi
 - Visualizzazione di informazioni aggiornate su linee e corse
