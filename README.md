@@ -43,7 +43,7 @@ https://user-images.githubusercontent.com/41870472/152678210-da81c5c9-f6b3-4c63-
 - [FontAwesomeFX](https://mvnrepository.com/artifact/de.jensd/fontawesomefx)
 - [Maven](https://maven.apache.org/)
 - BootstrapFX, ControlsFX, FormsFX, Ikonli, TilesFX, ValidatorFX
-- MySQLConnector
+- MySQLConnector, MySQLWorkbench
 - Apache Commons Codec
 - [StarUML](https://staruml.io/)
 - [IntelliJ Edu](https://www.jetbrains.com/idea/)
