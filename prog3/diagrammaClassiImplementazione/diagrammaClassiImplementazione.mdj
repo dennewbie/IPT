@@ -15783,23 +15783,6 @@
 										},
 										{
 											"_type": "UMLOperationView",
-											"_id": "AAAAAAF+yp5Z1vGlix8=",
-											"_parent": {
-												"$ref": "AAAAAAF+yosy8d5sxKg="
-											},
-											"model": {
-												"$ref": "AAAAAAF+yp5ZovGW8Mg="
-											},
-											"font": "Arial;13;0",
-											"left": 6725,
-											"top": 2115,
-											"width": 454.1240234375,
-											"height": 13,
-											"text": "-phoneNumberBillPaymentMethodSelected(): void",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLOperationView",
 											"_id": "AAAAAAF+yp79nfH3kyo=",
 											"_parent": {
 												"$ref": "AAAAAAF+yosy8d5sxKg="
@@ -15809,7 +15792,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 6725,
-											"top": 2130,
+											"top": 2115,
 											"width": 454.1240234375,
 											"height": 13,
 											"text": "-phoneNumberBillPaymentMethodSelected(): void",
@@ -15820,7 +15803,7 @@
 									"left": 6720,
 									"top": 1870,
 									"width": 464.1240234375,
-									"height": 278
+									"height": 263
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -35167,6 +35150,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF+B4iRWpCfilA="
 									},
+									"type": "",
 									"direction": "return"
 								}
 							]
@@ -37047,7 +37031,8 @@
 							},
 							"name": "sessionOrder",
 							"visibility": "private",
-							"isStatic": true
+							"isStatic": true,
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -37244,7 +37229,8 @@
 									"_parent": {
 										"$ref": "AAAAAAF+xxQbZOSWUFM="
 									},
-									"name": "newOrder"
+									"name": "newOrder",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -37411,6 +37397,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF+xxeHy+5Hjng="
 									},
+									"type": "",
 									"direction": "return"
 								}
 							]
@@ -37673,6 +37660,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF+xtlCf7Pdgvk="
 									},
+									"type": "",
 									"direction": "return"
 								}
 							]
@@ -45688,7 +45676,8 @@
 									"_parent": {
 										"$ref": "AAAAAAF+yprwD+8Y1hU="
 									},
-									"name": "order"
+									"name": "order",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
@@ -45716,6 +45705,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF+yptO3u94pzE="
 									},
+									"type": "",
 									"direction": "return"
 								}
 							]
@@ -45832,26 +45822,6 @@
 									"_id": "AAAAAAF+yp5MpfFve+A=",
 									"_parent": {
 										"$ref": "AAAAAAF+yp4cH/FESD4="
-									},
-									"type": "void",
-									"direction": "return"
-								}
-							]
-						},
-						{
-							"_type": "UMLOperation",
-							"_id": "AAAAAAF+yp5ZovGW8Mg=",
-							"_parent": {
-								"$ref": "AAAAAAF+yosy795j3XQ="
-							},
-							"name": "phoneNumberBillPaymentMethodSelected",
-							"visibility": "private",
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAF+yp7viPHBvl0=",
-									"_parent": {
-										"$ref": "AAAAAAF+yp5ZovGW8Mg="
 									},
 									"type": "void",
 									"direction": "return"

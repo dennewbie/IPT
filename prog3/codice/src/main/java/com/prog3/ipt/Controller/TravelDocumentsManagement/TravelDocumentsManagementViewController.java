@@ -120,7 +120,6 @@ public class TravelDocumentsManagementViewController extends ViewController {
     private void onBuyCartItemsButtonClick(ActionEvent event) {
         if (ObservableSingleton.getOrder().getPurchaseList().size() <= 0) { super.raiseErrorAlert("Il tuo carrello è vuoto. Non puoi procedere con l'acquisto."); return; }
         // save a valid payment method
-        // TODO: rimettere il codice qui
         onSavePaymentMethodButtonClick(new ActionEvent());
         if (!isValidTransaction || !ObservableSingleton.getPaymentMethodStrategy().pay(ObservableSingleton.getOrder().getPurchasePrice())) { raiseErrorAlert("Non è possibile procedere con l'acquisto: metodo di pagamento non valido."); return; }
 
