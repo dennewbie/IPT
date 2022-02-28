@@ -35,6 +35,13 @@ https://user-images.githubusercontent.com/41870472/152678210-da81c5c9-f6b3-4c63-
 - [javadoc](https://github.com/dennewbie/IPT/tree/main/prog3/javadoc) (È necessario effettuare il download della cartella e aprire il file index.html)
 
 
+### Usage
+1. Installare MySQL Server e MySQL Connector
+2. Avviare MySQL Server
+3. Impostare parametri di connessione nella classe "DatabaseConnectionSingleton"
+4. Compila e avvia
+
+
 ### Strumenti Utilizzati
 - [Oracle OpenJDK 17](https://openjdk.java.net/projects/jdk/17/)
 - [SpotBugs](https://spotbugs.github.io/)
@@ -43,7 +50,7 @@ https://user-images.githubusercontent.com/41870472/152678210-da81c5c9-f6b3-4c63-
 - [FontAwesomeFX](https://mvnrepository.com/artifact/de.jensd/fontawesomefx)
 - [Maven](https://maven.apache.org/)
 - BootstrapFX, ControlsFX, FormsFX, Ikonli, TilesFX, ValidatorFX
-- MySQLConnector, MySQLWorkbench
+- MySQLConnector, MySQLWorkbench, MySQL Server 8.0.28
 - Apache Commons Codec
 - [StarUML](https://staruml.io/)
 - [IntelliJ Edu](https://www.jetbrains.com/idea/)
