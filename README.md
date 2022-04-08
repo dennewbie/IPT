@@ -4,21 +4,22 @@
 
 ## Progetto di Ingegneria del Software e Interazione Uomo-Macchina, Programmazione III - Università "Parthenope"
 
-Un’azienda di trasporto urbano richiede un sistema software per la gestione di tutte le attività connesse alla gestione degli impiegati, dei mezzi e del relativo deposito e la comunicazione dei servizi al cittadino. Il sistema deve tenere traccia di tutto quello che riguarda l'impiegato, sia dal punto di vista professionale, ruolo e turni di lavoro, che remunerativo e deve permettere agli impiegati dell'azienda, con il ruolo di addetto al personale, di visualizzare, inserire e modificare tutti i dati relativi all’impiegato.
+An urban transport company requires a software system for the management of all activities related to the management of employees, vehicles, their storage, and their communications to the citizens. The system must keep track of everything that concerns the employees, such as roles timetable shifts, salaries, and so on.  The software must allow the employees of the company with the role of HR, to view, insert and edit all data relating to the employees.
 
-Il deposito si configura come un vero e proprio parcheggio mezzi, all'interno del quale il personale dell'azienda gestisce, tramite l'uso del software richiesto, l'allocazione dei mezzi per le singole corse. Ogni giorno alle 7.00 am (ipotetico inizio turno), l'impiegato deve fare un check sulla situazione dei mezzi e stabilire quali e quanti possono essere impiegati nelle corse quotidiane, considerando anche la disponibilità degli autisti.
+The warehouse is configured as a real vehicle parking, within which the company staff manages, through the use of the required software, the allocation of vehicles for individual rides. Every day at 7.00 am (hypothetical start of the shift), the employee must check the situation of the vehicles and determine which and how many can be used in daily rides, also considering the availability of drivers.
 
-Il sistema deve fornire anche supporto ai cittadini per il reperimento di tutte le informazioni relative alle corse ed ai percorsi. Tra i servizi offerti ai cittadini si prevede un sistema di ricerca per ogni linea del percorso effettuato tra due capolinea e un sistema di ricerca della linea che parte da un punto ed arriva ad un altro punto.
+The system must also provide support to citizens for the retrieval of all information relating to rides and routes. Among the services offered to citizens, there is a search system for each line of the route made between two stations and a line search system that starts from one point and reaches another point.
 
-Si precisa che nella fase di scoperta, analisi dei requisiti e progettazione è stata considerata l'intera traccia proposta poc'anzi. Invece, la parte implementativa riguarda solo l'interfacciamento del sistema con i cittadini, fornendo i seguenti servizi:
-- Login e Registrazione
-- Visualizzazione di avvisi
-- Visualizzazione di informazioni aggiornate su linee e corse
-- Ricerca percorsi
-- Gestione del profilo
-- Gestione e acquisto di titoli di viaggio
+It should be noted that in the phase of discovery, analysis of requirements and design was considered the entire track proposed earlier. Instead, the implementation part concerns only the part of the system that interfaces with citizens, providing the following services:
 
-### Presentazione
+- Login and Registration
+- Display of notices
+- Display the newest information on lines and routes
+- Route/Path finding
+- Profile Management
+- Travel Documents management and purchase
+
+### Keynote
 [Keynote](https://github.com/dennewbie/IPT/blob/main/presentazione_IPT/IPT_presentazione.pdf)
 
 ### Demo
@@ -27,7 +28,7 @@ https://user-images.githubusercontent.com/41870472/152678210-da81c5c9-f6b3-4c63-
 
 
 
-### Documentazione
+### Docs
 - [Scoperta dei Requisiti](https://github.com/dennewbie/IPT/blob/main/ingegneriaSoftware_interazioneUomoMacchina/analisi/ScopertaRequisiti.pdf)
 - [RAD](https://github.com/dennewbie/IPT/blob/main/ingegneriaSoftware_interazioneUomoMacchina/analisi/RAD.pdf)
 - [SDD](https://github.com/dennewbie/IPT/blob/main/ingegneriaSoftware_interazioneUomoMacchina/progettazione/SDD.pdf)
@@ -42,7 +43,7 @@ https://user-images.githubusercontent.com/41870472/152678210-da81c5c9-f6b3-4c63-
 4. Compila e avvia
 
 
-### Strumenti Utilizzati
+### Tools
 - [Oracle OpenJDK 17](https://openjdk.java.net/projects/jdk/17/)
 - [SpotBugs](https://spotbugs.github.io/)
 - [JavaFX](https://openjfx.io/)
