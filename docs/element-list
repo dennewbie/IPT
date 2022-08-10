@@ -1,0 +1,10 @@
+module:com.prog3.ipt
+com.prog3.ipt
+com.prog3.ipt.Controller
+com.prog3.ipt.Controller.TravelDocumentsManagement
+com.prog3.ipt.Model
+com.prog3.ipt.Model.CitizenClasses
+com.prog3.ipt.Model.FacadeClasses
+com.prog3.ipt.Model.LineRide
+com.prog3.ipt.Model.PaymentMethodClasses
+com.prog3.ipt.Model.TravelDocumentClasses
